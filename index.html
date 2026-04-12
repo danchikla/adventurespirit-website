@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adventure Spirit Consulting — GRC, Kibernetička sigurnost & Compliance</title>
+  <meta name="description" content="Adventure Spirit Consulting — stručno savjetovanje u kibernetičkoj sigurnosti, GRC upravljanju, ISO standardima, GDPR, DORA, ZKS/NIS2 i upravljanju rizicima. 27+ godina iskustva.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Favicon (sigil) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 6L44 42h12Z' fill='%23EF653F'/%3E%3Cline x1='44' y1='33' x2='56' y2='33' stroke='%23EF653F' stroke-width='3'/%3E%3Cpath d='M50 94L44 68h12Z' fill='%23EF653F'/%3E%3Cpath d='M94 50L68 44v12Z' fill='%23EF653F'/%3E%3Cpath d='M6 50L32 44v12Z' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='7' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='4' fill='%23c14b28'/%3E%3C/svg%3E">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange: #EF653F; --orange-d: #c14b28; --orange-l: #fff3ed;
+      --dark: #0f1117; --dark2: #1a1e2e; --mid: #2d3348;
+      --text: #e2e8f0; --text-muted: #94a3b8; --white: #ffffff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--dark); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(15,17,23,.95); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 64px; transition: border-color .3s;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .nav-logo-name { font-size: 15px; font-weight: 800; color: var(--white); letter-spacing: -.3px; }
+    .nav-logo-name span { color: var(--orange); }
+    .nav-logo-sub { font-size: 10px; font-weight: 500; color: var(--text-muted); letter-spacing: .5px; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 13.5px; font-weight: 500; padding: 6px 12px; border-radius: 6px; transition: color .2s, background .2s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,.06); }
+    .nav-cta { background: var(--orange) !important; color: var(--white) !important; border-radius: 8px !important; padding: 8px 16px !important; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--orange-d) !important; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--white); padding: 8px; }
+
+    /* ─── HERO ─────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      background: linear-gradient(135deg, var(--dark2) 0%, #0a0d18 60%, #0e1220 100%);
+      position: relative; overflow: hidden; padding-top: 64px;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0; opacity: .04;
+      background-image: radial-gradient(circle, rgba(239,101,63,.6) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; padding: 80px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; width: 100%; }
+    .hero-left {}
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--orange); background: rgba(239,101,63,.1); border: 1px solid rgba(239,101,63,.2);
+      padding: 4px 12px; border-radius: 20px; margin-bottom: 24px;
+    }
+    .hero-h1 { font-size: clamp(32px, 4vw, 58px); font-weight: 900; line-height: 1.08; color: var(--white); margin-bottom: 24px; }
+    .hero-h1 em { font-style: normal; color: var(--orange); }
+    .hero-sub { font-size: 16px; color: var(--text-muted); margin-bottom: 40px; max-width: 480px; line-height: 1.8; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+    .compliance-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .cbadge { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 6px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); color: var(--text-muted); }
+
+    .hero-right { display: flex; justify-content: center; align-items: center; }
+    .hero-stats-card {
+      background: rgba(26,30,46,.8); border: 1px solid rgba(239,101,63,.18);
+      border-radius: 24px; padding: 40px; backdrop-filter: blur(10px);
+      box-shadow: 0 0 80px rgba(239,101,63,.08); width: 100%; max-width: 380px;
+    }
+    .hero-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .hero-stat { background: rgba(255,255,255,.04); border-radius: 12px; padding: 20px 16px; text-align: center; border: 1px solid rgba(255,255,255,.06); }
+    .hero-stat-num { font-size: 34px; font-weight: 900; color: var(--orange); line-height: 1; }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); margin-top: 6px; line-height: 1.4; }
+    .hero-cert-list { list-style: none; }
+    .hero-cert-list li { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.04); }
+    .hero-cert-list li:last-child { border-bottom: none; }
+    .hero-cert-list li::before { content: '✓'; color: var(--orange); font-weight: 700; font-size: 12px; flex-shrink: 0; }
+    .hero-bg-icon { position: absolute; right: -60px; bottom: -40px; opacity: .025; pointer-events: none; }
+
+    /* ─── BUTTONS ───────────────────────────────────────────── */
+    .btn-primary {
+      background: var(--orange); color: var(--white); padding: 13px 26px; border-radius: 10px;
+      font-weight: 700; font-size: 15px; text-decoration: none; border: none; cursor: pointer;
+      transition: background .2s, transform .15s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent; color: var(--white); padding: 13px 26px; border-radius: 10px;
+      font-weight: 600; font-size: 15px; text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,.22); transition: border-color .2s, background .2s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,.55); background: rgba(255,255,255,.05); }
+
+    /* ─── DIVIDER ───────────────────────────────────────────── */
+    .section-divider { height: 3px; background: linear-gradient(90deg, transparent, var(--orange-d), var(--orange), #f9a882, transparent); }
+
+    /* ─── SECTIONS ──────────────────────────────────────────── */
+    section { padding: 96px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
+    .section-h2 { font-size: clamp(26px, 3vw, 40px); font-weight: 800; color: var(--white); margin-bottom: 14px; line-height: 1.2; }
+    .section-desc { font-size: 16px; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+    /* ─── O NAMA ────────────────────────────────────────────── */
+    .onama-section { background: var(--dark); }
+    .onama-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 72px; align-items: start; }
+    .onama-left {}
+    .onama-portrait {
+      width: 100%; max-width: 320px; aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--mid) 0%, var(--dark2) 100%);
+      border: 1px solid rgba(239,101,63,.2); border-radius: 20px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 32px; text-align: center; gap: 20px; margin-bottom: 24px;
+    }
+    .onama-portrait svg { opacity: .85; }
+    .onama-name { font-size: 20px; font-weight: 800; color: var(--white); }
+    .onama-title { font-size: 13px; color: var(--orange); font-weight: 600; }
+    .onama-meta-list { list-style: none; }
+    .onama-meta-list li { font-size: 13px; color: var(--text-muted); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04); display: flex; align-items: flex-start; gap: 8px; }
+    .onama-meta-list li:last-child { border-bottom: none; }
+    .onama-meta-list li span { color: var(--orange); font-size: 11px; flex-shrink: 0; margin-top: 3px; }
+    .onama-right {}
+    .onama-right h2 { font-size: clamp(24px, 2.5vw, 34px); font-weight: 800; color: var(--white); margin-bottom: 20px; line-height: 1.2; }
+    .onama-right h2 em { font-style: normal; color: var(--orange); }
+    .onama-lead { font-size: 16px; color: var(--text); line-height: 1.85; margin-bottom: 32px; }
+    .onama-expertise { margin-bottom: 36px; }
+    .onama-expertise h3 { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .expertise-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .expertise-tag { font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 8px; background: rgba(239,101,63,.1); border: 1px solid rgba(239,101,63,.2); color: var(--orange); }
+    .onama-edu { }
+    .onama-edu h3 { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .edu-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .edu-item { display: flex; align-items: flex-start; gap: 12px; font-size: 13.5px; color: var(--text-muted); }
+    .edu-icon { color: var(--orange); font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+    .edu-item strong { display: block; color: var(--white); font-size: 13.5px; margin-bottom: 1px; }
+
+    /* ─── CONSULTING LOGO BLOCK ─────────────────────────────── */
+    .consulting-logo-block {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; margin-bottom: 32px;
+    }
+    .consulting-logo-block .logo-text-big { font-size: 26px; font-weight: 900; color: var(--white); line-height: 1.1; }
+    .consulting-logo-block .logo-text-big span { color: var(--orange); display: block; font-size: 30px; }
+
+    /* ─── SERVICE CARDS ─────────────────────────────────────── */
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .service-card {
+      background: var(--mid); border: 1px solid rgba(255,255,255,.07); border-radius: 16px; padding: 28px;
+      transition: transform .2s, border-color .2s, box-shadow .2s; cursor: pointer;
+      position: relative; display: flex; flex-direction: column;
+    }
+    .service-card:hover { transform: translateY(-4px); border-color: rgba(239,101,63,.3); box-shadow: 0 12px 40px rgba(239,101,63,.1); }
+    .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; background: rgba(239,101,63,.1); flex-shrink: 0; }
+    .card-title { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .card-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; flex: 1; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.06); }
+    .card-badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: rgba(239,101,63,.12); color: var(--orange); }
+    .card-more { font-size: 12px; font-weight: 600; color: var(--orange); opacity: .7; }
+    .service-card:hover .card-more { opacity: 1; }
+
+    /* ─── MODAL ─────────────────────────────────────────────── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,.75); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: #1e2333; border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px; width: 100%; max-width: 680px;
+      max-height: 90vh; overflow-y: auto; padding: 40px;
+      position: relative; box-shadow: 0 24px 80px rgba(0,0,0,.6);
+    }
+    .modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: var(--text-muted); font-size: 22px; cursor: pointer; line-height: 1; padding: 4px; }
+    .modal-close:hover { color: var(--white); }
+    .modal-icon { font-size: 36px; margin-bottom: 12px; }
+    .modal-title { font-size: 24px; font-weight: 800; color: var(--white); margin-bottom: 6px; }
+    .modal-sub { font-size: 14px; color: var(--orange); font-weight: 600; margin-bottom: 20px; }
+    .modal-lead { font-size: 15px; color: var(--text-muted); margin-bottom: 28px; line-height: 1.7; }
+    .modal-section-title { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; margin-top: 24px; }
+    .modal-steps { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .modal-steps li { display: flex; align-items: flex-start; gap: 12px; background: rgba(255,255,255,.04); border-radius: 10px; padding: 12px 16px; font-size: 14px; color: var(--text-muted); border: 1px solid rgba(255,255,255,.05); }
+    .modal-steps li strong { color: var(--white); display: block; font-size: 13px; margin-bottom: 2px; }
+    .modal-step-num { background: rgba(239,101,63,.15); color: var(--orange); border-radius: 6px; padding: 2px 8px; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .modal-deliverables { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .modal-del-tag { background: rgba(239,101,63,.1); border: 1px solid rgba(239,101,63,.2); color: var(--orange); border-radius: 6px; padding: 4px 10px; font-size: 12px; font-weight: 600; }
+    .modal-cta { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ─── GRC PLATFORM CTA ──────────────────────────────────── */
+    .grc-cta-section { background: linear-gradient(135deg, var(--dark2), #0e1220); border-top: 1px solid rgba(255,255,255,.05); border-bottom: 1px solid rgba(255,255,255,.05); }
+    .grc-cta-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .grc-cta-left h2 { font-size: clamp(24px, 2.5vw, 36px); font-weight: 800; color: var(--white); margin-bottom: 16px; line-height: 1.2; }
+    .grc-cta-left h2 span { color: var(--orange); }
+    .grc-cta-left p { font-size: 15px; color: var(--text-muted); margin-bottom: 28px; line-height: 1.7; }
+    .grc-features { list-style: none; margin-bottom: 32px; }
+    .grc-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-muted); margin-bottom: 10px; }
+    .grc-features li::before { content: '✓'; color: var(--orange); font-weight: 700; font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+    .grc-portal-box { background: var(--mid); border: 1px solid rgba(239,101,63,.2); border-radius: 20px; padding: 36px; box-shadow: 0 0 60px rgba(239,101,63,.07); }
+    .portal-logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+    .portal-title { font-size: 18px; font-weight: 800; color: var(--white); }
+    .portal-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+    .portal-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+    .portal-stat { text-align: center; background: rgba(255,255,255,.04); border-radius: 10px; padding: 12px 8px; }
+    .portal-stat-num { font-size: 22px; font-weight: 800; color: var(--orange); }
+    .portal-stat-label { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+    .portal-login-btn { display: block; width: 100%; text-align: center; background: var(--orange); color: white; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 16px; text-decoration: none; transition: background .2s, transform .15s; margin-bottom: 12px; }
+    .portal-login-btn:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .portal-trial-link { display: block; text-align: center; font-size: 13px; color: var(--text-muted); text-decoration: none; }
+    .portal-trial-link span { color: var(--orange); font-weight: 600; }
+
+    /* ─── PROCESS ───────────────────────────────────────────── */
+    .process-section { background: var(--dark2); }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .step { padding: 32px 28px; border-right: 1px solid rgba(255,255,255,.06); }
+    .step:last-child { border-right: none; }
+    .step-num { font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--orange); margin-bottom: 14px; background: rgba(239,101,63,.1); border-radius: 20px; display: inline-block; padding: 3px 12px; }
+    .step-title { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .step-desc { font-size: 13px; color: var(--text-muted); }
+
+    /* ─── REFERENCES ────────────────────────────────────────── */
+    .references-section { background: var(--dark); }
+    .ref-intro { text-align: center; font-size: 15px; color: var(--text-muted); max-width: 680px; margin: -32px auto 56px; line-height: 1.8; }
+    .ref-categories { display: flex; flex-direction: column; gap: 40px; }
+    .ref-category {}
+    .ref-cat-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .ref-cat-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,.07); }
+    .ref-logos { display: flex; flex-wrap: wrap; gap: 10px; }
+    .ref-chip {
+      display: inline-flex; align-items: center;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px; padding: 8px 16px;
+      font-size: 13px; font-weight: 600; color: var(--text-muted);
+      transition: background .2s, border-color .2s, color .2s;
+    }
+    .ref-chip:hover { background: rgba(239,101,63,.07); border-color: rgba(239,101,63,.2); color: var(--white); }
+    .ref-total { text-align: center; margin-top: 52px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,.05); }
+    .ref-total-num { font-size: 48px; font-weight: 900; color: var(--orange); display: block; line-height: 1; }
+    .ref-total-label { font-size: 14px; color: var(--text-muted); margin-top: 8px; }
+
+    /* ─── PRICING ───────────────────────────────────────────── */
+    .pricing-section { background: var(--dark2); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+    .pricing-card { background: var(--mid); border: 1px solid rgba(255,255,255,.07); border-radius: 16px; padding: 32px; position: relative; text-align: center; }
+    .pricing-card.featured { border-color: var(--orange); box-shadow: 0 0 40px rgba(239,101,63,.12); }
+    .pricing-card.featured::before { content: 'Najpopularniji'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--orange); color: white; font-size: 11px; font-weight: 700; padding: 3px 14px; border-radius: 20px; white-space: nowrap; }
+    .pricing-name { font-size: 13px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .pricing-price { font-size: 42px; font-weight: 900; color: var(--white); margin-bottom: 4px; }
+    .pricing-price sup { font-size: 20px; vertical-align: super; }
+    .pricing-period { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+    .pricing-features { list-style: none; text-align: left; margin-bottom: 28px; }
+    .pricing-features li { font-size: 13px; color: var(--text-muted); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04); display: flex; align-items: flex-start; gap: 8px; }
+    .pricing-features li::before { content: '✓'; color: var(--orange); font-weight: 700; flex-shrink: 0; }
+    .pricing-features li.off::before { content: '—'; color: rgba(255,255,255,.2); }
+    .pricing-features li.off { opacity: .45; }
+    .pricing-btn { display: block; width: 100%; text-align: center; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; transition: .2s; }
+    .pricing-btn-primary { background: var(--orange); color: white; }
+    .pricing-btn-primary:hover { background: var(--orange-d); }
+    .pricing-btn-outline { border: 1.5px solid rgba(255,255,255,.2); color: var(--white); }
+    .pricing-btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* ─── CONTACT ───────────────────────────────────────────── */
+    .contact-section { background: var(--dark); border-top: 1px solid rgba(255,255,255,.05); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .contact-left h2 { font-size: 32px; font-weight: 800; color: var(--white); margin-bottom: 16px; }
+    .contact-left p { color: var(--text-muted); margin-bottom: 28px; line-height: 1.7; }
+    .contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 14px; color: var(--text-muted); }
+    .contact-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(239,101,63,.1); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .contact-item strong { display: block; font-size: 13px; color: var(--white); }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-input, .form-textarea, .form-select {
+      background: var(--mid); border: 1px solid rgba(255,255,255,.1); border-radius: 10px;
+      padding: 12px 16px; color: var(--white); font-family: inherit; font-size: 14px;
+      transition: border-color .2s; outline: none; width: 100%;
+    }
+    .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--orange); }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); }
+    .form-select option { background: var(--dark2); }
+    .form-textarea { height: 110px; resize: vertical; }
+    .form-submit { background: var(--orange); color: white; border: none; padding: 14px 28px; border-radius: 10px; font-weight: 700; font-size: 15px; cursor: pointer; transition: background .2s; align-self: flex-start; font-family: inherit; }
+    .form-submit:hover { background: var(--orange-d); }
+
+    /* ─── FOOTER ────────────────────────────────────────────── */
+    footer { background: #080a0f; border-top: 1px solid rgba(255,255,255,.06); padding: 48px 0 24px; }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand p { font-size: 13px; color: var(--text-muted); margin-top: 14px; max-width: 260px; line-height: 1.7; }
+    .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 13px; color: var(--text-muted); text-decoration: none; margin-bottom: 8px; transition: color .2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.06); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-muted); flex-wrap: wrap; gap: 12px; }
+
+    /* ─── RESPONSIVE ────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: #0f1117; padding: 16px; gap: 4px; border-bottom: 1px solid rgba(255,255,255,.06); z-index: 999; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 80px 20px; }
+      .hero-right { display: none; }
+      .onama-grid { grid-template-columns: 1fr; gap: 40px; }
+      .grc-cta-inner { grid-template-columns: 1fr; gap: 40px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .container { padding: 0 20px; }
+      section { padding: 64px 0; }
+    }
+    @media (max-width: 560px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .step { border-right: none; border-bottom: 1px solid rgba(255,255,255,.06); }
+      .hero-stat-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <!-- Sigil: kompas s "A" strelom prema gore -->
+    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="44" stroke="#EF653F" stroke-width="1.5" opacity=".25"/>
+      <line x1="50" y1="6" x2="50" y2="14" stroke="#EF653F" stroke-width="2.5" opacity=".4"/>
+      <line x1="50" y1="86" x2="50" y2="94" stroke="#EF653F" stroke-width="2" opacity=".3"/>
+      <line x1="6" y1="50" x2="14" y2="50" stroke="#EF653F" stroke-width="2" opacity=".3"/>
+      <line x1="86" y1="50" x2="94" y2="50" stroke="#EF653F" stroke-width="2" opacity=".3"/>
+      <path d="M50 12 L40 45 L50 41 L60 45 Z" fill="#EF653F"/>
+      <line x1="44" y1="36" x2="56" y2="36" stroke="#c14b28" stroke-width="2.5"/>
+      <path d="M50 88 L45 70 L55 70 Z" fill="#EF653F" opacity=".75"/>
+      <path d="M88 50 L70 45 L70 55 Z" fill="#EF653F" opacity=".65"/>
+      <path d="M12 50 L30 45 L30 55 Z" fill="#EF653F" opacity=".65"/>
+      <circle cx="50" cy="50" r="5" fill="#EF653F"/>
+      <circle cx="50" cy="50" r="2.5" fill="#c14b28"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Adventure <span>Spirit</span></span>
+      <span class="nav-logo-sub">Consulting</span>
+    </div>
+  </a>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#onama">O nama</a></li>
+    <li><a href="#sigurnost">Usluge</a></li>
+    <li><a href="#platforma">GRC Platforma</a></li>
+    <li><a href="#reference">Reference</a></li>
+    <li><a href="#cijene">Cijene</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="https://app.adventurespirit.hr" target="_blank" class="nav-cta">🔐 Portal</a></li>
+  </ul>
+
+  <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+      <path d="M3 12h18M3 6h18M3 18h18"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- ════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">🛡️ GRC & Kibernetička sigurnost</div>
+      <h1 class="hero-h1">Upravljanje rizicima.<br>Usklađenost.<br><em>Sigurnost.</em></h1>
+      <p class="hero-sub">Implementiramo sveobuhvatne GRC sustave i compliance programe koji zaista funkcioniraju — s 27+ godina iskustva, prisutnosti u bankarstvu, osiguranju, energetici i industriji.</p>
+      <div class="hero-btns">
+        <a href="#sigurnost" class="btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Naše usluge
+        </a>
+        <a href="#kontakt" class="btn-outline">Zatražite ponudu →</a>
+      </div>
+      <div class="compliance-badges">
+        <span class="cbadge">ZKS / NIS2</span><span class="cbadge">GDPR</span>
+        <span class="cbadge">ISO 27001</span><span class="cbadge">ISO 9001</span>
+        <span class="cbadge">ISO 14001</span><span class="cbadge">ISO 22301</span>
+        <span class="cbadge">DORA</span><span class="cbadge">Vendor Risk</span>
+        <span class="cbadge">Pen Testing</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stats-card">
+        <div class="hero-stat-row">
+          <div class="hero-stat">
+            <div class="hero-stat-num">20<span style="font-size:20px;color:var(--orange-d)">+</span></div>
+            <div class="hero-stat-label">godina iskustva u informacijskoj sigurnosti</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">50<span style="font-size:20px;color:var(--orange-d)">+</span></div>
+            <div class="hero-stat-label">uspješno provedenih GRC & ISO projekata</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">300<span style="font-size:20px;color:var(--orange-d)">+</span></div>
+            <div class="hero-stat-label">EU projekata evaluiranih za HAMAG-BICRO</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">9</div>
+            <div class="hero-stat-label">compliance modula u GRC platformi</div>
+          </div>
+        </div>
+        <ul class="hero-cert-list">
+          <li>ISMS implementacija (ISO 27001:2022)</li>
+          <li>BCMS & BIA analiza (ISO 22301:2019)</li>
+          <li>NIS2 / ZKS & DORA usklađenost</li>
+          <li>GDPR & DPO eksternalizacija</li>
+          <li>Penetracijski testovi & Red Team</li>
+          <li>Predavač na RIT Croatia od 2017.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Background hex watermark -->
+  <svg class="hero-bg-icon" width="600" height="600" viewBox="0 0 100 100" fill="none">
+    <path d="M50 5 L90 27.5 L90 72.5 L50 95 L10 72.5 L10 27.5 Z" stroke="white" stroke-width=".5"/>
+    <path d="M50 16 L80 33 L80 67 L50 84 L20 67 L20 33 Z" stroke="white" stroke-width=".4"/>
+    <path d="M50 27 L70 38.5 L70 61.5 L50 73 L30 61.5 L30 38.5 Z" stroke="white" stroke-width=".3"/>
+  </svg>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════════════
+     O NAMA
+════════════════════════════════════════════════ -->
+<section id="onama" class="onama-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">👤 O nama</div>
+      <h2 class="section-h2">Stručnost koja donosi rezultate</h2>
+      <p class="section-desc">Više od dva desetljeća na sjecištu informacijske sigurnosti, poslovnih procesa i regulatornih zahtjeva.</p>
+    </div>
+    <div class="onama-grid">
+      <div class="onama-left">
+        <div class="onama-portrait">
+          <!-- Hexagon consulting logo -->
+          <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 4 L91 27 L91 73 L50 96 L9 73 L9 27 Z" stroke="#f4a070" stroke-width="2.5" fill="rgba(239,101,63,.06)"/>
+            <path d="M50 16 L80 33 L80 67 L50 84 L20 67 L20 33 Z" stroke="#EF653F" stroke-width="1.8" fill="none" opacity=".6"/>
+            <path d="M50 26 L65 35 L65 65 L50 74 L35 65 L35 35 Z" stroke="#EF653F" stroke-width="1.2" fill="rgba(239,101,63,.1)"/>
+            <circle cx="50" cy="50" r="8" fill="#EF653F" opacity=".9"/>
+            <circle cx="50" cy="50" r="4" fill="#c14b28"/>
+            <line x1="50" y1="16" x2="50" y2="26" stroke="#f4a070" stroke-width="1.8"/>
+            <line x1="50" y1="74" x2="50" y2="84" stroke="#f4a070" stroke-width="1.8"/>
+            <line x1="17" y1="34" x2="24" y2="38" stroke="#f4a070" stroke-width="1.8"/>
+            <line x1="83" y1="34" x2="76" y2="38" stroke="#f4a070" stroke-width="1.8"/>
+            <line x1="17" y1="66" x2="24" y2="62" stroke="#f4a070" stroke-width="1.8"/>
+            <line x1="83" y1="66" x2="76" y2="62" stroke="#f4a070" stroke-width="1.8"/>
+          </svg>
+          <div>
+            <div class="onama-name">Daniel Bara, dr.sc.</div>
+            <div class="onama-title">Osnivač & Glavni konzultant</div>
+          </div>
+        </div>
+        <ul class="onama-meta-list">
+          <li><span>▸</span>Doktorat (dr.sc.) — Ekonomski fakultet Osijek</li>
+          <li><span>▸</span>MBA — ZŠEM Zagreb</li>
+          <li><span>▸</span>Diplomirani inženjer prometa</li>
+          <li><span>▸</span>PMP — Project Management Professional</li>
+          <li><span>▸</span>Predavač na RIT Croatia od 2017. (IST, Strateški menadžment, PM)</li>
+          <li><span>▸</span>Gostujuća predavanja: ZŠEM, VERN, Libertas</li>
+          <li><span>▸</span>PMI Croatia — aktivan član</li>
+          <li><span>▸</span>HAMAG-BICRO evaluator (300+ EU projekata)</li>
+        </ul>
+      </div>
+      <div class="onama-right">
+        <h2>Više od 20 godina iskustva u <em>informacijskoj sigurnosti i GRC-u</em></h2>
+        <p class="onama-lead">Adventure Spirit Consulting nastao je iz jedne jednostavne teze: organizacije zaslužuju stručnost kibernetičke sigurnosti i upravljanja rizicima prilagođenu stvarnom životu — ne generičkim predlošcima. Radimo s klijentima koji znaju što žele, i znamo što im treba.<br><br>
+        Timom vodimo projekt-po-projekt, bez nepotrebnog eksponiranja. Ono što se vidi su rezultati: implementirani ISMS sustavi, provedeni BCP testovi, uspostavljeni GDPR procesi, organizacije koje ulaze u certifikacijske audite s povjerenjem. Iskustvo obuhvaća bankarstvo, osiguranje, energetiku, zdravstvo, prehrambenu industriju i javni sektor — svuda gdje su podaci i operativna otpornost pitanje preživljavanja.<br><br>
+        Vodeći konzultant Daniel Bara, dr.sc., donosi više od 20 godina rada na informacijskoj sigurnosti, doktorat iz Business Intelligencea (EFOS), MBA (ZŠEM), PMP certifikat i iskustvo vanjskog evaluatora na 300+ EU projekata. Od 2017. predaje na RIT Croatia, s gostujućim predavanjima na ZŠEM, VERN i Libertas.</p>
+
+        <div class="onama-expertise">
+          <h3>Područja ekspertize</h3>
+          <div class="expertise-tags">
+            <span class="expertise-tag">ISO 27001:2022</span>
+            <span class="expertise-tag">ISO 9001:2015</span>
+            <span class="expertise-tag">ISO 14001:2015</span>
+            <span class="expertise-tag">ISO 22301:2019</span>
+            <span class="expertise-tag">GDPR / DPO</span>
+            <span class="expertise-tag">NIS2 / ZKS</span>
+            <span class="expertise-tag">DORA</span>
+            <span class="expertise-tag">Vendor Risk</span>
+            <span class="expertise-tag">Penetracijski testovi</span>
+            <span class="expertise-tag">BIA / BCP / DRP</span>
+            <span class="expertise-tag">Business Intelligence</span>
+            <span class="expertise-tag">Data Architecture</span>
+            <span class="expertise-tag">PL/SQL</span>
+            <span class="expertise-tag">PMP</span>
+          </div>
+        </div>
+
+        <div class="onama-edu">
+          <h3>Obrazovanje</h3>
+          <ul class="edu-list">
+            <li class="edu-item">
+              <span class="edu-icon">🎓</span>
+              <div><strong>Doktorat (dr.sc.) — Business Intelligence</strong>Ekonomski fakultet u Osijeku</div>
+            </li>
+            <li class="edu-item">
+              <span class="edu-icon">🎓</span>
+              <div><strong>MBA — Master of Business Administration</strong>Zagreb School of Economics and Management (ZŠEM)</div>
+            </li>
+            <li class="edu-item">
+              <span class="edu-icon">🎓</span>
+              <div><strong>Diplomirani inženjer prometa</strong>Specijalizacija u prometnoj logistici i sustavima</div>
+            </li>
+            <li class="edu-item">
+              <span class="edu-icon">📜</span>
+              <div><strong>PMP — Project Management Professional</strong>Project Management Institute (PMI)</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════════════
+     SECURITY SERVICES
+════════════════════════════════════════════════ -->
+<section id="sigurnost" style="background: var(--dark2)">
+  <div class="container">
+    <!-- Consulting logo block -->
+    <div class="consulting-logo-block">
+      <svg width="64" height="64" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 4 L91 27 L91 73 L50 96 L9 73 L9 27 Z" stroke="#f4a070" stroke-width="3" fill="rgba(239,101,63,.07)"/>
+        <path d="M50 16 L80 33 L80 67 L50 84 L20 67 L20 33 Z" stroke="#EF653F" stroke-width="2" fill="none" opacity=".6"/>
+        <path d="M50 26 L65 35 L65 65 L50 74 L35 65 L35 35 Z" stroke="#EF653F" stroke-width="1.5" fill="rgba(239,101,63,.1)"/>
+        <circle cx="50" cy="50" r="8" fill="#EF653F" opacity=".9"/>
+        <circle cx="50" cy="50" r="4" fill="#c14b28"/>
+        <line x1="50" y1="16" x2="50" y2="26" stroke="#f4a070" stroke-width="2"/>
+        <line x1="50" y1="74" x2="50" y2="84" stroke="#f4a070" stroke-width="2"/>
+        <line x1="17" y1="34" x2="24" y2="38" stroke="#f4a070" stroke-width="2"/>
+        <line x1="83" y1="34" x2="76" y2="38" stroke="#f4a070" stroke-width="2"/>
+        <line x1="17" y1="66" x2="24" y2="62" stroke="#f4a070" stroke-width="2"/>
+        <line x1="83" y1="66" x2="76" y2="62" stroke="#f4a070" stroke-width="2"/>
+      </svg>
+      <div class="logo-text-big">
+        Adventure Spirit
+        <span>Consulting</span>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <div class="section-tag">🔐 Savjetodavne usluge</div>
+      <h2 class="section-h2">Kompleksno upravljanje rizicima i usklađenošću</h2>
+      <p class="section-desc">Kliknite na karticu za detaljan opis implementacije — što radimo, koji su koraci i što dobivate.</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="service-card" onclick="openDetail('zks')">
+        <div class="card-icon">🛡️</div>
+        <div class="card-title">ZKS / NIS2 Usklađenost</div>
+        <div class="card-desc">Implementacija svih 10 obveznih mjera kibernetičke sigurnosti prema Zakonu o kibernetičkoj sigurnosti i NIS2 direktivi EU za važne i kritične subjekte.</div>
+        <div class="card-footer"><span class="card-badge">Zakonska obveza</span><span class="card-more">Detalji →</span></div>
+      </div>
+
+      <div class="service-card" onclick="openDetail('gdpr')">
+        <div class="card-icon">🔒</div>
+        <div class="card-title">GDPR Compliance</div>
+        <div class="card-desc">Uspostava svih procesa zaštite osobnih podataka — od RoPA evidencije i DPIA procjena do DPO podrške i upravljanja incidentima prema AZOP-u.</div>
+        <div class="card-footer"><span class="card-badge">EU Regulativa</span><span class="card-more">Detalji →</span></div>
+      </div>
+
+      <div class="service-card" onclick="openDetail('iso27001')">
+        <div class="card-icon">🏅</div>
+        <div class="card-title">ISO 27001 — Informacijska sigurnost</div>
+        <div class="card-desc">Gap analiza, implementacija ISMS sustava, procjena rizika, Statement of Applicability i kompletna priprema za certifikacijski audit prema ISO 27001:2022.</div>
+        <div class="card-footer"><span class="card-badge">Međunarodni standard</span><span class="card-more">Detalji →</span></div>
+      </div>
+
+      <div class="service-card" onclick="openDetail('iso9001')">
+        <div class="card-icon">⚙️</div>
+        <div class="card-title">ISO 9001 — Upravljanje kvalitetom</div>
+        <div class="card-desc">Uspostava QMS sustava upravljanja kvalitetom, procesna dokumentacija, definicija KPI-eva i ciljeva kvalitete te priprema za certifikacijski audit.</div>
+        <div class="card-footer"><span class="card-badge">Upravljanje kvalitetom</span><span class="card-more">Detalji →</span></div>
+      </div>
+
+      <div class="service-card" onclick="openDetail('iso14001')">
+        <div class="card-icon">🌿</div>
+        <div class="card-title">ISO 14001 — Okolišni management</div>
+        <div class="card-desc">Implementacija EMS sustava upravljanja okolišem — identifikacija aspekata i utjecaja, zakonska usklađenost, smanjenje ugljikovog otiska i certifikacija.</div>
+        <div class="card-footer"><span class="card-badge">Okolišni standard</span><span class="card-more">Detalji →</span></div>
+      </div>
+
+      <div class="service-card" onclick="openDetail('iso22301')">
+        <div class="card-icon">🔄</div>
+        <div class="card-title">ISO 22301 — Kontinuitet poslovanja</div>
+        <div class="card-desc">Analiza poslovnog utjecaja (BIA), definicija RTO/RPO parametara, izrada BCP/DRP planova, testiranje i priprema za certifikacijski audit prema ISO 22301:2019.</div>
+        <div class="card-footer"><span class="card-badge">Business Continuity</span><span class="card-more">Detalji →</span></div>
+      </div>
+
+      <div class="service-card" onclick="openDetail('dora')">
+        <div class="card-icon">🏦</div>
+        <div class="card-title">DORA — Digitalna operativna otpornost</div>
+        <div class="card-desc">Usklađenost s EU DORA regulativom za financijski sektor — ICT risk management, TPICM upravljanje, testiranje otpornosti i regulatorno izvještavanje.</div>
+        <div class="card-footer"><span class="card-badge">Financijski sektor</span><span class="card-more">Detalji →</span></div>
+      </div>
+
+      <div class="service-card" onclick="openDetail('vendor')">
+        <div class="card-icon">🤝</div>
+        <div class="card-title">Vendor Risk Management</div>
+        <div class="card-desc">Procjena rizika trećih strana, due diligence upitnici, automatski risk scoring, TPICM monitoring i ugovorne klauzule za lanac opskrbe.</div>
+        <div class="card-footer"><span class="card-badge">Lanac opskrbe</span><span class="card-more">Detalji →</span></div>
+      </div>
+
+      <div class="service-card" onclick="openDetail('audit')">
+        <div class="card-icon">🕵️</div>
+        <div class="card-title">Sigurnosni auditi & Testiranje</div>
+        <div class="card-desc">Penetracijski testovi, vulnerability assessment, pregled konfiguracija, social engineering simulacije i izvještaji prilagođeni tehničkoj i upravljačkoj razini.</div>
+        <div class="card-footer"><span class="card-badge">Ofenzivna sigurnost</span><span class="card-more">Detalji →</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     SERVICE MODALS
+════════════════════════════════════════════════ -->
+<!-- ZKS / NIS2 -->
+<div class="modal-overlay" id="modal-zks" onclick="closeDetailOut(event,'modal-zks')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetail('modal-zks')">✕</button>
+    <div class="modal-icon">🛡️</div>
+    <div class="modal-title">ZKS / NIS2 Usklađenost</div>
+    <div class="modal-sub">Zakon o kibernetičkoj sigurnosti · EU NIS2 direktiva</div>
+    <div class="modal-lead">Provodimo kompletnu implementaciju kibernetičke sigurnosti za važne i kritične subjekte prema ZKS-u i NIS2 direktivi. Pokrivamo sve od registracije kod HAKOM-a do uspostave procesa prijave incidenata.</div>
+    <div class="modal-section-title">Što radimo — koraci implementacije</div>
+    <ul class="modal-steps">
+      <li><span class="modal-step-num">01</span><div><strong>Gap analiza</strong>Procjena trenutne usklađenosti s 10 obveznih mjera (čl. 21 ZKS) i identifikacija kritičnih praznina.</div></li>
+      <li><span class="modal-step-num">02</span><div><strong>Klasifikacija subjekta & registracija</strong>Utvrđivanje statusa (važan/kritičan), registracija u HAKOM registar i definicija obveza.</div></li>
+      <li><span class="modal-step-num">03</span><div><strong>Implementacija 10 mjera</strong>Upravljanje rizicima, sigurnost lanca opskrbe, MFA, enkripcija, upravljanje incidentima, business continuity, obuka, kriptografija, fizička sigurnost i upravljanje pristupima.</div></li>
+      <li><span class="modal-step-num">04</span><div><strong>Samoprocjena & izvještavanje</strong>Godišnja ZKS samoprocjena, upravljački pregled i izvještaji za HAKOM.</div></li>
+      <li><span class="modal-step-num">05</span><div><strong>Incident management</strong>Uspostava procesa prijave: inicijalna (24h), detaljna (72h) i završna (30 dana) prijava regulatoru.</div></li>
+      <li><span class="modal-step-num">06</span><div><strong>Kontinuirani monitoring</strong>Integracija u GRC platformu za praćenje statusa mjera, incidenata i rokova u realnom vremenu.</div></li>
+    </ul>
+    <div class="modal-section-title">Što dobivate</div>
+    <div class="modal-deliverables">
+      <span class="modal-del-tag">Gap analiza izvještaj</span><span class="modal-del-tag">Politika kib. sigurnosti</span>
+      <span class="modal-del-tag">Plan remedijacije</span><span class="modal-del-tag">Registar mjera</span>
+      <span class="modal-del-tag">Proces prijave incidenata</span><span class="modal-del-tag">GRC platforma setup</span>
+    </div>
+    <div class="modal-cta">
+      <a href="#kontakt" onclick="closeDetail('modal-zks')" class="btn-primary">Zatražite ponudu</a>
+      <a href="https://app.adventurespirit.hr" target="_blank" class="btn-outline">Pogledajte GRC Portal</a>
+    </div>
+  </div>
+</div>
+
+<!-- GDPR -->
+<div class="modal-overlay" id="modal-gdpr" onclick="closeDetailOut(event,'modal-gdpr')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetail('modal-gdpr')">✕</button>
+    <div class="modal-icon">🔒</div>
+    <div class="modal-title">GDPR Compliance</div>
+    <div class="modal-sub">Opća uredba o zaštiti podataka · EU 2016/679</div>
+    <div class="modal-lead">Uspostavljamo sveobuhvatan sustav zaštite osobnih podataka — od usklađenosti pravnih osnova i evidencije obrade do DPO podrške i upravljanja kršenjima podataka.</div>
+    <div class="modal-section-title">Što radimo — koraci implementacije</div>
+    <ul class="modal-steps">
+      <li><span class="modal-step-num">01</span><div><strong>GDPR gap analiza</strong>Mapiranje svih obrada osobnih podataka i procjena usklađenosti s GDPR zahtjevima.</div></li>
+      <li><span class="modal-step-num">02</span><div><strong>Evidencija aktivnosti obrade (RoPA)</strong>Izrada i digitalizacija registra obrada po kategorijama osobnih podataka, svrhama i pravnim osnovama.</div></li>
+      <li><span class="modal-step-num">03</span><div><strong>DPIA procjene</strong>Procjene učinka na zaštitu podataka za rizične obrade — automatsko donošenje odluka, biometrija, masovni nadzor.</div></li>
+      <li><span class="modal-step-num">04</span><div><strong>Prava ispitanika</strong>Uspostava procesa za zahtjeve ispitanika: pristup, ispravak, brisanje, prenosivost, prigovor.</div></li>
+      <li><span class="modal-step-num">05</span><div><strong>DPO podrška</strong>Savjetodavna uloga ili outsourcing DPO funkcije, komunikacija s AZOP-om i zainteresiranim stranama.</div></li>
+      <li><span class="modal-step-num">06</span><div><strong>Upravljanje incidentima</strong>Procesi prijave kršenja podataka AZOP-u (72h) i obavještavanja ispitanika.</div></li>
+    </ul>
+    <div class="modal-section-title">Što dobivate</div>
+    <div class="modal-deliverables">
+      <span class="modal-del-tag">RoPA registar</span><span class="modal-del-tag">DPIA predlošci</span>
+      <span class="modal-del-tag">Politika privatnosti</span><span class="modal-del-tag">Ugovori o obradi (DPA)</span>
+      <span class="modal-del-tag">Privole i obrasci</span><span class="modal-del-tag">Incident SOP</span>
+    </div>
+    <div class="modal-cta"><a href="#kontakt" onclick="closeDetail('modal-gdpr')" class="btn-primary">Zatražite ponudu</a></div>
+  </div>
+</div>
+
+<!-- ISO 27001 -->
+<div class="modal-overlay" id="modal-iso27001" onclick="closeDetailOut(event,'modal-iso27001')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetail('modal-iso27001')">✕</button>
+    <div class="modal-icon">🏅</div>
+    <div class="modal-title">ISO 27001 — Informacijska sigurnost</div>
+    <div class="modal-sub">ISO/IEC 27001:2022 · ISMS certifikacija</div>
+    <div class="modal-lead">Implementiramo sustav upravljanja informacijskom sigurnošću (ISMS) od nule do certifikacije. Koristimo ISO 27005 metodologiju procjene rizika i pokrivamo sva 93 kontrolna cilja iz Annexa A.</div>
+    <div class="modal-section-title">Što radimo — koraci implementacije</div>
+    <ul class="modal-steps">
+      <li><span class="modal-step-num">01</span><div><strong>Kontekst i opseg</strong>Definicija organizacijskog konteksta, zainteresiranih strana i granica ISMS-a.</div></li>
+      <li><span class="modal-step-num">02</span><div><strong>Procjena rizika (ISO 27005)</strong>Identifikacija imovine, prijetnji i ranjivosti. Izračun razine rizika i definicija prihvatljivog praga.</div></li>
+      <li><span class="modal-step-num">03</span><div><strong>Statement of Applicability (SoA)</strong>Selekcija i opravdanje primjenjivih kontrola iz Annexa A (ISO 27002:2022).</div></li>
+      <li><span class="modal-step-num">04</span><div><strong>Implementacija kontrola</strong>Politike, procedure i tehnička implementacija odabranih kontrola u 4 tematske kategorije.</div></li>
+      <li><span class="modal-step-num">05</span><div><strong>Interni audit & upravljački pregled</strong>Provedba internog audita i pregled od strane uprave s korektivnim mjerama.</div></li>
+      <li><span class="modal-step-num">06</span><div><strong>Priprema za certifikacijski audit</strong>Mock audit, priprema dokumentacije i podrška kroz Fazu 1 i Fazu 2 certifikacijskog audita.</div></li>
+    </ul>
+    <div class="modal-section-title">Što dobivate</div>
+    <div class="modal-deliverables">
+      <span class="modal-del-tag">ISMS dokumentacija</span><span class="modal-del-tag">Risk register</span>
+      <span class="modal-del-tag">Statement of Applicability</span><span class="modal-del-tag">Politike & procedure</span>
+      <span class="modal-del-tag">Interni audit izvještaj</span><span class="modal-del-tag">ISO 27001 certifikat</span>
+    </div>
+    <div class="modal-cta"><a href="#kontakt" onclick="closeDetail('modal-iso27001')" class="btn-primary">Zatražite ponudu</a></div>
+  </div>
+</div>
+
+<!-- ISO 9001 -->
+<div class="modal-overlay" id="modal-iso9001" onclick="closeDetailOut(event,'modal-iso9001')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetail('modal-iso9001')">✕</button>
+    <div class="modal-icon">⚙️</div>
+    <div class="modal-title">ISO 9001 — Upravljanje kvalitetom</div>
+    <div class="modal-sub">ISO 9001:2015 · QMS certifikacija</div>
+    <div class="modal-lead">Uspostavljamo sustav upravljanja kvalitetom (QMS) koji povećava učinkovitost procesa, smanjuje nesukladnosti i priprema organizaciju za ISO 9001 certifikaciju. Fokusiramo se na procesni pristup i kontinuirano poboljšanje.</div>
+    <div class="modal-section-title">Što radimo — koraci implementacije</div>
+    <ul class="modal-steps">
+      <li><span class="modal-step-num">01</span><div><strong>Kontekst organizacije</strong>Analiza internih i eksternih faktora, identifikacija zainteresiranih strana i njihovih zahtjeva.</div></li>
+      <li><span class="modal-step-num">02</span><div><strong>Mapiranje procesa</strong>Identifikacija, dokumentacija i interakcija ključnih poslovnih procesa (procesne karte, turtle dijagrami).</div></li>
+      <li><span class="modal-step-num">03</span><div><strong>Ciljevi kvalitete & KPI-evi</strong>Definicija mjerljivih ciljeva kvalitete po procesima i uspostava sustava praćenja pokazatelja.</div></li>
+      <li><span class="modal-step-num">04</span><div><strong>Upravljanje rizicima & prilikama</strong>Procesna procjena rizika i prilike za poboljšanje (FMEA, SWOT ili matrica rizika).</div></li>
+      <li><span class="modal-step-num">05</span><div><strong>Upravljanje nesukladnostima</strong>Uspostava procesa za identifikaciju, analizu uzroka i korektivne mjere nesukladnih outputa.</div></li>
+      <li><span class="modal-step-num">06</span><div><strong>Interni audit & priprema za certifikaciju</strong>Provedba internog QMS audita i podrška kroz certifikacijski process s akreditiranim tijelom.</div></li>
+    </ul>
+    <div class="modal-section-title">Što dobivate</div>
+    <div class="modal-deliverables">
+      <span class="modal-del-tag">Procesne karte</span><span class="modal-del-tag">QMS priručnik</span>
+      <span class="modal-del-tag">KPI dashboard</span><span class="modal-del-tag">Politika kvalitete</span>
+      <span class="modal-del-tag">Interni audit izvještaj</span><span class="modal-del-tag">ISO 9001 certifikat</span>
+    </div>
+    <div class="modal-cta"><a href="#kontakt" onclick="closeDetail('modal-iso9001')" class="btn-primary">Zatražite ponudu</a></div>
+  </div>
+</div>
+
+<!-- ISO 14001 -->
+<div class="modal-overlay" id="modal-iso14001" onclick="closeDetailOut(event,'modal-iso14001')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetail('modal-iso14001')">✕</button>
+    <div class="modal-icon">🌿</div>
+    <div class="modal-title">ISO 14001 — Okolišni management</div>
+    <div class="modal-sub">ISO 14001:2015 · EMS certifikacija</div>
+    <div class="modal-lead">Implementiramo sustav upravljanja okolišem (EMS) koji organizacijama pomaže identificirati i kontrolirati okolišni utjecaj, smanjiti otpad i emisije te dokazati zakonsku usklađenost prema regulatoru i kupcima.</div>
+    <div class="modal-section-title">Što radimo — koraci implementacije</div>
+    <ul class="modal-steps">
+      <li><span class="modal-step-num">01</span><div><strong>Kontekst & zahtjevi</strong>Analiza okolišnog konteksta, identificiranje zainteresiranih strana i obvezujućih zakonskih zahtjeva.</div></li>
+      <li><span class="modal-step-num">02</span><div><strong>Okolišni aspekti & utjecaji</strong>Sustavna identifikacija svih okolišnih aspekata aktivnosti organizacije i procjena njihovog značaja.</div></li>
+      <li><span class="modal-step-num">03</span><div><strong>Zakonska usklađenost</strong>Pregled i mapping svih primjenjivih okolišnih zakona, pravilnika i dozvola. Uspostava registra propisa.</div></li>
+      <li><span class="modal-step-num">04</span><div><strong>Okolišni ciljevi & programi</strong>Definicija mjerljivih okolišnih ciljeva (smanjenje emisija CO₂, potrošnje energije, vode, otpada) i akcijskih programa.</div></li>
+      <li><span class="modal-step-num">05</span><div><strong>Operativna kontrola</strong>Procedure za upravljanje značajnim aspektima, odgovor na izvanredne situacije i praćenje pokazatelja.</div></li>
+      <li><span class="modal-step-num">06</span><div><strong>Interni audit & certifikacija</strong>EMS interni audit, upravljački pregled i podrška kroz certifikacijski audit s akreditiranim tijelom.</div></li>
+    </ul>
+    <div class="modal-section-title">Što dobivate</div>
+    <div class="modal-deliverables">
+      <span class="modal-del-tag">Registar aspekata & utjecaja</span><span class="modal-del-tag">Registar zakonskih zahtjeva</span>
+      <span class="modal-del-tag">Okolišna politika</span><span class="modal-del-tag">Okolišni ciljevi & KPI</span>
+      <span class="modal-del-tag">Interni audit izvještaj</span><span class="modal-del-tag">ISO 14001 certifikat</span>
+    </div>
+    <div class="modal-cta"><a href="#kontakt" onclick="closeDetail('modal-iso14001')" class="btn-primary">Zatražite ponudu</a></div>
+  </div>
+</div>
+
+<!-- ISO 22301 -->
+<div class="modal-overlay" id="modal-iso22301" onclick="closeDetailOut(event,'modal-iso22301')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetail('modal-iso22301')">✕</button>
+    <div class="modal-icon">🔄</div>
+    <div class="modal-title">ISO 22301 — Kontinuitet poslovanja</div>
+    <div class="modal-sub">ISO 22301:2019 · BCMS certifikacija</div>
+    <div class="modal-lead">Implementiramo sustav upravljanja kontinuitetom poslovanja (BCMS) koji osigurava da organizacija može nastaviti kritične funkcije u slučaju prekida — od prirodnih katastrofa do kibernetičkih napada.</div>
+    <div class="modal-section-title">Što radimo — koraci implementacije</div>
+    <ul class="modal-steps">
+      <li><span class="modal-step-num">01</span><div><strong>Kontekst & opseg BCMS-a</strong>Definicija granica sustava, kritičnih proizvoda/usluga i zahtjeva zainteresiranih strana.</div></li>
+      <li><span class="modal-step-num">02</span><div><strong>Business Impact Analysis (BIA)</strong>Identifikacija kritičnih poslovnih funkcija, određivanje RTO i RPO parametara.</div></li>
+      <li><span class="modal-step-num">03</span><div><strong>Procjena rizika & prijetnji</strong>Identifikacija scenarija prekida (IT outage, požar, pandemija, kibernetički napad) i procjena vjerojatnosti.</div></li>
+      <li><span class="modal-step-num">04</span><div><strong>Planovi kontinuiteta (BCP)</strong>Izrada detaljnih planova za svaki kritični scenarij — tko što radi, kada i kako, s kontakt listama.</div></li>
+      <li><span class="modal-step-num">05</span><div><strong>Disaster Recovery Plan (DRP)</strong>Tehnički planovi oporavka IT sustava, backup procedura, failover testovi i alternativne lokacije.</div></li>
+      <li><span class="modal-step-num">06</span><div><strong>Vježbe, testovi & certifikacija</strong>Desk-top vježbe, simulacije i live testovi BCP/DRP planova. Priprema za ISO 22301 certifikacijski audit.</div></li>
+    </ul>
+    <div class="modal-section-title">Što dobivate</div>
+    <div class="modal-deliverables">
+      <span class="modal-del-tag">BIA izvještaj</span><span class="modal-del-tag">BCP planovi</span>
+      <span class="modal-del-tag">DRP dokumentacija</span><span class="modal-del-tag">RTO/RPO parametri</span>
+      <span class="modal-del-tag">Izvještaj testiranja</span><span class="modal-del-tag">ISO 22301 certifikat</span>
+    </div>
+    <div class="modal-cta"><a href="#kontakt" onclick="closeDetail('modal-iso22301')" class="btn-primary">Zatražite ponudu</a></div>
+  </div>
+</div>
+
+<!-- DORA -->
+<div class="modal-overlay" id="modal-dora" onclick="closeDetailOut(event,'modal-dora')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetail('modal-dora')">✕</button>
+    <div class="modal-icon">🏦</div>
+    <div class="modal-title">DORA — Digitalna operativna otpornost</div>
+    <div class="modal-sub">Regulation (EU) 2022/2554 · Financijski sektor</div>
+    <div class="modal-lead">Implementiramo DORA zahtjeve za financijske institucije, osiguravajuće kuće i dobavljače ICT usluga — od ICT risk managementa i TPICM-a do obaveznog testiranja otpornosti i regulatornog izvještavanja.</div>
+    <div class="modal-section-title">Što radimo — koraci implementacije</div>
+    <ul class="modal-steps">
+      <li><span class="modal-step-num">01</span><div><strong>DORA gap analiza</strong>Procjena usklađenosti s 5 stupova DORA-e: ICT risk, incident management, testiranje, TPICM i razmjena informacija.</div></li>
+      <li><span class="modal-step-num">02</span><div><strong>ICT Risk Management Framework</strong>Uspostava ICT risk management okvira sukladno RTS/ITS tehničkim standardima EBA/EIOPA/ESMA.</div></li>
+      <li><span class="modal-step-num">03</span><div><strong>ICT Asset inventar</strong>Mapiranje i klasifikacija kritičnih ICT sustava, aplikacija i infrastrukture prema DORA kategorizaciji.</div></li>
+      <li><span class="modal-step-num">04</span><div><strong>TPICM — Treće strane</strong>Upravljanje ICT trećim stranama: due diligence, ugovorni zahtjevi, registar kritičnih dobavljača i exit strategije.</div></li>
+      <li><span class="modal-step-num">05</span><div><strong>Testiranje digitalne otpornosti</strong>Godišnji TLPT (Threat Led Penetration Testing) i vulnerability assessment prema DORA zahtjevima.</div></li>
+      <li><span class="modal-step-num">06</span><div><strong>Incident klasifikacija & izvještavanje</strong>Uspostava procesa klasifikacije ICT incidenata i regulatornog izvještavanja nadležnom tijelu.</div></li>
+    </ul>
+    <div class="modal-section-title">Što dobivate</div>
+    <div class="modal-deliverables">
+      <span class="modal-del-tag">DORA gap izvještaj</span><span class="modal-del-tag">ICT risk politika</span>
+      <span class="modal-del-tag">ICT asset registar</span><span class="modal-del-tag">TPICM dokumentacija</span>
+      <span class="modal-del-tag">TLPT izvještaj</span><span class="modal-del-tag">GRC platforma setup</span>
+    </div>
+    <div class="modal-cta"><a href="#kontakt" onclick="closeDetail('modal-dora')" class="btn-primary">Zatražite ponudu</a></div>
+  </div>
+</div>
+
+<!-- Vendor Risk -->
+<div class="modal-overlay" id="modal-vendor" onclick="closeDetailOut(event,'modal-vendor')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetail('modal-vendor')">✕</button>
+    <div class="modal-icon">🤝</div>
+    <div class="modal-title">Vendor Risk Management</div>
+    <div class="modal-sub">Upravljanje rizicima trećih strana · TPICM</div>
+    <div class="modal-lead">Uspostavljamo strukturiran proces procjene i praćenja rizika dobavljača i pružatelja usluga koji imaju pristup vašim sustavima ili obrađuju vaše podatke.</div>
+    <div class="modal-section-title">Što radimo — koraci implementacije</div>
+    <ul class="modal-steps">
+      <li><span class="modal-step-num">01</span><div><strong>Kategorizacija dobavljača</strong>Klasifikacija dobavljača prema razini pristupa, kritičnosti usluge i rizičnom profilu.</div></li>
+      <li><span class="modal-step-num">02</span><div><strong>Due diligence upitnici</strong>Prilagođeni sigurnosni upitnici po kategoriji dobavljača — informacijska sigurnost, GDPR, operativna otpornost.</div></li>
+      <li><span class="modal-step-num">03</span><div><strong>Risk scoring & izvještaji</strong>Automatski izračun rizičnog profila dobavljača i generiranje izvještaja za upravu i regulatore.</div></li>
+      <li><span class="modal-step-num">04</span><div><strong>Ugovorne klauzule</strong>Standardizirani ugovorni zahtjevi za sigurnost, GDPR, SLA, pravo revizije i exit strategije.</div></li>
+      <li><span class="modal-step-num">05</span><div><strong>Kontinuirani monitoring</strong>Redovita re-procjena dobavljača, praćenje certifikata i upozorenja na promjene u rizičnom profilu.</div></li>
+    </ul>
+    <div class="modal-section-title">Što dobivate</div>
+    <div class="modal-deliverables">
+      <span class="modal-del-tag">Registar dobavljača</span><span class="modal-del-tag">Due diligence upitnici</span>
+      <span class="modal-del-tag">Risk scoring matrica</span><span class="modal-del-tag">Ugovorni predlošci</span>
+      <span class="modal-del-tag">TPICM u GRC platformi</span>
+    </div>
+    <div class="modal-cta"><a href="#kontakt" onclick="closeDetail('modal-vendor')" class="btn-primary">Zatražite ponudu</a></div>
+  </div>
+</div>
+
+<!-- Security Audit -->
+<div class="modal-overlay" id="modal-audit" onclick="closeDetailOut(event,'modal-audit')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetail('modal-audit')">✕</button>
+    <div class="modal-icon">🕵️</div>
+    <div class="modal-title">Sigurnosni auditi & Testiranje</div>
+    <div class="modal-sub">Penetracijski testovi · Vulnerability Assessment · Red Team</div>
+    <div class="modal-lead">Provodimo ofenzivne sigurnosne provjere koje otkrivaju stvarne ranjivosti u vašim sustavima — prije nego ih napadači pronađu. Izvještaje prilagođavamo i tehničkim timovima i upravi.</div>
+    <div class="modal-section-title">Što radimo — koraci implementacije</div>
+    <ul class="modal-steps">
+      <li><span class="modal-step-num">01</span><div><strong>Scoping & Rules of Engagement</strong>Definicija opsega testiranja, ciljnih sustava, metoda i pravnih okvira angažmana.</div></li>
+      <li><span class="modal-step-num">02</span><div><strong>Reconnaissance & OSINT</strong>Pasivno i aktivno prikupljanje informacija o ciljnom sustavu — vanjska izloženost, javno dostupni podaci.</div></li>
+      <li><span class="modal-step-num">03</span><div><strong>Vulnerability Assessment</strong>Automatizirano i ručno skeniranje ranjivosti, analiza konfiguracija, pregled koda i mrežne arhitekture.</div></li>
+      <li><span class="modal-step-num">04</span><div><strong>Eksploatacija & dokaz ranjivosti</strong>Kontrolirana eksploatacija pronađenih ranjivosti s jasnim dokazima pristupa i potencijalnog utjecaja.</div></li>
+      <li><span class="modal-step-num">05</span><div><strong>Social Engineering</strong>Phishing simulacije, pretexting i vishing testovi za procjenu ljudskog faktora u sigurnosnom lancu.</div></li>
+      <li><span class="modal-step-num">06</span><div><strong>Izvještaj & remedijacija</strong>Detaljan tehnički izvještaj + upravljački sažetak s prioritetima remedijacije i preporučenim mjerama.</div></li>
+    </ul>
+    <div class="modal-section-title">Što dobivate</div>
+    <div class="modal-deliverables">
+      <span class="modal-del-tag">Penetracijski test izvještaj</span><span class="modal-del-tag">CVSS risk scoring</span>
+      <span class="modal-del-tag">Upravljački sažetak</span><span class="modal-del-tag">Remedijacijski plan</span>
+      <span class="modal-del-tag">Retest (verifikacija popravaka)</span>
+    </div>
+    <div class="modal-cta"><a href="#kontakt" onclick="closeDetail('modal-audit')" class="btn-primary">Zatražite ponudu</a></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     GRC PLATFORM CTA
+════════════════════════════════════════════════ -->
+<section id="platforma" class="grc-cta-section">
+  <div class="container">
+    <div class="grc-cta-inner">
+      <div class="grc-cta-left">
+        <h2>Vaš GRC compliance<br><span>digitaliziran u platformi</span></h2>
+        <p>Ne samo savjetovanje — nudimo i vlastitu GRC platformu koja digitalizira sve procese upravljanja rizicima, compliance-a i sigurnosti. Vaš tim radi u sustavu koji smo izgradili na temelju stvarnih implementacija.</p>
+        <ul class="grc-features">
+          <li>ZKS/NIS2, GDPR, ISO 27001, ISO 9001, ISO 14001, ISO 22301, DORA</li>
+          <li>Vendor Risk Management s automatskim risk scoringom</li>
+          <li>AI analiza dokumenata i automatsko benchmarking</li>
+          <li>Incident management i regulatorno izvještavanje</li>
+          <li>BIA wizard, audit log i compliance dashboard</li>
+          <li>Multi-tenant arhitektura za konzultante i klijente</li>
+        </ul>
+        <a href="https://app.adventurespirit.hr" target="_blank" class="btn-primary">Isprobajte GRC Portal besplatno →</a>
+      </div>
+      <div class="grc-portal-box">
+        <div class="portal-logo-row">
+          <svg width="28" height="28" viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="50" r="44" stroke="#EF653F" stroke-width="1.5" opacity=".3"/>
+            <path d="M50 12 L41 46 L50 41 L59 46 Z" fill="#EF653F"/>
+            <line x1="44" y1="37" x2="56" y2="37" stroke="#c14b28" stroke-width="3"/>
+            <path d="M50 88 L45 70 L55 70 Z" fill="#EF653F" opacity=".7"/>
+            <circle cx="50" cy="50" r="5" fill="#EF653F"/>
+          </svg>
+          <div class="portal-title">Adventure Spirit GRC</div>
+        </div>
+        <div class="portal-sub">Compliance platforma za upravljanje rizicima</div>
+        <div class="portal-stats">
+          <div class="portal-stat">
+            <div class="portal-stat-num">9+</div>
+            <div class="portal-stat-label">Compliance modula</div>
+          </div>
+          <div class="portal-stat">
+            <div class="portal-stat-num">AI</div>
+            <div class="portal-stat-label">Analiza dokumenata</div>
+          </div>
+          <div class="portal-stat">
+            <div class="portal-stat-num">24/7</div>
+            <div class="portal-stat-label">Dostupnost portala</div>
+          </div>
+        </div>
+        <a href="https://app.adventurespirit.hr" target="_blank" class="portal-login-btn">🔐 Prijava u portal</a>
+        <a href="https://app.adventurespirit.hr" target="_blank" class="portal-trial-link">Nema računa? <span>Počnite s 14-dnevnim trialom →</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     PROCESS
+════════════════════════════════════════════════ -->
+<section class="process-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">⚙️ Metodologija</div>
+      <h2 class="section-h2">Kako radimo</h2>
+      <p class="section-desc">Strukturiran pristup koji donosi rezultate — od prve procjene do certifikacije i kontinuiranog monitoringa.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step"><div class="step-num">01</div><div class="step-title">Gap analiza</div><div class="step-desc">Procjena trenutnog stanja i identifikacija praznina u odnosu na zahtjeve standarda ili regulatora.</div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-title">Plan remedijacije</div><div class="step-desc">Prioritizirani akcijski plan s vlasnicima, rokovima i mjerljivim ciljevima za svaki zahtjev.</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-title">Implementacija</div><div class="step-desc">Tehnička i procesna implementacija mjera uz edukaciju zaposlenika i upravljački pregled.</div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-title">Platforma & Certifikacija</div><div class="step-desc">Digitaliziramo u GRC platformu za kontinuirani monitoring i pratimo vas do certifikacije.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     REFERENCES
+════════════════════════════════════════════════ -->
+<section id="reference" class="references-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">🤝 Reference</div>
+      <h2 class="section-h2">Organizacije koje nam vjeruju</h2>
+    </div>
+    <p class="ref-intro">Surađivali smo s organizacijama iz financijskog sektora, osiguranja, energetike, zdravstva, prehrambene industrije, IT sektora i sporta — implementirajući ISMS, BCMS, GDPR, DORA, NIS2 i ISO certifikacije.</p>
+
+    <div class="ref-categories">
+
+      <div class="ref-category">
+        <div class="ref-cat-label">🏦 Bankarstvo & Financije</div>
+        <div class="ref-logos">
+          <span class="ref-chip">Zagrebačka burza</span>
+          <span class="ref-chip">Šted banka</span>
+          <span class="ref-chip">Partner banka</span>
+          <span class="ref-chip">Euroleasing</span>
+          <span class="ref-chip">Fintastic</span>
+          <span class="ref-chip">Krypto Investment Partners</span>
+        </div>
+      </div>
+
+      <div class="ref-category">
+        <div class="ref-cat-label">🛡️ Osiguranje</div>
+        <div class="ref-logos">
+          <span class="ref-chip">Croatia osiguranje</span>
+          <span class="ref-chip">Adriatic osiguranje</span>
+          <span class="ref-chip">Sunce osiguranje</span>
+          <span class="ref-chip">UNIQA osiguranje</span>
+          <span class="ref-chip">ANO Insurance Solutions</span>
+        </div>
+      </div>
+
+      <div class="ref-category">
+        <div class="ref-cat-label">⚡ Energetika & Industrija</div>
+        <div class="ref-logos">
+          <span class="ref-chip">HROTE</span>
+          <span class="ref-chip">E.ON</span>
+          <span class="ref-chip">INA</span>
+          <span class="ref-chip">IHC Engineering Croatia</span>
+          <span class="ref-chip">TEHMA</span>
+          <span class="ref-chip">MCZ</span>
+        </div>
+      </div>
+
+      <div class="ref-category">
+        <div class="ref-cat-label">💻 IT & Digitalne usluge</div>
+        <div class="ref-logos">
+          <span class="ref-chip">APIS-IT</span>
+          <span class="ref-chip">Rocket DBS</span>
+          <span class="ref-chip">SmartGroup HR Solutions</span>
+          <span class="ref-chip">SmartGroup Recruitment</span>
+          <span class="ref-chip">BCC Services</span>
+          <span class="ref-chip">Digital Assembly</span>
+          <span class="ref-chip">AMODO</span>
+          <span class="ref-chip">Cooperante</span>
+          <span class="ref-chip">TPA Hrvatska</span>
+        </div>
+      </div>
+
+      <div class="ref-category">
+        <div class="ref-cat-label">🍞 Prehrambena industrija</div>
+        <div class="ref-logos">
+          <span class="ref-chip">Franck d.d.</span>
+          <span class="ref-chip">Pan-pek</span>
+          <span class="ref-chip">Mlinar</span>
+          <span class="ref-chip">Adria Snack Company</span>
+          <span class="ref-chip">Offertissima</span>
+        </div>
+      </div>
+
+      <div class="ref-category">
+        <div class="ref-cat-label">💊 Zdravlje & Farmacija</div>
+        <div class="ref-logos">
+          <span class="ref-chip">Medika d.d.</span>
+          <span class="ref-chip">Biovega</span>
+          <span class="ref-chip">Delmerion Natural Beauty</span>
+        </div>
+      </div>
+
+      <div class="ref-category">
+        <div class="ref-cat-label">⚖️ Poslovne usluge & Financije</div>
+        <div class="ref-logos">
+          <span class="ref-chip">EOS Matrix — naplata potraživanja</span>
+          <span class="ref-chip">Log Adria — logistika</span>
+          <span class="ref-chip">Kompas</span>
+          <span class="ref-chip">Travel Experience Museum</span>
+          <span class="ref-chip">Hrvatski Telekom</span>
+          <span class="ref-chip">Hajduk Split</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ref-total">
+      <span class="ref-total-num">40+</span>
+      <div class="ref-total-label">organizacija iz bankarstva, osiguranja, energetike, IT-a, prehrambene i farmaceutske industrije, logistike i sporta</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     PRICING
+════════════════════════════════════════════════ -->
+<section id="cijene" class="pricing-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">💰 GRC Platforma — Cijene</div>
+      <h2 class="section-h2">Transparentni planovi za svaku organizaciju</h2>
+      <p class="section-desc">Svi planovi uključuju 14 dana besplatnog probnog perioda. Bez kreditne kartice.</p>
+    </div>
+    <div class="client-pricing-note" style="background:rgba(239,101,63,.08);border:1px solid rgba(239,101,63,.25);border-radius:12px;padding:16px 24px;margin-bottom:32px;display:flex;align-items:center;gap:14px;">
+      <span style="font-size:22px;flex-shrink:0">🤝</span>
+      <p style="margin:0;font-size:14px;color:var(--text-muted);line-height:1.6">
+        <strong style="color:var(--white)">Klijenti Adventure Spirit Consultinga</strong> imaju ugovorene uvjete koji se razlikuju od javnog cjenika.
+        Ako ste naš klijent, <a href="https://app.adventurespirit.hr" style="color:var(--orange);text-decoration:none;font-weight:600">prijavite se na platformu</a>
+        ili nas kontaktirajte na <a href="mailto:info@adventurespirit.hr" style="color:var(--orange);text-decoration:none;font-weight:600">info@adventurespirit.hr</a>.
+      </p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-name">Starter</div>
+        <div class="pricing-price"><sup>€</sup>99</div>
+        <div class="pricing-period">/ mjesec + PDV</div>
+        <ul class="pricing-features">
+          <li>5 tvrtki / vendora</li>
+          <li>10 korisnika</li>
+          <li>ZKS/NIS2, GDPR, ISO 27001</li>
+          <li>Vendor upitnici & risk scoring</li>
+          <li>Izvještaji za upravu</li>
+          <li class="off">AI analiza dokumenata</li>
+          <li class="off">DORA modul</li>
+        </ul>
+        <a href="https://app.adventurespirit.hr" target="_blank" class="pricing-btn pricing-btn-outline">Počnite besplatno</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-name">Pro</div>
+        <div class="pricing-price"><sup>€</sup>299</div>
+        <div class="pricing-period">/ mjesec + PDV</div>
+        <ul class="pricing-features">
+          <li>20 tvrtki / vendora</li>
+          <li>30 korisnika</li>
+          <li>Svi compliance moduli</li>
+          <li>DORA + ISO 22301 modul</li>
+          <li>AI analiza dokumenata</li>
+          <li>AI benchmark usluga</li>
+          <li>Prioritetna podrška</li>
+        </ul>
+        <a href="https://app.adventurespirit.hr" target="_blank" class="pricing-btn pricing-btn-primary">Počnite besplatno</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Enterprise</div>
+        <div class="pricing-price"><sup>€</sup>699<span style="font-size:18px;font-weight:400">+</span></div>
+        <div class="pricing-period">/ mjesec + PDV</div>
+        <ul class="pricing-features">
+          <li>Neograničene tvrtke</li>
+          <li>Neograničeni korisnici</li>
+          <li>Svi moduli + white-label</li>
+          <li>Custom integracije</li>
+          <li>SLA ugovor</li>
+          <li>Dedicated onboarding</li>
+        </ul>
+        <a href="#kontakt" class="pricing-btn pricing-btn-outline">Kontaktirajte nas</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     CONTACT
+════════════════════════════════════════════════ -->
+<section id="kontakt" class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h2>Stupite u kontakt</h2>
+        <p>Trebate procjenu usklađenosti, implementaciju ISO standarda, DORA/ZKS pripremu ili demo GRC platforme? Javite se — odgovaramo u roku 24 sata.</p>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div><strong>Email</strong>info@adventurespirit.hr</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div><strong>GRC Portal</strong><a href="https://app.adventurespirit.hr" target="_blank" style="color:var(--orange);text-decoration:none">app.adventurespirit.hr</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🏔️</div>
+          <div><strong>Planinarenje</strong><a href="https://izleti.adventurespirit.hr" style="color:var(--orange);text-decoration:none">adventurespirit.hr/izleti/</a></div>
+        </div>
+        <div style="margin-top:32px">
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;font-weight:700">Brz pristup portalu</div>
+          <a href="https://app.adventurespirit.hr" target="_blank" class="btn-primary" style="display:inline-flex">🔐 Otvorite GRC Portal</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleContact(event)">
+        <div class="form-row">
+          <input class="form-input" type="text" placeholder="Ime i prezime *" required id="c-name">
+          <input class="form-input" type="email" placeholder="Email adresa *" required id="c-email">
+        </div>
+        <div class="form-row">
+          <input class="form-input" type="text" placeholder="Tvrtka / organizacija" id="c-company">
+          <input class="form-input" type="tel" placeholder="Telefon / mobitel" id="c-phone">
+        </div>
+        <select class="form-select" id="c-subject">
+          <option value="">Odaberite temu upita</option>
+          <option>ZKS / NIS2 implementacija</option>
+          <option>GDPR usklađenost</option>
+          <option>ISO 27001 certifikacija</option>
+          <option>ISO 9001 certifikacija</option>
+          <option>ISO 14001 certifikacija</option>
+          <option>ISO 22301 certifikacija</option>
+          <option>DORA usklađenost</option>
+          <option>Vendor Risk Management</option>
+          <option>GRC platforma — demo</option>
+          <option>Sigurnosni audit / pen test</option>
+          <option>Ostalo</option>
+        </select>
+        <textarea class="form-textarea" placeholder="Kratki opis projekta ili upita" id="c-message"></textarea>
+        <button type="submit" class="form-submit">Pošaljite upit →</button>
+        <div id="c-success" style="display:none;color:#6ec47a;font-size:13px;padding:8px 0">✓ Hvala! Javit ćemo se uskoro.</div>
+        <div id="c-error" style="display:none;color:#f87171;font-size:13px;padding:8px 0"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+          <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="50" r="44" stroke="#EF653F" stroke-width="1.5" opacity=".2"/>
+            <path d="M50 12 L41 46 L50 41 L59 46 Z" fill="#EF653F"/>
+            <line x1="44" y1="37" x2="56" y2="37" stroke="#c14b28" stroke-width="3"/>
+            <path d="M50 88 L45 70 L55 70 Z" fill="#EF653F" opacity=".7"/>
+            <path d="M88 50 L70 45 L70 55 Z" fill="#EF653F" opacity=".6"/>
+            <path d="M12 50 L30 45 L30 55 Z" fill="#EF653F" opacity=".6"/>
+            <circle cx="50" cy="50" r="5" fill="#EF653F"/>
+          </svg>
+          <span style="font-size:16px;font-weight:800;color:var(--white)">Adventure <span style="color:var(--orange)">Spirit</span></span>
+        </a>
+        <p>Kibernetička sigurnost, GRC compliance i upravljanje rizicima — 27+ godina iskustva u službi vašeg poslovanja.</p>
+      </div>
+      <div class="footer-col">
+        <h4>GRC Usluge</h4>
+        <a href="#sigurnost">ZKS / NIS2</a>
+        <a href="#sigurnost">GDPR</a>
+        <a href="#sigurnost">ISO 27001</a>
+        <a href="#sigurnost">ISO 9001</a>
+        <a href="#sigurnost">ISO 14001</a>
+        <a href="#sigurnost">ISO 22301</a>
+        <a href="#sigurnost">DORA</a>
+      </div>
+      <div class="footer-col">
+        <h4>Platforma</h4>
+        <a href="https://app.adventurespirit.hr" target="_blank">GRC Portal</a>
+        <a href="#cijene">Cijene</a>
+        <a href="https://app.adventurespirit.hr" target="_blank">Besplatni trial</a>
+        <a href="#kontakt">Demo</a>
+      </div>
+      <div class="footer-col">
+        <h4>O nama</h4>
+        <a href="#onama">O konzultantu</a>
+        <a href="#reference">Reference</a>
+        <a href="https://izleti.adventurespirit.hr">Planinarenje</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Adventure Spirit Consulting d.o.o. — Sva prava pridržana</span>
+      <span style="display:flex;gap:16px">
+        <a href="/uvjeti" style="color:var(--text-muted);text-decoration:none;transition:color .2s" onmouseover="this.style.color='white'" onmouseout="this.style.color=''">Uvjeti korištenja</a>
+        <a href="/privatnost" style="color:var(--text-muted);text-decoration:none;transition:color .2s" onmouseover="this.style.color='white'" onmouseout="this.style.color=''">Privatnost</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Nav ─────────────────────────────────────────────────
+  function toggleNav() {
+    document.getElementById('nav-links').classList.toggle('open');
+  }
+  document.querySelectorAll('#nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('nav-links').classList.remove('open'));
+  });
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.borderBottomColor =
+      window.scrollY > 40 ? 'rgba(239,101,63,.15)' : 'rgba(255,255,255,.06)';
+  });
+
+  // ── Modals ─────────────────────────────────────────────
+  const modalMap = {
+    zks:'modal-zks', gdpr:'modal-gdpr', iso27001:'modal-iso27001',
+    iso9001:'modal-iso9001', iso14001:'modal-iso14001', iso22301:'modal-iso22301',
+    dora:'modal-dora', vendor:'modal-vendor', audit:'modal-audit'
+  };
+  function openDetail(key) {
+    const id = modalMap[key];
+    if (!id) return;
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDetail(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeDetailOut(e, id) {
+    if (e.target === e.currentTarget) closeDetail(id);
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => {
+        m.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+
+  // ── Smooth scroll ─────────────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 70, behavior: 'smooth' }); }
+    });
+  });
+
+  // ── Contact form ───────────────────────────────────────
+  async function handleContact(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    const success = document.getElementById('c-success');
+    const error = document.getElementById('c-error');
+    success.style.display = 'none'; error.style.display = 'none';
+    btn.disabled = true; btn.textContent = 'Šaljem...';
+    const phone = document.getElementById('c-phone').value;
+    const body = {
+      name: document.getElementById('c-name').value,
+      email: document.getElementById('c-email').value,
+      phone: phone || '—',
+      message: '[' + document.getElementById('c-subject').value + '] ' +
+               document.getElementById('c-company').value +
+               (phone ? ' · Tel: ' + phone : '') + '\n\n' +
+               document.getElementById('c-message').value
+    };
+    try {
+      // Zamijeni xvzvwwre s vašim Formspree ID-em (besplatno na formspree.io)
+      const res = await fetch('https://formspree.io/f/mojpkknr', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(body)
+      });
+      if (res.ok) { success.style.display = 'block'; e.target.reset(); }
+      else throw new Error();
+    } catch {
+      error.textContent = 'Greška pri slanju. Kontaktirajte nas direktno: info@adventurespirit.hr';
+      error.style.display = 'block';
+    } finally { btn.disabled = false; btn.textContent = 'Pošaljite upit →'; }
+  }
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════
+     COOKIE CONSENT BANNER
+════════════════════════════════════════════════════════════ -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1e2e;border-top:1px solid rgba(239,101,63,.3);padding:20px 24px;box-shadow:0 -4px 24px rgba(0,0,0,.4);">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <p style="margin:0 0 4px;font-size:14px;font-weight:700;color:#fff;">🍪 Koristimo kolačiće</p>
+      <p style="margin:0;font-size:13px;color:#94a3b8;line-height:1.5;">
+        Ova stranica koristi nužne kolačiće za ispravno funkcioniranje. Analitičke i marketinške kolačiće koristimo samo uz vašu suglasnost.
+        <a href="/uvjeti/" style="color:#EF653F;text-decoration:none;">Politika privatnosti</a>
+      </p>
+    </div>
+    <div style="display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap;">
+      <button onclick="cookieConsent('necessary')" style="padding:10px 18px;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);background:transparent;color:#e2e8f0;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;">Samo nužni</button>
+      <button onclick="cookieConsent('all')" style="padding:10px 18px;border-radius:8px;border:none;background:#EF653F;color:#fff;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;">Prihvati sve</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function() {
+    var consent = localStorage.getItem('as_cookie_consent');
+    if (!consent) {
+      var banner = document.getElementById('cookie-banner');
+      if (banner) banner.style.display = 'block';
+    }
+  })();
+  function cookieConsent(level) {
+    localStorage.setItem('as_cookie_consent', level);
+    localStorage.setItem('as_cookie_consent_date', new Date().toISOString());
+    document.getElementById('cookie-banner').style.display = 'none';
+    // Ovdje uključi analytics skripte ako level === 'all'
+    // npr. if (level === 'all') { loadGoogleAnalytics(); }
+  }
+</script>
+</body>
+</html>

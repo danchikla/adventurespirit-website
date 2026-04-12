@@ -1,0 +1,5 @@
+*.docx
+CV_*
+Ponuda/
+*.pdf
+.DS_Store
