@@ -285,7 +285,7 @@
     <li><a href="#odrzivost">Održivost</a></li>
     <li><a href="#organizator">Organizator</a></li>
     <li><a href="https://izleti.adventurespirit.hr" class="nav-back">← Planinarenje</a></li>
-    <li><a href="#prijave" class="nav-cta">Prijavi se</a></li>
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeir0osbltPo0dW3QdA0zf7AR0g8JOwdvo-K5JmyvRDb1WKNA/viewform" class="nav-cta" target="_blank" rel="noopener">Prijavi se</a></li>
   </ul>
 
   <button class="nav-toggle" onclick="toggleNav()" aria-label="Izbornik">
@@ -310,7 +310,7 @@
       <span class="pill">Program za obitelji</span>
     </div>
     <div class="hero-btns">
-      <a href="#prijave" class="btn-primary">Prijavi se</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeir0osbltPo0dW3QdA0zf7AR0g8JOwdvo-K5JmyvRDb1WKNA/viewform" class="btn-primary" target="_blank" rel="noopener">Prijavi se</a>
       <a href="#program" class="btn-ghost">Pogledaj program</a>
     </div>
   </div>
@@ -503,7 +503,7 @@
       <p>Ako se prijavite, a ne možete doći, molimo da nam javite. Mjesto ćemo dati nekome s liste čekanja.</p>
 
       <div class="signup-btns">
-        <a href="mailto:info@adventurespirit.hr?subject=Prijava%20-%20Medvednica%20Mountain%20Experience%20Weekend" id="prijava-btn" class="btn-primary">Prijavi se</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeir0osbltPo0dW3QdA0zf7AR0g8JOwdvo-K5JmyvRDb1WKNA/viewform" id="prijava-btn" class="btn-primary" target="_blank" rel="noopener">Prijavi se na obrazac</a>
         <a href="tel:+385955041496" class="btn-ghost">Nazovi nas</a>
       </div>
 
@@ -562,29 +562,6 @@
 </footer>
 
 <script>
-  // ── Prijava: jedna konstanta. Kad Google obrazac bude gotov, ovdje upiši poveznicu. ──
-  const PRIJAVA_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeir0osbltPo0dW3QdA0zf7AR0g8JOwdvo-K5JmyvRDb1WKNA/viewform";
-
-  const MAIL_FALLBACK = "mailto:info@adventurespirit.hr"
-    + "?subject=" + encodeURIComponent("Prijava - Medvednica Mountain Experience Weekend")
-    + "&body=" + encodeURIComponent(
-        "Prijavljujem se za Medvednica Mountain Experience Weekend.\n\n"
-      + "Ime i prezime: \n"
-      + "E-adresa: \n"
-      + "Broj mobitela: \n"
-      + "Dani (subota 12.9. / nedjelja 13.9. / ponedjeljak 14.9.): \n"
-      + "Broj osoba u prijavi: \n"
-      + "Dolazim s djecom (dob): \n"
-      + "Planinarsko iskustvo (početnik / rekreativac / iskusan): \n"
-      + "Zdravstvena ograničenja koja biste trebali znati: \n"
-      + "Kontakt osobe u slučaju nužde (ime i broj): \n\n"
-      + "Suglasan/na sam s obradom podataka u svrhu provedbe događanja.\n");
-
-  // Gumbi u navigaciji i heroju vode na odjeljak Prijave, ovaj gumb otvara obrazac ili e-poštu.
-  var prijavaBtn = document.getElementById('prijava-btn');
-  prijavaBtn.setAttribute('href', PRIJAVA_URL || MAIL_FALLBACK);
-  if (PRIJAVA_URL) prijavaBtn.setAttribute('target', '_blank');
-
   function toggleNav() {
     document.getElementById('nav-links').classList.toggle('open');
   }
