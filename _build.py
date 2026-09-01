@@ -62,7 +62,7 @@ L = {
  "hr": dict(
    lang="hr", base="", blog="/blog/", other="/en/", other_label="EN", self_label="HR",
    nav=[("/#onama","O nama"),("/#sigurnost","Usluge"),("/#sektori","Sektori"),
-        ("/blog/","Baza znanja"),("/#platforma","Platforma"),("/#reference","Reference"),
+        ("/blog/","Baza znanja"),("/alati/","Alati"),("/#reference","Reference"),
         ("/#faq","FAQ"),("/#kontakt","Kontakt")],
    legal_line="Adventure Spirit d.o.o. &middot; Zagreb",
    brand_line="Tržišni naziv: Adventure Spirit Consulting",
@@ -71,7 +71,7 @@ L = {
    f_kb="Baza znanja", f_all="Svi članci", f_svc="Usluge", f_co="Tvrtka",
    f_links=[("/#sigurnost","ZKS / NIS2"),("/#sigurnost","GDPR"),("/#sigurnost","ISO 27001"),
             ("/#sigurnost","DORA"),("/#sektori","Sektori")],
-   f_co_links=[("/#onama","O konzultantu"),("/#reference","Reference"),("/#faq","Česta pitanja"),
+   f_co_links=[("/#onama","O konzultantu"),("/alati/","Alati"),("/#faq","Česta pitanja"),
                ("/#kontakt","Kontakt"),("/en/","English version")],
    rights="Sva prava pridržana", terms="Uvjeti korištenja", privacy="Privatnost",
    terms_url="/uvjeti/", privacy_url="/privatnost/",
@@ -86,7 +86,7 @@ L = {
    nf_title="Stranica nije pronađena (404)",
    nf_desc="Tražena stranica ne postoji. Pogledajte usluge, sektore, pravni okvir ili bazu znanja.",
    nf_nav=[("/#sigurnost","Usluge"),("/#sektori","Sektori"),("/#okvir","Pravni okvir"),
-           ("/blog/","Baza znanja"),("/#faq","Česta pitanja"),("/#reference","Reference")],
+           ("/blog/","Baza znanja"),("/alati/","Alati"),("/#faq","Česta pitanja")],
    cta_h="Ne znate gdje stojite?",
    cta_p="Pola sata razgovora i ništa vas ne obvezuje. Kad završimo, znate što trebate napraviti i kojim redom.",
    cta_b1="Dogovorite razgovor", cta_b2="Pogledajte usluge", cta_b2_url="/#sigurnost",
@@ -95,7 +95,7 @@ L = {
  "en": dict(
    lang="en", base="/en", blog="/en/blog/", other="/", other_label="HR", self_label="EN",
    nav=[("/en/#about","About"),("/en/#services","Services"),("/en/#sectors","Sectors"),
-        ("/en/blog/","Insights"),("/en/#platform","Platform"),("/en/#clients","Clients"),
+        ("/en/blog/","Insights"),("/en/tools/","Tools"),("/en/#clients","Clients"),
         ("/en/#faq","FAQ"),("/en/#contact","Contact")],
    legal_line="Adventure Spirit d.o.o. &middot; Zagreb, Croatia",
    brand_line="Trading as: Adventure Spirit Consulting",
@@ -104,7 +104,7 @@ L = {
    f_kb="Insights", f_all="All articles", f_svc="Services", f_co="Company",
    f_links=[("/en/#services","CSA / NIS2"),("/en/#services","GDPR"),("/en/#services","ISO 27001"),
             ("/en/#services","DORA"),("/en/#sectors","Sectors")],
-   f_co_links=[("/en/#about","About the consultant"),("/en/#clients","Clients"),("/en/#faq","FAQ"),
+   f_co_links=[("/en/#about","About the consultant"),("/en/tools/","Tools"),("/en/#faq","FAQ"),
                ("/en/#contact","Contact"),("/","Hrvatska verzija")],
    rights="All rights reserved", terms="Terms (HR)", privacy="Privacy (HR)",
    terms_url="/uvjeti/", privacy_url="/privatnost/",
@@ -119,7 +119,7 @@ L = {
    nf_title="Page not found (404)",
    nf_desc="The page you requested does not exist. Browse our services, sectors, legal framework or knowledge base.",
    nf_nav=[("/en/#services","Services"),("/en/#sectors","Sectors"),("/en/#framework","Legal framework"),
-           ("/en/blog/","Knowledge base"),("/en/#faq","FAQ"),("/en/#clients","Clients")],
+           ("/en/blog/","Knowledge base"),("/en/tools/","Tools"),("/en/#faq","FAQ")],
    cta_h="Not sure where you stand?",
    cta_p="Half an hour of conversation, with no obligation. By the end you know what needs doing and in what order.",
    cta_b1="Book a conversation", cta_b2="See our services", cta_b2_url="/en/#services",
@@ -530,6 +530,11 @@ ARTICLES.append(dict(
 </div>
 <p>Rokovi se računaju <strong>od saznanja o incidentu</strong>, ne od njegovog nastanka i ne od trenutka kad je istraga završena. To je razlika koja odlučuje jeste li u roku.</p>
 <p>Uz ova tri postoje i <strong>privremeno izvješće</strong>, koje nadležni CSIRT može zatražiti u roku od 48 sati do 7 dana, te <strong>izvješće o napretku</strong>, koje se dostavlja svakih 30 dana ako incident još traje. Detaljan pregled svih pet vrsta obavijesti i prijave preko platforme PiXi <a href="/blog/znacajan-incident-pet-obavijesti-pixi/">u zasebnom tekstu</a>.</p>
+
+<div class="callout">
+  <div class="c-label">Izračunajte svoje rokove</div>
+  <p>Unesite trenutak saznanja u <a href="/alati/rokovi-prijave-incidenta/">kalkulator rokova</a> pa dobijete svih pet datuma odjednom, uključujući usporednu prijavu AZOP-u. Radi u pregledniku, ne traži registraciju.</p>
+</div>
 
 <div class="callout">
   <div class="c-label">Najčešća pogreška</div>
@@ -1271,6 +1276,11 @@ ARTICLES.append(dict(
 
 <h2>Iznimka za pružatelje usluga povjerenja</h2>
 <p>Prema članku 68. Uredbe, pružatelji usluga povjerenja ne dostavljaju rano upozorenje. Umjesto toga, početnu obavijest dostavljaju u roku od 24 sata. Ostali rokovi ostaju isti.</p>
+
+<div class="callout">
+  <div class="c-label">Izračunajte svoje rokove</div>
+  <p>Svih pet datuma za konkretan incident dobijete u <a href="/alati/rokovi-prijave-incidenta/">kalkulatoru rokova</a>, uz obračun iznimke za pružatelje usluga povjerenja i usporedne prijave AZOP-u.</p>
+</div>
 
 <h2>Prijava se predaje preko platforme PiXi</h2>
 <p>Obavještavanje se provodi ispunjavanjem web obrazaca na Nacionalnoj platformi za prikupljanje, analizu i razmjenu podataka o kibernetičkim prijetnjama i incidentima, dostupnoj na <strong>pixi.carnet.hr</strong>. Pristup imaju isključivo ovlaštene osobe, putem Nacionalnog identifikacijskog i autentifikacijskog sustava.</p>
@@ -2136,6 +2146,11 @@ ARTICLES_EN.append(dict(
   </table>
 </div>
 <p>The deadlines run <strong>from becoming aware of the incident</strong>, not from when it occurred and not from when the investigation concludes. That distinction decides whether you are within the deadline.</p>
+
+<div class="callout">
+  <div class="c-label">Calculate your deadlines</div>
+  <p>Enter the moment of awareness in the <a href="/en/tools/incident-reporting-deadlines/">deadline calculator</a> and get all five dates at once, including the parallel GDPR notification. It runs in your browser and needs no sign-up.</p>
+</div>
 
 <div class="callout">
   <div class="c-label">The most common mistake</div>
@@ -3603,6 +3618,369 @@ build_blog("en", ARTICLES_EN, mjere_tablica_en)
 en_index()
 
 # ══════════════════════════════════════════════════════════════════
+# ALATI
+# ══════════════════════════════════════════════════════════════════
+TOOLS_T = {
+ "hr": dict(
+   hub="/alati/", hub_name="Alati", slug="rokovi-prijave-incidenta",
+   hub_h1="Alati koji rade posao, a ne samo objašnjavaju ga",
+   hub_intro="Besplatni alati za obveznike Zakona o kibernetičkoj sigurnosti. Rade u pregledniku, ne traže registraciju i ne šalju vaše podatke nikamo.",
+   hub_desc="Besplatni alati za usklađenost sa ZKS-om: kalkulator rokova prijave značajnog incidenta i drugi alati u pripremi.",
+   soon="Uskoro",
+   t_name="Kalkulator rokova prijave incidenta",
+   t_desc="Unesite trenutak saznanja za značajan incident i dobijete svih pet rokova s točnim datumima, uključujući usporednu prijavu AZOP-u.",
+   t_title="Kalkulator rokova prijave značajnog incidenta",
+   t_lead="Rokovi prema Zakonu o kibernetičkoj sigurnosti ne zbrajaju se i ne teku jedan za drugim. Unesite trenutak saznanja i alat izračuna svih pet obavijesti s točnim datumom i vremenom.",
+   t_desc_meta="Besplatan kalkulator rokova prijave značajnog incidenta prema ZKS-u: rano upozorenje 24 h, početna obavijest 72 h, privremeno izvješće, završno izvješće 30 dana i usporedna prijava AZOP-u.",
+   soon2_name="Provjera kategorizacije subjekta",
+   soon2_desc="Sektor, veličina i djelatnost daju vjerojatnu kategoriju subjekta i popis obveza koje iz nje slijede.",
+   soon3_name="Mini samoprocjena po 13 mjera",
+   soon3_desc="Kratka procjena spremnosti po svakoj od 13 mjera iz Priloga II. Uredbe, s grafom i pragom spremnosti.",
+   f_when="Trenutak saznanja za značajan incident",
+   f_when_sub="Rokovi teku od saznanja, ne od nastanka incidenta i ne od završetka istrage.",
+   f_sent="Trenutak dostave početne obavijesti",
+   f_sent_sub="Ako je već poslana, upišite je. Rok za završno izvješće teče od nje. Ako je ostavite praznu, računa se od isteka roka od 72 sata.",
+   f_tsp="Subjekt je pružatelj usluga povjerenja",
+   f_tsp_sub="Prema čl. 68. Uredbe, ne dostavlja rano upozorenje, nego početnu obavijest u roku od 24 sata.",
+   f_gdpr="Incident uključuje i povredu osobnih podataka",
+   f_gdpr_sub="Dodaje usporedni rok prijave Agenciji za zaštitu osobnih podataka prema čl. 33. Opće uredbe.",
+   btn_calc="Izračunaj rokove", btn_reset="Poništi", btn_copy="Kopiraj sažetak", btn_print="Ispiši",
+   copied="Sažetak kopiran",
+   res_h="Vaši rokovi", res_sub="Računato od trenutka saznanja",
+   err_date="Unesite trenutak saznanja za incident.",
+   d1="Rano upozorenje", d1_d="Nadležnom CSIRT-u, bez odgode. Ne treba objašnjavati incident, nego javiti da se dogodio.",
+   d2="Početna obavijest", d2_d="Ažurirana procjena, pokazatelji ugroženosti, ozbiljnost i utjecaj.",
+   d3="Privremeno izvješće", d3_d="Samo na zahtjev nadležnog CSIRT-a, u roku koji on odredi.",
+   d3_when="48 sati do 7 dana od zahtjeva",
+   d4="Završno izvješće", d4_d="Detaljan opis, vrsta prijetnje i temeljni uzrok, primijenjene i planirane mjere.",
+   d5="Izvješće o napretku", d5_d="Ako incident još traje kad istekne rok za završno izvješće, umjesto njega ide izvješće o napretku, pa svakih idućih 30 dana.",
+   d6="Prijava AZOP-u", d6_d="Usporedno s rokovima iz ZKS-a, prema čl. 33. Opće uredbe o zaštiti podataka.",
+   d1_tsp_note="Ne primjenjuje se - pružatelji usluga povjerenja ne dostavljaju rano upozorenje.",
+   left_over="rok je istekao", left_h="preostalo %d h %d min", left_d="preostalo %d dana %d h",
+   left_from="od dostave početne obavijesti",
+   note="Prijava se predaje na platformi PiXi (pixi.carnet.hr), pristup preko sustava NIAS. Ako platforma nije dostupna, obavijest se šalje obrascem na adresu nadležnog CSIRT-a, a podaci se naknadno unose u platformu. Nadležnost CSIRT-a određuje se prema sektoru, sukladno Prilogu III. Zakona.",
+   disclaimer="Alat je informativno pomagalo i ne zamjenjuje pravni savjet ni službene smjernice. Rokovi se računaju prema čl. 65. do 71. Uredbe o kibernetičkoj sigurnosti. Provjerite kriterije značajnosti iz čl. 59. do 62. Uredbe prije prijave.",
+   more="Više o obvezi prijave",
+   more_url="/blog/znacajan-incident-pet-obavijesti-pixi/",
+   privacy_note="Alat radi isključivo u vašem pregledniku. Unesenih podataka nema na našem poslužitelju.",
+   summary_h="ROKOVI PRIJAVE ZNAČAJNOG INCIDENTA",
+   summary_from="Saznanje:",
+ ),
+ "en": dict(
+   hub="/en/tools/", hub_name="Tools", slug="incident-reporting-deadlines",
+   hub_h1="Tools that do the work, not just explain it",
+   hub_intro="Free tools for entities in scope of the Croatian Cybersecurity Act. They run in your browser, require no sign-up, and send your data nowhere.",
+   hub_desc="Free compliance tools: a deadline calculator for reporting significant cyber incidents under the Croatian Cybersecurity Act, and more in preparation.",
+   soon="Coming soon",
+   t_name="Incident reporting deadline calculator",
+   t_desc="Enter the moment you became aware of a significant incident and get all five deadlines with exact dates, including the parallel GDPR notification.",
+   t_title="Incident reporting deadline calculator",
+   t_lead="Deadlines under the Croatian Cybersecurity Act do not add up and do not run one after another. Enter the moment of awareness and the tool computes all five notifications with exact date and time.",
+   t_desc_meta="Free calculator for significant incident reporting deadlines under the Croatian Cybersecurity Act: early warning 24 h, incident notification 72 h, intermediate report, final report 30 days and the parallel GDPR notification.",
+   soon2_name="Entity categorisation check",
+   soon2_desc="Sector, size and activity produce a likely entity category and the obligations that follow from it.",
+   soon3_name="Readiness check against the 13 measures",
+   soon3_desc="A short readiness assessment against each of the 13 measures of Annex II, with a chart and a readiness threshold.",
+   f_when="Moment of becoming aware of a significant incident",
+   f_when_sub="Deadlines run from awareness, not from when the incident occurred and not from when the investigation ends.",
+   f_sent="Moment the incident notification was delivered",
+   f_sent_sub="If already sent, enter it. The final report deadline runs from it. Leave blank and it is computed from the 72-hour deadline.",
+   f_tsp="The entity is a trust service provider",
+   f_tsp_sub="Under Art. 68 of the Regulation, no early warning is submitted; the incident notification is due within 24 hours instead.",
+   f_gdpr="The incident also involves a personal data breach",
+   f_gdpr_sub="Adds the parallel notification to the data protection authority under Art. 33 GDPR.",
+   btn_calc="Calculate deadlines", btn_reset="Reset", btn_copy="Copy summary", btn_print="Print",
+   copied="Summary copied",
+   res_h="Your deadlines", res_sub="Calculated from the moment of awareness",
+   err_date="Enter the moment you became aware of the incident.",
+   d1="Early warning", d1_d="To the competent CSIRT, without delay. It does not explain the incident, it reports that one occurred.",
+   d2="Incident notification", d2_d="Updated assessment, indicators of compromise, severity and impact.",
+   d3="Intermediate report", d3_d="Only on request of the competent CSIRT, within the period it sets.",
+   d3_when="48 hours to 7 days from the request",
+   d4="Final report", d4_d="Detailed description, threat type and root cause, measures applied and planned.",
+   d5="Progress report", d5_d="If the incident is still ongoing when the final report falls due, a progress report is submitted instead, and every 30 days thereafter.",
+   d6="Data protection notification", d6_d="Runs in parallel with the deadlines under the Act, under Art. 33 GDPR.",
+   d1_tsp_note="Not applicable - trust service providers do not submit an early warning.",
+   left_over="deadline passed", left_h="%d h %d min left", left_d="%d days %d h left",
+   left_from="from delivery of the incident notification",
+   note="Notifications are submitted through the PiXi platform (pixi.carnet.hr), accessed via the national identification system. If the platform is unavailable, the notification is sent by form to the competent CSIRT and entered into the platform afterwards. CSIRT competence follows the sector, under Annex III of the Act.",
+   disclaimer="This tool is an informative aid and does not replace legal advice or official guidance. Deadlines follow Art. 65 to 71 of the Cybersecurity Regulation. Check the significance criteria in Art. 59 to 62 before reporting.",
+   more="More on the reporting obligation",
+   more_url="/en/blog/incident-reporting-deadlines/",
+   privacy_note="The tool runs entirely in your browser. Nothing you enter reaches our server.",
+   summary_h="SIGNIFICANT INCIDENT REPORTING DEADLINES",
+   summary_from="Awareness:",
+ ),
+}
+
+TOOL_ICONS = {
+ "clock": '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
+ "split": '<svg viewBox="0 0 24 24"><path d="M3 5h5l4 7 4-7h5M3 19h5l4-7"/><circle cx="20" cy="19" r="2"/></svg>',
+ "chart": '<svg viewBox="0 0 24 24"><path d="M3 20h18M7 20V10M12 20V4M17 20v-7"/></svg>',
+}
+
+
+def build_tools(lang, articles):
+    t = L[lang]
+    w = TOOLS_T[lang]
+    FOOT = footer(lang, articles)
+    out_dir = os.path.join(ROOT, "en", "tools") if lang == "en" else os.path.join(ROOT, "alati")
+    os.makedirs(os.path.join(out_dir, w["slug"]), exist_ok=True)
+
+    hr_hub, en_hub = SITE + "/alati/", SITE + "/en/tools/"
+
+    # ── Hub ───────────────────────────────────────────────────────
+    cards = '''      <a class="tool-card" href="%s%s/">
+        <div class="tool-icon">%s</div>
+        <div class="tool-name">%s</div>
+        <div class="tool-desc">%s</div>
+        <span class="tool-tag">%s</span>
+      </a>''' % (w["hub"], w["slug"], TOOL_ICONS["clock"], w["t_name"], w["t_desc"],
+                 "ZKS / NIS2" if lang == "hr" else "CSA / NIS2")
+    for icon, nm, ds in [("split", w["soon2_name"], w["soon2_desc"]), ("chart", w["soon3_name"], w["soon3_desc"])]:
+        cards += '''
+      <div class="tool-card soon">
+        <div class="tool-icon">%s</div>
+        <div class="tool-name">%s</div>
+        <div class="tool-desc">%s</div>
+        <span class="tool-tag grey">%s</span>
+      </div>''' % (TOOL_ICONS[icon], nm, ds, w["soon"])
+
+    hub_body = header(lang, active_blog=False) + '''
+<main>
+  <section class="kb-hero">
+    <div class="container">
+      <div class="eyebrow">%s</div>
+      <h1>%s</h1>
+      <p>%s</p>
+    </div>
+  </section>
+  <div class="container">
+    <div class="tool-grid">
+%s
+    </div>
+  </div>
+</main>
+''' % (w["hub_name"], w["hub_h1"], w["hub_intro"], cards) + FOOT
+
+    io.open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8").write(
+      page(w["hub_name"] + " | Adventure Spirit Consulting", w["hub_desc"], hub_body,
+           SITE + w["hub"], lang=lang, extra_head=hreflang(hr_hub, en_hub)))
+
+    # ── Kalkulator ────────────────────────────────────────────────
+    url = SITE + w["hub"] + w["slug"] + "/"
+    JS = '''<script>
+(function () {
+  var T = %s;
+  var $ = function (id) { return document.getElementById(id); };
+
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function fmt(d) {
+    var t = pad(d.getHours()) + ":" + pad(d.getMinutes());
+    if (T.lang === "en") {
+      return d.getDate() + " " + T.months[d.getMonth()] + " " + d.getFullYear() + ", " + t;
+    }
+    return pad(d.getDate()) + "." + pad(d.getMonth() + 1) + "." + d.getFullYear() + ". " + t;
+  }
+  function add(d, ms) { return new Date(d.getTime() + ms); }
+  // Rokovi u danima racunaju se kalendarski, da prijelaz na ljetno ili
+  // zimsko racunanje vremena ne pomakne sat u roku.
+  function addDays(d, n) { var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
+  var H = 3600000, D = 86400000;
+
+  function remaining(target) {
+    var diff = target.getTime() - Date.now();
+    if (diff <= 0) return { cls: "over", txt: T.over };
+    if (diff < D) {
+      var h = Math.floor(diff / H), m = Math.floor((diff %% H) / 60000);
+      return { cls: diff < 6 * H ? "soon" : "ok", txt: T.leftH.replace("%%1", h).replace("%%2", m) };
+    }
+    var dd = Math.floor(diff / D), hh = Math.floor((diff %% D) / H);
+    return { cls: "ok", txt: T.leftD.replace("%%1", dd).replace("%%2", hh) };
+  }
+
+  function row(n, title, desc, when, extra, muted) {
+    var r = remaining(when instanceof Date ? when : new Date(8640000000000000));
+    var whenTxt = when instanceof Date ? fmt(when) : when;
+    var leftTxt = when instanceof Date ? r.txt : (extra || "");
+    var leftCls = when instanceof Date ? r.cls : "info";
+    if (muted) { leftTxt = extra || ""; leftCls = "info"; }
+    return '<div class="dl' + (muted ? " muted" : "") + '">' +
+      '<div class="dl-num">' + n + '</div>' +
+      '<div><div class="dl-title">' + title + '</div><div class="dl-desc">' + desc +
+        (!muted && when instanceof Date && extra ? '<br><span style="color:#6b7488">' + extra + '</span>' : '') +
+      '</div></div>' +
+      '<div class="dl-when"><div class="dl-date">' + whenTxt + '</div>' +
+      '<div class="dl-left ' + leftCls + '">' + leftTxt + '</div></div></div>';
+  }
+
+  function calc() {
+    var raw = $("t-when").value;
+    var err = $("t-err");
+    if (!raw) { err.textContent = T.errDate; err.hidden = false; $("t-result").hidden = true; return; }
+    err.hidden = true;
+
+    var t0 = new Date(raw);
+    var tsp = $("t-tsp").checked, gdpr = $("t-gdpr").checked;
+    var sentRaw = $("t-sent").value;
+    var initial = tsp ? add(t0, 24 * H) : add(t0, 72 * H);
+    var sent = sentRaw ? new Date(sentRaw) : initial;
+    var finalDue = addDays(sent, 30);
+
+    var html = "", n = 1;
+    if (tsp) {
+      html += row("-", T.d1, T.d1d, "\\u2014", T.tspNote, true);
+    } else {
+      html += row(pad(n++), T.d1, T.d1d, add(t0, 24 * H), "24 h");
+    }
+    html += row(pad(n++), T.d2, T.d2d, initial, tsp ? "24 h" : "72 h");
+    html += row(pad(n++), T.d3, T.d3d, T.d3when, "", true);
+    html += row(pad(n++), T.d4, T.d4d, finalDue, "30 " + T.days + " " + (sentRaw ? T.leftFrom : T.leftFromCalc));
+    html += row(pad(n++), T.d5, T.d5d, addDays(finalDue, 30), T.d5extra, true);
+    if (gdpr) html += row("+", T.d6, T.d6d, add(t0, 72 * H), "72 h");
+
+    $("dl-list").innerHTML = html;
+    $("t-from").textContent = fmt(t0);
+    $("t-result").hidden = false;
+
+    var lines = [T.summaryH, T.summaryFrom + " " + fmt(t0), ""];
+    if (!tsp) lines.push("1. " + T.d1 + ": " + fmt(add(t0, 24 * H)));
+    lines.push((tsp ? "1. " : "2. ") + T.d2 + ": " + fmt(initial));
+    lines.push((tsp ? "2. " : "3. ") + T.d3 + ": " + T.d3when);
+    lines.push((tsp ? "3. " : "4. ") + T.d4 + ": " + fmt(finalDue));
+    lines.push((tsp ? "4. " : "5. ") + T.d5 + ": " + fmt(addDays(finalDue, 30)));
+    if (gdpr) lines.push("+  " + T.d6 + ": " + fmt(add(t0, 72 * H)));
+    lines.push("", T.disclaimer);
+    $("t-summary").textContent = lines.join("\\n");
+    $("t-result").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  $("t-calc").addEventListener("click", calc);
+  $("t-reset").addEventListener("click", function () {
+    $("t-when").value = ""; $("t-sent").value = "";
+    $("t-tsp").checked = false; $("t-gdpr").checked = false;
+    $("t-result").hidden = true; $("t-err").hidden = true;
+  });
+  $("t-print").addEventListener("click", function () { window.print(); });
+  $("t-copy").addEventListener("click", function () {
+    var txt = $("t-summary").textContent;
+    var done = function () { $("t-copied").hidden = false; setTimeout(function () { $("t-copied").hidden = true; }, 2500); };
+    if (navigator.clipboard) { navigator.clipboard.writeText(txt).then(done, done); }
+    else { var ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta);
+           ta.select(); try { document.execCommand("copy"); } catch (e) {} ta.remove(); done(); }
+  });
+  ["t-when", "t-sent"].forEach(function (id) {
+    $(id).addEventListener("keydown", function (e) { if (e.key === "Enter") calc(); });
+  });
+})();
+</script>''' % json.dumps({
+      "errDate": w["err_date"], "over": w["left_over"],
+      "leftH": w["left_h"].replace("%d", "%1", 1).replace("%d", "%2", 1),
+      "leftD": w["left_d"].replace("%d", "%1", 1).replace("%d", "%2", 1),
+      "d1": w["d1"], "d1d": w["d1_d"], "d2": w["d2"], "d2d": w["d2_d"],
+      "d3": w["d3"], "d3d": w["d3_d"], "d3when": w["d3_when"],
+      "d4": w["d4"], "d4d": w["d4_d"], "d5": w["d5"], "d5d": w["d5_d"],
+      "d6": w["d6"], "d6d": w["d6_d"], "tspNote": w["d1_tsp_note"],
+      "days": "dana" if lang == "hr" else "days",
+      "leftFrom": w["left_from"],
+      "leftFromCalc": ("od isteka roka od 72 sata" if lang == "hr" else "from the 72-hour deadline"),
+      "d5extra": ("i svakih idućih 30 dana" if lang == "hr" else "and every 30 days thereafter"),
+      "summaryH": w["summary_h"], "summaryFrom": w["summary_from"],
+      "disclaimer": w["disclaimer"], "lang": lang,
+      "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    }, ensure_ascii=False)
+
+    body = header(lang, active_blog=False) + '''
+<main>
+  <div class="container narrow">
+    <div class="crumbs">
+      <a href="%s">%s</a><span>&rsaquo;</span><a href="%s">%s</a><span>&rsaquo;</span>%s
+    </div>
+    <header class="art-head">
+      <div class="eyebrow">%s</div>
+      <h1>%s</h1>
+      <p class="art-lead">%s</p>
+    </header>
+
+    <div class="tool-panel">
+      <div class="field">
+        <label for="t-when">%s</label>
+        <input type="datetime-local" id="t-when">
+        <div class="sub">%s</div>
+      </div>
+      <div class="field">
+        <label for="t-sent">%s</label>
+        <input type="datetime-local" id="t-sent">
+        <div class="sub">%s</div>
+      </div>
+      <label class="check"><input type="checkbox" id="t-tsp"><span>%s<em>%s</em></span></label>
+      <label class="check"><input type="checkbox" id="t-gdpr"><span>%s<em>%s</em></span></label>
+      <p id="t-err" class="dl-left over" hidden style="margin-top:12px"></p>
+      <div class="tool-actions">
+        <button type="button" class="btn-primary" id="t-calc">%s</button>
+        <button type="button" class="btn-ghost" id="t-reset">%s</button>
+      </div>
+      <p class="sub" style="margin-top:18px">%s</p>
+    </div>
+
+    <div class="tool-result" id="t-result" hidden>
+      <div class="result-head">
+        <h2>%s</h2>
+        <span>%s <strong id="t-from"></strong></span>
+      </div>
+      <div class="dl-list" id="dl-list"></div>
+      <div class="note tool-note"><p>%s</p></div>
+      <div class="summary-box" id="t-summary"></div>
+      <div class="tool-actions">
+        <button type="button" class="btn-ghost" id="t-copy">%s</button>
+        <button type="button" class="btn-ghost" id="t-print">%s</button>
+        <span class="copied" id="t-copied" hidden>%s</span>
+      </div>
+    </div>
+
+    <article style="padding-top:40px">
+      <div class="note"><p>%s</p></div>
+      <p><a href="%s">%s &rarr;</a></p>
+    </article>
+    %s
+  </div>
+</main>
+''' % (t["base"] or "/", t["home"], w["hub"], w["hub_name"], w["t_name"],
+       w["hub_name"], w["t_title"], w["t_lead"],
+       w["f_when"], w["f_when_sub"], w["f_sent"], w["f_sent_sub"],
+       w["f_tsp"], w["f_tsp_sub"], w["f_gdpr"], w["f_gdpr_sub"],
+       w["btn_calc"], w["btn_reset"], w["privacy_note"],
+       w["res_h"], w["res_sub"], w["note"],
+       w["btn_copy"], w["btn_print"], w["copied"],
+       w["disclaimer"], w["more_url"], w["more"], cta_block(lang)) + FOOT + JS
+
+    ld = [{
+      "@context": "https://schema.org", "@type": "WebApplication",
+      "name": w["t_title"], "description": w["t_desc_meta"], "url": url,
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any", "browserRequirements": "JavaScript",
+      "inLanguage": "hr-HR" if lang == "hr" else "en-GB",
+      "isAccessibleForFree": True,
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+      "publisher": {"@type": "Organization", "name": "Adventure Spirit Consulting",
+                    "legalName": "Adventure Spirit d.o.o.", "url": SITE + "/"},
+    }, {
+      "@context": "https://schema.org", "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": t["home"], "item": SITE + (t["base"] or "/")},
+        {"@type": "ListItem", "position": 2, "name": w["hub_name"], "item": SITE + w["hub"]},
+        {"@type": "ListItem", "position": 3, "name": w["t_name"], "item": url}]}]
+
+    io.open(os.path.join(out_dir, w["slug"], "index.html"), "w", encoding="utf-8").write(
+      page(w["t_title"] + " | Adventure Spirit Consulting", w["t_desc_meta"], body, url,
+           lang=lang, extra_head=hreflang(hr_hub + TOOLS_T["hr"]["slug"] + "/",
+                                          en_hub + TOOLS_T["en"]["slug"] + "/"), ld=ld))
+
+
+build_tools("hr", ARTICLES)
+build_tools("en", ARTICLES_EN)
+
+# ══════════════════════════════════════════════════════════════════
 # hreflang i preklopnik jezika na hrvatskoj naslovnici
 # ══════════════════════════════════════════════════════════════════
 _idx = os.path.join(ROOT, "index.html")
@@ -3642,7 +4020,10 @@ io.open(_idx, "w", encoding="utf-8").write(_s)
 # sitemap.xml + robots.txt
 # ══════════════════════════════════════════════════════════════════
 urls = [(SITE + "/", "1.0", "weekly"), (SITE + "/en/", "0.9", "weekly"),
-        (SITE + "/blog/", "0.9", "weekly"), (SITE + "/en/blog/", "0.8", "weekly")]
+        (SITE + "/blog/", "0.9", "weekly"), (SITE + "/en/blog/", "0.8", "weekly"),
+        (SITE + "/alati/", "0.9", "monthly"), (SITE + "/en/tools/", "0.8", "monthly"),
+        (SITE + "/alati/" + TOOLS_T["hr"]["slug"] + "/", "0.9", "monthly"),
+        (SITE + "/en/tools/" + TOOLS_T["en"]["slug"] + "/", "0.8", "monthly")]
 urls += [("%s/blog/%s/" % (SITE, a["slug"]), "0.8", "monthly") for a in ARTICLES]
 urls += [("%s/en/blog/%s/" % (SITE, a["slug"]), "0.7", "monthly") for a in ARTICLES_EN]
 urls += [(SITE + "/uvjeti/", "0.3", "yearly"), (SITE + "/privatnost/", "0.3", "yearly"),
@@ -3661,5 +4042,5 @@ Allow: /
 Sitemap: %s/sitemap.xml
 ''' % SITE)
 
-print("Generirano: HR %d + EN %d clanaka, 2 popisne stranice, 2 feeda, 2x404, EN naslovnica, sitemap, robots"
+print("Generirano: alati + HR %d + EN %d clanaka, 2 popisne stranice, 2 feeda, 2x404, EN naslovnica, sitemap, robots"
       % (len(ARTICLES), len(ARTICLES_EN)))
