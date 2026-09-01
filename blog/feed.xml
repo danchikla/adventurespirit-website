@@ -15,6 +15,54 @@
     <description>Objašnjenje bodovnog sustava iz ZSIS-ovog okvira za evaluaciju: minimalni prag po kontroli, dodatni prag prosjeka po podmjeri i zašto formalno ispunjavanje kriterija nije dovoljno.</description>
   </item>
   <item>
+    <title>Active Directory: pet nalaza koje pronađemo u gotovo svakom testu</title>
+    <link>https://adventurespirit.hr/blog/active-directory-putovi-napada/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/blog/active-directory-putovi-napada/</guid>
+    <category>Ofenzivna sigurnost</category>
+    <pubDate>Tue, 18 Aug 2026 09:00:00 +0200</pubDate>
+    <description>Najčešći nalazi u sigurnosnim procjenama Active Directoryja: naslijeđeni protokoli, prekomjerne delegacije, lozinke u atributima, nepotrebna članstva u povlaštenim grupama i pristup sigurnosnim kopijama.</description>
+  </item>
+  <item>
+    <title>NIST CSF 2.0 i funkcija Govern: okvir koji je konačno priznao upravu</title>
+    <link>https://adventurespirit.hr/blog/nist-csf-2-funkcija-govern/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/blog/nist-csf-2-funkcija-govern/</guid>
+    <category>Okviri</category>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 +0200</pubDate>
+    <description>Što donosi funkcija Govern u NIST Cybersecurity Framework 2.0, kako se šest funkcija odnosi prema 13 mjera Uredbe o kibernetičkoj sigurnosti i zašto se okvir isplati koristiti kao zajednički jezik prema upravi.</description>
+  </item>
+  <item>
+    <title>Što osiguravatelji stvarno pitaju prije nego što ponude policu</title>
+    <link>https://adventurespirit.hr/blog/sto-osiguravatelji-pitaju-kibernetickom-osiguranju/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/blog/sto-osiguravatelji-pitaju-kibernetickom-osiguranju/</guid>
+    <category>Cyber osiguranje</category>
+    <pubDate>Tue, 07 Jul 2026 09:00:00 +0200</pubDate>
+    <description>Koja pitanja se pojavljuju u upitnicima za kibernetičko osiguranje, zašto se premija i pokriće vežu uz konkretne kontrole i kako se dokazna baza za ZKS i ISO 27001 koristi u pregovorima o polici.</description>
+  </item>
+  <item>
+    <title>DORA registar informacija: zašto pada na podacima, a ne na propisu</title>
+    <link>https://adventurespirit.hr/blog/dora-registar-informacija/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/blog/dora-registar-informacija/</guid>
+    <category>DORA</category>
+    <pubDate>Tue, 16 Jun 2026 09:00:00 +0200</pubDate>
+    <description>Što DORA traži u registru informacija o ugovorima s pružateljima IKT usluga, zašto se popunjavanje najčešće zaglavi na kvaliteti podataka i kako povezati registar s postojećim registrom imovine i rizika.</description>
+  </item>
+  <item>
+    <title>BIA koja daje upotrebljiv RTO, a ne broj koji svi ignoriraju</title>
+    <link>https://adventurespirit.hr/blog/bia-koja-daje-upotrebljiv-rto/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/blog/bia-koja-daje-upotrebljiv-rto/</guid>
+    <category>Kontinuitet poslovanja</category>
+    <pubDate>Tue, 26 May 2026 09:00:00 +0200</pubDate>
+    <description>Kako provesti analizu poslovnog utjecaja prema ISO 22301 tako da RTO i RPO budu upotrebljivi: tko daje podatke, kako se izbjegava da sve bude kritično, i kako se BIA povezuje s mjerom 12 Uredbe o kibernetičkoj sigurnosti.</description>
+  </item>
+  <item>
+    <title>ISO 27002:2022: 93 kontrole i pet atributa koje većina preskoči</title>
+    <link>https://adventurespirit.hr/blog/iso-27002-2022-atributi-kontrola/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/blog/iso-27002-2022-atributi-kontrola/</guid>
+    <category>ISO norme</category>
+    <pubDate>Tue, 05 May 2026 09:00:00 +0200</pubDate>
+    <description>Što se promijenilo u ISO/IEC 27002:2022 - četiri teme umjesto četrnaest poglavlja, 93 kontrole i pet atributa. Kako prijeći sa stare Izjave o primjenjivosti bez gubitka dokazne baze.</description>
+  </item>
+  <item>
     <title>24 sata, 72 sata, 30 dana: rokovi koji teku paralelno</title>
     <link>https://adventurespirit.hr/blog/rokovi-prijave-incidenta/</link>
     <guid isPermaLink="true">https://adventurespirit.hr/blog/rokovi-prijave-incidenta/</guid>

@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Imate ISO 27001. Koliko vam to vrijedi kod ZKS-a? | Adventure Spirit Consulting</title>
-<meta name="description" content="Koliko ISO/IEC 27001:2022 pokriva od 13 mjera Uredbe o kibernetičkoj sigurnosti, gdje su stvarne praznine i kako mapirati postojeće kontrole umjesto pisanja nove dokumentacije.">
-<link rel="canonical" href="https://adventurespirit.hr/blog/iso-27001-i-zks/">
+<title>BIA koja daje upotrebljiv RTO, a ne broj koji svi ignoriraju | Adventure Spirit Consulting</title>
+<meta name="description" content="Kako provesti analizu poslovnog utjecaja prema ISO 22301 tako da RTO i RPO budu upotrebljivi: tko daje podatke, kako se izbjegava da sve bude kritično, i kako se BIA povezuje s mjerom 12 Uredbe o kibernetičkoj sigurnosti.">
+<link rel="canonical" href="https://adventurespirit.hr/blog/bia-koja-daje-upotrebljiv-rto/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#0f1117">
 <meta name="author" content="Daniel Bara, dr. sc.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Adventure Spirit Consulting">
 <meta property="og:locale" content="hr_HR">
-<meta property="og:url" content="https://adventurespirit.hr/blog/iso-27001-i-zks/">
-<meta property="og:title" content="Imate ISO 27001. Koliko vam to vrijedi kod ZKS-a? | Adventure Spirit Consulting">
-<meta property="og:description" content="Koliko ISO/IEC 27001:2022 pokriva od 13 mjera Uredbe o kibernetičkoj sigurnosti, gdje su stvarne praznine i kako mapirati postojeće kontrole umjesto pisanja nove dokumentacije.">
+<meta property="og:url" content="https://adventurespirit.hr/blog/bia-koja-daje-upotrebljiv-rto/">
+<meta property="og:title" content="BIA koja daje upotrebljiv RTO, a ne broj koji svi ignoriraju | Adventure Spirit Consulting">
+<meta property="og:description" content="Kako provesti analizu poslovnog utjecaja prema ISO 22301 tako da RTO i RPO budu upotrebljivi: tko daje podatke, kako se izbjegava da sve bude kritično, i kako se BIA povezuje s mjerom 12 Uredbe o kibernetičkoj sigurnosti.">
 <meta property="og:image" content="https://adventurespirit.hr/mmew/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Imate ISO 27001. Koliko vam to vrijedi kod ZKS-a? | Adventure Spirit Consulting">
-<meta name="twitter:description" content="Koliko ISO/IEC 27001:2022 pokriva od 13 mjera Uredbe o kibernetičkoj sigurnosti, gdje su stvarne praznine i kako mapirati postojeće kontrole umjesto pisanja nove dokumentacije.">
+<meta name="twitter:title" content="BIA koja daje upotrebljiv RTO, a ne broj koji svi ignoriraju | Adventure Spirit Consulting">
+<meta name="twitter:description" content="Kako provesti analizu poslovnog utjecaja prema ISO 22301 tako da RTO i RPO budu upotrebljivi: tko daje podatke, kako se izbjegava da sve bude kritično, i kako se BIA povezuje s mjerom 12 Uredbe o kibernetičkoj sigurnosti.">
 <link rel="alternate" type="application/rss+xml" title="Baza znanja - Adventure Spirit Consulting" href="/blog/feed.xml">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 6L44 42h12Z' fill='%23EF653F'/%3E%3Cline x1='44' y1='33' x2='56' y2='33' stroke='%23EF653F' stroke-width='3'/%3E%3Cpath d='M50 94L44 68h12Z' fill='%23EF653F'/%3E%3Cpath d='M94 50L68 44v12Z' fill='%23EF653F'/%3E%3Cpath d='M6 50L32 44v12Z' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='7' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='4' fill='%23c14b28'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,69 +83,68 @@
 <main>
   <div class="container narrow">
     <div class="crumbs">
-      <a href="/">Početna</a><span>&rsaquo;</span><a href="/blog/">Baza znanja</a><span>&rsaquo;</span>ISO norme
+      <a href="/">Početna</a><span>&rsaquo;</span><a href="/blog/">Baza znanja</a><span>&rsaquo;</span>Kontinuitet poslovanja
     </div>
     <header class="art-head">
-      <div class="eyebrow">ISO norme</div>
-      <h1>Imate ISO 27001. Koliko vam to vrijedi kod ZKS-a?</h1>
-      <p class="art-lead">Certifikat vas ne oslobađa obveze, ali vas ozbiljno skraćuje put. Pitanje je samo koje mjere pokriva, koje dodiruje, a koje ne dira uopće - i kako to dokazati bez pisanja druge dokumentacije paralelno.</p>
+      <div class="eyebrow">Kontinuitet poslovanja</div>
+      <h1>BIA koja daje upotrebljiv RTO, a ne broj koji svi ignoriraju</h1>
+      <p class="art-lead">Analiza poslovnog utjecaja najčešće završi kao tablica u kojoj svaki proces ima RTO od četiri sata. Ako je sve kritično, ništa nije - a plan oporavka koji iz toga nastane ne izdrži prvi pravi ispad.</p>
       <div class="art-meta">
-        <span><strong>Daniel Bara, dr. sc.</strong></span><span>3. ožujka 2026.</span><span>7 min čitanja</span>
+        <span><strong>Daniel Bara, dr. sc.</strong></span><span>26. svibnja 2026.</span><span>7 min čitanja</span>
       </div>
     </header>
     <article>
 
-<p>Prva stvar koju treba raščistiti: <strong>ISO 27001 certifikat ne zamjenjuje usklađenost sa ZKS-om</strong>. Nema odredbe koja kaže da certificirani subjekt ne provodi mjere iz Priloga II. Ali odnos nije ni beskoristan - suprotno, organizacija s uhodanim ISMS-om u pravilu ima najveći dio potrebnog materijala, samo u drugom rasporedu.</p>
+<p>Analiza poslovnog utjecaja je temelj cijelog sustava upravljanja kontinuitetom. Ako je pogrešna, pogrešno je sve što stoji na njoj: planovi oporavka, ulaganja u redundanciju, ugovori s dobavljačima i prioriteti tijekom stvarne krize.</p>
+<p>A pogrešna je češće nego što se misli, i to gotovo uvijek na isti način.</p>
 
-<h2>Gdje se preklapa jako</h2>
-<p>Norma i Uredba dijele istu logiku upravljanja: znaj što imaš, znaj što ti prijeti, odluči što ćeš s tim, zapiši i preispitaj. To se odražava na nekoliko mjera gdje ISO organizacija u pravilu ima gotovo sve:</p>
-<ul>
-  <li><strong>Mjera 2, upravljanje imovinom.</strong> Inventar, vlasništvo, klasifikacija - postoji.</li>
-  <li><strong>Mjera 3, upravljanje rizicima.</strong> Metodologija, registar rizika, plan obrade, vlasnici - postoji, uz jednu napomenu niže.</li>
-  <li><strong>Mjera 7, kontrola pristupa.</strong> Politika pristupa, načelo najmanje privilegije, povlašteni pristup - postoji.</li>
-  <li><strong>Mjera 8, sigurnost lanca opskrbe.</strong> Kontrole odnosa s dobavljačima - postoji, u pravilu na višoj razini nego u organizacijama bez norme.</li>
-  <li><strong>Mjera 12, kontinuitet poslovanja.</strong> Ako je uz 27001 uspostavljen i ISO 22301, praktički je pokrivena.</li>
-  <li><strong>Mjera 1, predanost uprave.</strong> Vodstvo, politika, uloge i odgovornosti, upravljački pregled - postoji kao struktura, ali sadržaj treba proširiti.</li>
-</ul>
-
-<h2>Gdje se preklapa djelomično</h2>
-<p>Ovdje nastaje najviše nesporazuma, jer izgleda kao da je gotovo, a nije.</p>
-<h3>Procjena rizika po all-hazards načelu</h3>
-<p>Uredba traži procjenu koja obuhvaća sve vrste opasnosti - uključujući požar, poplavu, nestanak struje, ispad komunikacijske infrastrukture i neovlašteni fizički pristup. Mnogi ISMS-ovi procjenu rizika drže u granicama informacijskih prijetnji. Metodologija je ista, opseg nije.</p>
-<h3>Fizička sigurnost</h3>
-<p>Mjera 13 je zasebna mjera s vlastitim podmjerama. U normi je to skup kontrola unutar Priloga A. Materijal postoji, ali ga treba izdvojiti i dokazati po podmjerama, a ne pokazati kao dio šireg skupa.</p>
-<h3>Kriptografija</h3>
-<p>Mjera 10 traži pravila primjene, zaštitu podataka u prijenosu i mirovanju, upravljanje ključevima i - razmjerno riziku - pripremu na kvantno otpornu kriptografiju. Zadnje je novije od većine ISMS dokumentacije koju viđamo.</p>
-
-<h2>Gdje norma ne pomaže</h2>
-<p>Tri skupine obveza nemaju odgovarajući ekvivalent u normi jer proizlaze iz propisa, ne iz upravljačke prakse:</p>
-<ol>
-  <li><strong>Kategorizacija i sve što iz nje slijedi.</strong> Razina provedbe, nadležno tijelo, rokovi.</li>
-  <li><strong>Prijava incidenata u propisanim rokovima.</strong> Norma traži proces upravljanja incidentima, ali ne poznaje rokove od 24, 72 sata i 30 dana ni prijavu nadležnom CSIRT-u.</li>
-  <li><strong>Format i postupak provjere.</strong> Samoprocjena po bodovnom okviru, odnosno neovisna revizija, nemaju veze s certifikacijskim auditom prema normi.</li>
-</ol>
-
+<h2>Simptom: svi procesi su kritični</h2>
+<p>Kad se voditelje odjela pita koliko dugo njihov proces smije stajati, odgovor je predvidljiv. Nitko ne kaže "moj proces može čekati tri dana". Rezultat je tablica u kojoj dvadeset od dvadeset dva procesa ima RTO od četiri sata, a organizacija koja to pokuša ostvariti mora udvostručiti infrastrukturu.</p>
 <div class="callout">
-  <div class="c-label">Praktičan zaključak</div>
-  <p>ISO 27001 vam skraćuje put, ali ne mijenja odredište. Realno očekivanje: uhodan ISMS pokriva znatan dio dokazne baze, a ostatak se dopunjuje. Neuhodan ISMS - onaj koji je napravljen za certifikat i od tada se ne koristi - ne pomaže gotovo ništa, jer nedostaju upravo zapisi koji dokazuju da sustav živi.</p>
+  <div class="c-label">Zašto se to događa</div>
+  <p>Pitanje "koliko dugo proces smije stajati" je pitanje o osjećaju važnosti. Pitanje "koliki je gubitak nakon 4, 24 i 72 sata, izražen u novcu, ugovornoj kazni, regulatornom riziku i broju pogođenih korisnika" je pitanje o posljedici. Prvo daje jednake odgovore, drugo ih razlikuje.</p>
 </div>
 
-<h2>Kako to napraviti bez dupliranja</h2>
-<p>Redoslijed koji funkcionira:</p>
+<h2>Kako postaviti BIA da razlikuje</h2>
+<p>Tri promjene u pristupu daju upotrebljiv rezultat:</p>
+<h3>1. Mjerite utjecaj kroz vrijeme, ne u jednoj točki</h3>
+<p>Za svaki proces procijenite posljedicu u nekoliko vremenskih odsječaka - primjerice nakon 4 sata, 24 sata, 3 dana i 7 dana. Krivulja koja iz toga nastane pokazuje gdje je stvarni prag boli. Većina procesa ima ravnu krivulju do određene točke pa nagli skok; RTO se postavlja prije tog skoka, ne na proizvoljne četiri sata.</p>
+<h3>2. Koristite više kategorija utjecaja</h3>
+<p>Financijski gubitak, ugovorne obveze, regulatorne posljedice, sigurnost ljudi i ugled. Proces može biti financijski nevažan, a regulatorno kritičan - prijava incidenta je upravo takav slučaj.</p>
+<h3>3. Neka ukupni RTO bude ograničen resurs</h3>
+<p>Ako unaprijed znate da možete financirati oporavak pet procesa u prva četiri sata, onda voditelji ne rangiraju svaki svoj proces zasebno nego zajedno raspoređuju ograničeni kapacitet. Razgovor se odmah promijeni.</p>
+
+<h2>RPO se određuje drugdje</h2>
+<p>Česta zamjena teza: RTO i RPO postavlja ista osoba u istom retku tablice. RTO je poslovna odluka o tome koliko dugo proces smije stajati. RPO je odluka o tome koliko podataka smijete izgubiti, i ona ovisi o tome koliko se često podaci mijenjaju i može li se gubitak nadoknaditi ručno.</p>
+<p>Proces koji jednom dnevno obrađuje šaržu podataka može imati RTO od dva sata i RPO od 24 sata bez ikakve nedosljednosti. Proces koji prima transakcije u realnom vremenu ne može.</p>
+
+<h2>Što BIA mora proizvesti da bi bila upotrebljiva</h2>
+<ul>
+  <li><strong>Popis procesa s vlasnicima</strong> - osobama, ne odjelima.</li>
+  <li><strong>Ovisnosti.</strong> Aplikacije, ljudi, prostori, dobavljači i drugi procesi. Proces s RTO-om od 4 sata koji ovisi o dobavljaču s ugovornim SLA-om od 48 sati nema RTO od 4 sata.</li>
+  <li><strong>Krivulju utjecaja</strong> po kategorijama i vremenskim odsječcima.</li>
+  <li><strong>RTO i RPO s obrazloženjem.</strong> Broj bez obrazloženja se ne može ni obraniti ni osporiti.</li>
+  <li><strong>Minimalnu razinu usluge.</strong> Rijetko se oporavlja na sto posto - definirajte što je dovoljno za nastavak rada.</li>
+  <li><strong>Razliku između postojeće i tražene sposobnosti.</strong> To je ulaz u proračun, i najvrjedniji izlaz cijele vježbe.</li>
+</ul>
+
+<h2>Poveznica prema Uredbi o kibernetičkoj sigurnosti</h2>
+<p>Mjera 12 iz Priloga II. Uredbe traži kontinuitet poslovanja i upravljanje kibernetičkim krizama, s osam podmjera. BIA napravljena prema ISO 22301 pokriva njezin analitički dio gotovo u cijelosti, ali dvije stvari treba dodati:</p>
 <ol>
-  <li><strong>Mapirajte prije nego što pišete.</strong> Svaka podmjera dobiva referencu na postojeći dokument, zapis ili kontrolu iz Izjave o primjenjivosti. Praznine su ono što ostane bez reference.</li>
-  <li><strong>Proširite, ne preslikavajte.</strong> Ako postojeća metodologija rizika ne pokriva sve vrste opasnosti, proširite opseg u postojećem dokumentu. Druga metodologija znači dva registra rizika koja se razilaze.</li>
-  <li><strong>Jedan registar imovine.</strong> Ako popis informacijske imovine za ISMS i inventar za ZKS vodite odvojeno, jedan će zastarjeti, a nećete znati koji.</li>
-  <li><strong>Dopunite ono što nedostaje.</strong> Prijava incidenata, kategorizacija, priprema samoprocjene.</li>
+  <li><strong>Kibernetički scenariji.</strong> Klasična BIA računa s ispadom sustava. Ransomware nije ispad - sustavi rade, ali podaci su nedostupni i sigurnosne kopije su možda zahvaćene. RPO se u tom scenariju ponaša drukčije.</li>
+  <li><strong>Veza prema upravljanju incidentima.</strong> Plan kontinuiteta i plan odgovora na incident moraju dijeliti kriterij aktivacije, inače će se u krizi aktivirati jedan bez drugoga.</li>
 </ol>
-<p>Isti pristup vrijedi i za DORA obveznike i za organizacije s uspostavljenim GDPR sustavom. Dokazna baza se preklapa mnogo više nego što se čini iz naziva propisa.</p>
+
+<div class="note">
+  <p>Plan koji nije isproban dokumentira namjeru, ne sposobnost. Vježba na stolu u trajanju od dva sata, sa scenarijem i stvarnim mjerenjem vremena, otkriva više nego još jedan krug uređivanja dokumenta - i ujedno proizvodi zapis koji mjera 12 traži.</p>
+</div>
 
       <div class="sources">
         <h4>Izvori</h4>
         <ul>
-    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II.</a></li>
-    <li><a href="https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20B%20-%20Okvir%20za%20evaluaciju.pdf" target="_blank" rel="noopener">ZSIS - Prilog B, Okvir za evaluaciju, v1.0</a></li>
-    <li>HRN EN ISO/IEC 27001:2022 - Sustavi upravljanja informacijskom sigurnošću</li>
+    <li>HRN EN ISO 22301:2019 - Sustavi upravljanja kontinuitetom poslovanja</li>
+    <li>ISO/TS 22317 - Smjernice za analizu poslovnog utjecaja</li>
+    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjera 12</a></li>
         </ul>
       </div>
       <div class="art-cta">
@@ -245,12 +244,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Imate ISO 27001. Koliko vam to vrijedi kod ZKS-a?",
-  "description": "Koliko ISO/IEC 27001:2022 pokriva od 13 mjera Uredbe o kibernetičkoj sigurnosti, gdje su stvarne praznine i kako mapirati postojeće kontrole umjesto pisanja nove dokumentacije.",
-  "datePublished": "2026-03-03",
-  "dateModified": "2026-03-03",
+  "headline": "BIA koja daje upotrebljiv RTO, a ne broj koji svi ignoriraju",
+  "description": "Kako provesti analizu poslovnog utjecaja prema ISO 22301 tako da RTO i RPO budu upotrebljivi: tko daje podatke, kako se izbjegava da sve bude kritično, i kako se BIA povezuje s mjerom 12 Uredbe o kibernetičkoj sigurnosti.",
+  "datePublished": "2026-05-26",
+  "dateModified": "2026-05-26",
   "inLanguage": "hr-HR",
-  "articleSection": "ISO norme",
+  "articleSection": "Kontinuitet poslovanja",
   "author": {
     "@type": "Person",
     "name": "Daniel Bara",
@@ -265,9 +264,9 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://adventurespirit.hr/blog/iso-27001-i-zks/"
+    "@id": "https://adventurespirit.hr/blog/bia-koja-daje-upotrebljiv-rto/"
   },
-  "url": "https://adventurespirit.hr/blog/iso-27001-i-zks/"
+  "url": "https://adventurespirit.hr/blog/bia-koja-daje-upotrebljiv-rto/"
 }
 </script>
 <script type="application/ld+json">
@@ -290,8 +289,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Imate ISO 27001. Koliko vam to vrijedi kod ZKS-a?",
-      "item": "https://adventurespirit.hr/blog/iso-27001-i-zks/"
+      "name": "BIA koja daje upotrebljiv RTO, a ne broj koji svi ignoriraju",
+      "item": "https://adventurespirit.hr/blog/bia-koja-daje-upotrebljiv-rto/"
     }
   ]
 }

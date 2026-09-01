@@ -690,6 +690,376 @@ ARTICLES.append(dict(
 # ══════════════════════════════════════════════════════════════════
 
 # ══════════════════════════════════════════════════════════════════
+# Dodatni hrvatski clanci
+# ══════════════════════════════════════════════════════════════════
+ARTICLES.append(dict(
+ slug="iso-27002-2022-atributi-kontrola", cat="ISO norme", catkey="iso",
+ date="2026-05-05", read=6,
+ title="ISO 27002:2022: 93 kontrole i pet atributa koje većina preskoči",
+ lead="Revizija iz 2022. srezala je 114 kontrola na 93 i posložila ih u četiri teme umjesto četrnaest. Veća promjena od preslagivanja su atributi - i oni su razlog zašto se stara Izjava o primjenjivosti ne može samo prenumerirati.",
+ desc="Što se promijenilo u ISO/IEC 27002:2022 - četiri teme umjesto četrnaest poglavlja, 93 kontrole i pet atributa. Kako prijeći sa stare Izjave o primjenjivosti bez gubitka dokazne baze.",
+ body='''
+<p>Prelazak na ISO/IEC 27002:2022 najčešće se izvede kao vježba prenumeriranja: uzme se stara Izjava o primjenjivosti, kontrole se preslikaju u novu numeraciju i posao je gotov. Formalno prolazi. Suštinski se propušta jedini dio revizije koji stvarno mijenja način rada.</p>
+
+<h2>Što se promijenilo u brojkama</h2>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th></th><th>ISO 27002:2013</th><th>ISO 27002:2022</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Kontrola</strong></td><td>114</td><td>93</td></tr>
+      <tr><td><strong>Struktura</strong></td><td>14 poglavlja</td><td>4 teme</td></tr>
+      <tr><td><strong>Nove kontrole</strong></td><td>-</td><td>11</td></tr>
+      <tr><td><strong>Spojene</strong></td><td>-</td><td>57 u 24</td></tr>
+      <tr><td><strong>Atributi</strong></td><td>ne postoje</td><td>5 po kontroli</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Četiri teme su organizacijska, ljudska, fizička i tehnološka. Smanjenje broja kontrola nije smanjenje opsega - većina je nastala spajanjem kontrola koje su se u praksi ionako provodile zajedno.</p>
+
+<h2>Jedanaest novih kontrola</h2>
+<p>Ovo je popis koji vrijedi pogledati prije nego što se zaključi da je sve pokriveno:</p>
+<ul>
+  <li><strong>Obavještajni podaci o prijetnjama</strong> - prikupljanje i korištenje informacija o prijetnjama relevantnima za vas.</li>
+  <li><strong>Informacijska sigurnost pri korištenju usluga u oblaku</strong> - od nabave do izlaza iz usluge.</li>
+  <li><strong>Spremnost IKT-a za kontinuitet poslovanja</strong> - poveznica prema ISO 22301.</li>
+  <li><strong>Praćenje fizičke sigurnosti</strong> - nadzor prostora, ne samo kontrola ulaska.</li>
+  <li><strong>Upravljanje konfiguracijom</strong> - sigurne osnovne konfiguracije i praćenje odstupanja.</li>
+  <li><strong>Brisanje informacija</strong> - i kod vas i kod obrađivača.</li>
+  <li><strong>Maskiranje podataka</strong> - posebno u testnim okruženjima.</li>
+  <li><strong>Sprječavanje curenja podataka</strong> - DLP kao kontrola, ne kao proizvod.</li>
+  <li><strong>Aktivnosti praćenja</strong> - nadzor mreža, sustava i aplikacija radi otkrivanja anomalija.</li>
+  <li><strong>Filtriranje weba</strong> - kontrola pristupa vanjskim stranicama.</li>
+  <li><strong>Sigurno kodiranje</strong> - pravila koja vrijede i za nabavljeni softver.</li>
+</ul>
+<p>Kod većine organizacija barem četiri od ovih jedanaest postoje tehnički, ali nemaju dokument koji ih opisuje ni zapis koji ih dokazuje. To je razlika između kontrole koja radi i kontrole koja prolazi audit.</p>
+
+<h2>Atributi su prava novost</h2>
+<p>Svaka kontrola u novoj normi nosi pet atributa: vrstu kontrole (preventivna, detektivna, korektivna), svojstva informacijske sigurnosti (povjerljivost, cjelovitost, dostupnost), koncepte kibernetičke sigurnosti (identificiraj, zaštiti, otkrij, odgovori, oporavi), operativne sposobnosti i sigurnosne domene.</p>
+<div class="callout">
+  <div class="c-label">Zašto je to korisno</div>
+  <p>Atributi vam omogućuju da isti skup kontrola presložite prema pitanju koje postavljate. Uprava pita "koliko smo sposobni otkriti napad?" - filtrirate po konceptu <em>otkrij</em>. Regulator traži dokaze o dostupnosti - filtrirate po tom svojstvu. Bez atributa svako takvo pitanje znači ručno prolaženje kroz cijeli popis.</p>
+</div>
+<p>Atributi su ujedno najbrži put do mapiranja prema drugim okvirima. Koncepti kibernetičke sigurnosti izravno odgovaraju funkcijama NIST-ovog okvira, pa organizacija koja radi i prema ZKS-u i prema NIST-u ne mora održavati dvije nepovezane tablice.</p>
+
+<h2>Kako prijeći bez gubitka dokazne baze</h2>
+<ol>
+  <li><strong>Mapirajte staro u novo, ne obrnuto.</strong> Krenite od svojih 114 kontrola i svakoj pronađite mjesto u novih 93. Ono što nema para najčešće je spojeno, ne ukinuto.</li>
+  <li><strong>Zadržite tragove.</strong> U Izjavi o primjenjivosti zadržite stupac sa starom oznakom barem jedan ciklus. Auditori i interni ljudi još godinu dana razmišljaju u staroj numeraciji.</li>
+  <li><strong>Obradite jedanaest novih posebno.</strong> To je jedini dio gdje stvarno nastaje novi posao.</li>
+  <li><strong>Popunite atribute.</strong> Ne zato što ih norma traži kao obvezu - nego zato što je to jedini trenutak kad ćete ih ionako prolaziti kontrolu po kontrolu.</li>
+  <li><strong>Provjerite poveznice prema drugim obvezama.</strong> Nove kontrole o oblaku, praćenju i kontinuitetu izravno hrane mjere iz Uredbe o kibernetičkoj sigurnosti.</li>
+</ol>
+
+<div class="note">
+  <p>ISO/IEC 27001:2022 je norma prema kojoj se certificirate, a 27002 je zbirka smjernica za provedbu kontrola iz Priloga A. Certifikat se ne dobiva prema 27002, ali se dokazi pišu uz njezinu pomoć.</p>
+</div>
+''',
+ sources=[('HRN EN ISO/IEC 27001:2022, Prilog A', None),
+          ('HRN EN ISO/IEC 27002:2022 - Kontrole informacijske sigurnosti', None),
+          ('ISO/IEC 27001:2022/Amd 1:2024 - climate action changes', None)]))
+
+ARTICLES.append(dict(
+ slug="bia-koja-daje-upotrebljiv-rto", cat="Kontinuitet poslovanja", catkey="bcm",
+ date="2026-05-26", read=7,
+ title="BIA koja daje upotrebljiv RTO, a ne broj koji svi ignoriraju",
+ lead="Analiza poslovnog utjecaja najčešće završi kao tablica u kojoj svaki proces ima RTO od četiri sata. Ako je sve kritično, ništa nije - a plan oporavka koji iz toga nastane ne izdrži prvi pravi ispad.",
+ desc="Kako provesti analizu poslovnog utjecaja prema ISO 22301 tako da RTO i RPO budu upotrebljivi: tko daje podatke, kako se izbjegava da sve bude kritično, i kako se BIA povezuje s mjerom 12 Uredbe o kibernetičkoj sigurnosti.",
+ body='''
+<p>Analiza poslovnog utjecaja je temelj cijelog sustava upravljanja kontinuitetom. Ako je pogrešna, pogrešno je sve što stoji na njoj: planovi oporavka, ulaganja u redundanciju, ugovori s dobavljačima i prioriteti tijekom stvarne krize.</p>
+<p>A pogrešna je češće nego što se misli, i to gotovo uvijek na isti način.</p>
+
+<h2>Simptom: svi procesi su kritični</h2>
+<p>Kad se voditelje odjela pita koliko dugo njihov proces smije stajati, odgovor je predvidljiv. Nitko ne kaže "moj proces može čekati tri dana". Rezultat je tablica u kojoj dvadeset od dvadeset dva procesa ima RTO od četiri sata, a organizacija koja to pokuša ostvariti mora udvostručiti infrastrukturu.</p>
+<div class="callout">
+  <div class="c-label">Zašto se to događa</div>
+  <p>Pitanje "koliko dugo proces smije stajati" je pitanje o osjećaju važnosti. Pitanje "koliki je gubitak nakon 4, 24 i 72 sata, izražen u novcu, ugovornoj kazni, regulatornom riziku i broju pogođenih korisnika" je pitanje o posljedici. Prvo daje jednake odgovore, drugo ih razlikuje.</p>
+</div>
+
+<h2>Kako postaviti BIA da razlikuje</h2>
+<p>Tri promjene u pristupu daju upotrebljiv rezultat:</p>
+<h3>1. Mjerite utjecaj kroz vrijeme, ne u jednoj točki</h3>
+<p>Za svaki proces procijenite posljedicu u nekoliko vremenskih odsječaka - primjerice nakon 4 sata, 24 sata, 3 dana i 7 dana. Krivulja koja iz toga nastane pokazuje gdje je stvarni prag boli. Većina procesa ima ravnu krivulju do određene točke pa nagli skok; RTO se postavlja prije tog skoka, ne na proizvoljne četiri sata.</p>
+<h3>2. Koristite više kategorija utjecaja</h3>
+<p>Financijski gubitak, ugovorne obveze, regulatorne posljedice, sigurnost ljudi i ugled. Proces može biti financijski nevažan, a regulatorno kritičan - prijava incidenta je upravo takav slučaj.</p>
+<h3>3. Neka ukupni RTO bude ograničen resurs</h3>
+<p>Ako unaprijed znate da možete financirati oporavak pet procesa u prva četiri sata, onda voditelji ne rangiraju svaki svoj proces zasebno nego zajedno raspoređuju ograničeni kapacitet. Razgovor se odmah promijeni.</p>
+
+<h2>RPO se određuje drugdje</h2>
+<p>Česta zamjena teza: RTO i RPO postavlja ista osoba u istom retku tablice. RTO je poslovna odluka o tome koliko dugo proces smije stajati. RPO je odluka o tome koliko podataka smijete izgubiti, i ona ovisi o tome koliko se često podaci mijenjaju i može li se gubitak nadoknaditi ručno.</p>
+<p>Proces koji jednom dnevno obrađuje šaržu podataka može imati RTO od dva sata i RPO od 24 sata bez ikakve nedosljednosti. Proces koji prima transakcije u realnom vremenu ne može.</p>
+
+<h2>Što BIA mora proizvesti da bi bila upotrebljiva</h2>
+<ul>
+  <li><strong>Popis procesa s vlasnicima</strong> - osobama, ne odjelima.</li>
+  <li><strong>Ovisnosti.</strong> Aplikacije, ljudi, prostori, dobavljači i drugi procesi. Proces s RTO-om od 4 sata koji ovisi o dobavljaču s ugovornim SLA-om od 48 sati nema RTO od 4 sata.</li>
+  <li><strong>Krivulju utjecaja</strong> po kategorijama i vremenskim odsječcima.</li>
+  <li><strong>RTO i RPO s obrazloženjem.</strong> Broj bez obrazloženja se ne može ni obraniti ni osporiti.</li>
+  <li><strong>Minimalnu razinu usluge.</strong> Rijetko se oporavlja na sto posto - definirajte što je dovoljno za nastavak rada.</li>
+  <li><strong>Razliku između postojeće i tražene sposobnosti.</strong> To je ulaz u proračun, i najvrjedniji izlaz cijele vježbe.</li>
+</ul>
+
+<h2>Poveznica prema Uredbi o kibernetičkoj sigurnosti</h2>
+<p>Mjera 12 iz Priloga II. Uredbe traži kontinuitet poslovanja i upravljanje kibernetičkim krizama, s osam podmjera. BIA napravljena prema ISO 22301 pokriva njezin analitički dio gotovo u cijelosti, ali dvije stvari treba dodati:</p>
+<ol>
+  <li><strong>Kibernetički scenariji.</strong> Klasična BIA računa s ispadom sustava. Ransomware nije ispad - sustavi rade, ali podaci su nedostupni i sigurnosne kopije su možda zahvaćene. RPO se u tom scenariju ponaša drukčije.</li>
+  <li><strong>Veza prema upravljanju incidentima.</strong> Plan kontinuiteta i plan odgovora na incident moraju dijeliti kriterij aktivacije, inače će se u krizi aktivirati jedan bez drugoga.</li>
+</ol>
+
+<div class="note">
+  <p>Plan koji nije isproban dokumentira namjeru, ne sposobnost. Vježba na stolu u trajanju od dva sata, sa scenarijem i stvarnim mjerenjem vremena, otkriva više nego još jedan krug uređivanja dokumenta - i ujedno proizvodi zapis koji mjera 12 traži.</p>
+</div>
+''',
+ sources=[('HRN EN ISO 22301:2019 - Sustavi upravljanja kontinuitetom poslovanja', None),
+          ('ISO/TS 22317 - Smjernice za analizu poslovnog utjecaja', None),
+          ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjera 12', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html')]))
+
+ARTICLES.append(dict(
+ slug="dora-registar-informacija", cat="DORA", catkey="dora",
+ date="2026-06-16", read=7,
+ title="DORA registar informacija: zašto pada na podacima, a ne na propisu",
+ lead="Registar informacija o ugovorima s pružateljima IKT usluga izgleda kao administrativna vježba dok se ne pokuša popuniti. Tada se otkrije da tri odjela imaju tri različita popisa dobavljača, i da nijedan nije potpun.",
+ desc="Što DORA traži u registru informacija o ugovorima s pružateljima IKT usluga, zašto se popunjavanje najčešće zaglavi na kvaliteti podataka i kako povezati registar s postojećim registrom imovine i rizika.",
+ body='''
+<p>Uredba (EU) 2022/2554 traži od financijskih subjekata da vode i održavaju <strong>registar informacija</strong> o svim ugovornim aranžmanima s pružateljima IKT usluga, te da ga na zahtjev dostave nadležnom tijelu. Zvuči kao popis dobavljača. Nije.</p>
+
+<h2>Što registar zapravo traži</h2>
+<p>Registar se vodi na nekoliko razina i povezuje podatke koji u većini organizacija žive u odvojenim sustavima:</p>
+<ul>
+  <li><strong>Subjekt</strong> - tko je ugovorna strana i gdje se nalazi u grupi.</li>
+  <li><strong>Pružatelj</strong> - identifikacija, država sjedišta, matično društvo.</li>
+  <li><strong>Ugovorni aranžman</strong> - vrsta, trajanje, otkazni rokovi, mjerodavno pravo.</li>
+  <li><strong>Funkcija</strong> koju usluga podupire, i je li ta funkcija kritična ili važna.</li>
+  <li><strong>Podugovaranje</strong> - lanac ispod izravnog pružatelja, do razine koja je bitna.</li>
+  <li><strong>Lokacija obrade i pohrane podataka.</strong></li>
+  <li><strong>Procjena zamjenjivosti</strong> i postojanje izlazne strategije.</li>
+</ul>
+<p>Ključna riječ je <em>povezuje</em>. Registar ne traži samo popis, nego odnos između ugovora, funkcije koju taj ugovor podupire i kritičnosti te funkcije.</p>
+
+<h2>Gdje se popunjavanje zaglavi</h2>
+<div class="callout">
+  <div class="c-label">Tri izvora podataka, tri istine</div>
+  <p>Nabava ima popis ugovora. Informatika ima popis sustava. Financije imaju popis dobavljača kojima se plaća. U praksi se ta tri popisa ne poklapaju: postoje sustavi bez ugovora, ugovori bez sustava i plaćanja bez oboje. Prvo popunjavanje registra u pravilu je prvi put da netko te tri liste stavi jednu pored druge.</p>
+</div>
+<p>Drugi čest zastoj je <strong>podugovaranje</strong>. Izravni pružatelj usluga u oblaku je poznat. Tko je njegov pružatelj infrastrukture i gdje se podaci fizički nalaze, zna se rjeđe, a ugovori često ne obvezuju pružatelja da to prijavi.</p>
+<p>Treći je <strong>određivanje kritičnosti funkcije</strong>. Ako organizacija nema BIA-u, kritičnost se procjenjuje ad hoc, po pružatelju umjesto po funkciji. To je pogrešan smjer: kritična je funkcija, a pružatelj to svojstvo nasljeđuje.</p>
+
+<h2>Kako to ne raditi dvaput</h2>
+<p>Registar informacija se najviše preklapa s tri stvari koje već imate ili biste trebali imati:</p>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Registar informacija traži</th><th>Već postoji u</th></tr></thead>
+    <tbody>
+      <tr><td>Popis IKT usluga i sustava</td><td>Registru imovine (ISO 27001, mjera 2 Uredbe)</td></tr>
+      <tr><td>Kritičnost funkcije</td><td>Analizi poslovnog utjecaja (ISO 22301)</td></tr>
+      <tr><td>Procjena rizika pružatelja</td><td>Upravljanju rizicima trećih strana (mjera 8 Uredbe)</td></tr>
+      <tr><td>Izlazna strategija</td><td>Planu kontinuiteta poslovanja</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Organizacija koja ta četiri izvora vodi kao jedan povezani skup popunjava registar izvještajem. Organizacija koja ih vodi odvojeno popunjava ga ručno, svake godine iznova.</p>
+
+<h2>Što napraviti prije popunjavanja</h2>
+<ol>
+  <li><strong>Uskladite tri popisa.</strong> Nabava, informatika i financije, jedan zajednički identifikator po pružatelju.</li>
+  <li><strong>Krenite od funkcija, ne od dobavljača.</strong> Odredite koje su funkcije kritične ili važne, pa im pridružite usluge.</li>
+  <li><strong>Provjerite ugovore na podugovaranje.</strong> Ondje gdje obveza prijave podugovaratelja ne postoji, to je nalaz sam po sebi.</li>
+  <li><strong>Označite gdje podataka nema.</strong> Prazno polje s obrazloženjem je bolje od pogađanja - i lakše se popravlja u idućem ciklusu.</li>
+</ol>
+
+<div class="note">
+  <p>DORA je za financijski sektor poseban propis, ali ne isključuje ostale obveze. Dokazna baza se preklapa s Uredbom o kibernetičkoj sigurnosti gotovo u cijelosti: isti registar imovine, isti registar rizika, isti zapisi o incidentima. Posao se radi jednom, izvještava na više strana.</p>
+</div>
+''',
+ sources=[('Uredba (EU) 2022/2554 (DORA)', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32022R2554'),
+          ('Provedbeni tehnički standardi za registar informacija (ESA)', 'https://www.eba.europa.eu/'),
+          ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjera 8', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html')]))
+
+ARTICLES.append(dict(
+ slug="sto-osiguravatelji-pitaju-kibernetickom-osiguranju", cat="Cyber osiguranje", catkey="insurance",
+ date="2026-07-07", read=6,
+ title="Što osiguravatelji stvarno pitaju prije nego što ponude policu",
+ lead="Upitnik za kibernetičko osiguranje nije formalnost nego procjena rizika koju netko drugi radi o vama. Pitanja su svake godine sve konkretnija, a netočan odgovor može biti razlog za odbijanje štete.",
+ desc="Koja pitanja se pojavljuju u upitnicima za kibernetičko osiguranje, zašto se premija i pokriće vežu uz konkretne kontrole i kako se dokazna baza za ZKS i ISO 27001 koristi u pregovorima o polici.",
+ body='''
+<p>Kibernetičko osiguranje se u posljednjih nekoliko godina promijenilo iz proizvoda koji se prodavao uz kratki upitnik u proizvod koji se odobrava nakon tehničke procjene. Razlog je jednostavan: šteta od ransomwarea pokazala je da osiguravatelji ne mogu cijeniti rizik bez uvida u konkretne kontrole.</p>
+
+<h2>Pitanja koja se ponavljaju</h2>
+<p>Formulacije se razlikuju, ali sadržaj konvergira. Ovo su područja koja se pojavljuju gotovo u svakom upitniku:</p>
+<h3>Autentifikacija i pristup</h3>
+<ul>
+  <li>Je li višefaktorska autentifikacija uključena za udaljeni pristup, za e-poštu i za administratorske račune? Sva tri se pitaju odvojeno.</li>
+  <li>Koliko ima računa s povlaštenim pravima i kako se odobravaju?</li>
+  <li>Postoje li odvojeni računi za administrativne zadatke?</li>
+</ul>
+<h3>Sigurnosne kopije</h3>
+<ul>
+  <li>Postoji li kopija koja je nedostupna iz produkcijske mreže?</li>
+  <li>Kad je zadnji put napravljen test vraćanja podataka i koliko je trajao?</li>
+  <li>Jesu li kopije šifrirane i je li pristup njima pod višefaktorskom autentifikacijom?</li>
+</ul>
+<h3>Detekcija i odgovor</h3>
+<ul>
+  <li>Postoji li zaštita krajnjih točaka s mogućnošću detekcije i odgovora?</li>
+  <li>Prate li se zapisi, i tko ih gleda izvan radnog vremena?</li>
+  <li>Postoji li plan odgovora na incident i je li isproban?</li>
+</ul>
+<h3>Upravljanje ranjivostima i lanac opskrbe</h3>
+<ul>
+  <li>Koliko brzo se zakrpavaju kritične ranjivosti na sustavima izloženima internetu?</li>
+  <li>Koji su ključni dobavljači i imaju li pristup vašim sustavima?</li>
+  <li>Postoje li sustavi kojima je istekla podrška proizvođača?</li>
+</ul>
+
+<div class="callout">
+  <div class="c-label">Zašto je preciznost odgovora važna</div>
+  <p>Upitnik je sastavni dio ugovora. Odgovor "da, imamo višefaktorsku autentifikaciju" kad je ona uključena za devedeset posto korisnika, a napad prođe kroz preostalih deset, otvara raspravu o tome je li rizik bio točno prikazan. Precizniji odgovor s ogradom uvijek je bolja pozicija od šireg odgovora bez nje.</p>
+</div>
+
+<h2>Što snižava premiju, a što je uvjet za ponudu</h2>
+<p>Korisno je razlikovati dvije skupine. Neke kontrole djeluju na cijenu, druge su preduvjet za to da ponuda uopće postoji. U posljednjih nekoliko godina u drugu skupinu preselili su se višefaktorska autentifikacija za udaljeni pristup, izdvojena sigurnosna kopija i zaštita krajnjih točaka s detekcijom.</p>
+<p>Organizacija koja to nema u pravilu ne dobiva skuplju policu nego nikakvu, ili policu s isključenjem baš za scenarij koji joj je najvjerojatniji.</p>
+
+<h2>Kako iskoristiti ono što već imate</h2>
+<p>Organizacija koja se uskladila sa ZKS-om ili ima ISO 27001 već posjeduje gotovo sve dokaze koje upitnik traži - samo u drugom formatu. Konkretno:</p>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Upitnik traži</th><th>Već imate u</th></tr></thead>
+    <tbody>
+      <tr><td>Popis kritične imovine i sustava bez podrške</td><td>Registru imovine (mjera 2)</td></tr>
+      <tr><td>Praksu zakrpavanja i zaštite krajnjih točaka</td><td>Mjeri 5, kibernetička higijena</td></tr>
+      <tr><td>Kontrolu pristupa i višefaktorsku autentifikaciju</td><td>Mjeri 7</td></tr>
+      <tr><td>Plan odgovora na incident i zapise o vježbi</td><td>Mjeri 11</td></tr>
+      <tr><td>Testove vraćanja podataka</td><td>Mjeri 12 i BIA-i</td></tr>
+      <tr><td>Procjenu rizika dobavljača</td><td>Mjeri 8</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Praktična posljedica: pregovori o polici idu bolje ako se uz upitnik priloži izvještaj o stanju usklađenosti s bodovima po mjerama. Osiguravatelju je to jači dokaz od potvrdnih odgovora, a vama daje pregovaračku poziciju za premiju i za širinu pokrića.</p>
+
+<div class="note">
+  <p>Osiguranje ne zamjenjuje kontrole i ne pokriva regulatorne posljedice na način na koji pokriva izravnu štetu. Novčane kazne po propisima o kibernetičkoj sigurnosti i zaštiti podataka u većini su polica isključene ili ograničene - provjerite to prije nego što se na policu osloni plan upravljanja rizikom.</p>
+</div>
+''',
+ sources=[('NIST Cybersecurity Framework 2.0', 'https://www.nist.gov/cyberframework'),
+          ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('HRN EN ISO/IEC 27001:2022, Prilog A', None)]))
+
+ARTICLES.append(dict(
+ slug="nist-csf-2-funkcija-govern", cat="Okviri", catkey="frameworks",
+ date="2026-07-28", read=6,
+ title="NIST CSF 2.0 i funkcija Govern: okvir koji je konačno priznao upravu",
+ lead="Verzija 2.0 dodala je šestu funkciju iznad svih ostalih. Nije riječ o kozmetici - Govern je odgovor na nalaz koji se ponavljao godinama: tehničke kontrole ne popravljaju organizaciju koja nema vlasnika rizika.",
+ desc="Što donosi funkcija Govern u NIST Cybersecurity Framework 2.0, kako se šest funkcija odnosi prema 13 mjera Uredbe o kibernetičkoj sigurnosti i zašto se okvir isplati koristiti kao zajednički jezik prema upravi.",
+ body='''
+<p>NIST-ov okvir kibernetičke sigurnosti dugo je imao pet funkcija: identificiraj, zaštiti, otkrij, odgovori i oporavi. Verzija 2.0 dodala je šestu - <strong>Govern</strong> - i nije je stavila uz ostale nego iznad njih.</p>
+
+<h2>Što Govern pokriva</h2>
+<p>Funkcija obuhvaća ono što se prije podrazumijevalo pa se zato rijetko provodilo:</p>
+<ul>
+  <li><strong>Organizacijski kontekst</strong> - misija, dionici, pravne i regulatorne obveze.</li>
+  <li><strong>Strategija upravljanja rizikom</strong> - sklonost riziku i prag prihvatljivosti, izraženi tako da se po njima može odlučivati.</li>
+  <li><strong>Uloge i odgovornosti</strong> - tko odlučuje, tko provodi, tko izvještava.</li>
+  <li><strong>Politika</strong> - donesena, priopćena i održavana.</li>
+  <li><strong>Nadzor</strong> - preispitivanje rezultata i prilagodba strategije.</li>
+  <li><strong>Upravljanje rizikom lanca opskrbe</strong> - podignuto na razinu upravljanja, ne nabave.</li>
+</ul>
+<div class="callout">
+  <div class="c-label">Zašto je to promjena, a ne dodatak</div>
+  <p>U verziji 1.1 sklonost riziku bila je implicitna. To je značilo da su odluke o prihvaćanju rizika donosili ljudi koji za njih nisu odgovarali - najčešće informatika, jer je ona jedina imala podatke. Govern to eksplicitno vraća upravi.</p>
+</div>
+
+<h2>Kako se odnosi prema hrvatskim obvezama</h2>
+<p>Okvir nije propis i nitko ga u Hrvatskoj ne traži. Koristan je iz drugog razloga: on je zajednički jezik. Uprava koja ne razumije podmjeru 1.3 razumije pitanje "koliko smo sposobni otkriti napad".</p>
+<p>Preslikavanje je izravnije nego što se čini:</p>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Funkcija CSF 2.0</th><th>Odgovara mjerama Uredbe</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Govern</strong></td><td>1 (predanost i odgovornost), 3 (upravljanje rizicima), 8 (lanac opskrbe)</td></tr>
+      <tr><td><strong>Identify</strong></td><td>2 (imovina), 3 (rizici)</td></tr>
+      <tr><td><strong>Protect</strong></td><td>4, 5, 6, 7, 9, 10, 13</td></tr>
+      <tr><td><strong>Detect</strong></td><td>6 (nadzor mreže), 11 (detekcija incidenata)</td></tr>
+      <tr><td><strong>Respond</strong></td><td>11 (postupanje s incidentima)</td></tr>
+      <tr><td><strong>Recover</strong></td><td>12 (kontinuitet i krize)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Isto preslikavanje postoji i prema ISO/IEC 27002:2022, jer njezini atributi kontrola koriste upravo koncepte identificiraj, zaštiti, otkrij, odgovori i oporavi. Tri okvira, jedna dokazna baza.</p>
+
+<h2>Gdje je okvir stvarno koristan</h2>
+<p>Ne kao zamjena za usklađenost, nego kao alat za tri stvari:</p>
+<ol>
+  <li><strong>Izvještavanje upravi.</strong> Šest funkcija je pregled koji stane na jedan slajd. Devedeset devet podmjera nije.</li>
+  <li><strong>Postavljanje ciljnog profila.</strong> Okvir razlikuje trenutni i ciljni profil, što je bolji način za razgovor o proračunu od popisa nedostataka.</li>
+  <li><strong>Usporedba kroz vrijeme.</strong> Jednom postavljeni profil daje trend, a trend je jedino što upravu zanima više od trenutnog stanja.</li>
+</ol>
+
+<h2>Zamka koju treba izbjeći</h2>
+<p>Okvir opisuje ishode, ne kontrole. "Identificirani su i zabilježeni rizici lanca opskrbe" je ishod - kako ćete to postići, okvir ne propisuje. To je njegova snaga kad se koristi za upravljanje i njegova slabost kad se pokuša koristiti kao popis zadataka.</p>
+<p>Organizacije koje pokušaju provesti CSF umjesto Uredbe završe s dobrim pregledom i bez dokazne baze. Redoslijed koji radi je obrnut: provedite mjere, pa rezultat prikažite kroz šest funkcija.</p>
+
+<div class="note">
+  <p>NIST je uz verziju 2.0 objavio i primjere provedbe koji svakom ishodu pridružuju konkretne aktivnosti. To je najkorisniji dio dokumentacije za nekoga tko okvir koristi prvi put, i najčešće preskočen.</p>
+</div>
+''',
+ sources=[('NIST Cybersecurity Framework 2.0', 'https://www.nist.gov/cyberframework'),
+          ('NIST CSF 2.0 Implementation Examples', 'https://www.nist.gov/cyberframework'),
+          ('HRN EN ISO/IEC 27002:2022 - atributi kontrola', None)]))
+
+ARTICLES.append(dict(
+ slug="active-directory-putovi-napada", cat="Ofenzivna sigurnost", catkey="offensive",
+ date="2026-08-18", read=7,
+ title="Active Directory: pet nalaza koje pronađemo u gotovo svakom testu",
+ lead="Domenska infrastruktura rijetko pada zbog nezakrpane ranjivosti. Pada zbog konfiguracije koja je nekad imala smisla, ostala je iza sebe i nitko je više ne gleda. Ovih pet nalaza vide se u većini okruženja.",
+ desc="Najčešći nalazi u sigurnosnim procjenama Active Directoryja: naslijeđeni protokoli, prekomjerne delegacije, lozinke u atributima, nepotrebna članstva u povlaštenim grupama i pristup sigurnosnim kopijama.",
+ body='''
+<p>Kad se radi sigurnosna procjena domenske infrastrukture, očekivanje naručitelja obično je da će nalaz biti nezakrpani poslužitelj. U praksi je najčešći put od običnog korisničkog računa do potpune kontrole nad domenom sastavljen od konfiguracija koje nisu ranjivosti nego odluke - donesene davno, iz dobrog razloga koji više ne vrijedi.</p>
+<p>Ovih pet ponavlja se najčešće.</p>
+
+<h2>1. Naslijeđeni protokoli koji nitko ne koristi, ali su uključeni</h2>
+<p>Protokoli za razlučivanje imena u lokalnoj mreži koji su ostali uključeni jer su nekad trebali jednoj aplikaciji. Rezultat je da napadač u mreži može navesti klijente da mu pošalju podatke za autentifikaciju, bez ijednog eksploita.</p>
+<p><strong>Provjera:</strong> jesu li stariji protokoli za razlučivanje imena i stariji dijalekti dijeljenja datoteka isključeni, i traži li se potpisivanje prometa? <strong>Prepreka:</strong> gotovo uvijek jedna stara aplikacija koju nitko ne želi dirati.</p>
+
+<h2>2. Delegacija koja je šira nego što itko misli</h2>
+<p>Delegacija omogućuje računu da djeluje u ime korisnika. Postavljena bez ograničenja, ona znači da kompromitiranje jednog poslužitelja daje pristup svemu čemu pristupaju korisnici koji su se na njega spajali.</p>
+<p><strong>Provjera:</strong> koji računi imaju neograničenu delegaciju i je li ijedan od njih izložen prema korisnicima? <strong>Popravak:</strong> prijelaz na ograničenu delegaciju i označavanje osjetljivih računa kao onih koji se ne mogu delegirati.</p>
+
+<div class="callout">
+  <div class="c-label">Zajednički nazivnik</div>
+  <p>Nijedan od ovih nalaza ne pojavljuje se u izvještaju skenera ranjivosti kao kritičan. Svi se vide tek kad se gleda odnos između objekata, a ne stanje pojedinog poslužitelja. Zato procjena domene nije isto što i skeniranje mreže.</p>
+</div>
+
+<h2>3. Lozinke u atributima i skriptama</h2>
+<p>Opisni atributi objekata su čitljivi svakom autenticiranom korisniku. U njima se redovito nađu lozinke servisnih računa, upisane radi praktičnosti. Isto vrijedi za skripte u dijeljenim mapama koje se izvršavaju pri prijavi.</p>
+<p><strong>Provjera:</strong> pretraga atributa i dijeljenih mapa za nizovima koji izgledaju kao lozinke. Nalaz je rijetko prazan.</p>
+
+<h2>4. Povlaštena članstva koja su preživjela promjenu radnog mjesta</h2>
+<p>Administrator koji je prije tri godine rješavao jedan problem, dodan je u povlaštenu grupu i nikad uklonjen. Ili servisni račun aplikacije koja je ugašena, ali je račun ostao aktivan s pravima domenskog administratora.</p>
+<p><strong>Provjera:</strong> koliko računa je u najpovlaštenijim grupama, kad se svaki zadnji put prijavio i tko je vlasnik? <strong>Uobičajen nalaz:</strong> broj članova je dvoznamenkast, a broj onih koji ta prava stvarno trebaju jednoznamenkast.</p>
+
+<h2>5. Sigurnosne kopije domene dostupne iz domene</h2>
+<p>Kopija baze podataka domene sadrži sve. Ako je pohranjena na dijeljenoj mapi kojoj pristupaju obični administratori poslužitelja, put do potpune kontrole prolazi kroz nju - bez ijednog napada na sam kontroler domene.</p>
+<p><strong>Provjera:</strong> tko ima pristup sigurnosnim kopijama, jesu li šifrirane i je li kopija dostupna iz produkcijske domene? Ovo je ujedno i najizravnija poveznica prema mjeri 12 - kopija do koje ransomware dolazi nije sigurnosna kopija.</p>
+
+<h2>Kako to povezati s obvezama</h2>
+<p>Svih pet nalaza pripada mjerama iz Priloga II. Uredbe o kibernetičkoj sigurnosti, i to onima koje se najčešće ocjenjuju kao provedene:</p>
+<ul>
+  <li>Naslijeđeni protokoli i konfiguracija - mjera 6, sigurnost mreže</li>
+  <li>Delegacija i povlaštena članstva - mjera 7, kontrola pristupa</li>
+  <li>Lozinke u atributima - mjera 4, digitalni identiteti</li>
+  <li>Pristup sigurnosnim kopijama - mjere 5 i 12</li>
+</ul>
+<p>To je razlog zašto tehnička procjena i procjena usklađenosti ne bi trebale biti odvojeni projekti. Dokument koji tvrdi da je kontrola pristupa uspostavljena, uz nalaz da domenskih administratora ima sedamnaest, ne prolazi ozbiljnu provjeru.</p>
+
+<div class="note">
+  <p>Sigurnosna procjena domene provodi se uz pisano odobrenje i u dogovorenom opsegu. Sve navedene provjere su izvedive na produkcijskoj domeni bez prekida rada, ali se radi o postupcima koji ostavljaju tragove u nadzoru - dogovorite ih s timom koji prati zapise, inače prvi nalaz bude vaš vlastiti test.</p>
+</div>
+''',
+ sources=[('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjere 4, 6, 7 i 12', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('HRN EN ISO/IEC 27002:2022 - kontrole tehnoloških mjera', None),
+          ('NIST Cybersecurity Framework 2.0 - funkcije Protect i Detect', 'https://www.nist.gov/cyberframework')]))
+
+# ══════════════════════════════════════════════════════════════════
 # ENGLESKA VERZIJA - /en/
 # ══════════════════════════════════════════════════════════════════
 # CSS se preuzima iz index.html pa EN stranica automatski prati
@@ -1328,6 +1698,376 @@ ARTICLES_EN.append(dict(
 ''',
  sources=[('Cybersecurity Regulation, OG 135/2024, Annex II, measure 3 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
           ('ZSIS - Annex B, Framework for the evaluation of measures, measure 3', 'https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20B%20-%20Okvir%20za%20evaluaciju.pdf')]))
+
+# ══════════════════════════════════════════════════════════════════
+# Dodatni engleski clanci
+# ══════════════════════════════════════════════════════════════════
+ARTICLES_EN.append(dict(
+ slug="iso-27002-2022-control-attributes", cat="ISO standards", catkey="iso",
+ date="2026-05-05", read=6,
+ title="ISO 27002:2022: 93 controls and the five attributes most people skip",
+ lead="The 2022 revision cut 114 controls to 93 and reorganised them into four themes instead of fourteen clauses. The bigger change is the attributes - and they are why an old Statement of Applicability cannot simply be renumbered.",
+ desc="What changed in ISO/IEC 27002:2022 - four themes instead of fourteen clauses, 93 controls and five attributes. How to migrate an existing Statement of Applicability without losing the evidence base.",
+ body='''
+<p>Migration to ISO/IEC 27002:2022 is usually executed as a renumbering exercise: take the old Statement of Applicability, map the controls into the new numbering, done. It formally passes. It also misses the only part of the revision that genuinely changes how you work.</p>
+
+<h2>What changed in numbers</h2>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th></th><th>ISO 27002:2013</th><th>ISO 27002:2022</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Controls</strong></td><td>114</td><td>93</td></tr>
+      <tr><td><strong>Structure</strong></td><td>14 clauses</td><td>4 themes</td></tr>
+      <tr><td><strong>New controls</strong></td><td>-</td><td>11</td></tr>
+      <tr><td><strong>Merged</strong></td><td>-</td><td>57 into 24</td></tr>
+      <tr><td><strong>Attributes</strong></td><td>none</td><td>5 per control</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>The four themes are organisational, people, physical and technological. The reduction in control count is not a reduction in scope - most of it comes from merging controls that were implemented together in practice anyway.</p>
+
+<h2>The eleven new controls</h2>
+<p>This is the list worth reviewing before concluding that everything is covered:</p>
+<ul>
+  <li><strong>Threat intelligence</strong> - collecting and using information on threats relevant to you.</li>
+  <li><strong>Information security for use of cloud services</strong> - from procurement through to exit.</li>
+  <li><strong>ICT readiness for business continuity</strong> - the bridge to ISO 22301.</li>
+  <li><strong>Physical security monitoring</strong> - surveillance of premises, not just entry control.</li>
+  <li><strong>Configuration management</strong> - secure baselines and drift detection.</li>
+  <li><strong>Information deletion</strong> - at your end and at your processors'.</li>
+  <li><strong>Data masking</strong> - particularly in test environments.</li>
+  <li><strong>Data leakage prevention</strong> - as a control, not as a product.</li>
+  <li><strong>Monitoring activities</strong> - networks, systems and applications, for anomaly detection.</li>
+  <li><strong>Web filtering</strong> - control of access to external sites.</li>
+  <li><strong>Secure coding</strong> - rules that also apply to acquired software.</li>
+</ul>
+<p>In most organisations at least four of these eleven exist technically but have no document describing them and no record evidencing them. That is the difference between a control that works and a control that passes an audit.</p>
+
+<h2>The attributes are the real novelty</h2>
+<p>Every control in the new standard carries five attributes: control type (preventive, detective, corrective), information security properties (confidentiality, integrity, availability), cybersecurity concepts (identify, protect, detect, respond, recover), operational capabilities and security domains.</p>
+<div class="callout">
+  <div class="c-label">Why that is useful</div>
+  <p>Attributes let you re-sort the same set of controls according to the question being asked. The board asks "how capable are we of detecting an attack?" - filter on the <em>detect</em> concept. A regulator wants evidence on availability - filter on that property. Without attributes, every such question means walking the whole list by hand.</p>
+</div>
+<p>Attributes are also the fastest route to mapping against other frameworks. The cybersecurity concepts correspond directly to the NIST framework functions, so an organisation working to both the Croatian rules and NIST does not need two unconnected spreadsheets.</p>
+
+<h2>How to migrate without losing your evidence</h2>
+<ol>
+  <li><strong>Map old into new, not the other way round.</strong> Start from your 114 controls and find each a home among the 93. What has no counterpart has usually been merged, not withdrawn.</li>
+  <li><strong>Keep the trail.</strong> Retain a column with the old identifier in the Statement of Applicability for at least one cycle. Auditors and internal staff will think in the old numbering for another year.</li>
+  <li><strong>Treat the eleven new controls separately.</strong> That is the only place where genuinely new work arises.</li>
+  <li><strong>Populate the attributes.</strong> Not because the standard mandates it, but because this is the one moment when you will be going through the controls one by one anyway.</li>
+  <li><strong>Check the links to other obligations.</strong> The new controls on cloud, monitoring and continuity feed directly into the measures of the Croatian Cybersecurity Regulation.</li>
+</ol>
+
+<div class="note">
+  <p>ISO/IEC 27001:2022 is the standard you certify against; 27002 is the implementation guidance for the Annex A controls. You do not get certified against 27002, but you write your evidence with its help.</p>
+</div>
+''',
+ sources=[('ISO/IEC 27001:2022, Annex A', None),
+          ('ISO/IEC 27002:2022 - Information security controls', None),
+          ('ISO/IEC 27001:2022/Amd 1:2024 - climate action changes', None)]))
+
+ARTICLES_EN.append(dict(
+ slug="bia-that-produces-a-usable-rto", cat="Business continuity", catkey="bcm",
+ date="2026-05-26", read=7,
+ title="A BIA that produces a usable RTO, not a number everyone ignores",
+ lead="Business impact analysis usually ends as a table in which every process has a four-hour RTO. If everything is critical, nothing is - and the recovery plan built on it will not survive the first real outage.",
+ desc="How to run a business impact analysis under ISO 22301 so that RTO and RPO are usable: who supplies the data, how to avoid everything being critical, and how the BIA connects to measure 12 of the Croatian Cybersecurity Regulation.",
+ body='''
+<p>Business impact analysis is the foundation of the whole continuity management system. If it is wrong, everything standing on it is wrong: recovery plans, investment in redundancy, supplier contracts and priorities during an actual crisis.</p>
+<p>And it is wrong more often than people think, almost always in the same way.</p>
+
+<h2>The symptom: every process is critical</h2>
+<p>When department heads are asked how long their process may be down, the answer is predictable. Nobody says "my process can wait three days". The result is a table in which twenty of twenty-two processes carry a four-hour RTO, and an organisation trying to deliver that has to double its infrastructure.</p>
+<div class="callout">
+  <div class="c-label">Why this happens</div>
+  <p>"How long may this process be down" is a question about perceived importance. "What is the loss after 4, 24 and 72 hours, expressed in money, contractual penalty, regulatory exposure and number of affected customers" is a question about consequence. The first produces identical answers; the second differentiates them.</p>
+</div>
+
+<h2>How to set the BIA up so it discriminates</h2>
+<p>Three changes in approach produce a usable result:</p>
+<h3>1. Measure impact over time, not at a single point</h3>
+<p>For each process, estimate the consequence at several time slices - say after 4 hours, 24 hours, 3 days and 7 days. The resulting curve shows where the real pain threshold sits. Most processes have a flat curve up to a point and then a sharp step; the RTO belongs before that step, not at an arbitrary four hours.</p>
+<h3>2. Use several impact categories</h3>
+<p>Financial loss, contractual obligations, regulatory consequences, safety of people and reputation. A process can be financially insignificant and regulatorily critical - incident notification is exactly that case.</p>
+<h3>3. Make total recovery capacity a constrained resource</h3>
+<p>If it is known in advance that you can fund recovery of five processes within the first four hours, department heads stop ranking their own process in isolation and start allocating a limited capacity together. The conversation changes immediately.</p>
+
+<h2>RPO is decided elsewhere</h2>
+<p>A common conflation: RTO and RPO get set by the same person in the same row of the table. RTO is a business decision about how long a process may be down. RPO is a decision about how much data you may lose, and it depends on how often the data changes and whether the loss can be reconstructed manually.</p>
+<p>A process that handles one daily batch can have a two-hour RTO and a 24-hour RPO with no inconsistency at all. A process taking real-time transactions cannot.</p>
+
+<h2>What a BIA must produce to be usable</h2>
+<ul>
+  <li><strong>A process list with owners</strong> - people, not departments.</li>
+  <li><strong>Dependencies.</strong> Applications, people, premises, suppliers and other processes. A process with a four-hour RTO that depends on a supplier contracted at a 48-hour SLA does not have a four-hour RTO.</li>
+  <li><strong>An impact curve</strong> by category and time slice.</li>
+  <li><strong>RTO and RPO with justification.</strong> A number without reasoning can be neither defended nor challenged.</li>
+  <li><strong>A minimum service level.</strong> You rarely recover to a hundred per cent - define what is enough to keep working.</li>
+  <li><strong>The gap between current and required capability.</strong> That is the input to the budget, and the most valuable output of the whole exercise.</li>
+</ul>
+
+<h2>The link to the Croatian Cybersecurity Regulation</h2>
+<p>Measure 12 of Annex II requires business continuity and cyber crisis management across eight sub-measures. A BIA run to ISO 22301 covers almost all of its analytical part, but two things need adding:</p>
+<ol>
+  <li><strong>Cyber scenarios.</strong> A classical BIA assumes a systems outage. Ransomware is not an outage - the systems run, but the data is unavailable and the backups may be affected. RPO behaves differently in that scenario.</li>
+  <li><strong>The link to incident management.</strong> The continuity plan and the incident response plan must share an activation criterion, or one will be triggered without the other in a crisis.</li>
+</ol>
+
+<div class="note">
+  <p>A plan that has never been exercised documents intent, not capability. A two-hour tabletop with a scenario and real time measurement reveals more than another round of editing the document - and produces exactly the record measure 12 asks for.</p>
+</div>
+''',
+ sources=[('ISO 22301:2019 - Business continuity management systems', None),
+          ('ISO/TS 22317 - Guidelines for business impact analysis', None),
+          ('Cybersecurity Regulation, OG 135/2024, Annex II, measure 12 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html')]))
+
+ARTICLES_EN.append(dict(
+ slug="dora-register-of-information", cat="DORA", catkey="dora",
+ date="2026-06-16", read=7,
+ title="The DORA register of information: it fails on data, not on the rules",
+ lead="The register of contractual arrangements with ICT service providers looks like an administrative exercise until you try to populate it. That is when you discover three departments hold three different supplier lists, and none of them is complete.",
+ desc="What DORA requires in the register of information on contractual arrangements with ICT service providers, why populating it stalls on data quality, and how to connect it to your existing asset and risk registers.",
+ body='''
+<p>Regulation (EU) 2022/2554 requires financial entities to maintain a <strong>register of information</strong> covering all contractual arrangements with ICT service providers, and to make it available to the competent authority on request. It sounds like a supplier list. It is not.</p>
+
+<h2>What the register actually asks for</h2>
+<p>The register is maintained at several levels and connects data that in most organisations lives in separate systems:</p>
+<ul>
+  <li><strong>The entity</strong> - who is the contracting party and where it sits in the group.</li>
+  <li><strong>The provider</strong> - identification, country of establishment, parent undertaking.</li>
+  <li><strong>The contractual arrangement</strong> - type, duration, termination notice, governing law.</li>
+  <li><strong>The function</strong> the service supports, and whether that function is critical or important.</li>
+  <li><strong>Subcontracting</strong> - the chain below the direct provider, to the depth that matters.</li>
+  <li><strong>Location of data processing and storage.</strong></li>
+  <li><strong>Substitutability assessment</strong> and the existence of an exit strategy.</li>
+</ul>
+<p>The operative word is <em>connects</em>. The register does not ask for a list but for the relationship between a contract, the function that contract supports, and the criticality of that function.</p>
+
+<h2>Where population stalls</h2>
+<div class="callout">
+  <div class="c-label">Three data sources, three truths</div>
+  <p>Procurement holds a list of contracts. IT holds a list of systems. Finance holds a list of suppliers being paid. In practice those three do not reconcile: there are systems without contracts, contracts without systems, and payments without either. Populating the register for the first time is usually the first time anyone puts the three lists side by side.</p>
+</div>
+<p>The second common blocker is <strong>subcontracting</strong>. The direct cloud provider is known. Who provides its infrastructure and where the data physically sits is known far less often, and contracts frequently do not oblige the provider to disclose it.</p>
+<p>The third is <strong>determining function criticality</strong>. Without a BIA, criticality gets assessed ad hoc, per provider rather than per function. That is the wrong direction: the function is critical, and the provider inherits the property.</p>
+
+<h2>How not to do it twice</h2>
+<p>The register overlaps most with three things you already have, or should:</p>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>The register asks for</th><th>Already exists in</th></tr></thead>
+    <tbody>
+      <tr><td>A list of ICT services and systems</td><td>The asset register (ISO 27001, measure 2)</td></tr>
+      <tr><td>Function criticality</td><td>The business impact analysis (ISO 22301)</td></tr>
+      <tr><td>Provider risk assessment</td><td>Third-party risk management (measure 8)</td></tr>
+      <tr><td>Exit strategy</td><td>The business continuity plan</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>An organisation that keeps those four as one connected set populates the register by running a report. An organisation that keeps them apart populates it by hand, every year, from scratch.</p>
+
+<h2>What to do before populating</h2>
+<ol>
+  <li><strong>Reconcile the three lists.</strong> Procurement, IT and finance, on one shared identifier per provider.</li>
+  <li><strong>Start from functions, not from suppliers.</strong> Determine which functions are critical or important, then attach services to them.</li>
+  <li><strong>Check contracts for subcontracting disclosure.</strong> Where no such obligation exists, that is a finding in itself.</li>
+  <li><strong>Mark where data is missing.</strong> An empty field with a justification beats a guess, and is easier to fix in the next cycle.</li>
+</ol>
+
+<div class="note">
+  <p>DORA is the more specific regime for the financial sector, but it does not displace other obligations. The evidence base overlaps almost entirely with the Croatian Cybersecurity Regulation: the same asset register, the same risk register, the same incident records. Do the work once, report it in several directions.</p>
+</div>
+''',
+ sources=[('Regulation (EU) 2022/2554 (DORA)', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554'),
+          ('Implementing technical standards on the register of information (ESAs)', 'https://www.eba.europa.eu/'),
+          ('Cybersecurity Regulation, OG 135/2024, Annex II, measure 8 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html')]))
+
+ARTICLES_EN.append(dict(
+ slug="what-cyber-insurers-actually-ask", cat="Cyber insurance", catkey="insurance",
+ date="2026-07-07", read=6,
+ title="What cyber insurers actually ask before they quote",
+ lead="A cyber insurance questionnaire is not a formality but a risk assessment somebody else is doing about you. The questions get more specific every year, and an inaccurate answer can become grounds for declining a claim.",
+ desc="Which questions recur in cyber insurance questionnaires, why premium and cover are tied to specific controls, and how to use your existing compliance evidence in the negotiation.",
+ body='''
+<p>Over the past few years cyber insurance has moved from a product sold on a short questionnaire to a product underwritten after a technical assessment. The reason is simple: ransomware losses showed insurers they cannot price the risk without visibility into specific controls.</p>
+
+<h2>The questions that recur</h2>
+<p>Wording differs, but the substance converges. These are the areas that appear in almost every questionnaire:</p>
+<h3>Authentication and access</h3>
+<ul>
+  <li>Is multi-factor authentication enabled for remote access, for email, and for administrator accounts? All three are asked separately.</li>
+  <li>How many privileged accounts are there and how are they approved?</li>
+  <li>Are there separate accounts for administrative tasks?</li>
+</ul>
+<h3>Backups</h3>
+<ul>
+  <li>Is there a copy that is unreachable from the production network?</li>
+  <li>When was a restore last tested, and how long did it take?</li>
+  <li>Are backups encrypted, and is access to them behind multi-factor authentication?</li>
+</ul>
+<h3>Detection and response</h3>
+<ul>
+  <li>Is there endpoint protection with detection and response capability?</li>
+  <li>Are logs monitored, and by whom outside working hours?</li>
+  <li>Is there an incident response plan, and has it been exercised?</li>
+</ul>
+<h3>Vulnerability management and supply chain</h3>
+<ul>
+  <li>How quickly are critical vulnerabilities patched on internet-facing systems?</li>
+  <li>Who are the key suppliers and do they have access to your systems?</li>
+  <li>Are there systems past vendor end-of-support?</li>
+</ul>
+
+<div class="callout">
+  <div class="c-label">Why precision matters</div>
+  <p>The questionnaire forms part of the contract. Answering "yes, we have multi-factor authentication" when it covers ninety per cent of users, and the attack comes through the other ten, opens an argument about whether the risk was accurately presented. A narrower answer with a caveat is always a better position than a broad one without.</p>
+</div>
+
+<h2>What lowers the premium, and what is a precondition</h2>
+<p>It helps to separate two groups. Some controls affect price; others are a precondition for a quote existing at all. In recent years multi-factor authentication for remote access, an isolated backup copy and endpoint detection have all moved into the second group.</p>
+<p>An organisation lacking those generally does not get a more expensive policy but no policy - or one with an exclusion covering precisely the scenario most likely to affect it.</p>
+
+<h2>Using what you already have</h2>
+<p>An organisation that has complied with the Croatian Cybersecurity Act or holds ISO 27001 already possesses nearly all the evidence the questionnaire asks for, only in a different format:</p>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>The questionnaire asks for</th><th>You already have it in</th></tr></thead>
+    <tbody>
+      <tr><td>Critical asset list and unsupported systems</td><td>The asset register (measure 2)</td></tr>
+      <tr><td>Patching and endpoint protection practice</td><td>Measure 5, cyber hygiene</td></tr>
+      <tr><td>Access control and MFA</td><td>Measure 7</td></tr>
+      <tr><td>Incident response plan and exercise records</td><td>Measure 11</td></tr>
+      <tr><td>Restore tests</td><td>Measure 12 and the BIA</td></tr>
+      <tr><td>Supplier risk assessment</td><td>Measure 8</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>The practical consequence: negotiations go better when the questionnaire is accompanied by a compliance status report with scores per measure. To an underwriter that is stronger evidence than a column of yes answers, and it gives you a negotiating position on both premium and breadth of cover.</p>
+
+<div class="note">
+  <p>Insurance does not replace controls, and it does not cover regulatory consequences the way it covers direct loss. Administrative fines under cybersecurity and data protection law are excluded or capped in most policies - check that before a risk management plan comes to rely on the policy.</p>
+</div>
+''',
+ sources=[('NIST Cybersecurity Framework 2.0', 'https://www.nist.gov/cyberframework'),
+          ('Cybersecurity Regulation, OG 135/2024, Annex II (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('ISO/IEC 27001:2022, Annex A', None)]))
+
+ARTICLES_EN.append(dict(
+ slug="nist-csf-2-govern-function", cat="Frameworks", catkey="frameworks",
+ date="2026-07-28", read=6,
+ title="NIST CSF 2.0 and the Govern function: a framework that finally named the board",
+ lead="Version 2.0 added a sixth function above all the others. It is not cosmetic - Govern answers a finding that kept recurring for years: technical controls do not fix an organisation with no owner for its risk.",
+ desc="What the Govern function brings to NIST Cybersecurity Framework 2.0, how the six functions map to the 13 measures of the Croatian Cybersecurity Regulation, and why the framework is worth using as a common language with the board.",
+ body='''
+<p>The NIST Cybersecurity Framework had five functions for a long time: identify, protect, detect, respond and recover. Version 2.0 added a sixth - <strong>Govern</strong> - and did not place it alongside the others but above them.</p>
+
+<h2>What Govern covers</h2>
+<p>The function covers what used to be assumed and was therefore rarely done:</p>
+<ul>
+  <li><strong>Organizational context</strong> - mission, stakeholders, legal and regulatory obligations.</li>
+  <li><strong>Risk management strategy</strong> - risk appetite and tolerance, expressed so decisions can actually be made against them.</li>
+  <li><strong>Roles and responsibilities</strong> - who decides, who implements, who reports.</li>
+  <li><strong>Policy</strong> - established, communicated and maintained.</li>
+  <li><strong>Oversight</strong> - reviewing outcomes and adjusting the strategy.</li>
+  <li><strong>Supply chain risk management</strong> - raised to governance level rather than procurement.</li>
+</ul>
+<div class="callout">
+  <div class="c-label">Why this is a change, not an addition</div>
+  <p>In version 1.1 risk appetite was implicit. That meant decisions to accept risk were being taken by people not accountable for them - usually IT, because IT was the only function with the data. Govern puts that back with the board, explicitly.</p>
+</div>
+
+<h2>How it relates to Croatian obligations</h2>
+<p>The framework is not law and nobody in Croatia requires it. It is useful for a different reason: it is a common language. A board that does not understand sub-measure 1.3 does understand the question "how capable are we of detecting an attack?"</p>
+<p>The mapping is more direct than it appears:</p>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>CSF 2.0 function</th><th>Corresponds to measures</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Govern</strong></td><td>1 (commitment and accountability), 3 (risk management), 8 (supply chain)</td></tr>
+      <tr><td><strong>Identify</strong></td><td>2 (assets), 3 (risk)</td></tr>
+      <tr><td><strong>Protect</strong></td><td>4, 5, 6, 7, 9, 10, 13</td></tr>
+      <tr><td><strong>Detect</strong></td><td>6 (network monitoring), 11 (incident detection)</td></tr>
+      <tr><td><strong>Respond</strong></td><td>11 (incident handling)</td></tr>
+      <tr><td><strong>Recover</strong></td><td>12 (continuity and crisis)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>The same mapping exists towards ISO/IEC 27002:2022, because its control attributes use exactly the identify, protect, detect, respond and recover concepts. Three frameworks, one evidence base.</p>
+
+<h2>Where the framework genuinely helps</h2>
+<p>Not as a substitute for compliance, but as a tool for three things:</p>
+<ol>
+  <li><strong>Board reporting.</strong> Six functions fit on one slide. Ninety-nine sub-measures do not.</li>
+  <li><strong>Setting a target profile.</strong> The framework distinguishes current and target profiles, which is a better way to discuss budget than a list of deficiencies.</li>
+  <li><strong>Comparison over time.</strong> A profile, once set, produces a trend - and a trend is the only thing a board cares about more than the current state.</li>
+</ol>
+
+<h2>The trap to avoid</h2>
+<p>The framework describes outcomes, not controls. "Supply chain risks are identified and recorded" is an outcome - how you achieve it is not prescribed. That is its strength when used for governance, and its weakness when someone tries to use it as a task list.</p>
+<p>Organisations that attempt to implement CSF instead of the Regulation end up with a good overview and no evidence base. The order that works is the reverse: implement the measures, then present the result through the six functions.</p>
+
+<div class="note">
+  <p>NIST published implementation examples alongside version 2.0, attaching concrete activities to each outcome. That is the most useful part of the documentation for a first-time user, and the most commonly skipped.</p>
+</div>
+''',
+ sources=[('NIST Cybersecurity Framework 2.0', 'https://www.nist.gov/cyberframework'),
+          ('NIST CSF 2.0 Implementation Examples', 'https://www.nist.gov/cyberframework'),
+          ('ISO/IEC 27002:2022 - control attributes', None)]))
+
+ARTICLES_EN.append(dict(
+ slug="active-directory-attack-paths", cat="Offensive security", catkey="offensive",
+ date="2026-08-18", read=7,
+ title="Active Directory: five findings we see in almost every assessment",
+ lead="Domain infrastructure rarely falls to an unpatched vulnerability. It falls to configuration that once made sense, was left behind, and that nobody looks at any more. These five findings show up in most environments.",
+ desc="The most common findings in Active Directory security assessments: legacy protocols, excessive delegation, passwords in attributes, stale privileged group membership, and access to domain backups.",
+ body='''
+<p>When a domain infrastructure assessment is commissioned, the client usually expects the finding to be an unpatched server. In practice, the most common path from an ordinary user account to full control of the domain is assembled from configurations that are not vulnerabilities but decisions - taken long ago, for a good reason that no longer holds.</p>
+<p>These five recur most often.</p>
+
+<h2>1. Legacy protocols nobody uses but that are still enabled</h2>
+<p>Local name resolution protocols left enabled because one application once needed them. The result is that an attacker on the network can induce clients to send authentication material, without a single exploit.</p>
+<p><strong>Check:</strong> are legacy name resolution protocols and older file sharing dialects disabled, and is traffic signing required? <strong>Obstacle:</strong> almost always one old application nobody wants to touch.</p>
+
+<h2>2. Delegation that is broader than anyone realises</h2>
+<p>Delegation lets an account act on behalf of a user. Configured without constraints, it means compromising one server grants access to everything the users who connected to it can reach.</p>
+<p><strong>Check:</strong> which accounts have unconstrained delegation, and is any of them user-facing? <strong>Fix:</strong> move to constrained delegation and flag sensitive accounts as not delegatable.</p>
+
+<div class="callout">
+  <div class="c-label">The common denominator</div>
+  <p>None of these findings appears as critical in a vulnerability scanner report. All of them only become visible when you look at relationships between objects rather than the state of an individual server. That is why a domain assessment is not the same thing as a network scan.</p>
+</div>
+
+<h2>3. Passwords in attributes and scripts</h2>
+<p>Descriptive attributes on objects are readable by any authenticated user. Service account passwords regularly turn up in them, entered for convenience. The same applies to scripts in shared folders that execute at logon.</p>
+<p><strong>Check:</strong> search attributes and shared folders for strings that look like passwords. The result is rarely empty.</p>
+
+<h2>4. Privileged membership that survived a job change</h2>
+<p>An administrator who solved one problem three years ago, was added to a privileged group and never removed. Or a service account for a decommissioned application that remains active with domain administrator rights.</p>
+<p><strong>Check:</strong> how many accounts are in the most privileged groups, when did each last log on, and who owns it? <strong>Typical finding:</strong> the member count is in double digits and the number who genuinely need those rights is in single digits.</p>
+
+<h2>5. Domain backups reachable from the domain</h2>
+<p>A copy of the domain database contains everything. If it sits on a share accessible to ordinary server administrators, the path to full control runs through it - without a single attack on a domain controller itself.</p>
+<p><strong>Check:</strong> who has access to backups, are they encrypted, and is a copy reachable from the production domain? This is also the most direct link to measure 12 - a backup that ransomware can reach is not a backup.</p>
+
+<h2>Connecting this to your obligations</h2>
+<p>All five findings belong to measures in Annex II of the Croatian Cybersecurity Regulation, and specifically to those most often self-assessed as implemented:</p>
+<ul>
+  <li>Legacy protocols and configuration - measure 6, network security</li>
+  <li>Delegation and privileged membership - measure 7, access control</li>
+  <li>Passwords in attributes - measure 4, digital identities</li>
+  <li>Access to backups - measures 5 and 12</li>
+</ul>
+<p>That is why a technical assessment and a compliance assessment should not be separate projects. A document asserting that access control is established, alongside a finding of seventeen domain administrators, does not survive serious scrutiny.</p>
+
+<div class="note">
+  <p>A domain security assessment is carried out under written authorisation and within an agreed scope. All the checks above can be run against a production domain without interrupting service, but they do leave traces in monitoring - agree them with the team watching the logs, or your first finding will be your own test.</p>
+</div>
+''',
+ sources=[('Cybersecurity Regulation, OG 135/2024, Annex II, measures 4, 6, 7 and 12 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('ISO/IEC 27002:2022 - technological controls', None),
+          ('NIST Cybersecurity Framework 2.0 - Protect and Detect functions', 'https://www.nist.gov/cyberframework')]))
 
 # ══════════════════════════════════════════════════════════════════
 # Sklapanje engleske naslovnice
@@ -2076,6 +2816,18 @@ if 'lang-switch' not in _s:
       '    <li class="lang-switch"><span>HR</span><a href="/en/" hreflang="en">EN</a></li>', 1)
     _s = _s.replace('    /* ── Footer pravni podaci ───────────────────────────────── */',
       LANG_CSS + '\n    /* ── Footer pravni podaci ───────────────────────────────── */', 1)
+
+# Osvjezi tri istaknuta clanka u sekciji "Baza znanja" na naslovnici
+_top = sorted(ARTICLES, key=lambda a: a["date"], reverse=True)[:3]
+_cards = "\n".join('''      <a class="kb-card" href="/blog/%s/">
+        <div class="kb-cat">%s</div>
+        <div class="kb-title">%s</div>
+        <div class="kb-lead">%s</div>
+        <div class="kb-meta">%d min čitanja</div>
+      </a>''' % (a["slug"], html.escape(a["cat"]), html.escape(a["title"]),
+                 html.escape(a["lead"]), a["read"]) for a in _top)
+_s = re.sub(r'(<div class="kb-grid">\n).*?(\n    </div>\n    <div class="kb-all">)',
+            lambda m: m.group(1) + _cards + m.group(2), _s, count=1, flags=re.S)
 
 if '>English version<' not in _s:
     _s = _s.replace('        <a href="#kontakt">Kontakt</a>\n      </div>',

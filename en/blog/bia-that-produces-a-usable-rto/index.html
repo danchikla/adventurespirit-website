@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>You hold ISO 27001. How much is it worth under the Cybersecurity Act? | Adventure Spirit Consulting</title>
-<meta name="description" content="How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.">
-<link rel="canonical" href="https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/">
+<title>A BIA that produces a usable RTO, not a number everyone ignores | Adventure Spirit Consulting</title>
+<meta name="description" content="How to run a business impact analysis under ISO 22301 so that RTO and RPO are usable: who supplies the data, how to avoid everything being critical, and how the BIA connects to measure 12 of the Croatian Cybersecurity Regulation.">
+<link rel="canonical" href="https://adventurespirit.hr/en/blog/bia-that-produces-a-usable-rto/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#0f1117">
 <meta name="author" content="Daniel Bara, dr. sc.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Adventure Spirit Consulting">
 <meta property="og:locale" content="en_GB">
-<meta property="og:url" content="https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/">
-<meta property="og:title" content="You hold ISO 27001. How much is it worth under the Cybersecurity Act? | Adventure Spirit Consulting">
-<meta property="og:description" content="How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.">
+<meta property="og:url" content="https://adventurespirit.hr/en/blog/bia-that-produces-a-usable-rto/">
+<meta property="og:title" content="A BIA that produces a usable RTO, not a number everyone ignores | Adventure Spirit Consulting">
+<meta property="og:description" content="How to run a business impact analysis under ISO 22301 so that RTO and RPO are usable: who supplies the data, how to avoid everything being critical, and how the BIA connects to measure 12 of the Croatian Cybersecurity Regulation.">
 <meta property="og:image" content="https://adventurespirit.hr/mmew/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="You hold ISO 27001. How much is it worth under the Cybersecurity Act? | Adventure Spirit Consulting">
-<meta name="twitter:description" content="How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.">
+<meta name="twitter:title" content="A BIA that produces a usable RTO, not a number everyone ignores | Adventure Spirit Consulting">
+<meta name="twitter:description" content="How to run a business impact analysis under ISO 22301 so that RTO and RPO are usable: who supplies the data, how to avoid everything being critical, and how the BIA connects to measure 12 of the Croatian Cybersecurity Regulation.">
 <link rel="alternate" type="application/rss+xml" title="Insights - Adventure Spirit Consulting" href="/en/blog/feed.xml">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 6L44 42h12Z' fill='%23EF653F'/%3E%3Cline x1='44' y1='33' x2='56' y2='33' stroke='%23EF653F' stroke-width='3'/%3E%3Cpath d='M50 94L44 68h12Z' fill='%23EF653F'/%3E%3Cpath d='M94 50L68 44v12Z' fill='%23EF653F'/%3E%3Cpath d='M6 50L32 44v12Z' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='7' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='4' fill='%23c14b28'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,68 +83,68 @@
 <main>
   <div class="container narrow">
     <div class="crumbs">
-      <a href="/en">Home</a><span>&rsaquo;</span><a href="/en/blog/">Knowledge base</a><span>&rsaquo;</span>ISO standards
+      <a href="/en">Home</a><span>&rsaquo;</span><a href="/en/blog/">Knowledge base</a><span>&rsaquo;</span>Business continuity
     </div>
     <header class="art-head">
-      <div class="eyebrow">ISO standards</div>
-      <h1>You hold ISO 27001. How much is it worth under the Cybersecurity Act?</h1>
-      <p class="art-lead">The certificate does not release you from the obligation, but it shortens the path considerably. The question is only which measures it covers, which it touches, and which it does not reach at all - and how to prove that without writing a second set of documentation in parallel.</p>
+      <div class="eyebrow">Business continuity</div>
+      <h1>A BIA that produces a usable RTO, not a number everyone ignores</h1>
+      <p class="art-lead">Business impact analysis usually ends as a table in which every process has a four-hour RTO. If everything is critical, nothing is - and the recovery plan built on it will not survive the first real outage.</p>
       <div class="art-meta">
-        <span><strong>Daniel Bara, PhD</strong></span><span>3 March 2026</span><span>7 min read</span>
+        <span><strong>Daniel Bara, PhD</strong></span><span>26 May 2026</span><span>7 min read</span>
       </div>
     </header>
     <article>
 
-<p>First, to be clear: <strong>an ISO 27001 certificate does not substitute for compliance with the Croatian Cybersecurity Act</strong>. There is no provision exempting a certified entity from implementing the measures in Annex II. But the relationship is far from useless - on the contrary, an organisation with a working ISMS usually holds most of the required material, just in a different arrangement.</p>
+<p>Business impact analysis is the foundation of the whole continuity management system. If it is wrong, everything standing on it is wrong: recovery plans, investment in redundancy, supplier contracts and priorities during an actual crisis.</p>
+<p>And it is wrong more often than people think, almost always in the same way.</p>
 
-<h2>Where the overlap is strong</h2>
-<p>The standard and the Regulation share the same management logic: know what you have, know what threatens it, decide what to do about it, record it and review it. That shows up in several measures where an ISO organisation typically has nearly everything:</p>
-<ul>
-  <li><strong>Measure 2, asset management.</strong> Inventory, ownership, classification - present.</li>
-  <li><strong>Measure 3, risk management.</strong> Methodology, risk register, treatment plan, owners - present, with one caveat below.</li>
-  <li><strong>Measure 7, access control.</strong> Access policy, least privilege, privileged access - present.</li>
-  <li><strong>Measure 8, supply chain security.</strong> Supplier relationship controls - present, usually at a higher level than in organisations without the standard.</li>
-  <li><strong>Measure 12, business continuity.</strong> If ISO 22301 is in place alongside 27001, effectively covered.</li>
-  <li><strong>Measure 1, management commitment.</strong> Leadership, policy, roles and responsibilities, management review - present as a structure, though the content needs extending.</li>
-</ul>
-
-<h2>Where the overlap is partial</h2>
-<p>This is where most of the misunderstanding arises, because it looks finished and is not.</p>
-<h3>All-hazards risk assessment</h3>
-<p>The Regulation requires an assessment covering all categories of hazard - including fire, flood, power loss, failure of communications infrastructure and unauthorised physical access. Many ISMS risk assessments stay within the bounds of information threats. The methodology is the same; the scope is not.</p>
-<h3>Physical security</h3>
-<p>Measure 13 is a standalone measure with its own sub-measures. In the standard it is a set of controls inside Annex A. The material exists, but it has to be pulled out and evidenced sub-measure by sub-measure, rather than shown as part of a wider set.</p>
-<h3>Cryptography</h3>
-<p>Measure 10 requires rules on use, protection of data in transit and at rest, key management and - proportionate to risk - preparation for quantum-resistant cryptography. The last of these is newer than most ISMS documentation we see.</p>
-
-<h2>Where the standard does not help</h2>
-<p>Three groups of obligations have no equivalent in the standard, because they come from legislation rather than management practice:</p>
-<ol>
-  <li><strong>Categorisation and everything that follows from it.</strong> Level of implementation, competent authority, deadlines.</li>
-  <li><strong>Incident reporting within prescribed deadlines.</strong> The standard requires an incident management process, but knows nothing of 24-hour, 72-hour and 30-day deadlines or notification to a competent CSIRT.</li>
-  <li><strong>The format and procedure of verification.</strong> A self-assessment against a scoring framework, or an independent audit, has nothing to do with a certification audit against the standard.</li>
-</ol>
-
+<h2>The symptom: every process is critical</h2>
+<p>When department heads are asked how long their process may be down, the answer is predictable. Nobody says "my process can wait three days". The result is a table in which twenty of twenty-two processes carry a four-hour RTO, and an organisation trying to deliver that has to double its infrastructure.</p>
 <div class="callout">
-  <div class="c-label">The practical conclusion</div>
-  <p>ISO 27001 shortens the path but does not change the destination. A realistic expectation: a working ISMS covers a substantial part of the evidence base, and the remainder is filled in. An ISMS that is not working - built for the certificate and unused since - helps almost not at all, because exactly the records that prove the system is alive are what is missing.</p>
+  <div class="c-label">Why this happens</div>
+  <p>"How long may this process be down" is a question about perceived importance. "What is the loss after 4, 24 and 72 hours, expressed in money, contractual penalty, regulatory exposure and number of affected customers" is a question about consequence. The first produces identical answers; the second differentiates them.</p>
 </div>
 
-<h2>How to do this without duplication</h2>
+<h2>How to set the BIA up so it discriminates</h2>
+<p>Three changes in approach produce a usable result:</p>
+<h3>1. Measure impact over time, not at a single point</h3>
+<p>For each process, estimate the consequence at several time slices - say after 4 hours, 24 hours, 3 days and 7 days. The resulting curve shows where the real pain threshold sits. Most processes have a flat curve up to a point and then a sharp step; the RTO belongs before that step, not at an arbitrary four hours.</p>
+<h3>2. Use several impact categories</h3>
+<p>Financial loss, contractual obligations, regulatory consequences, safety of people and reputation. A process can be financially insignificant and regulatorily critical - incident notification is exactly that case.</p>
+<h3>3. Make total recovery capacity a constrained resource</h3>
+<p>If it is known in advance that you can fund recovery of five processes within the first four hours, department heads stop ranking their own process in isolation and start allocating a limited capacity together. The conversation changes immediately.</p>
+
+<h2>RPO is decided elsewhere</h2>
+<p>A common conflation: RTO and RPO get set by the same person in the same row of the table. RTO is a business decision about how long a process may be down. RPO is a decision about how much data you may lose, and it depends on how often the data changes and whether the loss can be reconstructed manually.</p>
+<p>A process that handles one daily batch can have a two-hour RTO and a 24-hour RPO with no inconsistency at all. A process taking real-time transactions cannot.</p>
+
+<h2>What a BIA must produce to be usable</h2>
+<ul>
+  <li><strong>A process list with owners</strong> - people, not departments.</li>
+  <li><strong>Dependencies.</strong> Applications, people, premises, suppliers and other processes. A process with a four-hour RTO that depends on a supplier contracted at a 48-hour SLA does not have a four-hour RTO.</li>
+  <li><strong>An impact curve</strong> by category and time slice.</li>
+  <li><strong>RTO and RPO with justification.</strong> A number without reasoning can be neither defended nor challenged.</li>
+  <li><strong>A minimum service level.</strong> You rarely recover to a hundred per cent - define what is enough to keep working.</li>
+  <li><strong>The gap between current and required capability.</strong> That is the input to the budget, and the most valuable output of the whole exercise.</li>
+</ul>
+
+<h2>The link to the Croatian Cybersecurity Regulation</h2>
+<p>Measure 12 of Annex II requires business continuity and cyber crisis management across eight sub-measures. A BIA run to ISO 22301 covers almost all of its analytical part, but two things need adding:</p>
 <ol>
-  <li><strong>Map before you write.</strong> Every sub-measure gets a reference to an existing document, record or control from the Statement of Applicability. The gaps are whatever is left without a reference.</li>
-  <li><strong>Extend, do not copy.</strong> If the existing risk methodology does not cover all hazard categories, widen the scope in the existing document. A second methodology means two risk registers that will diverge.</li>
-  <li><strong>One asset register.</strong> If the ISMS information asset list and the inventory for the Act are maintained separately, one of them will go stale and you will not know which.</li>
-  <li><strong>Fill what is genuinely missing.</strong> Incident reporting, categorisation, self-assessment preparation.</li>
+  <li><strong>Cyber scenarios.</strong> A classical BIA assumes a systems outage. Ransomware is not an outage - the systems run, but the data is unavailable and the backups may be affected. RPO behaves differently in that scenario.</li>
+  <li><strong>The link to incident management.</strong> The continuity plan and the incident response plan must share an activation criterion, or one will be triggered without the other in a crisis.</li>
 </ol>
-<p>The same approach applies to entities subject to DORA and to organisations with an established GDPR programme. The evidence base overlaps far more than the names of the instruments suggest.</p>
+
+<div class="note">
+  <p>A plan that has never been exercised documents intent, not capability. A two-hour tabletop with a scenario and real time measurement reveals more than another round of editing the document - and produces exactly the record measure 12 asks for.</p>
+</div>
 
       <div class="sources">
         <h4>Sources</h4>
         <ul>
-    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Cybersecurity Regulation, OG 135/2024, Annex II (Croatian)</a></li>
-    <li><a href="https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20B%20-%20Okvir%20za%20evaluaciju.pdf" target="_blank" rel="noopener">ZSIS - Annex B, Framework for the evaluation of measures</a></li>
-    <li>ISO/IEC 27001:2022 - Information security management systems</li>
+    <li>ISO 22301:2019 - Business continuity management systems</li>
+    <li>ISO/TS 22317 - Guidelines for business impact analysis</li>
+    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Cybersecurity Regulation, OG 135/2024, Annex II, measure 12 (Croatian)</a></li>
         </ul>
       </div>
       <div class="art-cta">
@@ -244,12 +244,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "You hold ISO 27001. How much is it worth under the Cybersecurity Act?",
-  "description": "How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.",
-  "datePublished": "2026-03-03",
-  "dateModified": "2026-03-03",
+  "headline": "A BIA that produces a usable RTO, not a number everyone ignores",
+  "description": "How to run a business impact analysis under ISO 22301 so that RTO and RPO are usable: who supplies the data, how to avoid everything being critical, and how the BIA connects to measure 12 of the Croatian Cybersecurity Regulation.",
+  "datePublished": "2026-05-26",
+  "dateModified": "2026-05-26",
   "inLanguage": "en-GB",
-  "articleSection": "ISO standards",
+  "articleSection": "Business continuity",
   "author": {
     "@type": "Person",
     "name": "Daniel Bara",
@@ -264,9 +264,9 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/"
+    "@id": "https://adventurespirit.hr/en/blog/bia-that-produces-a-usable-rto/"
   },
-  "url": "https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/"
+  "url": "https://adventurespirit.hr/en/blog/bia-that-produces-a-usable-rto/"
 }
 </script>
 <script type="application/ld+json">
@@ -289,8 +289,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "You hold ISO 27001. How much is it worth under the Cybersecurity Act?",
-      "item": "https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/"
+      "name": "A BIA that produces a usable RTO, not a number everyone ignores",
+      "item": "https://adventurespirit.hr/en/blog/bia-that-produces-a-usable-rto/"
     }
   ]
 }

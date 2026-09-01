@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Imate ISO 27001. Koliko vam to vrijedi kod ZKS-a? | Adventure Spirit Consulting</title>
-<meta name="description" content="Koliko ISO/IEC 27001:2022 pokriva od 13 mjera Uredbe o kibernetičkoj sigurnosti, gdje su stvarne praznine i kako mapirati postojeće kontrole umjesto pisanja nove dokumentacije.">
-<link rel="canonical" href="https://adventurespirit.hr/blog/iso-27001-i-zks/">
+<title>Active Directory: pet nalaza koje pronađemo u gotovo svakom testu | Adventure Spirit Consulting</title>
+<meta name="description" content="Najčešći nalazi u sigurnosnim procjenama Active Directoryja: naslijeđeni protokoli, prekomjerne delegacije, lozinke u atributima, nepotrebna članstva u povlaštenim grupama i pristup sigurnosnim kopijama.">
+<link rel="canonical" href="https://adventurespirit.hr/blog/active-directory-putovi-napada/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#0f1117">
 <meta name="author" content="Daniel Bara, dr. sc.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Adventure Spirit Consulting">
 <meta property="og:locale" content="hr_HR">
-<meta property="og:url" content="https://adventurespirit.hr/blog/iso-27001-i-zks/">
-<meta property="og:title" content="Imate ISO 27001. Koliko vam to vrijedi kod ZKS-a? | Adventure Spirit Consulting">
-<meta property="og:description" content="Koliko ISO/IEC 27001:2022 pokriva od 13 mjera Uredbe o kibernetičkoj sigurnosti, gdje su stvarne praznine i kako mapirati postojeće kontrole umjesto pisanja nove dokumentacije.">
+<meta property="og:url" content="https://adventurespirit.hr/blog/active-directory-putovi-napada/">
+<meta property="og:title" content="Active Directory: pet nalaza koje pronađemo u gotovo svakom testu | Adventure Spirit Consulting">
+<meta property="og:description" content="Najčešći nalazi u sigurnosnim procjenama Active Directoryja: naslijeđeni protokoli, prekomjerne delegacije, lozinke u atributima, nepotrebna članstva u povlaštenim grupama i pristup sigurnosnim kopijama.">
 <meta property="og:image" content="https://adventurespirit.hr/mmew/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Imate ISO 27001. Koliko vam to vrijedi kod ZKS-a? | Adventure Spirit Consulting">
-<meta name="twitter:description" content="Koliko ISO/IEC 27001:2022 pokriva od 13 mjera Uredbe o kibernetičkoj sigurnosti, gdje su stvarne praznine i kako mapirati postojeće kontrole umjesto pisanja nove dokumentacije.">
+<meta name="twitter:title" content="Active Directory: pet nalaza koje pronađemo u gotovo svakom testu | Adventure Spirit Consulting">
+<meta name="twitter:description" content="Najčešći nalazi u sigurnosnim procjenama Active Directoryja: naslijeđeni protokoli, prekomjerne delegacije, lozinke u atributima, nepotrebna članstva u povlaštenim grupama i pristup sigurnosnim kopijama.">
 <link rel="alternate" type="application/rss+xml" title="Baza znanja - Adventure Spirit Consulting" href="/blog/feed.xml">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 6L44 42h12Z' fill='%23EF653F'/%3E%3Cline x1='44' y1='33' x2='56' y2='33' stroke='%23EF653F' stroke-width='3'/%3E%3Cpath d='M50 94L44 68h12Z' fill='%23EF653F'/%3E%3Cpath d='M94 50L68 44v12Z' fill='%23EF653F'/%3E%3Cpath d='M6 50L32 44v12Z' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='7' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='4' fill='%23c14b28'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,69 +83,66 @@
 <main>
   <div class="container narrow">
     <div class="crumbs">
-      <a href="/">Početna</a><span>&rsaquo;</span><a href="/blog/">Baza znanja</a><span>&rsaquo;</span>ISO norme
+      <a href="/">Početna</a><span>&rsaquo;</span><a href="/blog/">Baza znanja</a><span>&rsaquo;</span>Ofenzivna sigurnost
     </div>
     <header class="art-head">
-      <div class="eyebrow">ISO norme</div>
-      <h1>Imate ISO 27001. Koliko vam to vrijedi kod ZKS-a?</h1>
-      <p class="art-lead">Certifikat vas ne oslobađa obveze, ali vas ozbiljno skraćuje put. Pitanje je samo koje mjere pokriva, koje dodiruje, a koje ne dira uopće - i kako to dokazati bez pisanja druge dokumentacije paralelno.</p>
+      <div class="eyebrow">Ofenzivna sigurnost</div>
+      <h1>Active Directory: pet nalaza koje pronađemo u gotovo svakom testu</h1>
+      <p class="art-lead">Domenska infrastruktura rijetko pada zbog nezakrpane ranjivosti. Pada zbog konfiguracije koja je nekad imala smisla, ostala je iza sebe i nitko je više ne gleda. Ovih pet nalaza vide se u većini okruženja.</p>
       <div class="art-meta">
-        <span><strong>Daniel Bara, dr. sc.</strong></span><span>3. ožujka 2026.</span><span>7 min čitanja</span>
+        <span><strong>Daniel Bara, dr. sc.</strong></span><span>18. kolovoza 2026.</span><span>7 min čitanja</span>
       </div>
     </header>
     <article>
 
-<p>Prva stvar koju treba raščistiti: <strong>ISO 27001 certifikat ne zamjenjuje usklađenost sa ZKS-om</strong>. Nema odredbe koja kaže da certificirani subjekt ne provodi mjere iz Priloga II. Ali odnos nije ni beskoristan - suprotno, organizacija s uhodanim ISMS-om u pravilu ima najveći dio potrebnog materijala, samo u drugom rasporedu.</p>
+<p>Kad se radi sigurnosna procjena domenske infrastrukture, očekivanje naručitelja obično je da će nalaz biti nezakrpani poslužitelj. U praksi je najčešći put od običnog korisničkog računa do potpune kontrole nad domenom sastavljen od konfiguracija koje nisu ranjivosti nego odluke - donesene davno, iz dobrog razloga koji više ne vrijedi.</p>
+<p>Ovih pet ponavlja se najčešće.</p>
 
-<h2>Gdje se preklapa jako</h2>
-<p>Norma i Uredba dijele istu logiku upravljanja: znaj što imaš, znaj što ti prijeti, odluči što ćeš s tim, zapiši i preispitaj. To se odražava na nekoliko mjera gdje ISO organizacija u pravilu ima gotovo sve:</p>
-<ul>
-  <li><strong>Mjera 2, upravljanje imovinom.</strong> Inventar, vlasništvo, klasifikacija - postoji.</li>
-  <li><strong>Mjera 3, upravljanje rizicima.</strong> Metodologija, registar rizika, plan obrade, vlasnici - postoji, uz jednu napomenu niže.</li>
-  <li><strong>Mjera 7, kontrola pristupa.</strong> Politika pristupa, načelo najmanje privilegije, povlašteni pristup - postoji.</li>
-  <li><strong>Mjera 8, sigurnost lanca opskrbe.</strong> Kontrole odnosa s dobavljačima - postoji, u pravilu na višoj razini nego u organizacijama bez norme.</li>
-  <li><strong>Mjera 12, kontinuitet poslovanja.</strong> Ako je uz 27001 uspostavljen i ISO 22301, praktički je pokrivena.</li>
-  <li><strong>Mjera 1, predanost uprave.</strong> Vodstvo, politika, uloge i odgovornosti, upravljački pregled - postoji kao struktura, ali sadržaj treba proširiti.</li>
-</ul>
+<h2>1. Naslijeđeni protokoli koji nitko ne koristi, ali su uključeni</h2>
+<p>Protokoli za razlučivanje imena u lokalnoj mreži koji su ostali uključeni jer su nekad trebali jednoj aplikaciji. Rezultat je da napadač u mreži može navesti klijente da mu pošalju podatke za autentifikaciju, bez ijednog eksploita.</p>
+<p><strong>Provjera:</strong> jesu li stariji protokoli za razlučivanje imena i stariji dijalekti dijeljenja datoteka isključeni, i traži li se potpisivanje prometa? <strong>Prepreka:</strong> gotovo uvijek jedna stara aplikacija koju nitko ne želi dirati.</p>
 
-<h2>Gdje se preklapa djelomično</h2>
-<p>Ovdje nastaje najviše nesporazuma, jer izgleda kao da je gotovo, a nije.</p>
-<h3>Procjena rizika po all-hazards načelu</h3>
-<p>Uredba traži procjenu koja obuhvaća sve vrste opasnosti - uključujući požar, poplavu, nestanak struje, ispad komunikacijske infrastrukture i neovlašteni fizički pristup. Mnogi ISMS-ovi procjenu rizika drže u granicama informacijskih prijetnji. Metodologija je ista, opseg nije.</p>
-<h3>Fizička sigurnost</h3>
-<p>Mjera 13 je zasebna mjera s vlastitim podmjerama. U normi je to skup kontrola unutar Priloga A. Materijal postoji, ali ga treba izdvojiti i dokazati po podmjerama, a ne pokazati kao dio šireg skupa.</p>
-<h3>Kriptografija</h3>
-<p>Mjera 10 traži pravila primjene, zaštitu podataka u prijenosu i mirovanju, upravljanje ključevima i - razmjerno riziku - pripremu na kvantno otpornu kriptografiju. Zadnje je novije od većine ISMS dokumentacije koju viđamo.</p>
-
-<h2>Gdje norma ne pomaže</h2>
-<p>Tri skupine obveza nemaju odgovarajući ekvivalent u normi jer proizlaze iz propisa, ne iz upravljačke prakse:</p>
-<ol>
-  <li><strong>Kategorizacija i sve što iz nje slijedi.</strong> Razina provedbe, nadležno tijelo, rokovi.</li>
-  <li><strong>Prijava incidenata u propisanim rokovima.</strong> Norma traži proces upravljanja incidentima, ali ne poznaje rokove od 24, 72 sata i 30 dana ni prijavu nadležnom CSIRT-u.</li>
-  <li><strong>Format i postupak provjere.</strong> Samoprocjena po bodovnom okviru, odnosno neovisna revizija, nemaju veze s certifikacijskim auditom prema normi.</li>
-</ol>
+<h2>2. Delegacija koja je šira nego što itko misli</h2>
+<p>Delegacija omogućuje računu da djeluje u ime korisnika. Postavljena bez ograničenja, ona znači da kompromitiranje jednog poslužitelja daje pristup svemu čemu pristupaju korisnici koji su se na njega spajali.</p>
+<p><strong>Provjera:</strong> koji računi imaju neograničenu delegaciju i je li ijedan od njih izložen prema korisnicima? <strong>Popravak:</strong> prijelaz na ograničenu delegaciju i označavanje osjetljivih računa kao onih koji se ne mogu delegirati.</p>
 
 <div class="callout">
-  <div class="c-label">Praktičan zaključak</div>
-  <p>ISO 27001 vam skraćuje put, ali ne mijenja odredište. Realno očekivanje: uhodan ISMS pokriva znatan dio dokazne baze, a ostatak se dopunjuje. Neuhodan ISMS - onaj koji je napravljen za certifikat i od tada se ne koristi - ne pomaže gotovo ništa, jer nedostaju upravo zapisi koji dokazuju da sustav živi.</p>
+  <div class="c-label">Zajednički nazivnik</div>
+  <p>Nijedan od ovih nalaza ne pojavljuje se u izvještaju skenera ranjivosti kao kritičan. Svi se vide tek kad se gleda odnos između objekata, a ne stanje pojedinog poslužitelja. Zato procjena domene nije isto što i skeniranje mreže.</p>
 </div>
 
-<h2>Kako to napraviti bez dupliranja</h2>
-<p>Redoslijed koji funkcionira:</p>
-<ol>
-  <li><strong>Mapirajte prije nego što pišete.</strong> Svaka podmjera dobiva referencu na postojeći dokument, zapis ili kontrolu iz Izjave o primjenjivosti. Praznine su ono što ostane bez reference.</li>
-  <li><strong>Proširite, ne preslikavajte.</strong> Ako postojeća metodologija rizika ne pokriva sve vrste opasnosti, proširite opseg u postojećem dokumentu. Druga metodologija znači dva registra rizika koja se razilaze.</li>
-  <li><strong>Jedan registar imovine.</strong> Ako popis informacijske imovine za ISMS i inventar za ZKS vodite odvojeno, jedan će zastarjeti, a nećete znati koji.</li>
-  <li><strong>Dopunite ono što nedostaje.</strong> Prijava incidenata, kategorizacija, priprema samoprocjene.</li>
-</ol>
-<p>Isti pristup vrijedi i za DORA obveznike i za organizacije s uspostavljenim GDPR sustavom. Dokazna baza se preklapa mnogo više nego što se čini iz naziva propisa.</p>
+<h2>3. Lozinke u atributima i skriptama</h2>
+<p>Opisni atributi objekata su čitljivi svakom autenticiranom korisniku. U njima se redovito nađu lozinke servisnih računa, upisane radi praktičnosti. Isto vrijedi za skripte u dijeljenim mapama koje se izvršavaju pri prijavi.</p>
+<p><strong>Provjera:</strong> pretraga atributa i dijeljenih mapa za nizovima koji izgledaju kao lozinke. Nalaz je rijetko prazan.</p>
+
+<h2>4. Povlaštena članstva koja su preživjela promjenu radnog mjesta</h2>
+<p>Administrator koji je prije tri godine rješavao jedan problem, dodan je u povlaštenu grupu i nikad uklonjen. Ili servisni račun aplikacije koja je ugašena, ali je račun ostao aktivan s pravima domenskog administratora.</p>
+<p><strong>Provjera:</strong> koliko računa je u najpovlaštenijim grupama, kad se svaki zadnji put prijavio i tko je vlasnik? <strong>Uobičajen nalaz:</strong> broj članova je dvoznamenkast, a broj onih koji ta prava stvarno trebaju jednoznamenkast.</p>
+
+<h2>5. Sigurnosne kopije domene dostupne iz domene</h2>
+<p>Kopija baze podataka domene sadrži sve. Ako je pohranjena na dijeljenoj mapi kojoj pristupaju obični administratori poslužitelja, put do potpune kontrole prolazi kroz nju - bez ijednog napada na sam kontroler domene.</p>
+<p><strong>Provjera:</strong> tko ima pristup sigurnosnim kopijama, jesu li šifrirane i je li kopija dostupna iz produkcijske domene? Ovo je ujedno i najizravnija poveznica prema mjeri 12 - kopija do koje ransomware dolazi nije sigurnosna kopija.</p>
+
+<h2>Kako to povezati s obvezama</h2>
+<p>Svih pet nalaza pripada mjerama iz Priloga II. Uredbe o kibernetičkoj sigurnosti, i to onima koje se najčešće ocjenjuju kao provedene:</p>
+<ul>
+  <li>Naslijeđeni protokoli i konfiguracija - mjera 6, sigurnost mreže</li>
+  <li>Delegacija i povlaštena članstva - mjera 7, kontrola pristupa</li>
+  <li>Lozinke u atributima - mjera 4, digitalni identiteti</li>
+  <li>Pristup sigurnosnim kopijama - mjere 5 i 12</li>
+</ul>
+<p>To je razlog zašto tehnička procjena i procjena usklađenosti ne bi trebale biti odvojeni projekti. Dokument koji tvrdi da je kontrola pristupa uspostavljena, uz nalaz da domenskih administratora ima sedamnaest, ne prolazi ozbiljnu provjeru.</p>
+
+<div class="note">
+  <p>Sigurnosna procjena domene provodi se uz pisano odobrenje i u dogovorenom opsegu. Sve navedene provjere su izvedive na produkcijskoj domeni bez prekida rada, ali se radi o postupcima koji ostavljaju tragove u nadzoru - dogovorite ih s timom koji prati zapise, inače prvi nalaz bude vaš vlastiti test.</p>
+</div>
 
       <div class="sources">
         <h4>Izvori</h4>
         <ul>
-    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II.</a></li>
-    <li><a href="https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20B%20-%20Okvir%20za%20evaluaciju.pdf" target="_blank" rel="noopener">ZSIS - Prilog B, Okvir za evaluaciju, v1.0</a></li>
-    <li>HRN EN ISO/IEC 27001:2022 - Sustavi upravljanja informacijskom sigurnošću</li>
+    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjere 4, 6, 7 i 12</a></li>
+    <li>HRN EN ISO/IEC 27002:2022 - kontrole tehnoloških mjera</li>
+    <li><a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener">NIST Cybersecurity Framework 2.0 - funkcije Protect i Detect</a></li>
         </ul>
       </div>
       <div class="art-cta">
@@ -166,17 +163,17 @@
       <div class="post-lead">Možete zadovoljiti svaku pojedinačnu kontrolu i svejedno pasti na podmjeri. Okvir za evaluaciju ima dva praga, a drugi je onaj koji iznenađuje. Evo kako formula radi i što to znači za planiranje.</div>
       <div class="post-meta"><span>1. rujna 2026.</span><span class="read">6 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/active-directory-putovi-napada/" data-cat="offensive">
-      <div class="post-cat">Ofenzivna sigurnost</div>
-      <div class="post-title">Active Directory: pet nalaza koje pronađemo u gotovo svakom testu</div>
-      <div class="post-lead">Domenska infrastruktura rijetko pada zbog nezakrpane ranjivosti. Pada zbog konfiguracije koja je nekad imala smisla, ostala je iza sebe i nitko je više ne gleda. Ovih pet nalaza vide se u većini okruženja.</div>
-      <div class="post-meta"><span>18. kolovoza 2026.</span><span class="read">7 min čitanja</span></div>
-    </a>
 <a class="post-card" href="/blog/nist-csf-2-funkcija-govern/" data-cat="frameworks">
       <div class="post-cat">Okviri</div>
       <div class="post-title">NIST CSF 2.0 i funkcija Govern: okvir koji je konačno priznao upravu</div>
       <div class="post-lead">Verzija 2.0 dodala je šestu funkciju iznad svih ostalih. Nije riječ o kozmetici - Govern je odgovor na nalaz koji se ponavljao godinama: tehničke kontrole ne popravljaju organizaciju koja nema vlasnika rizika.</div>
       <div class="post-meta"><span>28. srpnja 2026.</span><span class="read">6 min čitanja</span></div>
+    </a>
+<a class="post-card" href="/blog/sto-osiguravatelji-pitaju-kibernetickom-osiguranju/" data-cat="insurance">
+      <div class="post-cat">Cyber osiguranje</div>
+      <div class="post-title">Što osiguravatelji stvarno pitaju prije nego što ponude policu</div>
+      <div class="post-lead">Upitnik za kibernetičko osiguranje nije formalnost nego procjena rizika koju netko drugi radi o vama. Pitanja su svake godine sve konkretnija, a netočan odgovor može biti razlog za odbijanje štete.</div>
+      <div class="post-meta"><span>7. srpnja 2026.</span><span class="read">6 min čitanja</span></div>
     </a>
       </div>
     </div>
@@ -245,12 +242,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Imate ISO 27001. Koliko vam to vrijedi kod ZKS-a?",
-  "description": "Koliko ISO/IEC 27001:2022 pokriva od 13 mjera Uredbe o kibernetičkoj sigurnosti, gdje su stvarne praznine i kako mapirati postojeće kontrole umjesto pisanja nove dokumentacije.",
-  "datePublished": "2026-03-03",
-  "dateModified": "2026-03-03",
+  "headline": "Active Directory: pet nalaza koje pronađemo u gotovo svakom testu",
+  "description": "Najčešći nalazi u sigurnosnim procjenama Active Directoryja: naslijeđeni protokoli, prekomjerne delegacije, lozinke u atributima, nepotrebna članstva u povlaštenim grupama i pristup sigurnosnim kopijama.",
+  "datePublished": "2026-08-18",
+  "dateModified": "2026-08-18",
   "inLanguage": "hr-HR",
-  "articleSection": "ISO norme",
+  "articleSection": "Ofenzivna sigurnost",
   "author": {
     "@type": "Person",
     "name": "Daniel Bara",
@@ -265,9 +262,9 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://adventurespirit.hr/blog/iso-27001-i-zks/"
+    "@id": "https://adventurespirit.hr/blog/active-directory-putovi-napada/"
   },
-  "url": "https://adventurespirit.hr/blog/iso-27001-i-zks/"
+  "url": "https://adventurespirit.hr/blog/active-directory-putovi-napada/"
 }
 </script>
 <script type="application/ld+json">
@@ -290,8 +287,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Imate ISO 27001. Koliko vam to vrijedi kod ZKS-a?",
-      "item": "https://adventurespirit.hr/blog/iso-27001-i-zks/"
+      "name": "Active Directory: pet nalaza koje pronađemo u gotovo svakom testu",
+      "item": "https://adventurespirit.hr/blog/active-directory-putovi-napada/"
     }
   ]
 }

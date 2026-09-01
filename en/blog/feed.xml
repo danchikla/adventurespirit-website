@@ -15,6 +15,54 @@
     <description>An explanation of the scoring system in the ZSIS evaluation framework: the minimum threshold per control, the additional average threshold per sub-measure, and why formal compliance is not enough.</description>
   </item>
   <item>
+    <title>Active Directory: five findings we see in almost every assessment</title>
+    <link>https://adventurespirit.hr/en/blog/active-directory-attack-paths/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/active-directory-attack-paths/</guid>
+    <category>Offensive security</category>
+    <pubDate>Tue, 18 Aug 2026 09:00:00 +0200</pubDate>
+    <description>The most common findings in Active Directory security assessments: legacy protocols, excessive delegation, passwords in attributes, stale privileged group membership, and access to domain backups.</description>
+  </item>
+  <item>
+    <title>NIST CSF 2.0 and the Govern function: a framework that finally named the board</title>
+    <link>https://adventurespirit.hr/en/blog/nist-csf-2-govern-function/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/nist-csf-2-govern-function/</guid>
+    <category>Frameworks</category>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 +0200</pubDate>
+    <description>What the Govern function brings to NIST Cybersecurity Framework 2.0, how the six functions map to the 13 measures of the Croatian Cybersecurity Regulation, and why the framework is worth using as a common language with the board.</description>
+  </item>
+  <item>
+    <title>What cyber insurers actually ask before they quote</title>
+    <link>https://adventurespirit.hr/en/blog/what-cyber-insurers-actually-ask/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/what-cyber-insurers-actually-ask/</guid>
+    <category>Cyber insurance</category>
+    <pubDate>Tue, 07 Jul 2026 09:00:00 +0200</pubDate>
+    <description>Which questions recur in cyber insurance questionnaires, why premium and cover are tied to specific controls, and how to use your existing compliance evidence in the negotiation.</description>
+  </item>
+  <item>
+    <title>The DORA register of information: it fails on data, not on the rules</title>
+    <link>https://adventurespirit.hr/en/blog/dora-register-of-information/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/dora-register-of-information/</guid>
+    <category>DORA</category>
+    <pubDate>Tue, 16 Jun 2026 09:00:00 +0200</pubDate>
+    <description>What DORA requires in the register of information on contractual arrangements with ICT service providers, why populating it stalls on data quality, and how to connect it to your existing asset and risk registers.</description>
+  </item>
+  <item>
+    <title>A BIA that produces a usable RTO, not a number everyone ignores</title>
+    <link>https://adventurespirit.hr/en/blog/bia-that-produces-a-usable-rto/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/bia-that-produces-a-usable-rto/</guid>
+    <category>Business continuity</category>
+    <pubDate>Tue, 26 May 2026 09:00:00 +0200</pubDate>
+    <description>How to run a business impact analysis under ISO 22301 so that RTO and RPO are usable: who supplies the data, how to avoid everything being critical, and how the BIA connects to measure 12 of the Croatian Cybersecurity Regulation.</description>
+  </item>
+  <item>
+    <title>ISO 27002:2022: 93 controls and the five attributes most people skip</title>
+    <link>https://adventurespirit.hr/en/blog/iso-27002-2022-control-attributes/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/iso-27002-2022-control-attributes/</guid>
+    <category>ISO standards</category>
+    <pubDate>Tue, 05 May 2026 09:00:00 +0200</pubDate>
+    <description>What changed in ISO/IEC 27002:2022 - four themes instead of fourteen clauses, 93 controls and five attributes. How to migrate an existing Statement of Applicability without losing the evidence base.</description>
+  </item>
+  <item>
     <title>24 hours, 72 hours, 30 days: deadlines that run in parallel</title>
     <link>https://adventurespirit.hr/en/blog/incident-reporting-deadlines/</link>
     <guid isPermaLink="true">https://adventurespirit.hr/en/blog/incident-reporting-deadlines/</guid>
