@@ -29,6 +29,7 @@
 </head>
 <body>
 <div id="topwrap">
+
 <div class="topbar">
   <span class="tb-legal">Adventure Spirit d.o.o. &middot; Zagreb</span>
   <span class="tb-contact">
@@ -37,7 +38,8 @@
     <a href="https://app.adventurespirit.hr" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>GRC Portal</a>
   </span>
 </div>
-<nav>
+
+<nav id="navbar">
   <a href="/" class="nav-logo">
     <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="50" cy="50" r="44" stroke="#EF653F" stroke-width="1.5" opacity=".25"/>
@@ -58,21 +60,26 @@
       <span class="nav-logo-sub">Consulting</span>
     </div>
   </a>
+
   <ul class="nav-links" id="nav-links">
     <li><a href="/#onama">O nama</a></li>
     <li><a href="/#sigurnost">Usluge</a></li>
     <li><a href="/#sektori">Sektori</a></li>
     <li><a href="/blog/" class="active">Baza znanja</a></li>
+    <li><a href="/#platforma">Platforma</a></li>
     <li><a href="/#reference">Reference</a></li>
-    <li><a href="/#faq">Česta pitanja</a></li>
+    <li><a href="/#faq">FAQ</a></li>
     <li><a href="/#kontakt">Kontakt</a></li>
+    <li class="lang-switch"><span>HR</span><a href="/en/" hreflang="en">EN</a></li>
     <li><a href="https://app.adventurespirit.hr" target="_blank" rel="noopener" class="nav-cta">Portal</a></li>
   </ul>
-  <button class="nav-toggle" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Izbornik">
+
+  <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
   </button>
 </nav>
-</div>
+
+</div><!-- /#topwrap -->
 <main>
   <div class="container narrow">
     <div class="crumbs">
@@ -83,9 +90,7 @@
       <h1>Kategorizacija prema ZKS-u: ključni ili važni subjekt, i što iz toga slijedi</h1>
       <p class="art-lead">Kategoriju ne birate i ne prijavljujete se za nju. Dobit ćete je pismom, a od dana dostave teče rok. Objašnjavamo tko odlučuje, po čemu, i što se konkretno mijenja ovisno o tome u koju ste skupinu svrstani.</p>
       <div class="art-meta">
-        <span><strong>Daniel Bara, dr. sc.</strong></span>
-        <span>1. rujna 2026.</span>
-        <span>7 min čitanja</span>
+        <span><strong>Daniel Bara, dr. sc.</strong></span><span>1. rujna 2026.</span><span>7 min čitanja</span>
       </div>
     </header>
     <article>
@@ -210,7 +215,7 @@
       </div>
       <div class="footer-col">
         <h4>Baza znanja</h4>
-                <a href="/blog/kategorizacija-prema-zks-u/">ZKS / NIS2</a>
+        <a href="/blog/kategorizacija-prema-zks-u/">ZKS / NIS2</a>
         <a href="/blog/trinaest-mjera-priloga-ii/">ZKS / NIS2</a>
         <a href="/blog/kako-se-boduje-samoprocjena/">Samoprocjena</a>
         <a href="/blog/rokovi-prijave-incidenta/">Incidenti</a>
@@ -230,7 +235,7 @@
         <a href="/#reference">Reference</a>
         <a href="/#faq">Česta pitanja</a>
         <a href="/#kontakt">Kontakt</a>
-        <a href="https://app.adventurespirit.hr" target="_blank" rel="noopener">GRC Portal</a>
+        <a href="/en/">English version</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -261,7 +266,8 @@
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Adventure Spirit d.o.o.",
+    "name": "Adventure Spirit Consulting",
+    "legalName": "Adventure Spirit d.o.o.",
     "url": "https://adventurespirit.hr/"
   },
   "mainEntityOfPage": {
@@ -297,10 +303,10 @@
   ]
 }
 </script>
-
 <script>
-document.querySelectorAll('#nav-links a').forEach(function(a){
-  a.addEventListener('click', function(){ document.getElementById('nav-links').classList.remove('open'); });
+function toggleNav() { document.getElementById('nav-links').classList.toggle('open'); }
+document.querySelectorAll('#nav-links a').forEach(function (a) {
+  a.addEventListener('click', function () { document.getElementById('nav-links').classList.remove('open'); });
 });
 </script>
 </body>

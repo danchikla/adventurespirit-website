@@ -29,5 +29,5 @@ jobs:
             **/.DS_Store
             *.docx
             Ponuda/**
-            blog/_build.py
-            blog/README.md
+            _build.py
+            BUILD.md

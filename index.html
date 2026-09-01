@@ -6,6 +6,9 @@
   <title>Adventure Spirit Consulting - GRC, Kibernetička sigurnost & Compliance</title>
   <meta name="description" content="Adventure Spirit Consulting - stručno savjetovanje u kibernetičkoj sigurnosti, GRC upravljanju, ISO standardima, GDPR, DORA, ZKS/NIS2 i upravljanju rizicima. 27+ godina iskustva.">
   <link rel="canonical" href="https://adventurespirit.hr/">
+  <link rel="alternate" hreflang="hr" href="https://adventurespirit.hr/">
+  <link rel="alternate" hreflang="en" href="https://adventurespirit.hr/en/">
+  <link rel="alternate" hreflang="x-default" href="https://adventurespirit.hr/">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="theme-color" content="#0f1117">
   <meta name="author" content="Adventure Spirit d.o.o.">
@@ -557,6 +560,18 @@
     .kb-meta { font-size: 11.5px; color: #6b7488; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.07); }
     .kb-all { text-align: center; margin-top: 34px; }
 
+
+    .lang-switch { display: flex; align-items: center; gap: 2px; margin-left: 6px; padding-left: 10px; border-left: 1px solid rgba(255,255,255,.12); }
+    .lang-switch a, .lang-switch span { font-size: 12px; font-weight: 700; letter-spacing: .5px; padding: 5px 8px; border-radius: 6px; }
+    .lang-switch span { color: var(--white); background: rgba(255,255,255,.08); }
+    .lang-switch a { color: var(--text-muted); text-decoration: none; }
+    .lang-switch a:hover { color: var(--orange); background: rgba(239,101,63,.1); }
+    @media (max-width: 960px) {
+      .nav-links.open .lang-switch { border-left: none; padding-left: 0; margin: 8px 0 0; justify-content: center; gap: 8px; }
+      .nav-links.open .lang-switch a, .nav-links.open .lang-switch span { padding: 10px 20px; font-size: 14px; }
+    }
+    .legal-note { font-size: 12.5px; color: #6b7488; line-height: 1.7; margin-top: 18px; text-align: center; }
+
     /* ── Footer pravni podaci ───────────────────────────────── */
     .footer-legal { font-size: 11.5px; color: #626b7f; line-height: 1.8; margin-top: 14px; }
 
@@ -636,6 +651,7 @@
     <li><a href="#reference">Reference</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
+    <li class="lang-switch"><span>HR</span><a href="/en/" hreflang="en">EN</a></li>
     <li><a href="https://app.adventurespirit.hr" target="_blank" class="nav-cta">Portal</a></li>
   </ul>
 
@@ -1616,6 +1632,7 @@
         <a href="https://izleti.adventurespirit.hr">Planinarenje</a>
         <a href="/mmew/">Medvednica Weekend 2026.</a>
         <a href="#kontakt">Kontakt</a>
+        <a href="/en/">English version</a>
       </div>
     </div>
     <div class="footer-bottom">

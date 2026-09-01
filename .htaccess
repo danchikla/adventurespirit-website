@@ -32,6 +32,6 @@ ErrorDocument 404 /404.html
 </IfModule>
 
 # ── Razvojne datoteke nisu za posluzivanje ────────────────────
-<FilesMatch "^(_build\.py|README\.md)$">
+<FilesMatch "^(_build\.py|BUILD\.md)$">
   Require all denied
 </FilesMatch>
