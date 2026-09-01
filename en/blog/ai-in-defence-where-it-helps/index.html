@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The DORA register of information: it fails on data, not on the rules | Adventure Spirit Consulting</title>
-<meta name="description" content="What DORA requires in the register of information on contractual arrangements with ICT service providers, why populating it stalls on data quality, and how to connect it to your existing asset and risk registers.">
-<link rel="canonical" href="https://adventurespirit.hr/en/blog/dora-register-of-information/">
+<title>AI in defence: where it genuinely helps and where it just moves the problem | Adventure Spirit Consulting</title>
+<meta name="description" content="A realistic assessment of applying AI in cyber defence: where it delivers measurable benefit, where it creates false confidence, and which controls to put in place before adopting it.">
+<link rel="canonical" href="https://adventurespirit.hr/en/blog/ai-in-defence-where-it-helps/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#0f1117">
 <meta name="author" content="Daniel Bara, dr. sc.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Adventure Spirit Consulting">
 <meta property="og:locale" content="en_GB">
-<meta property="og:url" content="https://adventurespirit.hr/en/blog/dora-register-of-information/">
-<meta property="og:title" content="The DORA register of information: it fails on data, not on the rules | Adventure Spirit Consulting">
-<meta property="og:description" content="What DORA requires in the register of information on contractual arrangements with ICT service providers, why populating it stalls on data quality, and how to connect it to your existing asset and risk registers.">
+<meta property="og:url" content="https://adventurespirit.hr/en/blog/ai-in-defence-where-it-helps/">
+<meta property="og:title" content="AI in defence: where it genuinely helps and where it just moves the problem | Adventure Spirit Consulting">
+<meta property="og:description" content="A realistic assessment of applying AI in cyber defence: where it delivers measurable benefit, where it creates false confidence, and which controls to put in place before adopting it.">
 <meta property="og:image" content="https://adventurespirit.hr/mmew/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The DORA register of information: it fails on data, not on the rules | Adventure Spirit Consulting">
-<meta name="twitter:description" content="What DORA requires in the register of information on contractual arrangements with ICT service providers, why populating it stalls on data quality, and how to connect it to your existing asset and risk registers.">
+<meta name="twitter:title" content="AI in defence: where it genuinely helps and where it just moves the problem | Adventure Spirit Consulting">
+<meta name="twitter:description" content="A realistic assessment of applying AI in cyber defence: where it delivers measurable benefit, where it creates false confidence, and which controls to put in place before adopting it.">
 <link rel="alternate" type="application/rss+xml" title="Insights - Adventure Spirit Consulting" href="/en/blog/feed.xml">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 6L44 42h12Z' fill='%23EF653F'/%3E%3Cline x1='44' y1='33' x2='56' y2='33' stroke='%23EF653F' stroke-width='3'/%3E%3Cpath d='M50 94L44 68h12Z' fill='%23EF653F'/%3E%3Cpath d='M94 50L68 44v12Z' fill='%23EF653F'/%3E%3Cpath d='M6 50L32 44v12Z' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='7' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='4' fill='%23c14b28'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,74 +83,68 @@
 <main>
   <div class="container narrow">
     <div class="crumbs">
-      <a href="/en">Home</a><span>&rsaquo;</span><a href="/en/blog/">Knowledge base</a><span>&rsaquo;</span>DORA
+      <a href="/en">Home</a><span>&rsaquo;</span><a href="/en/blog/">Knowledge base</a><span>&rsaquo;</span>Artificial intelligence
     </div>
     <header class="art-head">
-      <div class="eyebrow">DORA</div>
-      <h1>The DORA register of information: it fails on data, not on the rules</h1>
-      <p class="art-lead">The register of contractual arrangements with ICT service providers looks like an administrative exercise until you try to populate it. That is when you discover three departments hold three different supplier lists, and none of them is complete.</p>
+      <div class="eyebrow">Artificial intelligence</div>
+      <h1>AI in defence: where it genuinely helps and where it just moves the problem</h1>
+      <p class="art-lead">The promise is that a model will catch the attack a human missed. The reality is that models do well on tasks with many examples and a clear outcome, and badly where neither exists - which is exactly where the expensive failures live.</p>
       <div class="art-meta">
-        <span><strong>Daniel Bara, PhD</strong></span><span>16 June 2026</span><span>7 min read</span>
+        <span><strong>Daniel Bara, PhD</strong></span><span>4 August 2026</span><span>7 min read</span>
       </div>
     </header>
     <article>
 
-<p>Regulation (EU) 2022/2554 requires financial entities to maintain a <strong>register of information</strong> covering all contractual arrangements with ICT service providers, and to make it available to the competent authority on request. It sounds like a supplier list. It is not.</p>
+<p>The debate about AI in security quickly slides into two extremes: that it changes everything, or that it changes nothing. It is more useful to ask where a statistical model has an advantage over a rule, and where it does not.</p>
 
-<h2>What the register actually asks for</h2>
-<p>The register is maintained at several levels and connects data that in most organisations lives in separate systems:</p>
-<ul>
-  <li><strong>The entity</strong> - who is the contracting party and where it sits in the group.</li>
-  <li><strong>The provider</strong> - identification, country of establishment, parent undertaking.</li>
-  <li><strong>The contractual arrangement</strong> - type, duration, termination notice, governing law.</li>
-  <li><strong>The function</strong> the service supports, and whether that function is critical or important.</li>
-  <li><strong>Subcontracting</strong> - the chain below the direct provider, to the depth that matters.</li>
-  <li><strong>Location of data processing and storage.</strong></li>
-  <li><strong>Substitutability assessment</strong> and the existence of an exit strategy.</li>
-</ul>
-<p>The operative word is <em>connects</em>. The register does not ask for a list but for the relationship between a contract, the function that contract supports, and the criticality of that function.</p>
+<h2>Where it delivers measurable benefit</h2>
+<h3>Reducing noise</h3>
+<p>Grouping similar alerts, removing duplicates and ranking by likelihood of a genuine finding. That is a task with many examples and a clear outcome, and models do it well. The benefit is not that the model detects attacks but that the analyst does not spend a day on a thousand alerts of which nine hundred are the same event.</p>
+<h3>Detecting deviation from normal</h3>
+<p>A login at three in the morning from a country where the organisation does not operate, or an account suddenly accessing ten times more files than usual. The model learns what is normal and flags what is not. It works well where "normal" is stable and poorly in environments that change constantly.</p>
+<h3>Accelerating comprehension</h3>
+<p>Summarising logs, explaining an unfamiliar command, proposing a query over the data. Here the model does not decide but shortens the time to understanding, with a human verifying.</p>
+<h3>Preparing documentation</h3>
+<p>A draft incident report, a proposed policy structure, a comparison of an existing document against a standard's requirements. With mandatory review, this is currently the highest-return application in compliance work.</p>
 
-<h2>Where population stalls</h2>
 <div class="callout">
-  <div class="c-label">Three data sources, three truths</div>
-  <p>Procurement holds a list of contracts. IT holds a list of systems. Finance holds a list of suppliers being paid. In practice those three do not reconcile: there are systems without contracts, contracts without systems, and payments without either. Populating the register for the first time is usually the first time anyone puts the three lists side by side.</p>
+  <div class="c-label">What all the useful applications share</div>
+  <p>The model shortens the path to an answer, but a human confirms the answer. The moment that confirmation is removed for speed, the benefit turns into a risk - and one that stays invisible until it materialises.</p>
 </div>
-<p>The second common blocker is <strong>subcontracting</strong>. The direct cloud provider is known. Who provides its infrastructure and where the data physically sits is known far less often, and contracts frequently do not oblige the provider to disclose it.</p>
-<p>The third is <strong>determining function criticality</strong>. Without a BIA, criticality gets assessed ad hoc, per provider rather than per function. That is the wrong direction: the function is critical, and the provider inherits the property.</p>
 
-<h2>How not to do it twice</h2>
-<p>The register overlaps most with three things you already have, or should:</p>
-<div class="tbl-wrap">
-  <table>
-    <thead><tr><th>The register asks for</th><th>Already exists in</th></tr></thead>
-    <tbody>
-      <tr><td>A list of ICT services and systems</td><td>The asset register (ISO 27001, measure 2)</td></tr>
-      <tr><td>Function criticality</td><td>The business impact analysis (ISO 22301)</td></tr>
-      <tr><td>Provider risk assessment</td><td>Third-party risk management (measure 8)</td></tr>
-      <tr><td>Exit strategy</td><td>The business continuity plan</td></tr>
-    </tbody>
-  </table>
-</div>
-<p>An organisation that keeps those four as one connected set populates the register by running a report. An organisation that keeps them apart populates it by hand, every year, from scratch.</p>
+<h2>Where it moves the problem instead of solving it</h2>
+<h3>When the cause is organisational</h3>
+<p>A system that ranks alerts does not help an organisation where nobody looks at alerts outside working hours anyway. Detection without response is not defence, and a tool does not create an on-call rota.</p>
+<h3>When there is no data</h3>
+<p>Models learn from records. An organisation not collecting logs from all key sources will not get useful results - it will get convincing results on incomplete data, which is worse.</p>
+<h3>When output is taken as fact</h3>
+<p>Language models produce convincing text even with no basis for it. A vulnerability name that does not exist, an invented article of a regulation, a configuration parameter that never existed - all of it arrives in the same tone as the correct answer.</p>
+<h3>When sensitive data leaves</h3>
+<p>Analysing an incident in an external tool means logs, system names and sometimes client data have left the organisation. That is processing with its own legal consequences, and it happens most often under the pressure of an incident.</p>
 
-<h2>What to do before populating</h2>
+<h2>The attacker's side</h2>
+<p>The same technology lowered the bar for attackers in three concrete ways: phishing without language errors and tailored to the recipient, faster preparation of malware variants, and convincing voice impersonation in payment fraud.</p>
+<p>None of these is a new class of attack. All are existing attacks executed more cheaply and more convincingly. Which is why the defence is not a new tool but tightening controls that already exist - out-of-band payment confirmation, multi-factor authentication, and awareness training that can no longer teach people to spot phishing by its bad grammar.</p>
+
+<h2>What to put in place before adopting</h2>
 <ol>
-  <li><strong>Reconcile the three lists.</strong> Procurement, IT and finance, on one shared identifier per provider.</li>
-  <li><strong>Start from functions, not from suppliers.</strong> Determine which functions are critical or important, then attach services to them.</li>
-  <li><strong>Check contracts for subcontracting disclosure.</strong> Where no such obligation exists, that is a finding in itself.</li>
-  <li><strong>Mark where data is missing.</strong> An empty field with a justification beats a guess, and is easier to fix in the next cycle.</li>
+  <li><strong>Enter the system in the asset register</strong>, with an owner and a use case.</li>
+  <li><strong>Define what must not go in.</strong> Personal data, client data, configurations, logs containing system names.</li>
+  <li><strong>Keep a human in the decision</strong> everywhere the output affects people or service availability.</li>
+  <li><strong>Record what the model proposed and what the human decided.</strong> Without that record there is neither review nor learning from mistakes.</li>
+  <li><strong>Measure.</strong> If time to detection or time to response does not improve after adoption, the tool did not deliver what it was bought for.</li>
 </ol>
 
 <div class="note">
-  <p>DORA is the more specific regime for the financial sector, but it does not displace other obligations. The evidence base overlaps almost entirely with the Croatian Cybersecurity Regulation: the same asset register, the same risk register, the same incident records. Do the work once, report it in several directions.</p>
+  <p>The AI Act applies the same logic to security tools as to everything else: obligations follow the application. A tool that ranks alerts is generally low risk, but a tool that automatically blocks a user is making a decision about a person - and that changes the assessment.</p>
 </div>
 
       <div class="sources">
         <h4>Sources</h4>
         <ul>
-    <li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554" target="_blank" rel="noopener">Regulation (EU) 2022/2554 (DORA)</a></li>
-    <li><a href="https://www.eba.europa.eu/" target="_blank" rel="noopener">Implementing technical standards on the register of information (ESAs)</a></li>
-    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Cybersecurity Regulation, OG 135/2024, Annex II, measure 8 (Croatian)</a></li>
+    <li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689" target="_blank" rel="noopener">Regulation (EU) 2024/1689 (AI Act)</a></li>
+    <li><a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener">NIST Cybersecurity Framework 2.0 - Detect and Respond functions</a></li>
+    <li><a href="https://www.ncsc.hr/" target="_blank" rel="noopener">Recommendations for systematic log collection, NCSC-HR (Croatian)</a></li>
         </ul>
       </div>
       <div class="art-cta">
@@ -177,11 +171,11 @@
       <div class="post-lead">Domain infrastructure rarely falls to an unpatched vulnerability. It falls to configuration that once made sense, was left behind, and that nobody looks at any more. These five findings show up in most environments.</div>
       <div class="post-meta"><span>18 August 2026</span><span class="read">7 min read</span></div>
     </a>
-<a class="post-card" href="/en/blog/ai-in-defence-where-it-helps/" data-cat="ai">
-      <div class="post-cat">Artificial intelligence</div>
-      <div class="post-title">AI in defence: where it genuinely helps and where it just moves the problem</div>
-      <div class="post-lead">The promise is that a model will catch the attack a human missed. The reality is that models do well on tasks with many examples and a clear outcome, and badly where neither exists - which is exactly where the expensive failures live.</div>
-      <div class="post-meta"><span>4 August 2026</span><span class="read">7 min read</span></div>
+<a class="post-card" href="/en/blog/nist-csf-2-govern-function/" data-cat="frameworks">
+      <div class="post-cat">Frameworks</div>
+      <div class="post-title">NIST CSF 2.0 and the Govern function: a framework that finally named the board</div>
+      <div class="post-lead">Version 2.0 added a sixth function above all the others. It is not cosmetic - Govern answers a finding that kept recurring for years: technical controls do not fix an organisation with no owner for its risk.</div>
+      <div class="post-meta"><span>28 July 2026</span><span class="read">6 min read</span></div>
     </a>
       </div>
     </div>
@@ -250,12 +244,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "The DORA register of information: it fails on data, not on the rules",
-  "description": "What DORA requires in the register of information on contractual arrangements with ICT service providers, why populating it stalls on data quality, and how to connect it to your existing asset and risk registers.",
-  "datePublished": "2026-06-16",
-  "dateModified": "2026-06-16",
+  "headline": "AI in defence: where it genuinely helps and where it just moves the problem",
+  "description": "A realistic assessment of applying AI in cyber defence: where it delivers measurable benefit, where it creates false confidence, and which controls to put in place before adopting it.",
+  "datePublished": "2026-08-04",
+  "dateModified": "2026-08-04",
   "inLanguage": "en-GB",
-  "articleSection": "DORA",
+  "articleSection": "Artificial intelligence",
   "author": {
     "@type": "Person",
     "name": "Daniel Bara",
@@ -270,9 +264,9 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://adventurespirit.hr/en/blog/dora-register-of-information/"
+    "@id": "https://adventurespirit.hr/en/blog/ai-in-defence-where-it-helps/"
   },
-  "url": "https://adventurespirit.hr/en/blog/dora-register-of-information/"
+  "url": "https://adventurespirit.hr/en/blog/ai-in-defence-where-it-helps/"
 }
 </script>
 <script type="application/ld+json">
@@ -295,8 +289,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "The DORA register of information: it fails on data, not on the rules",
-      "item": "https://adventurespirit.hr/en/blog/dora-register-of-information/"
+      "name": "AI in defence: where it genuinely helps and where it just moves the problem",
+      "item": "https://adventurespirit.hr/en/blog/ai-in-defence-where-it-helps/"
     }
   ]
 }

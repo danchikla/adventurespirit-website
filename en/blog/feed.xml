@@ -23,12 +23,28 @@
     <description>The most common findings in Active Directory security assessments: legacy protocols, excessive delegation, passwords in attributes, stale privileged group membership, and access to domain backups.</description>
   </item>
   <item>
+    <title>AI in defence: where it genuinely helps and where it just moves the problem</title>
+    <link>https://adventurespirit.hr/en/blog/ai-in-defence-where-it-helps/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/ai-in-defence-where-it-helps/</guid>
+    <category>Artificial intelligence</category>
+    <pubDate>Tue, 04 Aug 2026 09:00:00 +0200</pubDate>
+    <description>A realistic assessment of applying AI in cyber defence: where it delivers measurable benefit, where it creates false confidence, and which controls to put in place before adopting it.</description>
+  </item>
+  <item>
     <title>NIST CSF 2.0 and the Govern function: a framework that finally named the board</title>
     <link>https://adventurespirit.hr/en/blog/nist-csf-2-govern-function/</link>
     <guid isPermaLink="true">https://adventurespirit.hr/en/blog/nist-csf-2-govern-function/</guid>
     <category>Frameworks</category>
     <pubDate>Tue, 28 Jul 2026 09:00:00 +0200</pubDate>
     <description>What the Govern function brings to NIST Cybersecurity Framework 2.0, how the six functions map to the 13 measures of the Croatian Cybersecurity Regulation, and why the framework is worth using as a common language with the board.</description>
+  </item>
+  <item>
+    <title>The AI system inventory and the asset register: why they are one list</title>
+    <link>https://adventurespirit.hr/en/blog/ai-inventory-and-asset-register/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/ai-inventory-and-asset-register/</guid>
+    <category>Artificial intelligence</category>
+    <pubDate>Tue, 14 Jul 2026 09:00:00 +0200</pubDate>
+    <description>How to extend an existing information asset register so it covers the AI Act&#x27;s inventory requirements, instead of maintaining a separate register of AI systems.</description>
   </item>
   <item>
     <title>What cyber insurers actually ask before they quote</title>
@@ -39,12 +55,28 @@
     <description>Which questions recur in cyber insurance questionnaires, why premium and cover are tied to specific controls, and how to use your existing compliance evidence in the negotiation.</description>
   </item>
   <item>
+    <title>Prohibited practices and AI literacy: two provisions already in force</title>
+    <link>https://adventurespirit.hr/en/blog/prohibited-practices-and-ai-literacy/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/prohibited-practices-and-ai-literacy/</guid>
+    <category>Artificial intelligence</category>
+    <pubDate>Tue, 30 Jun 2026 09:00:00 +0200</pubDate>
+    <description>Which practices the AI Act prohibits outright, what the AI literacy obligation in Article 4 means, and how to satisfy it without building a separate training programme.</description>
+  </item>
+  <item>
     <title>The DORA register of information: it fails on data, not on the rules</title>
     <link>https://adventurespirit.hr/en/blog/dora-register-of-information/</link>
     <guid isPermaLink="true">https://adventurespirit.hr/en/blog/dora-register-of-information/</guid>
     <category>DORA</category>
     <pubDate>Tue, 16 Jun 2026 09:00:00 +0200</pubDate>
     <description>What DORA requires in the register of information on contractual arrangements with ICT service providers, why populating it stalls on data quality, and how to connect it to your existing asset and risk registers.</description>
+  </item>
+  <item>
+    <title>The AI Act: four risk levels and the question that comes first</title>
+    <link>https://adventurespirit.hr/en/blog/ai-act-risk-levels/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/ai-act-risk-levels/</guid>
+    <category>Artificial intelligence</category>
+    <pubDate>Tue, 02 Jun 2026 09:00:00 +0200</pubDate>
+    <description>How the EU AI Act divides systems into four risk levels, what makes a system high-risk, and why classification has to start from an inventory of the AI systems in your organisation.</description>
   </item>
   <item>
     <title>A BIA that produces a usable RTO, not a number everyone ignores</title>

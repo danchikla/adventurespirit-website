@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The DORA register of information: it fails on data, not on the rules | Adventure Spirit Consulting</title>
-<meta name="description" content="What DORA requires in the register of information on contractual arrangements with ICT service providers, why populating it stalls on data quality, and how to connect it to your existing asset and risk registers.">
-<link rel="canonical" href="https://adventurespirit.hr/en/blog/dora-register-of-information/">
+<title>The AI system inventory and the asset register: why they are one list | Adventure Spirit Consulting</title>
+<meta name="description" content="How to extend an existing information asset register so it covers the AI Act&#x27;s inventory requirements, instead of maintaining a separate register of AI systems.">
+<link rel="canonical" href="https://adventurespirit.hr/en/blog/ai-inventory-and-asset-register/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#0f1117">
 <meta name="author" content="Daniel Bara, dr. sc.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Adventure Spirit Consulting">
 <meta property="og:locale" content="en_GB">
-<meta property="og:url" content="https://adventurespirit.hr/en/blog/dora-register-of-information/">
-<meta property="og:title" content="The DORA register of information: it fails on data, not on the rules | Adventure Spirit Consulting">
-<meta property="og:description" content="What DORA requires in the register of information on contractual arrangements with ICT service providers, why populating it stalls on data quality, and how to connect it to your existing asset and risk registers.">
+<meta property="og:url" content="https://adventurespirit.hr/en/blog/ai-inventory-and-asset-register/">
+<meta property="og:title" content="The AI system inventory and the asset register: why they are one list | Adventure Spirit Consulting">
+<meta property="og:description" content="How to extend an existing information asset register so it covers the AI Act&#x27;s inventory requirements, instead of maintaining a separate register of AI systems.">
 <meta property="og:image" content="https://adventurespirit.hr/mmew/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The DORA register of information: it fails on data, not on the rules | Adventure Spirit Consulting">
-<meta name="twitter:description" content="What DORA requires in the register of information on contractual arrangements with ICT service providers, why populating it stalls on data quality, and how to connect it to your existing asset and risk registers.">
+<meta name="twitter:title" content="The AI system inventory and the asset register: why they are one list | Adventure Spirit Consulting">
+<meta name="twitter:description" content="How to extend an existing information asset register so it covers the AI Act&#x27;s inventory requirements, instead of maintaining a separate register of AI systems.">
 <link rel="alternate" type="application/rss+xml" title="Insights - Adventure Spirit Consulting" href="/en/blog/feed.xml">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 6L44 42h12Z' fill='%23EF653F'/%3E%3Cline x1='44' y1='33' x2='56' y2='33' stroke='%23EF653F' stroke-width='3'/%3E%3Cpath d='M50 94L44 68h12Z' fill='%23EF653F'/%3E%3Cpath d='M94 50L68 44v12Z' fill='%23EF653F'/%3E%3Cpath d='M6 50L32 44v12Z' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='7' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='4' fill='%23c14b28'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,74 +83,74 @@
 <main>
   <div class="container narrow">
     <div class="crumbs">
-      <a href="/en">Home</a><span>&rsaquo;</span><a href="/en/blog/">Knowledge base</a><span>&rsaquo;</span>DORA
+      <a href="/en">Home</a><span>&rsaquo;</span><a href="/en/blog/">Knowledge base</a><span>&rsaquo;</span>Artificial intelligence
     </div>
     <header class="art-head">
-      <div class="eyebrow">DORA</div>
-      <h1>The DORA register of information: it fails on data, not on the rules</h1>
-      <p class="art-lead">The register of contractual arrangements with ICT service providers looks like an administrative exercise until you try to populate it. That is when you discover three departments hold three different supplier lists, and none of them is complete.</p>
+      <div class="eyebrow">Artificial intelligence</div>
+      <h1>The AI system inventory and the asset register: why they are one list</h1>
+      <p class="art-lead">Organisations that introduce an AI system inventory as a separate document discover a year later that they have two registers drifting apart. The overlap is larger than the difference, and the difference fits into four columns.</p>
       <div class="art-meta">
-        <span><strong>Daniel Bara, PhD</strong></span><span>16 June 2026</span><span>7 min read</span>
+        <span><strong>Daniel Bara, PhD</strong></span><span>14 July 2026</span><span>6 min read</span>
       </div>
     </header>
     <article>
 
-<p>Regulation (EU) 2022/2554 requires financial entities to maintain a <strong>register of information</strong> covering all contractual arrangements with ICT service providers, and to make it available to the competent authority on request. It sounds like a supplier list. It is not.</p>
+<p>When an AI-related obligation arrives, the usual first move is to open a new spreadsheet. The logic is understandable: new instrument, new document. The consequence is predictable.</p>
+<p>A year later there are two lists. One knows about every server but not which of them runs a model. The other knows about the models but not who owns the system they run on. Neither is complete and nobody knows which is more recent.</p>
 
-<h2>What the register actually asks for</h2>
-<p>The register is maintained at several levels and connects data that in most organisations lives in separate systems:</p>
-<ul>
-  <li><strong>The entity</strong> - who is the contracting party and where it sits in the group.</li>
-  <li><strong>The provider</strong> - identification, country of establishment, parent undertaking.</li>
-  <li><strong>The contractual arrangement</strong> - type, duration, termination notice, governing law.</li>
-  <li><strong>The function</strong> the service supports, and whether that function is critical or important.</li>
-  <li><strong>Subcontracting</strong> - the chain below the direct provider, to the depth that matters.</li>
-  <li><strong>Location of data processing and storage.</strong></li>
-  <li><strong>Substitutability assessment</strong> and the existence of an exit strategy.</li>
-</ul>
-<p>The operative word is <em>connects</em>. The register does not ask for a list but for the relationship between a contract, the function that contract supports, and the criticality of that function.</p>
-
-<h2>Where population stalls</h2>
-<div class="callout">
-  <div class="c-label">Three data sources, three truths</div>
-  <p>Procurement holds a list of contracts. IT holds a list of systems. Finance holds a list of suppliers being paid. In practice those three do not reconcile: there are systems without contracts, contracts without systems, and payments without either. Populating the register for the first time is usually the first time anyone puts the three lists side by side.</p>
-</div>
-<p>The second common blocker is <strong>subcontracting</strong>. The direct cloud provider is known. Who provides its infrastructure and where the data physically sits is known far less often, and contracts frequently do not oblige the provider to disclose it.</p>
-<p>The third is <strong>determining function criticality</strong>. Without a BIA, criticality gets assessed ad hoc, per provider rather than per function. That is the wrong direction: the function is critical, and the provider inherits the property.</p>
-
-<h2>How not to do it twice</h2>
-<p>The register overlaps most with three things you already have, or should:</p>
+<h2>What both registers ask for identically</h2>
 <div class="tbl-wrap">
   <table>
-    <thead><tr><th>The register asks for</th><th>Already exists in</th></tr></thead>
+    <thead><tr><th>Data point</th><th>Asset register</th><th>AI inventory</th></tr></thead>
     <tbody>
-      <tr><td>A list of ICT services and systems</td><td>The asset register (ISO 27001, measure 2)</td></tr>
-      <tr><td>Function criticality</td><td>The business impact analysis (ISO 22301)</td></tr>
-      <tr><td>Provider risk assessment</td><td>Third-party risk management (measure 8)</td></tr>
-      <tr><td>Exit strategy</td><td>The business continuity plan</td></tr>
+      <tr><td>System name and description</td><td>yes</td><td>yes</td></tr>
+      <tr><td>Owner</td><td>yes</td><td>yes</td></tr>
+      <tr><td>Business process supported</td><td>yes</td><td>yes</td></tr>
+      <tr><td>Criticality</td><td>yes</td><td>yes</td></tr>
+      <tr><td>Types of data processed</td><td>yes</td><td>yes</td></tr>
+      <tr><td>Supplier and contract</td><td>yes</td><td>yes</td></tr>
+      <tr><td>Processing location</td><td>yes</td><td>yes</td></tr>
+      <tr><td>Risk assessment</td><td>yes</td><td>yes</td></tr>
     </tbody>
   </table>
 </div>
-<p>An organisation that keeps those four as one connected set populates the register by running a report. An organisation that keeps them apart populates it by hand, every year, from scratch.</p>
+<p>Eight entries you are maintaining anyway. Measure 2 of Annex II of the Croatian Cybersecurity Regulation requires an asset inventory with classification and identification of critical assets - that is the same job.</p>
 
-<h2>What to do before populating</h2>
+<h2>The four columns you add</h2>
 <ol>
-  <li><strong>Reconcile the three lists.</strong> Procurement, IT and finance, on one shared identifier per provider.</li>
-  <li><strong>Start from functions, not from suppliers.</strong> Determine which functions are critical or important, then attach services to them.</li>
-  <li><strong>Check contracts for subcontracting disclosure.</strong> Where no such obligation exists, that is a finding in itself.</li>
-  <li><strong>Mark where data is missing.</strong> An empty field with a justification beats a guess, and is easier to fix in the next cycle.</li>
+  <li><strong>Is the system AI-based</strong> - yes, no, or contains an embedded component. The third value matters, because it captures existing software that acquired AI functionality through an update.</li>
+  <li><strong>Use case</strong> - specifically, not "assistant". The same tool used three ways produces three rows.</li>
+  <li><strong>Your role</strong> - are you using the system, developing it, or have you modified it and put your name on it. This determines the scope of your obligations.</li>
+  <li><strong>Risk level and reasoning</strong> - the conclusion of the assessment, with a sentence saying why. The sentence matters more than the label.</li>
 </ol>
 
+<div class="callout">
+  <div class="c-label">Why use case, not tool</div>
+  <p>Obligations under the AI Act depend on application, not technology. A register with one row per tool cannot carry a classification, because the same tool can be minimal and high risk at the same time. One row per use case solves this without a single additional table.</p>
+</div>
+
+<h2>What you gain beyond tidiness</h2>
+<ul>
+  <li><strong>Risk assessment happens once.</strong> The risk of losing system availability and the risk of a wrong decision the system produces are assessed in the same register, with the same methodology and the same owner.</li>
+  <li><strong>The supply chain is covered.</strong> An AI service provider is a third party like any other, entering the assessment under measure 8 with no separate procedure.</li>
+  <li><strong>Data protection attaches at the same place.</strong> Where personal data goes in, the link to the record of processing activities runs through the same row.</li>
+  <li><strong>Monitoring has one source.</strong> Log collection and behaviour monitoring rely on the inventory - a system that is not in the inventory is not under monitoring either.</li>
+</ul>
+
+<h2>The first step, concretely</h2>
+<p>Open your existing asset register, add four columns and walk the list. For most rows the answer to the first question is "no" and the work is done in a minute. The rows answering "yes" or "contains a component" will be fewer than expected, and they are precisely the ones needing attention.</p>
+<p>What you will be missing is not systems from IT but tools introduced by staff and AI features that arrived through an update of existing software. Those are not found in a spreadsheet but in a conversation with process owners.</p>
+
 <div class="note">
-  <p>DORA is the more specific regime for the financial sector, but it does not displace other obligations. The evidence base overlaps almost entirely with the Croatian Cybersecurity Regulation: the same asset register, the same risk register, the same incident records. Do the work once, report it in several directions.</p>
+  <p>The same principle applies to the DORA register of information and to the GDPR record of processing activities. Each asks for a view of the same assets from a different angle. Organisations that maintain them as views on one source report; those that maintain them separately transcribe.</p>
 </div>
 
       <div class="sources">
         <h4>Sources</h4>
         <ul>
-    <li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554" target="_blank" rel="noopener">Regulation (EU) 2022/2554 (DORA)</a></li>
-    <li><a href="https://www.eba.europa.eu/" target="_blank" rel="noopener">Implementing technical standards on the register of information (ESAs)</a></li>
-    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Cybersecurity Regulation, OG 135/2024, Annex II, measure 8 (Croatian)</a></li>
+    <li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689" target="_blank" rel="noopener">Regulation (EU) 2024/1689 (AI Act)</a></li>
+    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Cybersecurity Regulation, OG 135/2024, Annex II, measures 2 and 8 (Croatian)</a></li>
+    <li>ISO/IEC 27001:2022, Annex A - asset management</li>
         </ul>
       </div>
       <div class="art-cta">
@@ -250,12 +250,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "The DORA register of information: it fails on data, not on the rules",
-  "description": "What DORA requires in the register of information on contractual arrangements with ICT service providers, why populating it stalls on data quality, and how to connect it to your existing asset and risk registers.",
-  "datePublished": "2026-06-16",
-  "dateModified": "2026-06-16",
+  "headline": "The AI system inventory and the asset register: why they are one list",
+  "description": "How to extend an existing information asset register so it covers the AI Act's inventory requirements, instead of maintaining a separate register of AI systems.",
+  "datePublished": "2026-07-14",
+  "dateModified": "2026-07-14",
   "inLanguage": "en-GB",
-  "articleSection": "DORA",
+  "articleSection": "Artificial intelligence",
   "author": {
     "@type": "Person",
     "name": "Daniel Bara",
@@ -270,9 +270,9 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://adventurespirit.hr/en/blog/dora-register-of-information/"
+    "@id": "https://adventurespirit.hr/en/blog/ai-inventory-and-asset-register/"
   },
-  "url": "https://adventurespirit.hr/en/blog/dora-register-of-information/"
+  "url": "https://adventurespirit.hr/en/blog/ai-inventory-and-asset-register/"
 }
 </script>
 <script type="application/ld+json">
@@ -295,8 +295,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "The DORA register of information: it fails on data, not on the rules",
-      "item": "https://adventurespirit.hr/en/blog/dora-register-of-information/"
+      "name": "The AI system inventory and the asset register: why they are one list",
+      "item": "https://adventurespirit.hr/en/blog/ai-inventory-and-asset-register/"
     }
   ]
 }

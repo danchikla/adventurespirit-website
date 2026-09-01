@@ -2649,6 +2649,230 @@ ARTICLES_EN.append(dict(
           ('NIST Cybersecurity Framework 2.0 - Protect and Detect functions', 'https://www.nist.gov/cyberframework')]))
 
 # ══════════════════════════════════════════════════════════════════
+# Engleski: serija o umjetnoj inteligenciji
+# ══════════════════════════════════════════════════════════════════
+ARTICLES_EN.append(dict(
+ slug="ai-act-risk-levels", cat="Artificial intelligence", catkey="ai",
+ date="2026-06-02", read=7,
+ title="The AI Act: four risk levels and the question that comes first",
+ lead="Regulation (EU) 2024/1689 does not govern the technology but its application. The same model can be an unregulated convenience and a high-risk system, depending on what you use it for - which means classification starts with an inventory, not a legal analysis.",
+ desc="How the EU AI Act divides systems into four risk levels, what makes a system high-risk, and why classification has to start from an inventory of the AI systems in your organisation.",
+ body='''
+<p>Regulation (EU) 2024/1689, the AI Act, is the first comprehensive law of its kind. Its approach is simpler than the length of the text suggests: <strong>obligations do not depend on what kind of model it is, but on what it is used for and who it can harm.</strong></p>
+
+<h2>Four levels</h2>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Level</th><th>What it covers</th><th>Consequence</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Unacceptable risk</strong></td><td>Prohibited practices</td><td>Cannot be used</td></tr>
+      <tr><td><strong>High risk</strong></td><td>Systems in sensitive areas of use and safety components of products</td><td>The largest set of obligations</td></tr>
+      <tr><td><strong>Limited risk</strong></td><td>Systems that interact with people or generate content</td><td>Transparency duties</td></tr>
+      <tr><td><strong>Minimal risk</strong></td><td>Everything else</td><td>No specific obligations</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Most of what organisations use day to day lands in the bottom two categories. That does not mean there is no work - it means the work is different.</p>
+
+<div class="callout">
+  <div class="c-label">Same technology, different level</div>
+  <p>A model that drafts text is minimal risk when it summarises a meeting and high risk when it is used to shortlist job applicants. Classification is done per use case, not per tool. An organisation with one tool and ten ways of using it has ten items to assess, not one.</p>
+</div>
+
+<h2>Why you start with an inventory</h2>
+<p>The first question is not "is this high risk". The first question is <strong>which systems are we actually using</strong>. The answer is almost always incomplete, for three reasons:</p>
+<ul>
+  <li><strong>Embedded features.</strong> Existing business software acquires AI functionality through an update, without a procurement decision.</li>
+  <li><strong>Tools introduced by staff.</strong> The free tier of a tool someone uses to prepare documents passes through neither procurement nor IT.</li>
+  <li><strong>Supplier services.</strong> An external provider processing your data with the help of AI introduces it into your chain without a decision on your part.</li>
+</ul>
+<p>The inventory is therefore not obtained by asking IT but by the same method used to build an asset register: walking the processes and talking to their owners.</p>
+
+<h2>Your role determines your obligations</h2>
+<p>The Act distinguishes roles, and the most important distinction is between whoever develops and places a system on the market and whoever uses it. Most organisations sit in the second group, with a substantially lighter set of obligations - but not with none.</p>
+<p>That role can change through an incautious step, however. An organisation that takes someone else's system, puts its own name on it or substantially modifies it may take on the heavier obligations as well. Which is why a decision to fine-tune a model is not purely technical.</p>
+
+<h2>What to do now</h2>
+<ol>
+  <li><strong>Build the inventory.</strong> System, owner, use case, data going in, decision it influences.</li>
+  <li><strong>Flag use cases that touch people.</strong> Recruitment, evaluation, access to services, employee monitoring - those are the areas where the level rises.</li>
+  <li><strong>Check the input data.</strong> If personal data goes in, the GDPR applies in parallel, with its own requirements for a lawful basis and impact assessment.</li>
+  <li><strong>Set the rules before you need them.</strong> An internal usage policy, with a clear list of what must not be entered into external tools, will prevent more problems than any subsequent analysis.</li>
+</ol>
+
+<div class="note">
+  <p>The AI Act applies in stages, with provisions taking effect at different dates. Prohibited practices and the AI literacy obligation apply first, obligations for high-risk systems later. Check which date applies to your situation before planning a project timeline.</p>
+</div>
+''',
+ sources=[('Regulation (EU) 2024/1689 (AI Act)', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689'),
+          ('Regulation (EU) 2016/679 (GDPR)', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679')]))
+
+ARTICLES_EN.append(dict(
+ slug="prohibited-practices-and-ai-literacy", cat="Artificial intelligence", catkey="ai",
+ date="2026-06-30", read=6,
+ title="Prohibited practices and AI literacy: two provisions already in force",
+ lead="While the debate runs on high-risk systems, two provisions of the AI Act apply first. One bans certain practices outright, the other requires that the people using these systems know what they are doing.",
+ desc="Which practices the AI Act prohibits outright, what the AI literacy obligation in Article 4 means, and how to satisfy it without building a separate training programme.",
+ body='''
+<p>The AI Act applies in stages. Two groups of provisions arrive first, and both apply to anyone using these systems, not only to those building them.</p>
+
+<h2>Prohibited practices</h2>
+<p>Article 5 lists practices that must not be used, with no risk assessment available and no way to justify them. Among them:</p>
+<ul>
+  <li><strong>Manipulative techniques</strong> that materially impair a person's ability to make an informed decision and thereby cause significant harm.</li>
+  <li><strong>Exploiting vulnerabilities</strong> arising from age, disability or a social or economic situation.</li>
+  <li><strong>Social scoring</strong> leading to detrimental treatment in a context unrelated to the one in which the data was collected.</li>
+  <li><strong>Predicting criminal offences</strong> based solely on profiling or personality traits.</li>
+  <li><strong>Untargeted scraping of facial images</strong> from the internet or CCTV to build recognition databases.</li>
+  <li><strong>Emotion recognition in the workplace and in education</strong>, subject to narrow medical and safety exceptions.</li>
+  <li><strong>Biometric categorisation</strong> to infer sensitive attributes about a person.</li>
+</ul>
+<div class="callout">
+  <div class="c-label">Where this touches ordinary business</div>
+  <p>Most of the prohibitions sound remote from an average company until you look at two entries. Emotion recognition in the workplace appears in call analytics tools for contact centres and in employee engagement monitoring. Biometric categorisation appears in video surveillance analytics. Neither is procured under that name.</p>
+</div>
+
+<h2>The AI literacy obligation</h2>
+<p>Article 4 requires organisations to ensure a sufficient level of AI literacy among staff and others operating AI systems on their behalf. The level is set against those people's technical knowledge, experience and education, and against the context in which the systems are used.</p>
+<p>The provision is short and deliberately open. It prescribes no hours, no curriculum and no exam. It requires that people understand what the tool does, where it fails, and what must not be done with it.</p>
+
+<h3>How to satisfy it without a separate programme</h3>
+<p>In organisations that already run security awareness training, this is an addition rather than a new project:</p>
+<ol>
+  <li><strong>An internal usage policy</strong> - what may and may not be entered into external tools. This is the shortest path to the largest benefit.</li>
+  <li><strong>Short role-based training.</strong> Someone using a tool to draft text and someone using it in decisions about people do not need the same content.</li>
+  <li><strong>Concrete failure examples.</strong> Fabricated facts presented convincingly, bias in training data, a model's misplaced confidence.</li>
+  <li><strong>Records.</strong> Who completed what and when. Without records the obligation cannot be verified, exactly as with cybersecurity measures.</li>
+</ol>
+
+<h2>Overlap with other obligations</h2>
+<p>The training record produced here simultaneously feeds measure 5 of the Croatian Cybersecurity Regulation, which requires staff awareness. The internal usage policy touches data protection as well, since entering personal data into an external tool is processing with its own lawful basis.</p>
+<p>This is the general pattern: the instruments differ, the evidence base is shared.</p>
+
+<div class="note">
+  <p>This text is an informative overview, not legal advice. The precise scope of prohibited practices and the way the literacy obligation applies depend on the specific circumstances and on guidance issued at Union level.</p>
+</div>
+''',
+ sources=[('Regulation (EU) 2024/1689 (AI Act), Art. 4 and 5', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689'),
+          ('Cybersecurity Regulation, OG 135/2024, Annex II, measure 5 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html')]))
+
+ARTICLES_EN.append(dict(
+ slug="ai-inventory-and-asset-register", cat="Artificial intelligence", catkey="ai",
+ date="2026-07-14", read=6,
+ title="The AI system inventory and the asset register: why they are one list",
+ lead="Organisations that introduce an AI system inventory as a separate document discover a year later that they have two registers drifting apart. The overlap is larger than the difference, and the difference fits into four columns.",
+ desc="How to extend an existing information asset register so it covers the AI Act's inventory requirements, instead of maintaining a separate register of AI systems.",
+ body='''
+<p>When an AI-related obligation arrives, the usual first move is to open a new spreadsheet. The logic is understandable: new instrument, new document. The consequence is predictable.</p>
+<p>A year later there are two lists. One knows about every server but not which of them runs a model. The other knows about the models but not who owns the system they run on. Neither is complete and nobody knows which is more recent.</p>
+
+<h2>What both registers ask for identically</h2>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Data point</th><th>Asset register</th><th>AI inventory</th></tr></thead>
+    <tbody>
+      <tr><td>System name and description</td><td>yes</td><td>yes</td></tr>
+      <tr><td>Owner</td><td>yes</td><td>yes</td></tr>
+      <tr><td>Business process supported</td><td>yes</td><td>yes</td></tr>
+      <tr><td>Criticality</td><td>yes</td><td>yes</td></tr>
+      <tr><td>Types of data processed</td><td>yes</td><td>yes</td></tr>
+      <tr><td>Supplier and contract</td><td>yes</td><td>yes</td></tr>
+      <tr><td>Processing location</td><td>yes</td><td>yes</td></tr>
+      <tr><td>Risk assessment</td><td>yes</td><td>yes</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Eight entries you are maintaining anyway. Measure 2 of Annex II of the Croatian Cybersecurity Regulation requires an asset inventory with classification and identification of critical assets - that is the same job.</p>
+
+<h2>The four columns you add</h2>
+<ol>
+  <li><strong>Is the system AI-based</strong> - yes, no, or contains an embedded component. The third value matters, because it captures existing software that acquired AI functionality through an update.</li>
+  <li><strong>Use case</strong> - specifically, not "assistant". The same tool used three ways produces three rows.</li>
+  <li><strong>Your role</strong> - are you using the system, developing it, or have you modified it and put your name on it. This determines the scope of your obligations.</li>
+  <li><strong>Risk level and reasoning</strong> - the conclusion of the assessment, with a sentence saying why. The sentence matters more than the label.</li>
+</ol>
+
+<div class="callout">
+  <div class="c-label">Why use case, not tool</div>
+  <p>Obligations under the AI Act depend on application, not technology. A register with one row per tool cannot carry a classification, because the same tool can be minimal and high risk at the same time. One row per use case solves this without a single additional table.</p>
+</div>
+
+<h2>What you gain beyond tidiness</h2>
+<ul>
+  <li><strong>Risk assessment happens once.</strong> The risk of losing system availability and the risk of a wrong decision the system produces are assessed in the same register, with the same methodology and the same owner.</li>
+  <li><strong>The supply chain is covered.</strong> An AI service provider is a third party like any other, entering the assessment under measure 8 with no separate procedure.</li>
+  <li><strong>Data protection attaches at the same place.</strong> Where personal data goes in, the link to the record of processing activities runs through the same row.</li>
+  <li><strong>Monitoring has one source.</strong> Log collection and behaviour monitoring rely on the inventory - a system that is not in the inventory is not under monitoring either.</li>
+</ul>
+
+<h2>The first step, concretely</h2>
+<p>Open your existing asset register, add four columns and walk the list. For most rows the answer to the first question is "no" and the work is done in a minute. The rows answering "yes" or "contains a component" will be fewer than expected, and they are precisely the ones needing attention.</p>
+<p>What you will be missing is not systems from IT but tools introduced by staff and AI features that arrived through an update of existing software. Those are not found in a spreadsheet but in a conversation with process owners.</p>
+
+<div class="note">
+  <p>The same principle applies to the DORA register of information and to the GDPR record of processing activities. Each asks for a view of the same assets from a different angle. Organisations that maintain them as views on one source report; those that maintain them separately transcribe.</p>
+</div>
+''',
+ sources=[('Regulation (EU) 2024/1689 (AI Act)', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689'),
+          ('Cybersecurity Regulation, OG 135/2024, Annex II, measures 2 and 8 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('ISO/IEC 27001:2022, Annex A - asset management', None)]))
+
+ARTICLES_EN.append(dict(
+ slug="ai-in-defence-where-it-helps", cat="Artificial intelligence", catkey="ai",
+ date="2026-08-04", read=7,
+ title="AI in defence: where it genuinely helps and where it just moves the problem",
+ lead="The promise is that a model will catch the attack a human missed. The reality is that models do well on tasks with many examples and a clear outcome, and badly where neither exists - which is exactly where the expensive failures live.",
+ desc="A realistic assessment of applying AI in cyber defence: where it delivers measurable benefit, where it creates false confidence, and which controls to put in place before adopting it.",
+ body='''
+<p>The debate about AI in security quickly slides into two extremes: that it changes everything, or that it changes nothing. It is more useful to ask where a statistical model has an advantage over a rule, and where it does not.</p>
+
+<h2>Where it delivers measurable benefit</h2>
+<h3>Reducing noise</h3>
+<p>Grouping similar alerts, removing duplicates and ranking by likelihood of a genuine finding. That is a task with many examples and a clear outcome, and models do it well. The benefit is not that the model detects attacks but that the analyst does not spend a day on a thousand alerts of which nine hundred are the same event.</p>
+<h3>Detecting deviation from normal</h3>
+<p>A login at three in the morning from a country where the organisation does not operate, or an account suddenly accessing ten times more files than usual. The model learns what is normal and flags what is not. It works well where "normal" is stable and poorly in environments that change constantly.</p>
+<h3>Accelerating comprehension</h3>
+<p>Summarising logs, explaining an unfamiliar command, proposing a query over the data. Here the model does not decide but shortens the time to understanding, with a human verifying.</p>
+<h3>Preparing documentation</h3>
+<p>A draft incident report, a proposed policy structure, a comparison of an existing document against a standard's requirements. With mandatory review, this is currently the highest-return application in compliance work.</p>
+
+<div class="callout">
+  <div class="c-label">What all the useful applications share</div>
+  <p>The model shortens the path to an answer, but a human confirms the answer. The moment that confirmation is removed for speed, the benefit turns into a risk - and one that stays invisible until it materialises.</p>
+</div>
+
+<h2>Where it moves the problem instead of solving it</h2>
+<h3>When the cause is organisational</h3>
+<p>A system that ranks alerts does not help an organisation where nobody looks at alerts outside working hours anyway. Detection without response is not defence, and a tool does not create an on-call rota.</p>
+<h3>When there is no data</h3>
+<p>Models learn from records. An organisation not collecting logs from all key sources will not get useful results - it will get convincing results on incomplete data, which is worse.</p>
+<h3>When output is taken as fact</h3>
+<p>Language models produce convincing text even with no basis for it. A vulnerability name that does not exist, an invented article of a regulation, a configuration parameter that never existed - all of it arrives in the same tone as the correct answer.</p>
+<h3>When sensitive data leaves</h3>
+<p>Analysing an incident in an external tool means logs, system names and sometimes client data have left the organisation. That is processing with its own legal consequences, and it happens most often under the pressure of an incident.</p>
+
+<h2>The attacker's side</h2>
+<p>The same technology lowered the bar for attackers in three concrete ways: phishing without language errors and tailored to the recipient, faster preparation of malware variants, and convincing voice impersonation in payment fraud.</p>
+<p>None of these is a new class of attack. All are existing attacks executed more cheaply and more convincingly. Which is why the defence is not a new tool but tightening controls that already exist - out-of-band payment confirmation, multi-factor authentication, and awareness training that can no longer teach people to spot phishing by its bad grammar.</p>
+
+<h2>What to put in place before adopting</h2>
+<ol>
+  <li><strong>Enter the system in the asset register</strong>, with an owner and a use case.</li>
+  <li><strong>Define what must not go in.</strong> Personal data, client data, configurations, logs containing system names.</li>
+  <li><strong>Keep a human in the decision</strong> everywhere the output affects people or service availability.</li>
+  <li><strong>Record what the model proposed and what the human decided.</strong> Without that record there is neither review nor learning from mistakes.</li>
+  <li><strong>Measure.</strong> If time to detection or time to response does not improve after adoption, the tool did not deliver what it was bought for.</li>
+</ol>
+
+<div class="note">
+  <p>The AI Act applies the same logic to security tools as to everything else: obligations follow the application. A tool that ranks alerts is generally low risk, but a tool that automatically blocks a user is making a decision about a person - and that changes the assessment.</p>
+</div>
+''',
+ sources=[('Regulation (EU) 2024/1689 (AI Act)', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689'),
+          ('NIST Cybersecurity Framework 2.0 - Detect and Respond functions', 'https://www.nist.gov/cyberframework'),
+          ('Recommendations for systematic log collection, NCSC-HR (Croatian)', 'https://www.ncsc.hr/')]))
+
+# ══════════════════════════════════════════════════════════════════
 # Sklapanje engleske naslovnice
 # ══════════════════════════════════════════════════════════════════
 def en_index():
