@@ -7,22 +7,6 @@
   <description>Expert articles on the Croatian Cybersecurity Act, the 13 measures of the Regulation, self-assessment scoring, incident reporting, ISO standards and risk management.</description>
   <language>en</language>
   <item>
-    <title>Entity categorisation under the Croatian Cybersecurity Act, and what follows from it</title>
-    <link>https://adventurespirit.hr/en/blog/entity-categorisation-croatian-cybersecurity-act/</link>
-    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/entity-categorisation-croatian-cybersecurity-act/</guid>
-    <category>CSA / NIS2</category>
-    <pubDate>Tue, 01 Sep 2026 09:00:00 +0200</pubDate>
-    <description>How it is determined whether you are an essential or an important entity under the Croatian Cybersecurity Act, which deadlines run from the categorisation notice, and how the duties of the two groups differ.</description>
-  </item>
-  <item>
-    <title>13 measures, 99 sub-measures, 132 controls: the anatomy of Annex II</title>
-    <link>https://adventurespirit.hr/en/blog/thirteen-measures-annex-ii/</link>
-    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/thirteen-measures-annex-ii/</guid>
-    <category>CSA / NIS2</category>
-    <pubDate>Tue, 01 Sep 2026 09:00:00 +0200</pubDate>
-    <description>A complete overview of the 13 cyber risk management measures from Annex II of the Croatian Cybersecurity Regulation: sub-measures per measure, what each asks for in practice, and how they connect to the control catalogue.</description>
-  </item>
-  <item>
     <title>How the self-assessment is actually scored: the Pi and T thresholds</title>
     <link>https://adventurespirit.hr/en/blog/how-self-assessment-is-scored/</link>
     <guid isPermaLink="true">https://adventurespirit.hr/en/blog/how-self-assessment-is-scored/</guid>
@@ -35,24 +19,40 @@
     <link>https://adventurespirit.hr/en/blog/incident-reporting-deadlines/</link>
     <guid isPermaLink="true">https://adventurespirit.hr/en/blog/incident-reporting-deadlines/</guid>
     <category>Incidents</category>
-    <pubDate>Tue, 01 Sep 2026 09:00:00 +0200</pubDate>
+    <pubDate>Tue, 14 Apr 2026 09:00:00 +0200</pubDate>
     <description>Deadlines for reporting a significant cyber incident under the Croatian Cybersecurity Act: early warning within 24 hours, notification within 72 hours, final report within 30 days, and the parallel notification under Article 33 GDPR.</description>
-  </item>
-  <item>
-    <title>You hold ISO 27001. How much is it worth under the Cybersecurity Act?</title>
-    <link>https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/</link>
-    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/</guid>
-    <category>ISO standards</category>
-    <pubDate>Tue, 01 Sep 2026 09:00:00 +0200</pubDate>
-    <description>How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.</description>
   </item>
   <item>
     <title>A risk register that passes review: five recurring mistakes</title>
     <link>https://adventurespirit.hr/en/blog/risk-register-that-passes-review/</link>
     <guid isPermaLink="true">https://adventurespirit.hr/en/blog/risk-register-that-passes-review/</guid>
     <category>Risk management</category>
-    <pubDate>Tue, 01 Sep 2026 09:00:00 +0200</pubDate>
+    <pubDate>Tue, 24 Mar 2026 09:00:00 +0200</pubDate>
     <description>The most common mistakes in risk registers that surface during compliance reviews: no link to the asset inventory, risks without owners, scores without reasoning, treatment plans without deadlines, and a register that never changes.</description>
+  </item>
+  <item>
+    <title>You hold ISO 27001. How much is it worth under the Cybersecurity Act?</title>
+    <link>https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/</guid>
+    <category>ISO standards</category>
+    <pubDate>Tue, 03 Mar 2026 09:00:00 +0200</pubDate>
+    <description>How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.</description>
+  </item>
+  <item>
+    <title>13 measures, 99 sub-measures, 132 controls: the anatomy of Annex II</title>
+    <link>https://adventurespirit.hr/en/blog/thirteen-measures-annex-ii/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/thirteen-measures-annex-ii/</guid>
+    <category>CSA / NIS2</category>
+    <pubDate>Tue, 10 Feb 2026 09:00:00 +0200</pubDate>
+    <description>A complete overview of the 13 cyber risk management measures from Annex II of the Croatian Cybersecurity Regulation: sub-measures per measure, what each asks for in practice, and how they connect to the control catalogue.</description>
+  </item>
+  <item>
+    <title>Entity categorisation under the Croatian Cybersecurity Act, and what follows from it</title>
+    <link>https://adventurespirit.hr/en/blog/entity-categorisation-croatian-cybersecurity-act/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/entity-categorisation-croatian-cybersecurity-act/</guid>
+    <category>CSA / NIS2</category>
+    <pubDate>Tue, 20 Jan 2026 09:00:00 +0200</pubDate>
+    <description>How it is determined whether you are an essential or an important entity under the Croatian Cybersecurity Act, which deadlines run from the categorisation notice, and how the duties of the two groups differ.</description>
   </item>
 </channel>
 </rss>

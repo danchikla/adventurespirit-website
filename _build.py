@@ -66,7 +66,7 @@ L = {
         ("/#faq","FAQ"),("/#kontakt","Kontakt")],
    legal_line="Adventure Spirit d.o.o. &middot; Zagreb",
    brand_line="Tržišni naziv: Adventure Spirit Consulting",
-   addr="Zagreb, Republika Hrvatska", oib="OIB: dostupno na zahtjev",
+   addr="Antuna Šoljana 22, 10000 Zagreb, Hrvatska", oib="OIB / PDV ID: 72169598754 &middot; MBS: 4845552<br>Trgovački sud u Zagrebu",
    tagline="Kibernetička sigurnost, GRC compliance i upravljanje rizicima - preko 20 godina iskustva u službi vašeg poslovanja.",
    f_kb="Baza znanja", f_all="Svi članci", f_svc="Usluge", f_co="Tvrtka",
    f_links=[("/#sigurnost","ZKS / NIS2"),("/#sigurnost","GDPR"),("/#sigurnost","ISO 27001"),
@@ -99,7 +99,7 @@ L = {
         ("/en/#faq","FAQ"),("/en/#contact","Contact")],
    legal_line="Adventure Spirit d.o.o. &middot; Zagreb, Croatia",
    brand_line="Trading as: Adventure Spirit Consulting",
-   addr="Zagreb, Republic of Croatia", oib="Company ID (OIB): available on request",
+   addr="Antuna Šoljana 22, 10000 Zagreb, Croatia", oib="OIB / VAT ID: 72169598754 &middot; Reg. no. (MBS): 4845552<br>Commercial Court in Zagreb",
    tagline="Cyber security, GRC compliance and risk management - over 20 years of experience in the service of your business.",
    f_kb="Insights", f_all="All articles", f_svc="Services", f_co="Company",
    f_links=[("/en/#services","CSA / NIS2"),("/en/#services","GDPR"),("/en/#services","ISO 27001"),
@@ -192,7 +192,6 @@ def footer(lang, articles):
           Adventure Spirit d.o.o.<br>
           ''' + t["brand_line"] + '''<br>
           ''' + t["addr"] + '''<br>
-          <!-- TODO: upisati punu adresu, OIB, MBS i PDV broj -->
           ''' + t["oib"] + '''<br>
           <a href="tel:+385955041496">+385 95 504 1496</a><br>
           <a href="mailto:info@adventurespirit.hr">info@adventurespirit.hr</a>
@@ -339,7 +338,7 @@ ARTICLES.append(dict(
  slug="kategorizacija-prema-zks-u",
  cat="ZKS / NIS2",
  catkey="zks",
- date="2026-09-01",
+ date="2026-01-20",
  read=7,
  title="Kategorizacija prema ZKS-u: ključni ili važni subjekt, i što iz toga slijedi",
  lead="Kategoriju ne birate i ne prijavljujete se za nju. Dobit ćete je pismom, a od dana dostave teče rok. Objašnjavamo tko odlučuje, po čemu, i što se konkretno mijenja ovisno o tome u koju ste skupinu svrstani.",
@@ -407,7 +406,7 @@ ARTICLES.append(dict(
  slug="trinaest-mjera-priloga-ii",
  cat="ZKS / NIS2",
  catkey="zks",
- date="2026-09-01",
+ date="2026-02-10",
  read=9,
  featured=True,
  title="13 mjera, 99 podmjera, 132 kontrole: anatomija Priloga II. Uredbe",
@@ -510,7 +509,7 @@ ARTICLES.append(dict(
  slug="rokovi-prijave-incidenta",
  cat="Incidenti",
  catkey="incidenti",
- date="2026-09-01",
+ date="2026-04-14",
  read=6,
  title="24 sata, 72 sata, 30 dana: rokovi koji teku paralelno",
  lead="Rokovi prijave značajnog incidenta ne zbrajaju se i ne čekaju jedan drugoga. A ako je incidentom zahvaćena i povreda osobnih podataka, uz njih usporedno teče i četvrti rok, prema drugom propisu i drugom tijelu.",
@@ -569,7 +568,7 @@ ARTICLES.append(dict(
  slug="iso-27001-i-zks",
  cat="ISO norme",
  catkey="iso",
- date="2026-09-01",
+ date="2026-03-03",
  read=7,
  title="Imate ISO 27001. Koliko vam to vrijedi kod ZKS-a?",
  lead="Certifikat vas ne oslobađa obveze, ali vas ozbiljno skraćuje put. Pitanje je samo koje mjere pokriva, koje dodiruje, a koje ne dira uopće - i kako to dokazati bez pisanja druge dokumentacije paralelno.",
@@ -631,7 +630,7 @@ ARTICLES.append(dict(
  slug="registar-rizika-koji-prolazi-provjeru",
  cat="Upravljanje rizicima",
  catkey="rizici",
- date="2026-09-01",
+ date="2026-03-24",
  read=6,
  title="Registar rizika koji prolazi provjeru: pet grešaka koje se ponavljaju",
  lead="Registar rizika je dokument koji svi imaju i rijetko tko koristi. Pet obrazaca se ponavlja iz organizacije u organizaciju, i svih pet je vidljivo na prvo čitanje.",
@@ -801,7 +800,6 @@ EN_FOOTER = '''<footer>
           Adventure Spirit d.o.o.<br>
           Trading as: Adventure Spirit Consulting<br>
           Zagreb, Republic of Croatia<br>
-          <!-- TODO: upisati punu adresu, OIB, MBS i PDV broj -->
           Company ID (OIB): available on request<br>
           <a href="tel:+385955041496" style="color:var(--orange);text-decoration:none">+385 95 504 1496</a><br>
           <a href="mailto:info@adventurespirit.hr" style="color:var(--orange);text-decoration:none">info@adventurespirit.hr</a>
@@ -1017,7 +1015,7 @@ ARTICLES_EN = []
 
 ARTICLES_EN.append(dict(
  slug="entity-categorisation-croatian-cybersecurity-act", cat="CSA / NIS2", catkey="csa",
- date="2026-09-01", read=7,
+ date="2026-01-20", read=7,
  title="Entity categorisation under the Croatian Cybersecurity Act, and what follows from it",
  lead="You do not choose your category and you do not apply for it. It arrives by letter, and from that day a deadline runs. Here is who decides, on what basis, and what actually changes depending on which group you land in.",
  desc="How it is determined whether you are an essential or an important entity under the Croatian Cybersecurity Act, which deadlines run from the categorisation notice, and how the duties of the two groups differ.",
@@ -1079,7 +1077,7 @@ ARTICLES_EN.append(dict(
 
 ARTICLES_EN.append(dict(
  slug="thirteen-measures-annex-ii", cat="CSA / NIS2", catkey="csa",
- date="2026-09-01", read=9, featured=True,
+ date="2026-02-10", read=9, featured=True,
  title="13 measures, 99 sub-measures, 132 controls: the anatomy of Annex II",
  lead="The Croatian Cybersecurity Regulation does not speak of ten NIS2 measures but of thirteen of its own. Beneath them sit 99 sub-measures, and behind those a catalogue of 132 controls with scoring thresholds. This is the map of the whole structure, measure by measure.",
  desc="A complete overview of the 13 cyber risk management measures from Annex II of the Croatian Cybersecurity Regulation: sub-measures per measure, what each asks for in practice, and how they connect to the control catalogue.",
@@ -1170,7 +1168,7 @@ ARTICLES_EN.append(dict(
 
 ARTICLES_EN.append(dict(
  slug="incident-reporting-deadlines", cat="Incidents", catkey="incidents",
- date="2026-09-01", read=6,
+ date="2026-04-14", read=6,
  title="24 hours, 72 hours, 30 days: deadlines that run in parallel",
  lead="The deadlines for reporting a significant incident do not add up and do not wait for one another. And if the incident also involves a personal data breach, a fourth deadline runs alongside them, under a different instrument and to a different authority.",
  desc="Deadlines for reporting a significant cyber incident under the Croatian Cybersecurity Act: early warning within 24 hours, notification within 72 hours, final report within 30 days, and the parallel notification under Article 33 GDPR.",
@@ -1222,7 +1220,7 @@ ARTICLES_EN.append(dict(
 
 ARTICLES_EN.append(dict(
  slug="iso-27001-and-the-cybersecurity-act", cat="ISO standards", catkey="iso",
- date="2026-09-01", read=7,
+ date="2026-03-03", read=7,
  title="You hold ISO 27001. How much is it worth under the Cybersecurity Act?",
  lead="The certificate does not release you from the obligation, but it shortens the path considerably. The question is only which measures it covers, which it touches, and which it does not reach at all - and how to prove that without writing a second set of documentation in parallel.",
  desc="How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.",
@@ -1277,7 +1275,7 @@ ARTICLES_EN.append(dict(
 
 ARTICLES_EN.append(dict(
  slug="risk-register-that-passes-review", cat="Risk management", catkey="risk",
- date="2026-09-01", read=6,
+ date="2026-03-24", read=6,
  title="A risk register that passes review: five recurring mistakes",
  lead="The risk register is the document everyone has and almost nobody uses. Five patterns repeat from organisation to organisation, and all five are visible on a first reading.",
  desc="The most common mistakes in risk registers that surface during compliance reviews: no link to the asset inventory, risks without owners, scores without reasoning, treatment plans without deadlines, and a register that never changes.",
@@ -1762,7 +1760,11 @@ async function handleContact(e) {
       "url": SITE + "/en/", "email": "info@adventurespirit.hr",
       "telephone": "+385 95 504 1496",
       "description": "Advisory in cyber security, GRC and compliance - Croatian Cybersecurity Act (NIS2), GDPR, DORA, ISO 27001, ISO 9001, ISO 14001 and ISO 22301.",
-      "address": {"@type": "PostalAddress", "addressLocality": "Zagreb", "addressCountry": "HR"},
+      "address": {"@type": "PostalAddress", "streetAddress": "Antuna Šoljana 22",
+                  "postalCode": "10000", "addressLocality": "Zagreb", "addressCountry": "HR"},
+      "vatID": "HR72169598754", "taxID": "72169598754",
+      "identifier": [{"@type": "PropertyValue", "propertyID": "OIB", "value": "72169598754"},
+                     {"@type": "PropertyValue", "propertyID": "MBS", "value": "4845552"}],
       "areaServed": {"@type": "Country", "name": "Croatia"},
       "knowsLanguage": ["hr", "en"],
       "founder": {"@type": "Person", "name": "Daniel Bara", "honorificSuffix": "PhD",
@@ -1839,6 +1841,7 @@ def cta_block(lang):
 
 def build_blog(lang, articles, table_fn):
     t = L[lang]
+    articles = sorted(articles, key=lambda a: a["date"], reverse=True)
     FOOT = footer(lang, articles)
     out_dir = os.path.join(ROOT, "en", "blog") if lang == "en" else os.path.join(ROOT, "blog")
     os.makedirs(out_dir, exist_ok=True)
@@ -1923,6 +1926,7 @@ def build_blog(lang, articles, table_fn):
     catbtns = ('<button class="cat-btn active" data-f="all">%s</button>\n      ' % t["all_topics"]) + \
               "\n      ".join('<button class="cat-btn" data-f="%s">%s</button>' % (k, html.escape(v))
                               for k, v in cats)
+    articles = sorted(articles, key=lambda a: a["date"], reverse=True)
     feat = [a for a in articles if a.get("featured")]
     rest = [a for a in articles if not a.get("featured")]
     cards = "\n".join([card(a, lang, True) for a in feat] + [card(a, lang) for a in rest])
