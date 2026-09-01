@@ -524,11 +524,12 @@ ARTICLES.append(dict(
     <tbody>
       <tr><td class="num">24 sata</td><td>Rano upozorenje</td><td>Da se dogodio značajan incident, prva procjena je li posljedica protupravne radnje i može li imati prekogranični učinak.</td></tr>
       <tr><td class="num">72 sata</td><td>Obavijest o incidentu</td><td>Ažurirana procjena, pokazatelji ugroženosti, ozbiljnost i utjecaj.</td></tr>
-      <tr><td class="num">30 dana</td><td>Završno izvješće</td><td>Detaljan opis, vrsta prijetnje i uzrok, primijenjene i planirane mjere, prekogranični učinak.</td></tr>
+      <tr><td class="num">30 dana</td><td>Završno izvješće</td><td>Detaljan opis, vrsta prijetnje i uzrok, primijenjene i planirane mjere, prekogranični učinak. Rok teče od dostave obavijesti o incidentu, ne od saznanja.</td></tr>
     </tbody>
   </table>
 </div>
 <p>Rokovi se računaju <strong>od saznanja o incidentu</strong>, ne od njegovog nastanka i ne od trenutka kad je istraga završena. To je razlika koja odlučuje jeste li u roku.</p>
+<p>Uz ova tri postoje i <strong>privremeno izvješće</strong>, koje nadležni CSIRT može zatražiti u roku od 48 sati do 7 dana, te <strong>izvješće o napretku</strong>, koje se dostavlja svakih 30 dana ako incident još traje. Detaljan pregled svih pet vrsta obavijesti i prijave preko platforme PiXi <a href="/blog/znacajan-incident-pet-obavijesti-pixi/">u zasebnom tekstu</a>.</p>
 
 <div class="callout">
   <div class="c-label">Najčešća pogreška</div>
@@ -1058,6 +1059,584 @@ ARTICLES.append(dict(
  sources=[('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjere 4, 6, 7 i 12', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
           ('HRN EN ISO/IEC 27002:2022 - kontrole tehnoloških mjera', None),
           ('NIST Cybersecurity Framework 2.0 - funkcije Protect i Detect', 'https://www.nist.gov/cyberframework')]))
+
+# ══════════════════════════════════════════════════════════════════
+# Serija: sluzbene smjernice NCSC-HR / CERT / ZSIS
+# ══════════════════════════════════════════════════════════════════
+ARTICLES.append(dict(
+ slug="korelacijski-pregled-mjera", cat="ZKS / NIS2", catkey="zks",
+ date="2026-02-24", read=7,
+ title="Korelacijski pregled mjera: dokument koji vam štedi pola posla",
+ lead="Članak 49. Uredbe obvezuje na izradu korelacijskog pregleda koji svaku podmjeru mapira na ISO 27001, ISO 27002, ISO 22301, NIST CSF 2.0, NIST SP 800-53 i CIS v8. Organizacije koje ga ne koriste pišu dokumentaciju koju već imaju.",
+ desc="Što je korelacijski pregled mjera iz članka 49. Uredbe o kibernetičkoj sigurnosti, na koje se norme mapira i kako ga iskoristiti da se postojeća ISO ili NIST dokumentacija ne piše ponovno.",
+ body='''
+<p>Najskuplja greška u projektu usklađivanja sa Zakonom o kibernetičkoj sigurnosti nije propuštena kontrola. To je dokumentacija napisana drugi put, jer nitko nije provjerio što već postoji.</p>
+<p>Uredba je taj problem predvidjela. Članak 49. propisuje <strong>korelacijski pregled mjera</strong> koji svaku podmjeru iz Priloga II. mapira na priznate norme i najbolje prakse.</p>
+
+<h2>Na što se mapira</h2>
+<p>Korelacijski pregled povezuje podskupove mjera s kontrolama iz šest izvora:</p>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Izvor</th><th>Što pokriva</th></tr></thead>
+    <tbody>
+      <tr><td><strong>ISO/IEC 27001:2022</strong></td><td>Okvir sustava upravljanja informacijskom sigurnošću</td></tr>
+      <tr><td><strong>ISO/IEC 27002:2022</strong></td><td>Smjernice za primjenu kontrola, četiri tematske cjeline</td></tr>
+      <tr><td><strong>ISO/IEC 22301:2019</strong></td><td>Kontinuitet poslovanja</td></tr>
+      <tr><td><strong>NIST CSF 2.0</strong></td><td>Šest funkcija, uključujući novu Govern</td></tr>
+      <tr><td><strong>NIST SP 800-53</strong></td><td>Opsežan skup tehničkih i organizacijskih kontrola</td></tr>
+      <tr><td><strong>CIS v8</strong></td><td>Praktične kontrole, uključujući oblak i mobilne uređaje</td></tr>
+      <tr><td><strong>Katalog kontrola ZSIS-a</strong></td><td>132 kontrole koje se koriste u samoprocjeni</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout">
+  <div class="c-label">Što to znači u praksi</div>
+  <p>Ako imate ISO 27001, korelacijski pregled vam za svaku podmjeru kaže koje su vaše postojeće kontrole tematski srodne. To nije dokaz usklađenosti, ali je popis mjesta gdje dokaz vjerojatno već postoji. Umjesto 99 praznih polja krećete s 99 polja koja imaju kandidata.</p>
+</div>
+
+<h2>Zamka koju sam pregled izrijekom navodi</h2>
+<p>Smjernice napominju nešto što se lako previdi: <strong>opseg svake kontrole iz međunarodnih normi nadilazi opseg podmjere za koju se mapiranje provodi</strong>. Kontrola iz ISO 27002 koja se pojavljuje uz podmjeru 3.2 pokriva i stvari koje ta podmjera ne traži, a možda ne pokriva sve što podmjera traži.</p>
+<p>Praktična posljedica: mapiranje je polazište, ne zaključak. Kvačica u tablici korelacije nije dokaz. Dokaz je zapis koji odgovara na ono što podmjera traži, u opsegu u kojem to traži.</p>
+
+<h2>Kako ga koristiti da stvarno skrati posao</h2>
+<ol>
+  <li><strong>Krenite od svoje Izjave o primjenjivosti.</strong> Za svaku primjenjivu kontrolu pogledajte uz koje se podmjere pojavljuje u korelaciji. Time dobivate obrnuto mapiranje - iz onoga što imate prema onome što se traži.</li>
+  <li><strong>Označite tri stanja, ne dva.</strong> Pokriveno, djelomično pokriveno, nepokriveno. Djelomično je najveća skupina i najkorisnija, jer se rješava dopunom postojećeg dokumenta, ne pisanjem novog.</li>
+  <li><strong>Provjerite razinu.</strong> Kontrola koja zadovoljava osnovnu razinu ne mora zadovoljiti srednju. Korelacija ne razlikuje razine - to morate vi.</li>
+  <li><strong>Zapišite obrazloženje uz svaku vezu.</strong> Kod provjere ćete morati objasniti zašto ste smatrali da postojeći dokument pokriva podmjeru. Rečenica napisana u trenutku mapiranja vrijedi više od rekonstrukcije šest mjeseci kasnije.</li>
+</ol>
+
+<h2>Za koga je najkorisniji</h2>
+<p>Vrijednost pregleda raste s količinom onoga što već imate:</p>
+<ul>
+  <li><strong>Organizacija s ISO 27001 i 22301</strong> - najveća korist. Znatan dio mjera 2, 3, 7, 8 i 12 već ima dokaznu podlogu.</li>
+  <li><strong>Organizacija koja radi prema CIS v8</strong> - tehničke mjere 5, 6, 7 i 9 dobrim dijelom su pokrivene, organizacijske nisu.</li>
+  <li><strong>Organizacija koja izvještava prema NIST CSF-u</strong> - korelacija je ujedno i most prema izvještavanju upravi, jer se šest funkcija zadržava kao okvir prikaza.</li>
+  <li><strong>Organizacija bez ičega od navedenog</strong> - pregled je i dalje koristan kao vodič što uopće napisati, jer upućuje na kontrole koje opisuju kako se podmjera obično provodi.</li>
+</ul>
+
+<div class="note">
+  <p>Korelacijski pregled je pomagalo, ne propis. Nadležno tijelo ocjenjuje usklađenost s mjerama iz Priloga II. i kontrolama iz Kataloga, a ne s normama na koje pregled upućuje. Certifikat prema ISO 27001 ne zamjenjuje ni samoprocjenu ni reviziju.</p>
+</div>
+''',
+ sources=[('Uredba o kibernetičkoj sigurnosti, NN 135/2024, čl. 49.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('Smjernice za korelacijski pregled mjera kibernetičke sigurnosti, NCSC-HR', 'https://www.ncsc.hr/'),
+          ('ZSIS - Katalog kontrola (Prilog C)', 'https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20C%20-%20Katalog%20kontrola.pdf')]))
+
+ARTICLES.append(dict(
+ slug="prioritetne-preporuke-ncsc", cat="ZKS / NIS2", catkey="zks",
+ date="2026-03-17", read=6,
+ title="Prioritetne preporuke NCSC-HR: što napraviti prije nego što krenete s papirima",
+ lead="Nacionalni centar za kibernetičku sigurnost objavio je kratak popis mjera koje smanjuju najveći dio rizika. Nijedna nije skupa, sve su izvedive u nekoliko tjedana, i većina organizacija ih nema provedene.",
+ desc="Pregled prioritetnih preporuka NCSC-HR za zaštitu od kibernetičkih napada: izloženi servisi, lozinke i dvofaktorska autentifikacija, sigurnosne zakrpe i smanjenje broja povlaštenih računa.",
+ body='''
+<p>Kad organizacija dobije obavijest o kategorizaciji, prvi impuls je krenuti pisati politike. To je razumljivo jer se politike traže, ali je pogrešan redoslijed: napadač ne čita vašu politiku sigurnosti.</p>
+<p>NCSC-HR objavio je popis prioritetnih preporuka koji je vrijedan upravo zato što je kratak. Ovo je sažetak s napomenama iz prakse.</p>
+
+<h2>1. Znajte što vam je izloženo prema internetu</h2>
+<p>Prvi korak je popis javno dostupnih servisa: web stranice, e-pošta, VPN ulazne točke, nadzorne konzole, servisi za udaljenu administraciju, servisi za razmjenu datoteka. Preporuka izrijekom navodi da se pregled može dobiti i vanjskim tražilicama poput Shodana ili Censysa.</p>
+<div class="callout">
+  <div class="c-label">Zašto to gotovo uvijek iznenadi</div>
+  <p>Popis dobiven vanjskom tražilicom redovito je duži od popisa koji ima informatika. Razlika su testna okruženja, stara sučelja i uređaji koje je netko izložio radi praktičnosti pa zaboravio. To nisu ranjivosti - to su vrata za koja nitko ne zna da postoje.</p>
+</div>
+
+<h2>2. Ograničite dostupnost onoga što ne mora biti izloženo</h2>
+<p>Preporuka navodi dva konkretna primjera. Servis za udaljenu administraciju vjerojatno ne treba biti dostupan preko interneta nego tek nakon VPN-a ili drugog oblika pred-autentifikacije. Ako VPN mora biti dostupan, može se ograničiti na pojedine adrese ili na domaće adresne raspone.</p>
+<p>Dodaje se i blokiranje pristupa s anonimizacijskih mreža te ograničavanje izravnog pristupa internetu s poslužitelja - nadogradnje se distribuiraju interno, razlučivanje imena ide preko središnjih poslužitelja.</p>
+
+<h2>3. Smanjite broj povlaštenih računa</h2>
+<p>Uklonite račune bivših djelatnika, generičke račune koji nisu vezani uz osobu i servisne račune kojima administratorske ovlasti zapravo ne trebaju.</p>
+<p>Ovo je mjera koja ne košta ništa i koju gotovo nitko nije proveo do kraja. Uobičajen nalaz u procjenama je dvoznamenkast broj članova u najpovlaštenijoj grupi, uz jednoznamenkast broj onih koji ta prava stvarno koriste.</p>
+
+<h2>4. Lozinke i dvofaktorska autentifikacija</h2>
+<p>Preporuka je ovdje neuobičajeno konkretna, pa vrijedi citirati brojke:</p>
+<ul>
+  <li><strong>12 znakova</strong> minimalno za redovne korisnike</li>
+  <li><strong>16 znakova</strong> za privilegirane korisnike</li>
+  <li><strong>24 znaka</strong> za servisne račune</li>
+  <li>Kombinacija velikih i malih slova, znamenki i posebnih znakova</li>
+  <li>Zaključavanje računa nakon prekomjernih neuspjelih pokušaja, uz automatsko otključavanje nakon razumnog razdoblja</li>
+</ul>
+<p>Uz to dolazi dvofaktorska autentifikacija na sučeljima za prijavu - e-pošta, VPN, sustavi za upravljanje sadržajem - s posebnim naglaskom na dvije skupine: sučelja izložena internetu i sučelja koja vode u internu mrežu.</p>
+<div class="callout">
+  <div class="c-label">Detalj koji se najčešće preskoči</div>
+  <p>Preporuka traži provjeru <em>kada je lozinka zadnji put promijenjena</em>. Ako su pravila u međuvremenu postrožena, a lozinke se od tada nisu mijenjale, nova pravila nisu primijenjena ni na jedan postojeći račun. Politika je ažurirana, stanje nije.</p>
+</div>
+
+<h2>5. Sigurnosne zakrpe s imenom uz svaki dio infrastrukture</h2>
+<p>Preporuka traži da se odredi <strong>tko je zadužen</strong> za zakrpe na poslužiteljima, mrežnoj opremi i sigurnosnim uređajima, te da se uspostavi proces redovne primjene najmanje jednom mjesečno, uz dodatnu primjenu po saznanju o novim kritičnim ranjivostima.</p>
+<p>Riječ "tko" nosi cijelu težinu. Mrežna oprema i sigurnosni uređaji su u praksi najzapušteniji jer se nalaze između odgovornosti sistemaca i mrežaša.</p>
+
+<h2>Kako se to uklapa u obveze</h2>
+<p>Sve navedeno pripada mjerama iz Priloga II. Uredbe - pretežno mjeri 5 (kibernetička higijena), mjeri 7 (kontrola pristupa) i mjeri 6 (sigurnost mreže). Prednost je što su to mjere kod kojih dokaz nastaje iz same provedbe: zapis o zakrpama, popis povlaštenih računa i konfiguracija dvofaktorske autentifikacije istovremeno su i mjera i dokaz.</p>
+<p>Zato je ovo dobar prvi korak i za usklađenost i za stvarnu sigurnost, što se ne poklapa uvijek.</p>
+''',
+ sources=[('Prioritetne preporuke za zaštitu od kibernetičkih napada, NCSC-HR', 'https://www.ncsc.hr/'),
+          ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjere 5, 6 i 7', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html')]))
+
+ARTICLES.append(dict(
+ slug="dnevnicki-zapisi-sto-prikupljati", cat="Nadzor i zapisi", catkey="logging",
+ date="2026-04-07", read=7,
+ title="Dnevnički zapisi: jedanaest izvora bez kojih istraga incidenta ne postoji",
+ lead="Kad dođe do napada, već je kasno za postavljanje prikupljanja zapisa. NCSC-HR objavio je preporuke koje nabrajaju izvore po prioritetu - i one otkrivaju koliko toga većina organizacija uopće ne bilježi.",
+ desc="Koje izvore dnevničkih zapisa preporučuje NCSC-HR, zašto se prikupljanje mora postaviti prije incidenta i kako se to povezuje s mjerama nadzora iz Uredbe o kibernetičkoj sigurnosti.",
+ body='''
+<p>Preporuke NCSC-HR-a za sustavno prikupljanje dnevničkih zapisa otvaraju rečenicom koja sažima cijeli problem: nedostatak zapisa jedan je od najvećih izazova za otkrivanje, istragu i odgovor. U trenutku destruktivnog napada već je kasno - istragom se najčešće neće uspjeti utvrditi što se sve dogodilo.</p>
+<p>Praktična posljedica je neugodna. Organizacija koja nema zapise ne može odgovoriti na najvažnije pitanje nakon incidenta: <strong>je li napadač bio i drugdje, i koliko dugo</strong>. Bez toga se ne može ni potvrditi da je incident zatvoren.</p>
+
+<h2>Preduvjeti koji nisu tehnički</h2>
+<p>Dokument započinje s onim što mora postojati prije nego što se uključi ijedan zapis:</p>
+<ul>
+  <li>Inventar uređaja i programskih rješenja</li>
+  <li>Dokumentacija informacijskog sustava i njegovih segmenata</li>
+  <li>Definirani vlasnici sustava</li>
+  <li>Praćenje servisnih i korisničkih računa</li>
+</ul>
+<div class="callout">
+  <div class="c-label">Zašto to nije birokracija</div>
+  <p>Zapis bez konteksta je niz redaka. Da bi se iz njega izvukla informacija, mora se znati što je taj sustav, tko ga koristi i što je za njega normalno. Zato je registar imovine preduvjet za nadzor, a ne paralelna obveza.</p>
+</div>
+
+<h2>Izvori zapisa po prioritetu</h2>
+<p>Preporuke nabrajaju jedanaest skupina izvora. Poredak nije slučajan - prvi su oni koji najčešće daju prvi trag:</p>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Izvor</th><th>Što otkriva</th></tr></thead>
+    <tbody>
+      <tr><td><strong>DNS</strong></td><td>Komunikaciju prema zloćudnoj infrastrukturi, često prvi vidljivi trag</td></tr>
+      <tr><td><strong>Web poslužitelji</strong></td><td>Pokušaje iskorištavanja ranjivosti i pristup s neuobičajenih adresa</td></tr>
+      <tr><td><strong>Elektronička pošta</strong></td><td>Phishing, pravila preusmjeravanja koja postavi napadač</td></tr>
+      <tr><td><strong>VPN i udaljeni pristup</strong></td><td>Prijave s neuobičajenih lokacija i u neuobičajeno vrijeme</td></tr>
+      <tr><td><strong>Središnja sigurnosna rješenja</strong></td><td>Detekcije koje su možda već zabilježene, a nitko ih nije pogledao</td></tr>
+      <tr><td><strong>Web proxy</strong></td><td>Odlazni promet prema poslužiteljima za upravljanje napadom</td></tr>
+      <tr><td><strong>Klijenti i poslužitelji</strong></td><td>Prijave, pokretanje procesa, promjene ovlasti</td></tr>
+      <tr><td><strong>Vatrozid</strong></td><td>Mrežne veze, prihvaćene i odbijene</td></tr>
+      <tr><td><strong>Mrežni uređaji</strong></td><td>Promjene konfiguracije, pristup upravljačkom sučelju</td></tr>
+      <tr><td><strong>DHCP</strong></td><td>Vezu između adrese i uređaja u određenom trenutku</td></tr>
+      <tr><td><strong>Ostali izvori</strong></td><td>Aplikacije, baze podataka, sustavi za sigurnosne kopije</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>DHCP je najčešće zaboravljen, a bez njega se adresa iz zapisa ne može povezati s uređajem. Istraga tada zna da se nešto dogodilo, ali ne i gdje.</p>
+
+<h2>Tri stvari koje odlučuju je li prikupljanje upotrebljivo</h2>
+<h3>Vrijeme mora biti usklađeno</h3>
+<p>Zapisi iz različitih sustava spajaju se po vremenu. Ako su satovi razmaknuti, redoslijed događaja se ne može rekonstruirati. Sinkronizacija vremena je jednodnevni posao koji odlučuje o upotrebljivosti svega ostalog.</p>
+<h3>Zapisi moraju biti izvan dosega napadača</h3>
+<p>Zapisi koji ostaju samo na kompromitiranom sustavu izbrisat će se zajedno sa svime ostalim. Središnje prikupljanje nije stvar udobnosti nego integriteta dokaza.</p>
+<h3>Razdoblje čuvanja mora biti dulje od vremena otkrivanja</h3>
+<p>Napadi se u pravilu otkriju tjednima ili mjesecima nakon početka. Zapisi koji se čuvaju sedam dana odgovaraju na pitanje što se dogodilo jučer, a ne na pitanje kada je napadač ušao.</p>
+
+<h2>Poveznica prema obvezama</h2>
+<p>Prikupljanje i analiza zapisa pripada mjeri 6 (sigurnost mreže) i mjeri 11 (postupanje s incidentima) iz Priloga II. Uredbe, a preduvjeti se naslanjaju na mjeru 2 (upravljanje imovinom). U ZSIS-ovom katalogu kontrola skupina oznaka NAD pokriva praćenje i nadzor i jedna je od većih - šesnaest kontrola.</p>
+<p>To nije slučajno. Nadzor je mjera kod koje se najlakše napiše da postoji, a najteže dokaže da radi.</p>
+
+<div class="note">
+  <p>Preporuke NCSC-HR-a temeljene su na dokumentu danskog centra za kibernetičku sigurnost, dopunjenom domaćim iskustvima. Sadrže i scenarije primjene - pretraga po indikatoru, phishing i složeni incident - koji su korisni kao predložak za vježbu.</p>
+</div>
+''',
+ sources=[('Preporuke za uspostavu sustavnog prikupljanja dnevničkih zapisa, NCSC-HR', 'https://www.ncsc.hr/'),
+          ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjere 2, 6 i 11', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('ZSIS - Katalog kontrola, skupina NAD', 'https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20C%20-%20Katalog%20kontrola.pdf')]))
+
+ARTICLES.append(dict(
+ slug="znacajan-incident-pet-obavijesti-pixi", cat="Incidenti", catkey="incidenti",
+ date="2026-04-28", read=8,
+ title="Značajan incident: pet vrsta obavijesti, platforma PiXi i pravilo koje se previđa",
+ lead="Rokovi 24 i 72 sata su poznati. Manje je poznato da vrsta obavijesti ima pet, da završno izvješće teče od početne obavijesti a ne od saznanja, i da se dva manja incidenta s istim uzrokom mogu zbrojiti u jedan značajan.",
+ desc="Detaljan pregled obveze obavještavanja o značajnim incidentima: pet vrsta obavijesti i njihovi rokovi, prijava preko platforme PiXi, rezervni kanali i pravilo o incidentima s istim temeljnim uzrokom.",
+ body='''
+<p>Opće smjernice za provedbu obveze obavještavanja o značajnim incidentima donijeli su nadležni CSIRT-ovi na temelju članka 72. Uredbe. Dokument je precizniji od većine tekstova koji o rokovima kruže, i sadrži nekoliko odredbi koje mijenjaju planiranje.</p>
+
+<h2>Pet vrsta obavijesti, ne tri</h2>
+<p>Uredba u člancima 65. do 71. propisuje pet vrsta obavijesti:</p>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Obavijest</th><th>Rok</th><th>Napomena</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Rano upozorenje</strong></td><td>24 sata</td><td>Bez odgode, od saznanja za značajan incident</td></tr>
+      <tr><td><strong>Početna obavijest</strong></td><td>72 sata</td><td>Bez odgode, od saznanja</td></tr>
+      <tr><td><strong>Privremeno izvješće</strong></td><td>48 sati do 7 dana</td><td>Samo na zahtjev nadležnog CSIRT-a</td></tr>
+      <tr><td><strong>Završno izvješće</strong></td><td>30 dana</td><td>Od dostave <em>početne obavijesti</em></td></tr>
+      <tr><td><strong>Izvješće o napretku</strong></td><td>svakih 30 dana</td><td>Ako incident još traje</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="callout">
+  <div class="c-label">Detalj koji mijenja računicu</div>
+  <p>Završno izvješće ne teče od saznanja nego <strong>od dostave početne obavijesti</strong>. Organizacija koja početnu obavijest pošalje 70. sat ima 30 dana od tog trenutka, ne 30 dana od trenutka kad je incident otkrila. Razlika je do tri dana i može odlučiti o tome jeste li u roku.</p>
+</div>
+<p>Ako incident još traje kad rok istekne, umjesto završnog izvješća šalje se izvješće o napretku, i tako svakih idućih 30 dana dok incident ne završi.</p>
+
+<h2>Iznimka za pružatelje usluga povjerenja</h2>
+<p>Prema članku 68. Uredbe, pružatelji usluga povjerenja ne dostavljaju rano upozorenje. Umjesto toga, početnu obavijest dostavljaju u roku od 24 sata. Ostali rokovi ostaju isti.</p>
+
+<h2>Prijava se predaje preko platforme PiXi</h2>
+<p>Obavještavanje se provodi ispunjavanjem web obrazaca na Nacionalnoj platformi za prikupljanje, analizu i razmjenu podataka o kibernetičkim prijetnjama i incidentima, dostupnoj na <strong>pixi.carnet.hr</strong>. Pristup imaju isključivo ovlaštene osobe, putem Nacionalnog identifikacijskog i autentifikacijskog sustava.</p>
+<div class="callout">
+  <div class="c-label">Što napraviti prije incidenta</div>
+  <p>Pristup platformi ovisi o nacionalnom sustavu prijave. Ako se u trenutku incidenta ispostavi da nitko nema pristup ili da ovlaštena osoba više nije zaposlena, sat teče dok se to rješava. Provjerite tko ima pristup i imenujte zamjenu prije nego što zatreba.</p>
+</div>
+<p>Ako platforma nije dostupna zbog tehničkih poteškoća, održavanja ili nedostupnosti sustava prijave, obavijest se šalje ispunjavanjem obrazaca i slanjem na adresu nadležnog CSIRT-a. Nakon što platforma ponovno postane dostupna, podaci se moraju unijeti i u nju.</p>
+
+<h2>Pravilo o ponovljenim incidentima</h2>
+<p>Članak 62. Uredbe propisuje da se dva ili više incidenta <strong>s istim temeljnim uzrokom u razdoblju od šest mjeseci</strong>, koji zajedno ispunjavaju najmanje jedan kriterij za značajan incident, za potrebe obavještavanja smatraju jednim značajnim incidentom.</p>
+<p>Šalje se jedna obavijest koja obuhvaća sve te incidente, uz izričitu napomenu u opisu da je riječ o obavijesti po članku 62.</p>
+<p>To znači da niz manjih incidenata koje ste pojedinačno ocijenili beznačajnima može zajedno prijeći prag. Praktična posljedica: <strong>evidencija svih incidenata, i onih ispod praga, nije formalnost nego preduvjet za ispunjenje ove obveze.</strong> Bez nje ne možete znati da imate ponovljeni uzrok.</p>
+
+<h2>Više sektora, više CSIRT-ova</h2>
+<p>Nadležnost CSIRT-a određuje se prema sektoru, sukladno Prilogu III. Zakona. Subjekt kategoriziran u jednom sektoru uvijek obavještava CSIRT nadležan za taj sektor.</p>
+<p>Subjekt kategoriziran u više sektora, kod incidenta koji obuhvaća poslovanje u više njih, može poslati jednu obavijest za sve obuhvaćene sektore ako je za njih nadležan isti CSIRT. Ako nije, obavijesti idu odvojeno.</p>
+
+<h2>Posebna pravila za digitalne pružatelje</h2>
+<p>Za subjekte iz članka 22. Zakona koji se vode i u posebnom registru - pružatelje usluga DNS-a, registre vršnih domena, pružatelje usluga u oblaku i podatkovnih centara, mreža za isporuku sadržaja, upravljanih i upravljanih sigurnosnih usluga, internetskih tržišta, tražilica, platformi društvenih mreža te usluga povjerenja - primjenjuju se posebna pravila za utvrđivanje značajnosti prema Provedbenoj uredbi Komisije (EU) 2024/2690.</p>
+
+<div class="note">
+  <p>Ako je incidentom zahvaćena i povreda osobnih podataka, usporedno teče prijava Agenciji za zaštitu osobnih podataka u roku od 72 sata prema članku 33. Opće uredbe. Ta dva postupka ne zamjenjuju jedan drugoga i ne teku jedan za drugim.</p>
+</div>
+''',
+ sources=[('Opće smjernice za provedbu obveze obavještavanja o značajnim incidentima, NCSC-HR i Nacionalni CERT', 'https://www.ncsc.hr/'),
+          ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, čl. 59.-72.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('Provedbena uredba Komisije (EU) 2024/2690', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32024R2690'),
+          ('Platforma PiXi', 'https://pixi.carnet.hr/')]))
+
+ARTICLES.append(dict(
+ slug="nacionalna-taksonomija-incidenata", cat="Incidenti", catkey="incidenti",
+ date="2026-05-19", read=6,
+ title="Nacionalna taksonomija incidenata: pet atributa koji zamjenjuju opisnu prijavu",
+ lead="Sigurnosno-obavještajna agencija objavila je taksonomiju koja incident opisuje s pet atributa umjesto slobodnim tekstom. Model se zove VOUND i korisniji je nego što izgleda - ne samo za prijavu nego i za predviđanje sljedećeg poteza napadača.",
+ desc="Kako radi Nacionalna taksonomija kibernetičkih incidenata: vektor napada, operativni učinak, učinak na informacije, objekt napada i dosegnuta faza. Zašto strukturirani opis incidenta ubrzava prijavu i istragu.",
+ body='''
+<p>Opis incidenta slobodnim tekstom ima dva problema. Prvi je da se dva analitičara ne slože oko toga što se dogodilo. Drugi je da se opisi ne mogu uspoređivati - ni između organizacija, ni kroz vrijeme unutar iste organizacije.</p>
+<p>Nacionalna taksonomija kibernetičkih incidenata rješava oba tako što incident opisuje s pet atributa. Dokument je vlasništvo Sigurnosno-obavještajne agencije, izrađen je za javnu objavu i smije se koristiti uz navođenje izvora.</p>
+
+<h2>Pet atributa</h2>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Atribut</th><th>Odgovara na pitanje</th></tr></thead>
+    <tbody>
+      <tr><td><strong>V</strong> - Vektor napada</td><td>Kojim je putem napad izveden?</td></tr>
+      <tr><td><strong>O</strong> - Operativni učinak</td><td>Što je napad učinio sustavu i uslugama?</td></tr>
+      <tr><td><strong>U</strong> - Učinak na informacije</td><td>Što se dogodilo s podacima?</td></tr>
+      <tr><td><strong>N</strong> - Objekt napada</td><td>Što je bilo meta?</td></tr>
+      <tr><td><strong>D</strong> - Dosegnuta faza napada</td><td>Dokle je napadač stigao?</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Skraćeno: <strong>VOUND</strong>. Svaki atribut ima definirane vrijednosti, pa se incident opisuje kombinacijom umjesto rečenicom.</p>
+
+<div class="callout">
+  <div class="c-label">Zašto je razdvajanje učinka na dva atributa važno</div>
+  <p>Taksonomija odvaja operativni učinak od učinka na informacije. Ransomware koji je zaustavio proizvodnju i ransomware koji je zaustavio proizvodnju i iznio podatke imaju isti operativni učinak, a bitno različit učinak na informacije - i različite obveze prijave. Opis slobodnim tekstom tu razliku često zamagli.</p>
+</div>
+
+<h2>Dosegnuta faza je atribut koji najviše govori</h2>
+<p>Faza opisuje dokle je napadač stigao u nizu koraka. To je jedini atribut koji ima prognostičku vrijednost: ako znate u kojoj je fazi napad zaustavljen, znate i što je logičan sljedeći korak koji nije izveden - i gdje treba tražiti tragove.</p>
+<p>Dokument tu mogućnost izrijekom razrađuje, kroz praćenje tijeka napada i predviđanje sljedećih koraka pomoću pet atributa. To ga čini upotrebljivim i tijekom incidenta, ne samo pri prijavi.</p>
+
+<h2>Gdje se taksonomija isplati u praksi</h2>
+<ol>
+  <li><strong>Pri prijavi značajnog incidenta.</strong> Obrasci traže opis koji strukturirani zapis popunjava brže i dosljednije od slobodnog teksta, u trenutku kad je vremena najmanje.</li>
+  <li><strong>Pri utvrđivanju ponovljenog uzroka.</strong> Članak 62. Uredbe zbraja incidente s istim temeljnim uzrokom u razdoblju od šest mjeseci. Dva incidenta s istim vektorom i istim objektom napada vide se odmah; dva slobodna opisa ne.</li>
+  <li><strong>Pri izvještavanju uprave.</strong> Struktura daje brojke: koliko incidenata po vektoru, koliko je dosegnulo koju fazu. To je trend, a ne anegdota.</li>
+  <li><strong>Pri razmjeni informacija.</strong> Taksonomija je zajednički jezik prema CSIRT-u i prema drugim organizacijama u sektoru.</li>
+</ol>
+
+<h2>Kako je uvesti bez alata</h2>
+<p>Nije potrebna platforma. Dovoljno je da evidencija incidenata ima pet dodatnih stupaca i da ih se popunjava pri zatvaranju svakog incidenta, uključujući one ispod praga značajnosti.</p>
+<p>Upravo ti manji incidenti daju najveću korist: oni su ulaz u pravilo o ponovljenom uzroku, i oni pokazuju obrasce prije nego što obrazac proizvede štetu.</p>
+
+<div class="note">
+  <p>Dokument sadrži i priloge s primjerima klasifikacije poznatih incidenata prema atributima - kampanje zloćudnog koda, ransomware u dvije varijante, izmjenu sadržaja web stranice, skeniranje i uskraćivanje usluge. Ti su primjeri najbrži način da tim uskladi tumačenje prije nego što taksonomiju počne primjenjivati.</p>
+</div>
+''',
+ sources=[('Nacionalna taksonomija kibernetičkih incidenata, Sigurnosno-obavještajna agencija', 'https://www.ncsc.hr/'),
+          ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, čl. 62.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('Uredba (EU) 2019/881 - definicije kibernetičke sigurnosti i prijetnje', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32019R0881')]))
+
+# ══════════════════════════════════════════════════════════════════
+# Serija: umjetna inteligencija i OT
+# ══════════════════════════════════════════════════════════════════
+ARTICLES.append(dict(
+ slug="akt-o-umjetnoj-inteligenciji-razine-rizika", cat="Umjetna inteligencija", catkey="ai",
+ date="2026-06-02", read=7,
+ title="Akt o umjetnoj inteligenciji: četiri razine rizika i pitanje koje dolazi prvo",
+ lead="Uredba (EU) 2024/1689 ne uređuje tehnologiju nego njezinu primjenu. Isti model može biti neregulatorno pomagalo i visokorizičan sustav, ovisno o tome za što ga koristite - a to znači da klasifikacija počinje popisom, ne pravnom analizom.",
+ desc="Kako Akt o umjetnoj inteligenciji dijeli sustave u četiri razine rizika, po čemu se određuje visokorizični sustav i zašto klasifikacija mora početi od popisa AI sustava u organizaciji.",
+ body='''
+<p>Uredba (EU) 2024/1689, poznata kao Akt o umjetnoj inteligenciji, prvi je sveobuhvatan propis te vrste. Njezin je pristup jednostavniji nego što se čini iz opsega teksta: <strong>obveze ne ovise o tome kakav je model, nego o tome za što se koristi i koga može oštetiti.</strong></p>
+
+<h2>Četiri razine</h2>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Razina</th><th>Što obuhvaća</th><th>Posljedica</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Neprihvatljiv rizik</strong></td><td>Zabranjene prakse</td><td>Zabrana primjene</td></tr>
+      <tr><td><strong>Visok rizik</strong></td><td>Sustavi u osjetljivim područjima primjene i sigurnosne komponente proizvoda</td><td>Najveći skup obveza</td></tr>
+      <tr><td><strong>Ograničen rizik</strong></td><td>Sustavi koji komuniciraju s ljudima ili proizvode sadržaj</td><td>Obveza transparentnosti</td></tr>
+      <tr><td><strong>Minimalan rizik</strong></td><td>Sve ostalo</td><td>Bez posebnih obveza</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Većina onoga što organizacije koriste svakodnevno završi u zadnje dvije kategorije. To ne znači da posla nema - znači da je posao drukčiji.</p>
+
+<div class="callout">
+  <div class="c-label">Ista tehnologija, različita razina</div>
+  <p>Model koji predlaže tekst je minimalan rizik kad piše sažetak sastanka, a visokorizičan kad se koristi u odabiru kandidata za zapošljavanje. Klasifikacija se ne radi po alatu nego po slučaju uporabe. Organizacija koja ima jedan alat i deset načina korištenja ima deset stavki za procjenu, ne jednu.</p>
+</div>
+
+<h2>Zašto se počinje popisom</h2>
+<p>Prvo pitanje nije "je li ovo visokorizično". Prvo pitanje je <strong>koje sve sustave uopće koristimo</strong>. Odgovor je gotovo uvijek nepotpun, iz tri razloga:</p>
+<ul>
+  <li><strong>Ugrađene funkcije.</strong> Postojeći poslovni softver dobiva AI funkcije nadogradnjom, bez odluke o nabavi.</li>
+  <li><strong>Alati koje su uveli sami zaposlenici.</strong> Besplatna verzija alata koji netko koristi za pripremu dokumenata ne prolazi kroz nabavu ni kroz informatiku.</li>
+  <li><strong>Usluge dobavljača.</strong> Vanjski pružatelj koji obrađuje vaše podatke uz pomoć umjetne inteligencije uvodi je i u vaš lanac, bez vaše odluke.</li>
+</ul>
+<p>Popis se zato ne dobiva upitom informatici nego istim postupkom kojim se radi inventar imovine: obilaskom procesa i razgovorom s vlasnicima.</p>
+
+<h2>Uloga određuje obveze</h2>
+<p>Uredba razlikuje uloge, a najvažnija je razlika između onoga tko sustav razvija i stavlja na tržište i onoga tko ga koristi. Većina organizacija je u drugoj skupini, s bitno manjim skupom obveza - ali ne s nikakvim.</p>
+<p>Uloga se, međutim, može promijeniti neopreznim potezom. Organizacija koja preuzme tuđi sustav, stavi na njega svoje ime ili ga bitno izmijeni može preuzeti i teže obveze. To je razlog zašto odluka o prilagodbi modela nije samo tehnička.</p>
+
+<h2>Što napraviti sada</h2>
+<ol>
+  <li><strong>Napravite popis.</strong> Sustav, vlasnik, slučaj uporabe, podaci koji ulaze, odluka na koju utječe.</li>
+  <li><strong>Označite slučajeve uporabe koji dodiruju ljude.</strong> Zapošljavanje, ocjenjivanje, pristup uslugama, nadzor zaposlenika - to su područja gdje razina raste.</li>
+  <li><strong>Provjerite ulazne podatke.</strong> Ako ulaze osobni podaci, usporedno se primjenjuje Opća uredba, s vlastitim zahtjevima za osnovu obrade i procjenu učinka.</li>
+  <li><strong>Uspostavite pravila prije nego što ih zatreba.</strong> Interna pravila korištenja, s jasnim popisom onoga što se ne smije unositi u vanjske alate, spriječit će više problema nego bilo koja kasnija analiza.</li>
+</ol>
+
+<div class="note">
+  <p>Akt o umjetnoj inteligenciji primjenjuje se postupno, s odredbama koje stupaju na snagu u različitim rokovima. Zabranjene prakse i obveza osposobljenosti primjenjuju se prvi, obveze za visokorizične sustave kasnije. Provjerite koji se rok odnosi na vašu situaciju prije nego što se planira dinamika projekta.</p>
+</div>
+''',
+ sources=[('Uredba (EU) 2024/1689 (Akt o umjetnoj inteligenciji)', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32024R1689'),
+          ('Uredba (EU) 2016/679 (Opća uredba o zaštiti podataka)', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32016R0679')]))
+
+ARTICLES.append(dict(
+ slug="zabranjene-prakse-i-ai-pismenost", cat="Umjetna inteligencija", catkey="ai",
+ date="2026-06-30", read=6,
+ title="Zabranjene prakse i obveza osposobljenosti: dvije odredbe koje su već na snazi",
+ lead="Dok se rasprava vodi o visokorizičnim sustavima, dvije odredbe Akta o umjetnoj inteligenciji primjenjuju se prve. Jedna zabranjuje određene prakse bez iznimke, druga traži da ljudi koji sustave koriste znaju što rade.",
+ desc="Koje prakse Akt o umjetnoj inteligenciji zabranjuje bez iznimke, što znači obveza AI pismenosti iz članka 4. i kako je ispuniti bez posebnog programa edukacije.",
+ body='''
+<p>Akt o umjetnoj inteligenciji primjenjuje se postupno. Dvije skupine odredbi dolaze prve i obje se odnose na svakoga tko sustave koristi, ne samo na one koji ih razvijaju.</p>
+
+<h2>Zabranjene prakse</h2>
+<p>Članak 5. nabraja prakse koje se ne smiju primjenjivati, bez procjene rizika i bez mogućnosti da se opravdaju. Među njima su:</p>
+<ul>
+  <li><strong>Manipulativne tehnike</strong> koje bitno narušavaju sposobnost osobe da donese informiranu odluku i time joj nanose znatnu štetu.</li>
+  <li><strong>Iskorištavanje ranjivosti</strong> zbog dobi, invaliditeta ili socijalne odnosno ekonomske situacije.</li>
+  <li><strong>Društveno bodovanje</strong> koje dovodi do nepovoljnog postupanja u kontekstu nepovezanom s onim u kojem su podaci prikupljeni.</li>
+  <li><strong>Procjena rizika počinjenja kaznenog djela</strong> temeljena isključivo na profiliranju ili osobinama ličnosti.</li>
+  <li><strong>Neciljano prikupljanje slika lica</strong> s interneta ili nadzornih snimaka radi izgradnje baza za prepoznavanje.</li>
+  <li><strong>Prepoznavanje emocija na radnom mjestu i u obrazovanju</strong>, uz uske iznimke za medicinske i sigurnosne razloge.</li>
+  <li><strong>Biometrijska kategorizacija</strong> radi zaključivanja o osjetljivim svojstvima osobe.</li>
+</ul>
+<div class="callout">
+  <div class="c-label">Gdje se to dodiruje s običnim poslovanjem</div>
+  <p>Većina zabrana zvuči daleko od prosječne tvrtke dok se ne pogleda dvije stavke. Prepoznavanje emocija na radnom mjestu pojavljuje se u alatima za analizu poziva u kontakt centrima i u sustavima za praćenje angažmana zaposlenika. Biometrijska kategorizacija pojavljuje se u analitici video nadzora. Nijedno se ne nabavlja pod tim imenom.</p>
+</div>
+
+<h2>Obveza osposobljenosti</h2>
+<p>Članak 4. traži da se osigura dostatna razina osposobljenosti u području umjetne inteligencije kod osoblja i drugih osoba koje u ime organizacije rade sa sustavima umjetne inteligencije. Razina se određuje prema tehničkom znanju tih osoba, njihovom iskustvu i obrazovanju te kontekstu u kojem se sustavi koriste.</p>
+<p>Odredba je kratka i namjerno otvorena. Ne propisuje sate, program ni ispit. Traži da ljudi razumiju što alat radi, gdje griješi i što se s njim ne smije.</p>
+
+<h3>Kako je ispuniti bez zasebnog programa</h3>
+<p>U organizacijama koje već imaju program podizanja svijesti o sigurnosti, ovo je dopuna, ne novi projekt:</p>
+<ol>
+  <li><strong>Interna pravila korištenja</strong> - što se smije unositi u vanjske alate, a što ne. Ovo je najkraći put do najveće koristi.</li>
+  <li><strong>Kratka edukacija po ulozi.</strong> Onaj tko alat koristi za pripremu teksta i onaj tko ga koristi u odlučivanju o ljudima ne trebaju isti sadržaj.</li>
+  <li><strong>Konkretni primjeri pogrešaka.</strong> Izmišljeni podaci prikazani uvjerljivo, pristranost u podacima za treniranje, lažno samopouzdanje modela.</li>
+  <li><strong>Evidencija.</strong> Tko je kada prošao edukaciju. Bez zapisa obveza je neprovjerljiva, isto kao i kod mjera iz Uredbe o kibernetičkoj sigurnosti.</li>
+</ol>
+
+<h2>Preklapanje s ostalim obvezama</h2>
+<p>Zapis o edukaciji koji nastane ovdje istovremeno hrani mjeru 5 iz Priloga II. Uredbe o kibernetičkoj sigurnosti, koja traži podizanje svijesti zaposlenika. Interna pravila korištenja dodiruju i zaštitu podataka, jer je unos osobnih podataka u vanjski alat obrada s vlastitom pravnom osnovom.</p>
+<p>To je opći obrazac koji se ponavlja: propisi su različiti, dokazna baza je zajednička.</p>
+
+<div class="note">
+  <p>Ovaj tekst je informativan pregled, ne pravni savjet. Točan doseg zabranjenih praksi i način primjene obveze osposobljenosti ovise o konkretnim okolnostima i o smjernicama koje se objavljuju na razini Unije.</p>
+</div>
+''',
+ sources=[('Uredba (EU) 2024/1689 (Akt o umjetnoj inteligenciji), čl. 4. i 5.', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32024R1689'),
+          ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjera 5', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html')]))
+
+ARTICLES.append(dict(
+ slug="registar-ai-sustava-i-registar-imovine", cat="Umjetna inteligencija", catkey="ai",
+ date="2026-07-14", read=6,
+ title="Registar AI sustava i registar imovine: zašto se vode kao jedan",
+ lead="Organizacije koje popis sustava umjetne inteligencije uvedu kao zaseban dokument otkriju za godinu dana da imaju dva registra koja se razilaze. Preklapanje je veće nego razlika, a razlika staje u četiri stupca.",
+ desc="Kako proširiti postojeći registar informacijske imovine tako da pokrije i zahtjeve Akta o umjetnoj inteligenciji, umjesto vođenja odvojenog registra AI sustava.",
+ body='''
+<p>Kad stigne obveza vezana uz umjetnu inteligenciju, uobičajen prvi potez je otvoriti novu tablicu. Logika je razumljiva: novi propis, novi dokument. Posljedica je predvidljiva.</p>
+<p>Za godinu dana postoje dva popisa. Jedan zna za sve poslužitelje ali ne zna koji od njih vrte model. Drugi zna za modele ali ne zna tko je vlasnik sustava na kojem rade. Nijedan nije potpun i nitko ne zna koji je noviji.</p>
+
+<h2>Što oba registra traže isto</h2>
+<p>Usporedite li zahtjeve, preklapanje je veliko:</p>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Podatak</th><th>Registar imovine</th><th>Popis AI sustava</th></tr></thead>
+    <tbody>
+      <tr><td>Naziv i opis sustava</td><td>da</td><td>da</td></tr>
+      <tr><td>Vlasnik</td><td>da</td><td>da</td></tr>
+      <tr><td>Poslovni proces koji podupire</td><td>da</td><td>da</td></tr>
+      <tr><td>Kritičnost</td><td>da</td><td>da</td></tr>
+      <tr><td>Vrste podataka koje obrađuje</td><td>da</td><td>da</td></tr>
+      <tr><td>Dobavljač i ugovor</td><td>da</td><td>da</td></tr>
+      <tr><td>Lokacija obrade</td><td>da</td><td>da</td></tr>
+      <tr><td>Procjena rizika</td><td>da</td><td>da</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Osam stavki koje se ionako vode. Mjera 2 iz Priloga II. Uredbe o kibernetičkoj sigurnosti traži inventar imovine s klasifikacijom i izdvajanjem kritične imovine - to je isti posao.</p>
+
+<h2>Četiri stupca koji se dodaju</h2>
+<p>Razlika staje u nekoliko polja koja se dopisuju postojećem registru:</p>
+<ol>
+  <li><strong>Je li sustav zasnovan na umjetnoj inteligenciji</strong> - da, ne, ili sadrži ugrađenu komponentu. Treća vrijednost je važna jer pokriva postojeći softver koji je AI funkciju dobio nadogradnjom.</li>
+  <li><strong>Slučaj uporabe</strong> - konkretno, ne "asistent". Isti alat s tri načina korištenja daje tri retka.</li>
+  <li><strong>Uloga organizacije</strong> - koristimo li sustav, razvijamo li ga, ili smo ga izmijenili i stavili na njega svoje ime. To određuje opseg obveza.</li>
+  <li><strong>Razina rizika i obrazloženje</strong> - zaključak procjene, s rečenicom zašto. Rečenica je važnija od oznake.</li>
+</ol>
+
+<div class="callout">
+  <div class="c-label">Zašto slučaj uporabe, a ne alat</div>
+  <p>Obveze prema Aktu o umjetnoj inteligenciji ovise o primjeni, ne o tehnologiji. Registar koji ima jedan redak po alatu ne može nositi klasifikaciju, jer isti alat može istovremeno biti minimalnog i visokog rizika. Redak po slučaju uporabe rješava to bez ijedne dodatne tablice.</p>
+</div>
+
+<h2>Što se time dobiva osim urednosti</h2>
+<ul>
+  <li><strong>Procjena rizika se radi jednom.</strong> Rizik gubitka dostupnosti sustava i rizik pogrešne odluke koju sustav proizvede procjenjuju se u istom registru rizika, s istom metodologijom i istim vlasnikom.</li>
+  <li><strong>Lanac opskrbe je pokriven.</strong> Dobavljač AI usluge je treća strana kao i svaka druga, pa ulazi u procjenu prema mjeri 8 bez posebnog postupka.</li>
+  <li><strong>Zaštita podataka se veže na isto mjesto.</strong> Ako u sustav ulaze osobni podaci, veza prema evidenciji obrada postoji preko istog retka.</li>
+  <li><strong>Nadzor ima jedan izvor.</strong> Prikupljanje zapisa i praćenje ponašanja sustava oslanja se na inventar - ako sustav nije u inventaru, nije ni u nadzoru.</li>
+</ul>
+
+<h2>Prvi korak, konkretno</h2>
+<p>Otvorite postojeći registar imovine, dodajte četiri stupca i prođite popis. Za većinu redaka odgovor na prvo pitanje bit će "ne" i posao je gotov u minuti. Redaka s odgovorom "da" ili "sadrži komponentu" bit će manje nego što se očekuje, a upravo oni traže pažnju.</p>
+<p>Ono što će vam nedostajati nisu sustavi iz informatike nego alati koje su uveli sami zaposlenici i AI funkcije koje su stigle nadogradnjom postojećeg softvera. To se ne nalazi u tablici nego u razgovoru s vlasnicima procesa.</p>
+
+<div class="note">
+  <p>Isto načelo vrijedi i za DORA registar informacija i za evidenciju obrada prema Općoj uredbi. Svaki od njih traži pogled na istu imovinu iz drugog kuta. Organizacije koje ih vode kao poglede na jedan izvor izvještavaju; one koje ih vode odvojeno prepisuju.</p>
+</div>
+''',
+ sources=[('Uredba (EU) 2024/1689 (Akt o umjetnoj inteligenciji)', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32024R1689'),
+          ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjere 2 i 8', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('HRN EN ISO/IEC 27001:2022, Prilog A - upravljanje imovinom', None)]))
+
+ARTICLES.append(dict(
+ slug="ai-u-obrani-gdje-pomaze-gdje-odmaze", cat="Umjetna inteligencija", catkey="ai",
+ date="2026-08-04", read=7,
+ title="Umjetna inteligencija u obrani: gdje stvarno pomaže, a gdje samo pomiče problem",
+ lead="Obećanje je da će model uočiti napad koji je čovjeku promakao. Stvarnost je da model dobro radi na zadacima gdje postoji puno primjera i jasan ishod, a loše ondje gdje ih nema - a upravo su ondje najskuplji propusti.",
+ desc="Realna procjena primjene umjetne inteligencije u kibernetičkoj obrani: gdje daje mjerljivu korist, gdje stvara lažno povjerenje i koje kontrole treba postaviti prije uvođenja.",
+ body='''
+<p>Rasprava o umjetnoj inteligenciji u sigurnosti brzo sklizne u dvije krajnosti: da mijenja sve ili da ne mijenja ništa. Korisnije je pitati gdje statistički model ima prednost pred pravilom, a gdje nema.</p>
+
+<h2>Gdje daje mjerljivu korist</h2>
+<h3>Smanjenje šuma</h3>
+<p>Grupiranje sličnih upozorenja, uklanjanje duplikata i rangiranje po vjerojatnosti stvarnog nalaza. To je zadatak s puno primjera i jasnim ishodom, i ondje modeli rade dobro. Korist nije u tome da model otkriva napade nego u tome da analitičar ne troši dan na tisuću upozorenja od kojih je devet stotina isti događaj.</p>
+<h3>Otkrivanje odstupanja od uobičajenog</h3>
+<p>Prijava u tri ujutro s adrese iz zemlje u kojoj organizacija ne posluje, ili račun koji odjednom pristupa deset puta većem broju datoteka nego inače. Model uči što je normalno i prijavljuje što nije. Radi dobro kad je "normalno" stabilno, a slabo u okruženjima koja se stalno mijenjaju.</p>
+<h3>Ubrzanje razumijevanja</h3>
+<p>Sažimanje zapisa, objašnjavanje nepoznate naredbe, prijedlog upita nad podacima. Ovdje model ne odlučuje nego skraćuje vrijeme do razumijevanja, uz čovjeka koji provjerava.</p>
+<h3>Priprema dokumentacije</h3>
+<p>Nacrt izvještaja o incidentu, prijedlog strukture politike, usporedba postojećeg dokumenta sa zahtjevima norme. Uz obveznu provjeru, ovo je danas najisplativija primjena u compliance radu.</p>
+
+<div class="callout">
+  <div class="c-label">Zajedničko svim korisnim primjenama</div>
+  <p>Model skraćuje put do odgovora, ali odgovor potvrđuje čovjek. Čim se ta potvrda ukloni radi brzine, korist se pretvara u rizik - i to rizik koji se ne vidi dok se ne dogodi.</p>
+</div>
+
+<h2>Gdje pomiče problem umjesto da ga riješi</h2>
+<h3>Kad je uzrok organizacijski</h3>
+<p>Sustav koji rangira upozorenja ne pomaže organizaciji koja upozorenja ionako nitko ne gleda izvan radnog vremena. Detekcija bez odgovora nije obrana, a alat ne stvara dežurstvo.</p>
+<h3>Kad nema podataka</h3>
+<p>Model uči iz zapisa. Organizacija koja ne prikuplja zapise sa svih ključnih izvora neće dobiti korisne rezultate - dobit će uvjerljive rezultate na nepotpunim podacima, što je gore.</p>
+<h3>Kad se izlaz uzme kao činjenica</h3>
+<p>Jezični modeli proizvode uvjerljiv tekst i onda kad nemaju osnovu. Naziv ranjivosti koji ne postoji, članak propisa koji je izmišljen, konfiguracijski parametar koji nikad nije postojao - sve to izlazi u istom tonu kao i točan odgovor.</p>
+<h3>Kad se osjetljivi podaci pošalju van</h3>
+<p>Analiza incidenta u vanjskom alatu znači da su zapisi, imena sustava i ponekad podaci klijenata izašli iz organizacije. To je obrada s vlastitim pravnim posljedicama, i događa se najčešće upravo pod pritiskom incidenta.</p>
+
+<h2>Napadačka strana</h2>
+<p>Ista tehnologija snizila je prag za napadače na tri konkretna načina: phishing bez jezičnih pogrešaka i prilagođen primatelju, brža priprema varijanti zloćudnog koda, i uvjerljivo lažiranje glasa u prijevarama koje ciljaju na plaćanje.</p>
+<p>Nijedan od njih nije nova vrsta napada. Svi su postojeći napadi izvedeni jeftinije i uvjerljivije. Zato obrana nije novi alat nego pooštravanje kontrola koje već postoje - potvrda plaćanja drugim kanalom, dvofaktorska autentifikacija, i edukacija koja više ne smije učiti ljude da phishing prepoznaju po lošem hrvatskom.</p>
+
+<h2>Što postaviti prije uvođenja</h2>
+<ol>
+  <li><strong>Upišite sustav u registar imovine</strong>, s vlasnikom i slučajem uporabe.</li>
+  <li><strong>Odredite što u njega ne smije ući.</strong> Osobni podaci, podaci klijenata, konfiguracije, zapisi s imenima sustava.</li>
+  <li><strong>Zadržite čovjeka u odluci</strong> svugdje gdje izlaz utječe na ljude ili na dostupnost usluge.</li>
+  <li><strong>Bilježite što je model predložio i što je čovjek odlučio.</strong> Bez tog zapisa nema ni provjere ni učenja iz pogrešaka.</li>
+  <li><strong>Mjerite.</strong> Ako se nakon uvođenja ne skrati vrijeme do otkrivanja ili do odgovora, alat nije donio ono zbog čega je nabavljen.</li>
+</ol>
+
+<div class="note">
+  <p>Akt o umjetnoj inteligenciji na sigurnosne alate primjenjuje istu logiku kao i na ostale: obveze ovise o primjeni. Alat koji rangira upozorenja u pravilu je niske razine rizika, ali alat koji automatski blokira korisnika donosi odluku o osobi - i to mijenja procjenu.</p>
+</div>
+''',
+ sources=[('Uredba (EU) 2024/1689 (Akt o umjetnoj inteligenciji)', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32024R1689'),
+          ('NIST Cybersecurity Framework 2.0 - funkcije Detect i Respond', 'https://www.nist.gov/cyberframework'),
+          ('Preporuke za uspostavu sustavnog prikupljanja dnevničkih zapisa, NCSC-HR', 'https://www.ncsc.hr/')]))
+
+ARTICLES.append(dict(
+ slug="ot-sustavi-i-zks", cat="OT i industrija", catkey="ot",
+ date="2026-08-25", read=7,
+ title="OT sustavi i ZKS: zašto industrijska mreža ne prolazi IT kontrole",
+ lead="Mjere iz Priloga II. pisane su tako da vrijede i za informacijske i za operativne sustave. Problem nastaje pri provedbi: kontrola koja je u uredskoj mreži rutinska, u proizvodnoj može zaustaviti liniju.",
+ desc="Kako primijeniti mjere upravljanja kibernetičkim sigurnosnim rizicima na operativne tehnologije: zakrpe, segmentacija, nadzor i kontinuitet u okruženjima gdje se sustavi ne smiju restartati.",
+ body='''
+<p>Uredba o kibernetičkoj sigurnosti izrijekom razmatra primjenjivost mjera i u informacijskim i u operativnim sustavima. To je ispravno postavljeno, ali ostavlja otvoreno pitanje kako se ista kontrola provodi ondje gdje se sustav ne smije isključiti.</p>
+<p>Kod energetike, vodoopskrbe, prometa i prehrambene industrije to nije rubni slučaj nego glavnina posla.</p>
+
+<h2>Četiri razlike koje mijenjaju provedbu</h2>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th></th><th>IT okruženje</th><th>OT okruženje</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Prioritet</strong></td><td>Povjerljivost, pa cjelovitost, pa dostupnost</td><td>Dostupnost i sigurnost ljudi, pa cjelovitost</td></tr>
+      <tr><td><strong>Životni vijek</strong></td><td>3 do 5 godina</td><td>15 do 25 godina</td></tr>
+      <tr><td><strong>Prozor za održavanje</strong></td><td>Noću, tjedno</td><td>Jednom ili dvaput godišnje</td></tr>
+      <tr><td><strong>Posljedica ispada</strong></td><td>Poslovna šteta</td><td>Fizička šteta, opasnost za ljude</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Iz toga slijedi sve ostalo. Zakrpa koja se u uredskoj mreži primijeni istog tjedna, u pogonu čeka planirani zastoj. Skeniranje ranjivosti koje je u IT-u bezopasno, u OT-u može srušiti uređaj koji ne očekuje takav promet.</p>
+
+<h2>Kako se mjere provode drukčije</h2>
+<h3>Mjera 5 - zakrpe i higijena</h3>
+<p>Ako se zakrpa ne može primijeniti, obveza ne nestaje - mijenja se odgovor. Rizik se tretira nadoknadnim kontrolama: izolacija segmenta, ograničenje prometa prema uređaju, pojačan nadzor. Ključno je da to bude <strong>zapisano kao odluka s obrazloženjem</strong>, a ne prešućeno kao propust.</p>
+<div class="callout">
+  <div class="c-label">Što provjera zapravo gleda</div>
+  <p>Nalaz "sustav nije zakrpan" nije sam po sebi neusklađenost ako postoji procjena rizika, odluka o nadoknadnim kontrolama i dokaz da te kontrole rade. Neusklađenost je kad zakrpe nema, a nema ni odluke - jer tada nitko nije procijenio rizik.</p>
+</div>
+<h3>Mjera 6 - sigurnost mreže</h3>
+<p>Segmentacija je najisplativija kontrola u OT-u jer ne dira uređaje. Odvajanje proizvodne mreže od uredske, jednosmjerni prijenos podataka prema poslovnim sustavima i uklanjanje izravnog pristupa internetu s uređaja rješavaju veći dio izloženosti bez ijednog restarta.</p>
+<h3>Mjera 7 - kontrola pristupa</h3>
+<p>Najveći stvarni rizik u praksi je udaljeni pristup dobavljača opreme. Trajni pristup s dijeljenim računom i bez nadzora nalazi se često, i objašnjava se ugovorom o održavanju. Zamjena je pristup koji se odobrava po zahtjevu, traje ograničeno i bilježi se.</p>
+<h3>Mjera 11 i 12 - incidenti i kontinuitet</h3>
+<p>Kriterij značajnosti u OT-u mora uključiti fizičke posljedice, ne samo dostupnost usluge. Plan oporavka mora računati s time da vraćanje sustava u rad znači i sigurno pokretanje procesa, što je operativni postupak, a ne informatički.</p>
+
+<h2>Nadzor bez zadiranja</h2>
+<p>Prikupljanje dnevničkih zapisa u OT-u često nije izvedivo na uređajima, ali jest na mreži. Pasivno praćenje prometa daje inventar uređaja, uobičajene obrasce komunikacije i odstupanja - bez ijednog paketa poslanog prema uređaju.</p>
+<p>To je ujedno i najbrži put do inventara imovine koji mjera 2 traži, jer je popis OT uređaja u dokumentaciji redovito stariji od stvarnog stanja.</p>
+
+<h2>Gdje projekt najčešće zapne</h2>
+<ul>
+  <li><strong>Vlasništvo.</strong> OT je u pogonu, sigurnost je u informatici, a odgovornost nije napisana. Mjera 1 traži imenovane osobe upravo zbog toga.</li>
+  <li><strong>Ugovori s dobavljačima opreme.</strong> Sklopljeni prije nego što je itko razmišljao o kibernetičkoj sigurnosti, bez obveza prijave ranjivosti i bez pravila za udaljeni pristup. To je nalaz po mjeri 8.</li>
+  <li><strong>Sustavi bez podrške proizvođača.</strong> Nisu iznimka nego pravilo, i traže odluku uprave o prihvaćanju rizika ili planu zamjene, s rokom.</li>
+</ul>
+
+<div class="note">
+  <p>Prije bilo kakvog aktivnog testiranja u OT okruženju dogovorite opseg i vrijeme s voditeljem pogona. Skeniranje koje je u uredskoj mreži rutinsko u proizvodnji može uzrokovati zastoj - a zastoj uzrokovan sigurnosnom provjerom najbrži je način da se cijeli program izgubi podršku pogona.</p>
+</div>
+''',
+ sources=[('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('Direktiva (EU) 2022/2555 (NIS2) - sektori energetike, vodoopskrbe i prometa', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32022L2555'),
+          ('Prioritetne preporuke za zaštitu od kibernetičkih napada, NCSC-HR', 'https://www.ncsc.hr/')]))
 
 # ══════════════════════════════════════════════════════════════════
 # ENGLESKA VERZIJA - /en/

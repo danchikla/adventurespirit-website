@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kategorizacija prema ZKS-u: ključni ili važni subjekt, i što iz toga slijedi | Adventure Spirit Consulting</title>
-<meta name="description" content="Kako se određuje jeste li ključni ili važni subjekt prema Zakonu o kibernetičkoj sigurnosti, koji rokovi teku od obavijesti o kategorizaciji i po čemu se obveze dviju skupina razlikuju.">
-<link rel="canonical" href="https://adventurespirit.hr/blog/kategorizacija-prema-zks-u/">
+<title>Dnevnički zapisi: jedanaest izvora bez kojih istraga incidenta ne postoji | Adventure Spirit Consulting</title>
+<meta name="description" content="Koje izvore dnevničkih zapisa preporučuje NCSC-HR, zašto se prikupljanje mora postaviti prije incidenta i kako se to povezuje s mjerama nadzora iz Uredbe o kibernetičkoj sigurnosti.">
+<link rel="canonical" href="https://adventurespirit.hr/blog/dnevnicki-zapisi-sto-prikupljati/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#0f1117">
 <meta name="author" content="Daniel Bara, dr. sc.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Adventure Spirit Consulting">
 <meta property="og:locale" content="hr_HR">
-<meta property="og:url" content="https://adventurespirit.hr/blog/kategorizacija-prema-zks-u/">
-<meta property="og:title" content="Kategorizacija prema ZKS-u: ključni ili važni subjekt, i što iz toga slijedi | Adventure Spirit Consulting">
-<meta property="og:description" content="Kako se određuje jeste li ključni ili važni subjekt prema Zakonu o kibernetičkoj sigurnosti, koji rokovi teku od obavijesti o kategorizaciji i po čemu se obveze dviju skupina razlikuju.">
+<meta property="og:url" content="https://adventurespirit.hr/blog/dnevnicki-zapisi-sto-prikupljati/">
+<meta property="og:title" content="Dnevnički zapisi: jedanaest izvora bez kojih istraga incidenta ne postoji | Adventure Spirit Consulting">
+<meta property="og:description" content="Koje izvore dnevničkih zapisa preporučuje NCSC-HR, zašto se prikupljanje mora postaviti prije incidenta i kako se to povezuje s mjerama nadzora iz Uredbe o kibernetičkoj sigurnosti.">
 <meta property="og:image" content="https://adventurespirit.hr/mmew/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kategorizacija prema ZKS-u: ključni ili važni subjekt, i što iz toga slijedi | Adventure Spirit Consulting">
-<meta name="twitter:description" content="Kako se određuje jeste li ključni ili važni subjekt prema Zakonu o kibernetičkoj sigurnosti, koji rokovi teku od obavijesti o kategorizaciji i po čemu se obveze dviju skupina razlikuju.">
+<meta name="twitter:title" content="Dnevnički zapisi: jedanaest izvora bez kojih istraga incidenta ne postoji | Adventure Spirit Consulting">
+<meta name="twitter:description" content="Koje izvore dnevničkih zapisa preporučuje NCSC-HR, zašto se prikupljanje mora postaviti prije incidenta i kako se to povezuje s mjerama nadzora iz Uredbe o kibernetičkoj sigurnosti.">
 <link rel="alternate" type="application/rss+xml" title="Baza znanja - Adventure Spirit Consulting" href="/blog/feed.xml">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 6L44 42h12Z' fill='%23EF653F'/%3E%3Cline x1='44' y1='33' x2='56' y2='33' stroke='%23EF653F' stroke-width='3'/%3E%3Cpath d='M50 94L44 68h12Z' fill='%23EF653F'/%3E%3Cpath d='M94 50L68 44v12Z' fill='%23EF653F'/%3E%3Cpath d='M6 50L32 44v12Z' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='7' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='4' fill='%23c14b28'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,75 +83,78 @@
 <main>
   <div class="container narrow">
     <div class="crumbs">
-      <a href="/">Početna</a><span>&rsaquo;</span><a href="/blog/">Baza znanja</a><span>&rsaquo;</span>ZKS / NIS2
+      <a href="/">Početna</a><span>&rsaquo;</span><a href="/blog/">Baza znanja</a><span>&rsaquo;</span>Nadzor i zapisi
     </div>
     <header class="art-head">
-      <div class="eyebrow">ZKS / NIS2</div>
-      <h1>Kategorizacija prema ZKS-u: ključni ili važni subjekt, i što iz toga slijedi</h1>
-      <p class="art-lead">Kategoriju ne birate i ne prijavljujete se za nju. Dobit ćete je pismom, a od dana dostave teče rok. Objašnjavamo tko odlučuje, po čemu, i što se konkretno mijenja ovisno o tome u koju ste skupinu svrstani.</p>
+      <div class="eyebrow">Nadzor i zapisi</div>
+      <h1>Dnevnički zapisi: jedanaest izvora bez kojih istraga incidenta ne postoji</h1>
+      <p class="art-lead">Kad dođe do napada, već je kasno za postavljanje prikupljanja zapisa. NCSC-HR objavio je preporuke koje nabrajaju izvore po prioritetu - i one otkrivaju koliko toga većina organizacija uopće ne bilježi.</p>
       <div class="art-meta">
-        <span><strong>Daniel Bara, dr. sc.</strong></span><span>20. siječnja 2026.</span><span>7 min čitanja</span>
+        <span><strong>Daniel Bara, dr. sc.</strong></span><span>7. travnja 2026.</span><span>7 min čitanja</span>
       </div>
     </header>
     <article>
 
-<p>Zakon o kibernetičkoj sigurnosti (NN 14/2024) dijeli obveznike u dvije skupine: <strong>ključne</strong> i <strong>važne subjekte</strong>. Razlika nije kozmetička. Ona određuje razinu na kojoj morate provesti mjere, tko provjerava jeste li ih proveli, i koliko vas ta provjera košta.</p>
+<p>Preporuke NCSC-HR-a za sustavno prikupljanje dnevničkih zapisa otvaraju rečenicom koja sažima cijeli problem: nedostatak zapisa jedan je od najvećih izazova za otkrivanje, istragu i odgovor. U trenutku destruktivnog napada već je kasno - istragom se najčešće neće uspjeti utvrditi što se sve dogodilo.</p>
+<p>Praktična posljedica je neugodna. Organizacija koja nema zapise ne može odgovoriti na najvažnije pitanje nakon incidenta: <strong>je li napadač bio i drugdje, i koliko dugo</strong>. Bez toga se ne može ni potvrditi da je incident zatvoren.</p>
 
-<h2>Kategoriju određuju sektor i veličina, uz iznimke</h2>
-<p>Polazište su prilozi Zakona koji nabrajaju sektore. Unutar sektora, kategorija se u pravilu izvodi iz veličine subjekta prema kriterijima za srednje i velike poduzetnike. To je pravilo. Zanimljive su iznimke.</p>
-<p>Kod <strong>tijela državne uprave</strong> i kod <strong>određenih kritičnih zdravstvenih djelatnosti</strong> veličina nije mjerilo. Ondje kategorija proizlazi iz same djelatnosti, pa mala ustanova može biti ključni subjekt jednako kao i velika. To je najčešći izvor iznenađenja: organizacija koja se po broju zaposlenih smatra malom otvori pismo i pročita da je ključni subjekt.</p>
+<h2>Preduvjeti koji nisu tehnički</h2>
+<p>Dokument započinje s onim što mora postojati prije nego što se uključi ijedan zapis:</p>
+<ul>
+  <li>Inventar uređaja i programskih rješenja</li>
+  <li>Dokumentacija informacijskog sustava i njegovih segmenata</li>
+  <li>Definirani vlasnici sustava</li>
+  <li>Praćenje servisnih i korisničkih računa</li>
+</ul>
 <div class="callout">
-  <div class="c-label">Praktična posljedica</div>
-  <p>Ne pokušavajte sami zaključiti u koju kategoriju spadate i na temelju toga planirati proračun. Sektorska iznimka može promijeniti cijeli scenarij. Planirajte za nepovoljniji ishod dok ne dobijete pisanu obavijest.</p>
+  <div class="c-label">Zašto to nije birokracija</div>
+  <p>Zapis bez konteksta je niz redaka. Da bi se iz njega izvukla informacija, mora se znati što je taj sustav, tko ga koristi i što je za njega normalno. Zato je registar imovine preduvjet za nadzor, a ne paralelna obveza.</p>
 </div>
 
-<h2>Što se stvarno mijenja s kategorijom</h2>
-<p>Obje skupine provode <strong>istih 13 mjera</strong> iz Priloga II. Uredbe o kibernetičkoj sigurnosti (NN 135/2024). Ono što se razlikuje su dvije stvari: razina provedbe i način provjere.</p>
+<h2>Izvori zapisa po prioritetu</h2>
+<p>Preporuke nabrajaju jedanaest skupina izvora. Poredak nije slučajan - prvi su oni koji najčešće daju prvi trag:</p>
 <div class="tbl-wrap">
   <table>
-    <thead><tr><th></th><th>Važni subjekt</th><th>Ključni subjekt</th></tr></thead>
+    <thead><tr><th>Izvor</th><th>Što otkriva</th></tr></thead>
     <tbody>
-      <tr><td><strong>Mjere</strong></td><td>Istih 13 mjera</td><td>Istih 13 mjera</td></tr>
-      <tr><td><strong>Razina provedbe</strong></td><td>U pravilu niža razina</td><td>U pravilu viša razina</td></tr>
-      <tr><td><strong>Provjera usklađenosti</strong></td><td>Samoprocjena</td><td>Neovisna revizija</td></tr>
-      <tr><td><strong>Tko provjerava</strong></td><td>Subjekt sam, prema smjernicama</td><td>Ovlašteni vanjski pružatelj, kod tijela državne uprave nadležno tijelo</td></tr>
-      <tr><td><strong>Trošak provjere</strong></td><td>Interni rad</td><td>Vanjski angažman</td></tr>
+      <tr><td><strong>DNS</strong></td><td>Komunikaciju prema zloćudnoj infrastrukturi, često prvi vidljivi trag</td></tr>
+      <tr><td><strong>Web poslužitelji</strong></td><td>Pokušaje iskorištavanja ranjivosti i pristup s neuobičajenih adresa</td></tr>
+      <tr><td><strong>Elektronička pošta</strong></td><td>Phishing, pravila preusmjeravanja koja postavi napadač</td></tr>
+      <tr><td><strong>VPN i udaljeni pristup</strong></td><td>Prijave s neuobičajenih lokacija i u neuobičajeno vrijeme</td></tr>
+      <tr><td><strong>Središnja sigurnosna rješenja</strong></td><td>Detekcije koje su možda već zabilježene, a nitko ih nije pogledao</td></tr>
+      <tr><td><strong>Web proxy</strong></td><td>Odlazni promet prema poslužiteljima za upravljanje napadom</td></tr>
+      <tr><td><strong>Klijenti i poslužitelji</strong></td><td>Prijave, pokretanje procesa, promjene ovlasti</td></tr>
+      <tr><td><strong>Vatrozid</strong></td><td>Mrežne veze, prihvaćene i odbijene</td></tr>
+      <tr><td><strong>Mrežni uređaji</strong></td><td>Promjene konfiguracije, pristup upravljačkom sučelju</td></tr>
+      <tr><td><strong>DHCP</strong></td><td>Vezu između adrese i uređaja u određenom trenutku</td></tr>
+      <tr><td><strong>Ostali izvori</strong></td><td>Aplikacije, baze podataka, sustavi za sigurnosne kopije</td></tr>
     </tbody>
   </table>
 </div>
-<p>Napomena koja se često previdi: <strong>i samoprocjena je formalni postupak</strong>. Nije riječ o internom mišljenju nego o bodovanju prema propisanom okviru, s dokazima koji moraju postojati u trenutku procjene. Razlika prema reviziji je u tome tko drži olovku, ne u tome je li potrebna dokazna baza.</p>
+<p>DHCP je najčešće zaboravljen, a bez njega se adresa iz zapisa ne može povezati s uređajem. Istraga tada zna da se nešto dogodilo, ali ne i gdje.</p>
 
-<h2>Rokovi teku od obavijesti, ne od stupanja Zakona na snagu</h2>
-<p>Ovo je najskuplji nesporazum u praksi. Zakon je na snazi od 2024., ali vaš rok ne teče od tada.</p>
-<ul>
-  <li><strong>30 dana</strong> - rok u kojem vas nadležno tijelo mora obavijestiti o provedenoj kategorizaciji ili njezinoj izmjeni.</li>
-  <li><strong>12 mjeseci</strong> - rok za usklađivanje, računa se od dostave te obavijesti.</li>
-  <li><strong>Do dvije dodatne godine</strong> - okvir unutar kojeg se provodi provjera usklađenosti, neovisnom revizijom ili samoprocjenom, ovisno o kategoriji.</li>
-  <li><strong>60 dana do 6 mjeseci</strong> - rok koji nadležno tijelo određuje kad se kategorija promijeni, razmjerno opsegu i složenosti novih obveza.</li>
-</ul>
-<div class="callout">
-  <div class="c-label">Gdje se gubi vrijeme</div>
-  <p>Prvo tromjesečje se u pravilu potroši na interno imenovanje osobe koja će voditi posao. Rok u međuvremenu teče. Ako je obavijest stigla, gap analiza može krenuti prije nego što je imenovanje formalizirano - popis imovine i registar rizika trebaju vam u svakom slučaju.</p>
+<h2>Tri stvari koje odlučuju je li prikupljanje upotrebljivo</h2>
+<h3>Vrijeme mora biti usklađeno</h3>
+<p>Zapisi iz različitih sustava spajaju se po vremenu. Ako su satovi razmaknuti, redoslijed događaja se ne može rekonstruirati. Sinkronizacija vremena je jednodnevni posao koji odlučuje o upotrebljivosti svega ostalog.</p>
+<h3>Zapisi moraju biti izvan dosega napadača</h3>
+<p>Zapisi koji ostaju samo na kompromitiranom sustavu izbrisat će se zajedno sa svime ostalim. Središnje prikupljanje nije stvar udobnosti nego integriteta dokaza.</p>
+<h3>Razdoblje čuvanja mora biti dulje od vremena otkrivanja</h3>
+<p>Napadi se u pravilu otkriju tjednima ili mjesecima nakon početka. Zapisi koji se čuvaju sedam dana odgovaraju na pitanje što se dogodilo jučer, a ne na pitanje kada je napadač ušao.</p>
+
+<h2>Poveznica prema obvezama</h2>
+<p>Prikupljanje i analiza zapisa pripada mjeri 6 (sigurnost mreže) i mjeri 11 (postupanje s incidentima) iz Priloga II. Uredbe, a preduvjeti se naslanjaju na mjeru 2 (upravljanje imovinom). U ZSIS-ovom katalogu kontrola skupina oznaka NAD pokriva praćenje i nadzor i jedna je od većih - šesnaest kontrola.</p>
+<p>To nije slučajno. Nadzor je mjera kod koje se najlakše napiše da postoji, a najteže dokaže da radi.</p>
+
+<div class="note">
+  <p>Preporuke NCSC-HR-a temeljene su na dokumentu danskog centra za kibernetičku sigurnost, dopunjenom domaćim iskustvima. Sadrže i scenarije primjene - pretraga po indikatoru, phishing i složeni incident - koji su korisni kao predložak za vježbu.</p>
 </div>
-
-<h2>Što napraviti u prvom tjednu nakon obavijesti</h2>
-<ol>
-  <li><strong>Zabilježite datum dostave.</strong> Ne datum pisma, nego datum dostave. Od njega računate svih dvanaest mjeseci.</li>
-  <li><strong>Utvrdite razinu provedbe</strong> koja se na vas primjenjuje i koje ste sektorske obveze dobili uz kategorizaciju.</li>
-  <li><strong>Imenujte odgovornu osobu</strong> i osigurajte joj pristup upravi. Mjera 1 iz Priloga II. traži upravo to, i ocjenjuje se.</li>
-  <li><strong>Napravite popis imovine.</strong> Bez inventara ne možete napraviti procjenu rizika, a bez procjene rizika ne prolazi gotovo nijedna druga mjera.</li>
-  <li><strong>Provjerite preklapanja.</strong> Ako imate ISO 27001, DORA obveze ili uspostavljen GDPR sustav, dio dokazne baze već postoji. Mapirajte prije nego što počnete pisati nove dokumente.</li>
-</ol>
-
-<h2>Ako mislite da ste pogrešno kategorizirani</h2>
-<p>Kategorizacija se temelji na podacima o sektoru i veličini koje tijelo ima. Ako ti podaci nisu točni, ili se vaša djelatnost promijenila, to je pitanje za nadležno tijelo, a ne razlog da se rok ignorira. Do rješenja, rok teče prema zaprimljenoj obavijesti.</p>
 
       <div class="sources">
         <h4>Izvori</h4>
         <ul>
-    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html" target="_blank" rel="noopener">Zakon o kibernetičkoj sigurnosti, NN 14/2024</a></li>
-    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Uredba o kibernetičkoj sigurnosti, NN 135/2024</a></li>
-    <li><a href="https://ncsc.hr/hr/zapoceo-proces-kategorizacije-subjekata-obveznika-zakona-o-kibernetickoj-sigurnosti" target="_blank" rel="noopener">NCSC-HR - kategorizacija subjekata obveznika</a></li>
+    <li><a href="https://www.ncsc.hr/" target="_blank" rel="noopener">Preporuke za uspostavu sustavnog prikupljanja dnevničkih zapisa, NCSC-HR</a></li>
+    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjere 2, 6 i 11</a></li>
+    <li><a href="https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20C%20-%20Katalog%20kontrola.pdf" target="_blank" rel="noopener">ZSIS - Katalog kontrola, skupina NAD</a></li>
         </ul>
       </div>
       <div class="art-cta">
@@ -251,12 +254,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Kategorizacija prema ZKS-u: ključni ili važni subjekt, i što iz toga slijedi",
-  "description": "Kako se određuje jeste li ključni ili važni subjekt prema Zakonu o kibernetičkoj sigurnosti, koji rokovi teku od obavijesti o kategorizaciji i po čemu se obveze dviju skupina razlikuju.",
-  "datePublished": "2026-01-20",
-  "dateModified": "2026-01-20",
+  "headline": "Dnevnički zapisi: jedanaest izvora bez kojih istraga incidenta ne postoji",
+  "description": "Koje izvore dnevničkih zapisa preporučuje NCSC-HR, zašto se prikupljanje mora postaviti prije incidenta i kako se to povezuje s mjerama nadzora iz Uredbe o kibernetičkoj sigurnosti.",
+  "datePublished": "2026-04-07",
+  "dateModified": "2026-04-07",
   "inLanguage": "hr-HR",
-  "articleSection": "ZKS / NIS2",
+  "articleSection": "Nadzor i zapisi",
   "author": {
     "@type": "Person",
     "name": "Daniel Bara",
@@ -271,9 +274,9 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://adventurespirit.hr/blog/kategorizacija-prema-zks-u/"
+    "@id": "https://adventurespirit.hr/blog/dnevnicki-zapisi-sto-prikupljati/"
   },
-  "url": "https://adventurespirit.hr/blog/kategorizacija-prema-zks-u/"
+  "url": "https://adventurespirit.hr/blog/dnevnicki-zapisi-sto-prikupljati/"
 }
 </script>
 <script type="application/ld+json">
@@ -296,8 +299,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Kategorizacija prema ZKS-u: ključni ili važni subjekt, i što iz toga slijedi",
-      "item": "https://adventurespirit.hr/blog/kategorizacija-prema-zks-u/"
+      "name": "Dnevnički zapisi: jedanaest izvora bez kojih istraga incidenta ne postoji",
+      "item": "https://adventurespirit.hr/blog/dnevnicki-zapisi-sto-prikupljati/"
     }
   ]
 }
