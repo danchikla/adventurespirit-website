@@ -40,7 +40,7 @@ def header(depth, active_blog=True):
     home = SITE + "/"
     return '''<div id="topwrap">
 <div class="topbar">
-  <span class="tb-legal">Adventure Spirit Consulting d.o.o. &middot; Zagreb</span>
+  <span class="tb-legal">Adventure Spirit d.o.o. &middot; Zagreb</span>
   <span class="tb-contact">
     <a href="tel:+385955041496">''' + ICON_PHONE + '''+385 95 504 1496</a>
     <a href="mailto:info@adventurespirit.hr">''' + ICON_MAIL + '''info@adventurespirit.hr</a>
@@ -61,7 +61,7 @@ def header(depth, active_blog=True):
     <li><a href="/#sektori">Sektori</a></li>
     <li><a href="/blog/"''' + (' class="active"' if active_blog else '') + '''>Baza znanja</a></li>
     <li><a href="/#reference">Reference</a></li>
-    <li><a href="/#cijene">Cijene</a></li>
+    <li><a href="/#faq">Česta pitanja</a></li>
     <li><a href="/#kontakt">Kontakt</a></li>
     <li><a href="https://app.adventurespirit.hr" target="_blank" rel="noopener" class="nav-cta">Portal</a></li>
   </ul>
@@ -88,7 +88,8 @@ FOOTER = '''<footer>
         </a>
         <p>Kibernetička sigurnost, GRC compliance i upravljanje rizicima - preko 20 godina iskustva u službi vašeg poslovanja.</p>
         <p class="footer-legal">
-          Adventure Spirit Consulting d.o.o.<br>
+          Adventure Spirit d.o.o.<br>
+          Tržišni naziv: Adventure Spirit Consulting<br>
           Zagreb, Republika Hrvatska<br>
           <!-- TODO: upisati punu adresu, OIB, MBS i PDV broj -->
           OIB: dostupno na zahtjev<br>
@@ -118,7 +119,7 @@ FOOTER = '''<footer>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Adventure Spirit Consulting d.o.o. - Sva prava pridržana</span>
+      <span>&copy; 2026 Adventure Spirit d.o.o. - Sva prava pridržana</span>
       <span style="display:flex;gap:16px">
         <a href="/blog/feed.xml">RSS</a>
         <a href="/uvjeti/">Uvjeti korištenja</a>
@@ -682,7 +683,7 @@ for i, a in enumerate(ARTICLES):
       "inLanguage": "hr-HR", "articleSection": a["cat"],
       "author": {"@type": "Person", "name": "Daniel Bara", "honorificSuffix": "dr. sc.",
                  "url": SITE + "/#onama"},
-      "publisher": {"@type": "Organization", "name": "Adventure Spirit Consulting d.o.o.",
+      "publisher": {"@type": "Organization", "name": "Adventure Spirit d.o.o.",
                     "url": SITE + "/"},
       "mainEntityOfPage": {"@type": "WebPage", "@id": url},
       "url": url,
@@ -752,7 +753,7 @@ ld_list = [{
   "name": "Baza znanja - Adventure Spirit Consulting",
   "description": "Tekstovi o Zakonu o kibernetičkoj sigurnosti, ISO normama, zaštiti podataka i upravljanju rizicima.",
   "url": SITE + "/blog/", "inLanguage": "hr-HR",
-  "publisher": {"@type": "Organization", "name": "Adventure Spirit Consulting d.o.o.", "url": SITE + "/"},
+  "publisher": {"@type": "Organization", "name": "Adventure Spirit d.o.o.", "url": SITE + "/"},
   "blogPost": [{"@type": "BlogPosting", "headline": a["title"], "url": "%s/blog/%s/" % (SITE, a["slug"]),
                 "datePublished": a["date"], "description": a["desc"]} for a in ARTICLES],
 }]
@@ -787,6 +788,57 @@ io.open(os.path.join(BLOG, "feed.xml"), "w", encoding="utf-8").write(
 </channel>
 </rss>
 ''' % (SITE, SITE, items))
+
+# ══════════════════════════════════════════════════════════════════
+# 404 stranica
+# ══════════════════════════════════════════════════════════════════
+nf_cards = "\n".join(card(a) for a in ARTICLES[:3])
+nf_body = header(0, active_blog=False) + '''
+<main>
+  <section class="kb-hero">
+    <div class="container">
+      <div class="nf-code">404</div>
+      <h1>Ova stranica nije pronađena</h1>
+      <p>Adresa je možda promijenjena ili u poveznici nedostaje dio. Ispod su najčešća odredišta, a ako ste tražili nešto konkretno, javite nam se i uputit ćemo vas.</p>
+      <div class="nf-links">
+        <a href="/" class="btn-primary">Natrag na početnu</a>
+        <a href="/#kontakt" class="btn-outline">Kontakt</a>
+      </div>
+      <div class="nf-nav">
+        <a href="/#sigurnost">Usluge</a>
+        <a href="/#sektori">Sektori</a>
+        <a href="/#okvir">Pravni okvir</a>
+        <a href="/blog/">Baza znanja</a>
+        <a href="/#faq">Česta pitanja</a>
+        <a href="/#reference">Reference</a>
+        <a href="https://app.adventurespirit.hr" target="_blank" rel="noopener">GRC Portal</a>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div style="padding:44px 0 12px"><div class="eyebrow">Iz baze znanja</div></div>
+    <div class="post-grid" style="padding-top:0">
+''' + nf_cards + '''
+    </div>
+  </div>
+</main>
+''' + FOOTER_R
+
+NF_CSS = '''<style>
+.nf-code { font-size: clamp(64px, 11vw, 132px); font-weight: 900; line-height: .9; letter-spacing: -4px;
+  color: transparent; -webkit-text-stroke: 2px rgba(239,101,63,.5); margin-bottom: 18px; }
+.nf-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+.nf-nav { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--line); }
+.nf-nav a { font-size: 13px; font-weight: 600; color: var(--text-muted); text-decoration: none;
+  background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 8px; padding: 8px 14px; transition: .2s; }
+.nf-nav a:hover { color: #fff; border-color: rgba(239,101,63,.45); }
+@media (max-width: 600px) { .nf-links .btn-primary, .nf-links .btn-outline { width: 100%; } }
+</style>'''
+
+io.open(os.path.join(ROOT, "404.html"), "w", encoding="utf-8").write(
+  page("Stranica nije pronađena (404) | Adventure Spirit Consulting",
+       "Tražena stranica ne postoji. Pogledajte usluge, sektore, pravni okvir ili bazu znanja.",
+       nf_body, SITE + "/404.html", extra_head=NF_CSS + '\n<meta name="robots" content="noindex, follow">'))
 
 # ══════════════════════════════════════════════════════════════════
 # sitemap.xml + robots.txt

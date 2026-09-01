@@ -1,0 +1,37 @@
+# ═══════════════════════════════════════════════════════════════
+# Adventure Spirit d.o.o. - adventurespirit.hr
+# ═══════════════════════════════════════════════════════════════
+
+# Vlastita stranica za nepostojeće adrese
+ErrorDocument 404 /404.html
+
+# ── Kompresija ────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE application/rss+xml image/svg+xml
+</IfModule>
+
+# ── Predmemorija ──────────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType application/rss+xml "access plus 1 hour"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# ── Sigurnosna zaglavlja ──────────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# ── Razvojne datoteke nisu za posluzivanje ────────────────────
+<FilesMatch "^(_build\.py|README\.md)$">
+  Require all denied
+</FilesMatch>
