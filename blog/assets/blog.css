@@ -481,3 +481,25 @@ a.ref-chip { text-decoration: none; }
 a.ref-chip:hover { border-color: rgba(239,101,63,.45); color: var(--white); }
 .ref-past { opacity: .6; }
 .ref-chip[title] { cursor: help; }
+
+/* Mjere koje usluga pokriva */
+.mj-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+.mj-chip { display: inline-flex; align-items: baseline; gap: 8px; font-size: 12.5px; color: var(--text-muted);
+  background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 8px; padding: 8px 13px; line-height: 1.4; }
+.mj-chip b { font-size: 11px; font-weight: 800; color: var(--orange); font-variant-numeric: tabular-nums; }
+
+/* Isporucevine na stranicama usluga */
+.deliver-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-bottom: 26px; }
+.deliver-item { display: flex; gap: 12px; align-items: flex-start; background: rgba(255,255,255,.03);
+  border: 1px solid var(--line); border-left: 2px solid var(--orange); border-radius: 0 10px 10px 0;
+  padding: 15px 18px; font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+.deliver-item svg { width: 15px; height: 15px; min-width: 15px; stroke: var(--orange); fill: none;
+  stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 4px; }
+
+/* Redak s precacima (alati, navigacija) */
+.nf-nav { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--line); }
+.nf-nav a { font-size: 13px; font-weight: 600; color: var(--text-muted); text-decoration: none; border-bottom: none;
+  background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 8px; padding: 9px 15px; transition: .2s; }
+.nf-nav a:hover { color: #fff; border-color: rgba(239,101,63,.45); }
+article .nf-nav a { border-bottom: 1px solid var(--line); }
+article .nf-nav a:hover { border-color: rgba(239,101,63,.45); }

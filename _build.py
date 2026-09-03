@@ -61,7 +61,7 @@ def strip_html(x):
 L = {
  "hr": dict(
    lang="hr", base="", blog="/blog/", other="/en/", other_label="EN", self_label="HR",
-   nav=[("/#onama","O nama"),("/#sigurnost","Usluge"),("/sektori/","Sektori"),
+   nav=[("/#onama","O nama"),("/usluge/","Usluge"),("/sektori/","Sektori"),
         ("/blog/","Baza znanja"),("/alati/","Alati"),("/#reference","Reference"),
         ("/#faq","FAQ"),("/#kontakt","Kontakt")],
    legal_line="Adventure Spirit d.o.o. &middot; Zagreb",
@@ -69,8 +69,8 @@ L = {
    addr="Antuna Šoljana 22, 10000 Zagreb, Hrvatska", oib="OIB / PDV ID: 72169598754 &middot; MBS: 4845552<br>Trgovački sud u Zagrebu",
    tagline="Kibernetička sigurnost, GRC compliance i upravljanje rizicima - preko 20 godina iskustva u službi vašeg poslovanja.",
    f_kb="Baza znanja", f_all="Svi članci", f_svc="Usluge", f_co="Tvrtka",
-   f_links=[("/#sigurnost","ZKS / NIS2"),("/#sigurnost","GDPR"),("/#sigurnost","ISO 27001"),
-            ("/#sigurnost","DORA"),("/sektori/","Sektori")],
+   f_links=[("/usluge/zks-nis2-uskladenost/","ZKS / NIS2"),("/usluge/gdpr-uskladenost/","GDPR"),
+            ("/usluge/iso-27001/","ISO 27001"),("/usluge/dora/","DORA"),("/usluge/","Sve usluge")],
    f_co_links=[("/#onama","O konzultantu"),("/alati/","Alati"),("/#faq","Česta pitanja"),
                ("/#kontakt","Kontakt"),("/en/","English version")],
    rights="Sva prava pridržana", terms="Uvjeti korištenja", privacy="Privatnost",
@@ -94,7 +94,7 @@ L = {
  ),
  "en": dict(
    lang="en", base="/en", blog="/en/blog/", other="/", other_label="HR", self_label="EN",
-   nav=[("/en/#about","About"),("/en/#services","Services"),("/en/sectors/","Sectors"),
+   nav=[("/en/#about","About"),("/en/services/","Services"),("/en/sectors/","Sectors"),
         ("/en/blog/","Insights"),("/en/tools/","Tools"),("/en/#clients","Clients"),
         ("/en/#faq","FAQ"),("/en/#contact","Contact")],
    legal_line="Adventure Spirit d.o.o. &middot; Zagreb, Croatia",
@@ -102,8 +102,8 @@ L = {
    addr="Antuna Šoljana 22, 10000 Zagreb, Croatia", oib="OIB / VAT ID: 72169598754 &middot; Reg. no. (MBS): 4845552<br>Commercial Court in Zagreb",
    tagline="Cyber security, GRC compliance and risk management - over 20 years of experience in the service of your business.",
    f_kb="Insights", f_all="All articles", f_svc="Services", f_co="Company",
-   f_links=[("/en/#services","CSA / NIS2"),("/en/#services","GDPR"),("/en/#services","ISO 27001"),
-            ("/en/#services","DORA"),("/en/sectors/","Sectors")],
+   f_links=[("/en/services/csa-nis2-compliance/","CSA / NIS2"),("/en/services/gdpr-compliance/","GDPR"),
+            ("/en/services/iso-27001/","ISO 27001"),("/en/services/dora/","DORA"),("/en/services/","All services")],
    f_co_links=[("/en/#about","About the consultant"),("/en/tools/","Tools"),("/en/#faq","FAQ"),
                ("/en/#contact","Contact"),("/","Hrvatska verzija")],
    rights="All rights reserved", terms="Terms (HR)", privacy="Privacy (HR)",
@@ -4156,7 +4156,7 @@ en_index()
 TOOLS_T = {
  "hr": dict(
    hub="/alati/", hub_name="Alati", slug="rokovi-prijave-incidenta",
-   hub_h1="Alati koji rade posao, a ne samo objašnjavaju ga",
+   hub_h1="Alati koji daju odgovor, a ne objašnjenje",
    hub_intro="Besplatni alati za obveznike Zakona o kibernetičkoj sigurnosti. Rade u pregledniku, ne traže registraciju i ne šalju vaše podatke nikamo.",
    hub_desc="Besplatni alati za usklađenost sa ZKS-om: kalkulator rokova prijave značajnog incidenta i drugi alati u pripremi.",
    soon="Uskoro",
@@ -5380,6 +5380,434 @@ def build_tool3(lang, articles):
                                           SITE + "/en/tools/" + SA_T["en"]["slug"] + "/"), ld=ld))
 
 
+
+# ══════════════════════════════════════════════════════════════════
+# STRANICE USLUGA
+# ══════════════════════════════════════════════════════════════════
+# Sadrzaj koraka i isporucevina za hrvatsku verziju izvlaci se iz
+# modala u index.html pri pokretanju, da se ne odrzava na dva mjesta.
+USLUGE_META = [
+ dict(key="zks", hr="zks-nis2-uskladenost", en="csa-nis2-compliance", icon="shield",
+      nEN="CSA / NIS2 compliance", subEN="Croatian Cybersecurity Act &middot; EU NIS2 Directive",
+      badgeHR="Zakonska obveza", badgeEN="Statutory duty",
+      leadEN="We deliver full implementation of cyber security for essential and important entities under the Croatian Cybersecurity Act. We cover everything from establishing your category and competent authority to setting up incident notification to the competent CSIRT.",
+      stepsEN=[("01","Gap assessment","Scoring against each of the 13 measures of Annex II of the Regulation (OG 135/2024), by sub-measure and control, with a list of the evidence that is missing."),
+               ("02","Categorisation and competence","Establishing your status (essential or important entity), the competent authority, the level of implementation and the deadlines that follow."),
+               ("03","Implementation of the 13 measures","Risk management, supply chain security, MFA, encryption, incident handling, business continuity, training, cryptography, physical security and access management."),
+               ("04","Self-assessment and audit preparation","Self-assessment for important entities, or an internal review simulating the audit process for essential entities, with management review."),
+               ("05","Incident management","Establishing the notification process to the competent CSIRT: early warning within 24 hours, incident notification within 72 hours, final report within 30 days."),
+               ("06","Continuous monitoring","Integration into the GRC platform to track measure status, incidents and deadlines in real time.")],
+      delsEN=["Gap assessment report","Cyber security policy","Remediation plan","Measure register","Incident notification process","GRC platform setup"],
+      mjere=[1,2,3,4,5,6,7,8,9,10,11,12,13],
+      clHR=["trinaest-mjera-priloga-ii","kategorizacija-prema-zks-u","korelacijski-pregled-mjera"],
+      clEN=["thirteen-measures-annex-ii","entity-categorisation-croatian-cybersecurity-act","how-self-assessment-is-scored"],
+      sekt=["energetika","zdravstvo-i-farmacija","prehrambena-industrija","javna-uprava"]),
+
+ dict(key="gdpr", hr="gdpr-uskladenost", en="gdpr-compliance", icon="lock",
+      nEN="GDPR compliance", subEN="Regulation (EU) 2016/679",
+      badgeHR="EU Regulativa", badgeEN="EU regulation",
+      leadEN="We establish every personal data protection process - from the record of processing activities and impact assessments to DPO support and breach notification to the supervisory authority.",
+      stepsEN=[("01","Records of processing","Mapping every processing activity, its purpose, lawful basis, categories of data and retention period."),
+               ("02","Lawful bases and consent","Reviewing bases, consent mechanisms and evidence that consent was validly obtained."),
+               ("03","Impact assessments","DPIA where processing is likely to result in high risk, with a documented outcome."),
+               ("04","Processor contracts","Data processing agreements, transfers outside the EU and safeguards."),
+               ("05","Data subject rights","A process for access, rectification, erasure and portability requests, within the statutory deadlines."),
+               ("06","Breach handling","Risk assessment and notification to the supervisory authority within 72 hours, with notification to data subjects where required.")],
+      delsEN=["Record of processing activities","DPIA","Processor contracts","Register of data subject requests","Breach procedure","Staff training"],
+      mjere=[2,3,4,10,11],
+      clHR=["rokovi-prijave-incidenta","registar-ai-sustava-i-registar-imovine"],
+      clEN=["incident-reporting-deadlines","ai-inventory-and-asset-register"],
+      sekt=["zdravstvo-i-farmacija","osiguranje","javna-uprava","bankarstvo-i-financije"]),
+
+ dict(key="iso27001", hr="iso-27001", en="iso-27001", icon="award",
+      nEN="ISO/IEC 27001 - Information security", subEN="ISO/IEC 27001:2022",
+      badgeHR="Međunarodni standard", badgeEN="International standard",
+      leadEN="Gap analysis, ISMS implementation, risk assessment, Statement of Applicability and full preparation for the certification audit against ISO/IEC 27001:2022.",
+      stepsEN=[("01","Gap analysis","Current state against the requirements of the standard and the 93 Annex A controls."),
+               ("02","Scope and context","Defining the ISMS scope, interested parties and their requirements."),
+               ("03","Risk assessment","Methodology, risk register, treatment plan and risk acceptance criteria."),
+               ("04","Statement of Applicability","Justification for each control included or excluded."),
+               ("05","Documentation and implementation","Policies, procedures and records, with staff training."),
+               ("06","Internal audit and certification","Internal audit programme, management review and support through the certification audit.")],
+      delsEN=["ISMS documentation","Risk register","Statement of Applicability","Internal audit report","Management review","Certification readiness"],
+      mjere=[1,2,3,4,7,8,12],
+      clHR=["iso-27001-i-zks","iso-27002-2022-atributi-kontrola","korelacijski-pregled-mjera"],
+      clEN=["iso-27001-and-the-cybersecurity-act","iso-27002-2022-control-attributes"],
+      sekt=["bankarstvo-i-financije","digitalna-infrastruktura-i-ikt","osiguranje"]),
+
+ dict(key="iso9001", hr="iso-9001", en="iso-9001", icon="gear",
+      nEN="ISO 9001 - Quality management", subEN="ISO 9001:2015",
+      badgeHR="Upravljanje kvalitetom", badgeEN="Quality management",
+      leadEN="QMS implementation, process documentation, quality objectives and KPIs, and preparation for the certification audit.",
+      stepsEN=[("01","Gap analysis","Current state against the requirements of the standard."),
+               ("02","Process map","Identifying processes, their inputs, outputs, owners and interactions."),
+               ("03","Quality objectives","Measurable objectives and indicators at process level."),
+               ("04","Documentation","Quality policy, procedures and records."),
+               ("05","Internal audit","Audit programme, findings and corrective actions."),
+               ("06","Certification","Management review and support through the certification audit.")],
+      delsEN=["Quality policy","Process map","Objectives and KPIs","Procedures","Internal audit report","Certification readiness"],
+      mjere=[1,3],
+      clHR=["korelacijski-pregled-mjera","registar-rizika-koji-prolazi-provjeru"],
+      clEN=["risk-register-that-passes-review"],
+      sekt=["prehrambena-industrija","promet-i-logistika"]),
+
+ dict(key="iso14001", hr="iso-14001", en="iso-14001", icon="leaf",
+      nEN="ISO 14001 - Environmental management", subEN="ISO 14001:2015",
+      badgeHR="Okolišni standard", badgeEN="Environmental standard",
+      leadEN="EMS implementation - identification of environmental aspects and impacts, a legal compliance register, carbon footprint reduction and certification readiness.",
+      stepsEN=[("01","Gap analysis","Current state against the requirements of the standard."),
+               ("02","Aspects and impacts","Identifying environmental aspects and assessing their significance."),
+               ("03","Legal register","Applicable environmental legislation and evidence of compliance."),
+               ("04","Objectives and programmes","Measurable environmental objectives with owners and deadlines."),
+               ("05","Operational control","Procedures, emergency preparedness and response."),
+               ("06","Certification","Internal audit, management review and support through certification.")],
+      delsEN=["Environmental policy","Aspects and impacts register","Legal register","Objectives and programmes","Internal audit report","Certification readiness"],
+      mjere=[1,3,13],
+      clHR=["registar-rizika-koji-prolazi-provjeru"],
+      clEN=["risk-register-that-passes-review"],
+      sekt=["energetika","prehrambena-industrija"]),
+
+ dict(key="iso22301", hr="iso-22301", en="iso-22301", icon="cycle",
+      nEN="ISO 22301 - Business continuity", subEN="ISO 22301:2019",
+      badgeHR="Business Continuity", badgeEN="Business continuity",
+      leadEN="Business impact analysis, RTO and RPO definition, business continuity and disaster recovery plans, exercising and preparation for certification against ISO 22301:2019.",
+      stepsEN=[("01","Business impact analysis","Impact over time by category, dependencies and minimum service level."),
+               ("02","RTO and RPO","Recovery time and recovery point objectives, with justification per process."),
+               ("03","Strategy","Recovery options and the resources each one requires."),
+               ("04","Plans","Business continuity and disaster recovery plans, with activation criteria."),
+               ("05","Exercising","Tabletop or full exercise, with measured recovery time."),
+               ("06","Certification","Internal audit, management review and support through certification.")],
+      delsEN=["BIA report","RTO and RPO per process","Continuity plan","Recovery plan","Exercise record","Certification readiness"],
+      mjere=[3,12],
+      clHR=["bia-koja-daje-upotrebljiv-rto","iso-27001-i-zks"],
+      clEN=["bia-that-produces-a-usable-rto","iso-27001-and-the-cybersecurity-act"],
+      sekt=["energetika","zdravstvo-i-farmacija","prehrambena-industrija","promet-i-logistika"]),
+
+ dict(key="dora", hr="dora", en="dora", icon="bank",
+      nEN="DORA - Digital operational resilience", subEN="Regulation (EU) 2022/2554",
+      badgeHR="Financijski sektor", badgeEN="Financial sector",
+      leadEN="Compliance with the EU DORA regulation for the financial sector - ICT risk management framework, third-party risk, resilience testing and regulatory reporting.",
+      stepsEN=[("01","Gap assessment","Current state against the DORA requirements, by pillar."),
+               ("02","ICT risk management framework","Governance, roles, risk methodology and reporting to the management body."),
+               ("03","Register of information","Contractual arrangements with ICT providers, function criticality, subcontracting and processing locations."),
+               ("04","Incident management","Classification, reporting and the register of ICT-related incidents."),
+               ("05","Resilience testing","A testing programme proportionate to the entity's size and risk profile."),
+               ("06","Exit strategies","Substitutability assessment and exit plans for critical providers.")],
+      delsEN=["Gap assessment","ICT risk framework","Register of information","Incident procedure","Testing programme","Exit strategies"],
+      mjere=[2,3,8,11,12],
+      clHR=["dora-registar-informacija","registar-rizika-koji-prolazi-provjeru"],
+      clEN=["dora-register-of-information","risk-register-that-passes-review"],
+      sekt=["bankarstvo-i-financije","osiguranje"]),
+
+ dict(key="vendor", hr="upravljanje-rizicima-treci-strana", en="vendor-risk-management", icon="chain",
+      nEN="Vendor risk management", subEN="Supply chain security",
+      badgeHR="Lanac opskrbe", badgeEN="Supply chain",
+      leadEN="Third-party risk assessment, due diligence questionnaires, automated risk scoring, continuous monitoring and contractual security clauses across the supply chain.",
+      stepsEN=[("01","Supplier inventory","One list reconciled across procurement, IT and finance, with the access each supplier holds."),
+               ("02","Classification","Criticality derived from the function the supplier supports, not from the supplier's size."),
+               ("03","Due diligence","Questionnaires proportionate to criticality, with evidence rather than assurances."),
+               ("04","Contractual clauses","Security requirements, incident notification duties and audit rights."),
+               ("05","Monitoring","Reassessment on a cycle and on change, recorded in the GRC platform.")],
+      delsEN=["Supplier register","Criticality classification","Questionnaires and findings","Contract clauses","Monitoring plan"],
+      mjere=[2,3,8],
+      clHR=["dora-registar-informacija","registar-rizika-koji-prolazi-provjeru"],
+      clEN=["dora-register-of-information","risk-register-that-passes-review"],
+      sekt=["bankarstvo-i-financije","digitalna-infrastruktura-i-ikt","prehrambena-industrija"]),
+
+ dict(key="audit", hr="sigurnosni-auditi-i-testiranje", en="security-audits-and-testing", icon="scan",
+      nEN="Security audits and testing", subEN="Offensive security",
+      badgeHR="Ofenzivna sigurnost", badgeEN="Offensive security",
+      leadEN="Penetration testing, vulnerability assessment, configuration review, social engineering simulations and reports written for both technical and board-level audiences.",
+      stepsEN=[("01","Scope and authorisation","Written authorisation, agreed scope, timing and rules of engagement."),
+               ("02","External exposure","What is reachable from the internet, established independently of the IT inventory."),
+               ("03","Penetration testing","Exploitation attempts within the agreed scope, with all activity logged."),
+               ("04","Domain assessment","Relationships between objects - delegation, privileged membership, legacy protocols, backup access."),
+               ("05","Social engineering","Phishing simulation where agreed, with results reported in aggregate, never per person."),
+               ("06","Reporting","One report for the technical team with reproduction steps, one summary for the board.")],
+      delsEN=["Technical report","Board summary","Ranked findings","Remediation plan","Retest"],
+      mjere=[4,5,6,7],
+      clHR=["active-directory-putovi-napada","prioritetne-preporuke-ncsc"],
+      clEN=["active-directory-attack-paths","what-cyber-insurers-actually-ask"],
+      sekt=["digitalna-infrastruktura-i-ikt","bankarstvo-i-financije","energetika"]),
+
+ dict(key="revizije", hr="revizije-i-interne-provjere", en="audits-and-internal-reviews", icon="audit",
+      nEN="Audits and internal reviews", subEN="Internal audit &middot; compliance review &middot; pre-audit review",
+      badgeHR="Neovisna provjera", badgeEN="Independent review",
+      leadEN="We carry out internal audits of management systems and compliance reviews, and we walk your documentation the way an external auditor or certification body will - before they arrive.",
+      stepsEN=[("01","Internal audit of the management system","To ISO 19011, for ISMS, QMS, EMS and BCMS - audit programme, execution, findings and follow-up of corrective actions."),
+               ("02","Compliance review against the Act","Scoring across the 13 measures and 99 sub-measures, against the control catalogue, with a list of missing evidence."),
+               ("03","Data protection review","Records of processing, lawful bases, processor contracts, transfers outside the EU and data subject requests."),
+               ("04","Pre-audit review","A simulation of the audit process, with a report of findings and priorities."),
+               ("05","Corrective action tracking","Owner, deadline and closure evidence for every finding, in the GRC platform.")],
+      delsEN=["Audit programme","Findings report","Corrective action plan","Evidence base","Management review"],
+      mjere=[1,3,11],
+      clHR=["kako-se-boduje-samoprocjena","registar-rizika-koji-prolazi-provjeru"],
+      clEN=["how-self-assessment-is-scored","risk-register-that-passes-review"],
+      sekt=["bankarstvo-i-financije","zdravstvo-i-farmacija","javna-uprava"]),
+
+ dict(key="dpo", hr="eksterni-dpo", en="external-dpo", icon="dpo",
+      nEN="External data protection officer", subEN="GDPR, Articles 37 to 39",
+      badgeHR="GDPR čl. 37-39", badgeEN="GDPR Art. 37-39",
+      leadEN="We take on the data protection officer function. An external DPO is expressly provided for by the GDPR and for most organisations is cheaper and more independent than an internal appointment.",
+      stepsEN=[("01","Monitoring compliance","Tracking application of the GDPR and internal rules, with regular reporting to the highest management level."),
+               ("02","Advice","Opinions on impact assessments, new processing, processor contracts and transfers outside the EU."),
+               ("03","Contact point","Towards the supervisory authority and data subjects, including access, rectification and erasure requests."),
+               ("04","Personal data breaches","Risk assessment and notification to the supervisory authority within 72 hours, with notification to data subjects where required."),
+               ("05","Training","Training for staff involved in processing, with records that can be produced.")],
+      delsEN=["Appointed DPO and contact","Records of processing","Impact assessments","Register of data subject requests","Annual report to management"],
+      mjere=[1,2,4,11],
+      clHR=["rokovi-prijave-incidenta","registar-ai-sustava-i-registar-imovine"],
+      clEN=["incident-reporting-deadlines","ai-inventory-and-asset-register"],
+      sekt=["zdravstvo-i-farmacija","osiguranje","javna-uprava","bankarstvo-i-financije"]),
+
+ dict(key="ciso", hr="eksterni-ciso", en="external-ciso", icon="ciso",
+      nEN="External CISO", subEN="Leadership and oversight of the security programme",
+      badgeHR="Vodstvo i nadzor", badgeEN="Leadership and oversight",
+      leadEN="Measure 1 of Annex II requires a named responsible person who sets direction, reports to the board and secures resources. For most organisations a permanent hire at that level is not justified, and the obligation remains.",
+      stepsEN=[("01","Strategy and policy","Setting direction, drafting the cyber security policy and having it adopted by the board."),
+               ("02","Risk management","Maintaining the risk register, defining risk appetite and investment priorities."),
+               ("03","Reporting to the board","Regular status, trend and open issues, in language the board understands."),
+               ("04","Running the compliance programme","Tracking deadlines, owners and evidence for each measure, through to verification."),
+               ("05","Incident response","Leadership during an incident and the decision on significance and notification to the competent CSIRT.")],
+      delsEN=["Named responsible person","Policy and strategy","Risk register","Board reporting","Compliance roadmap"],
+      mjere=[1,3,11],
+      clHR=["trinaest-mjera-priloga-ii","nist-csf-2-funkcija-govern"],
+      clEN=["thirteen-measures-annex-ii","nist-csf-2-govern-function"],
+      sekt=["bankarstvo-i-financije","energetika","digitalna-infrastruktura-i-ikt"]),
+]
+
+USL_T = {
+ "hr": dict(hub="/usluge/", name="Usluge",
+   h1="Savjetodavne usluge",
+   intro="Dvanaest usluga, jedna dokazna baza. Ondje gdje se zahtjevi preklapaju, dokumentacija se piše jednom.",
+   desc="Savjetovanje u kibernetičkoj sigurnosti i usklađenosti: ZKS/NIS2, GDPR, DORA, ISO 27001, ISO 9001, ISO 14001, ISO 22301, revizije, eksterni DPO i CISO.",
+   home="Početna",
+   koraci="Kako radimo", isporuke="Što dobivate",
+   mjere_h="Mjere iz Priloga II. koje ova usluga pokriva",
+   sekt_h="Sektori u kojima je najtraženija", cl_h="Iz baze znanja",
+   alati_h="Provjerite sami prije razgovora", svi="Sve usluge",
+   otvori="Pogledajte uslugu", cijela="Pogledajte cijelu uslugu",
+ ),
+ "en": dict(hub="/en/services/", name="Services",
+   h1="Advisory services",
+   intro="Twelve services, one evidence base. Where the requirements overlap, the documentation is written once.",
+   desc="Cyber security and compliance advisory: CSA/NIS2, GDPR, DORA, ISO 27001, ISO 9001, ISO 14001, ISO 22301, audits, external DPO and CISO.",
+   home="Home",
+   koraci="How we work", isporuke="What you get",
+   mjere_h="Measures of Annex II this service covers",
+   sekt_h="Sectors where it is most in demand", cl_h="From the knowledge base",
+   alati_h="Check for yourself before we talk", svi="All services",
+   otvori="View service", cijela="View the full service",
+ ),
+}
+
+# ── Hrvatski sadrzaj usluga se cita iz modala u index.html ────────
+def _ucitaj_modale():
+    src = io.open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
+    d = {}
+    pat = re.compile(r'<div class="modal-overlay" id="modal-([a-z0-9]+)".*?'
+                     r'<div class="modal-title">(.*?)</div>\s*'
+                     r'<div class="modal-sub">(.*?)</div>\s*'
+                     r'<div class="modal-lead">(.*?)</div>(.*?)\n</div>\n', re.S)
+    for m in pat.finditer(src):
+        key, title, sub, lead, rest = m.groups()
+        steps = re.findall(r'<span class="modal-step-num">(\d+)</span><div><strong>(.*?)</strong>(.*?)</div>', rest, re.S)
+        dels = re.findall(r'<span class="modal-del-tag">(.*?)</span>', rest)
+        d[key] = dict(title=title.strip(), sub=sub.strip(),
+                      lead=re.sub(r'\s+', ' ', lead).strip(),
+                      steps=[(a, b.strip(), re.sub(r'\s+', ' ', c).strip()) for a, b, c in steps],
+                      dels=[x.strip() for x in dels])
+    return d
+
+MODALI = _ucitaj_modale()
+
+SVC_ICONS = dict(SVG)
+SVC_ICONS["audit"] = '<path d="M9 11l2 2 4-4"/><path d="M21 12c0 5-3.6 7.4-8.1 8.9a2 2 0 0 1-1.3 0C7.1 19.4 3.5 17 3.5 12V6.3a1 1 0 0 1 .7-1l7.5-2.6a2 2 0 0 1 1.3 0l7.5 2.6a1 1 0 0 1 .7 1z"/>'
+SVC_ICONS["dpo"] = '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M17.5 3.5a3 3 0 0 1 0 5"/>'
+SVC_ICONS["ciso"] = '<path d="M12 2l7 3v6c0 5-3 8.5-7 11-4-2.5-7-6-7-11V5z"/><path d="M12 8v4M12 15h.01"/>'
+
+
+def build_services(lang, articles):
+    t = L[lang]
+    ut = USL_T[lang]
+    st = SEK_T[lang]
+    tools = TOOLS_T[lang]["hub"]
+    FOOT = footer(lang, articles)
+    out_dir = os.path.join(ROOT, "en", "services") if lang == "en" else os.path.join(ROOT, "usluge")
+    os.makedirs(out_dir, exist_ok=True)
+    arts = {a["slug"]: a for a in articles}
+    sekt_ime = {x["hr"]: (x["nEN"] if lang == "en" else x["nHR"]) for x in SEKTORI}
+    sekt_slug = {x["hr"]: (x["en"] if lang == "en" else x["hr"]) for x in SEKTORI}
+    mj_ime = {m[0]: m[1] for m in (MJERE_EN if lang == "en" else MJERE)}
+
+    def podaci(u):
+        if lang == "hr":
+            m = MODALI[u["key"]]
+            return m["title"], m["sub"], m["lead"], m["steps"], m["dels"], u["badgeHR"]
+        return u["nEN"], u["subEN"], u["leadEN"], u["stepsEN"], u["delsEN"], u["badgeEN"]
+
+    def slug(u): return u["en"] if lang == "en" else u["hr"]
+
+    # ── Hub ───────────────────────────────────────────────────────
+    cards = []
+    for u in USLUGE_META:
+        nm, sub, lead, steps, dels, badge = podaci(u)
+        kratko = lead if len(lead) < 165 else lead[:162].rsplit(" ", 1)[0] + "..."
+        cards.append('''      <a class="sx-card" href="%s%s/">
+        <div class="sx-top"><span class="sx-badge p1">%s</span></div>
+        <div class="sx-name">%s</div>
+        <div class="sx-note" style="text-transform:none;letter-spacing:0;font-size:13.5px">%s</div>
+        <div class="sx-foot"><span>%d %s</span><span class="sx-go">%s &rarr;</span></div>
+      </a>''' % (ut["hub"], slug(u), badge, nm, kratko, len(steps),
+                 "koraka" if lang == "hr" else "steps", ut["otvori"]))
+
+    hub_body = header(lang, active_blog=False) + '''
+<main>
+  <section class="kb-hero">
+    <div class="container">
+      <div class="eyebrow">%s</div>
+      <h1>%s</h1>
+      <p>%s</p>
+    </div>
+  </section>
+  <div class="container">
+    <div class="sx-wrap"><div class="sx-grid">
+%s
+    </div></div>
+  </div>
+</main>
+''' % (ut["name"], ut["h1"], ut["intro"], "\n".join(cards)) + FOOT
+
+    io.open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8").write(
+      page(ut["name"] + " | Adventure Spirit Consulting", ut["desc"], hub_body,
+           SITE + ut["hub"], lang=lang,
+           extra_head=hreflang(SITE + "/usluge/", SITE + "/en/services/")))
+
+    # ── Stranice usluga ───────────────────────────────────────────
+    for u in USLUGE_META:
+        nm, sub, lead, steps, dels, badge = podaci(u)
+        sl = slug(u)
+        url = SITE + ut["hub"] + sl + "/"
+
+        koraci = "\n".join('''      <div class="gap-item crit">
+        <div class="gap-h"><span class="gap-n">%s</span><span class="gap-t">%s</span></div>
+        <div class="gap-d">%s</div>
+      </div>''' % (n, ttl, opis) for n, ttl, opis in steps)
+
+        CHK = '<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>'
+        isporuke = "\n".join('        <div class="deliver-item">%s<span>%s</span></div>' % (CHK, d)
+                             for d in dels)
+
+        mjere_chips = "\n".join(
+          '        <span class="mj-chip"><b>%02d</b> %s</span>' % (n, mj_ime.get(n, ""))
+          for n in u["mjere"])
+
+        sekt_chips = "\n".join(
+          '        <a class="chip-link" href="%s%s/">%s</a>' % (st["hub"], sekt_slug[k], sekt_ime[k])
+          for k in u["sekt"] if k in sekt_ime)
+
+        cl = u["clEN"] if lang == "en" else u["clHR"]
+        rel = [arts[c] for c in cl if c in arts]
+        clanci = "\n".join(card(a, lang) for a in rel)
+
+        ostale = [x for x in USLUGE_META if x["key"] != u["key"]][:5]
+        druge = "\n".join('<a class="chip-link" href="%s%s/">%s</a>'
+                          % (ut["hub"], slug(x), podaci(x)[0]) for x in ostale)
+
+        body = header(lang, active_blog=False) + '''
+<main>
+  <div class="container narrow">
+    <div class="crumbs">
+      <a href="%s">%s</a><span>&rsaquo;</span><a href="%s">%s</a><span>&rsaquo;</span>%s
+    </div>
+    <header class="art-head">
+      <div class="eyebrow">%s</div>
+      <h1>%s</h1>
+      <p class="art-lead">%s</p>
+      <div class="art-meta"><span><strong>%s</strong></span></div>
+    </header>
+
+    <article>
+      <h2>%s</h2>
+%s
+
+      <h2>%s</h2>
+      <div class="deliver-grid" style="margin-top:0">
+%s
+      </div>
+
+      <h2>%s</h2>
+      <div class="mj-row">
+%s
+      </div>
+
+      <h2>%s</h2>
+      <div class="chip-row">
+%s
+      </div>
+
+      <h2>%s</h2>
+      <div class="nf-nav" style="border:none;padding-top:0;margin-top:0">
+        <a href="%s%s/">%s</a>
+        <a href="%s%s/">%s</a>
+        <a href="%s%s/">%s</a>
+      </div>
+
+      %s
+    </article>
+
+    <div class="related">
+      <h3>%s</h3>
+      <div class="related-grid">
+%s
+      </div>
+    </div>
+
+    <div class="related" style="margin-top:0;padding-top:32px">
+      <h3>%s</h3>
+      <div class="chip-row">
+%s
+        <a class="chip-link" href="%s">%s</a>
+      </div>
+    </div>
+  </div>
+</main>
+''' % (t["base"] or "/", ut["home"], ut["hub"], ut["name"], nm,
+       ut["name"], nm, lead, sub,
+       ut["koraci"], koraci,
+       ut["isporuke"], isporuke,
+       ut["mjere_h"], mjere_chips,
+       ut["sekt_h"], sekt_chips,
+       ut["alati_h"],
+       tools, CAT_T[lang]["slug"], CAT_T[lang]["name"],
+       tools, SA_T[lang]["slug"], SA_T[lang]["name"],
+       tools, TOOLS_T[lang]["slug"], TOOLS_T[lang]["t_name"],
+       cta_block(lang),
+       ut["cl_h"], clanci,
+       ut["svi"], druge, ut["hub"], ut["svi"]) + FOOT
+
+        ld = [{
+          "@context": "https://schema.org", "@type": "Service",
+          "name": nm, "description": lead[:300], "url": url,
+          "serviceType": sub,
+          "areaServed": {"@type": "Country", "name": "Hrvatska" if lang == "hr" else "Croatia"},
+          "provider": {"@type": "Organization", "name": "Adventure Spirit Consulting",
+                       "legalName": "Adventure Spirit d.o.o.", "url": SITE + "/"},
+        }, {
+          "@context": "https://schema.org", "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": ut["home"], "item": SITE + (t["base"] or "/")},
+            {"@type": "ListItem", "position": 2, "name": ut["name"], "item": SITE + ut["hub"]},
+            {"@type": "ListItem", "position": 3, "name": nm, "item": url}]}]
+
+        d = os.path.join(out_dir, sl)
+        os.makedirs(d, exist_ok=True)
+        io.open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(
+          page(nm + " | Adventure Spirit Consulting",
+               (lead[:155] + "...") if len(lead) > 155 else lead, body, url, lang=lang,
+               extra_head=hreflang(SITE + "/usluge/" + u["hr"] + "/",
+                                   SITE + "/en/services/" + u["en"] + "/"), ld=ld))
+
 build_tools("hr", ARTICLES)
 build_tools("en", ARTICLES_EN)
 build_tool2("hr", ARTICLES)
@@ -5388,6 +5816,8 @@ build_tool3("hr", ARTICLES)
 build_tool3("en", ARTICLES_EN)
 build_sectors("hr", ARTICLES)
 build_sectors("en", ARTICLES_EN)
+build_services("hr", ARTICLES)
+build_services("en", ARTICLES_EN)
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -5442,6 +5872,9 @@ urls = [(SITE + "/", "1.0", "weekly"), (SITE + "/en/", "0.9", "weekly"),
         (SITE + "/alati/" + SA_T["hr"]["slug"] + "/", "0.9", "monthly"),
         (SITE + "/en/tools/" + SA_T["en"]["slug"] + "/", "0.8", "monthly"),
         (SITE + "/sektori/", "0.9", "monthly"), (SITE + "/en/sectors/", "0.8", "monthly")]
+urls += [(SITE + "/usluge/", "0.95", "monthly"), (SITE + "/en/services/", "0.85", "monthly")]
+urls += [("%s/usluge/%s/" % (SITE, x["hr"]), "0.9", "monthly") for x in USLUGE_META]
+urls += [("%s/en/services/%s/" % (SITE, x["en"]), "0.8", "monthly") for x in USLUGE_META]
 urls += [("%s/sektori/%s/" % (SITE, x["hr"]), "0.8", "monthly") for x in SEKTORI]
 urls += [("%s/en/sectors/%s/" % (SITE, x["en"]), "0.7", "monthly") for x in SEKTORI]
 urls += [("%s/blog/%s/" % (SITE, a["slug"]), "0.8", "monthly") for a in ARTICLES]
