@@ -348,7 +348,8 @@ ARTICLES.append(dict(
 
 <h2>Kategoriju određuju sektor i veličina, uz iznimke</h2>
 <p>Polazište su prilozi Zakona koji nabrajaju sektore. Unutar sektora, kategorija se u pravilu izvodi iz veličine subjekta prema kriterijima za srednje i velike poduzetnike. To je pravilo. Zanimljive su iznimke.</p>
-<p>Kod <strong>tijela državne uprave</strong> i kod <strong>određenih kritičnih zdravstvenih djelatnosti</strong> veličina nije mjerilo. Ondje kategorija proizlazi iz same djelatnosti, pa mala ustanova može biti ključni subjekt jednako kao i velika. To je najčešći izvor iznenađenja: organizacija koja se po broju zaposlenih smatra malom otvori pismo i pročita da je ključni subjekt.</p>
+<p>Zakon zatim nabraja skupine kod kojih <strong>veličina uopće nije mjerilo</strong>. Ključni su, neovisno o veličini: kvalificirani pružatelji usluga povjerenja, registar naziva vršne nacionalne domene i pružatelji usluga DNS-a, informacijski posrednici u razmjeni elektroničkog računa, subjekti utvrđeni kao kritični prema zakonu o kritičnoj infrastrukturi, tijela državne uprave te upravitelji državne informacijske infrastrukture. Važni su, neovisno o veličini: pružatelji usluga povjerenja koji nisu ključni, pružatelji javnih elektroničkih komunikacijskih mreža i usluga koji nisu ključni, jedinice lokalne i područne samouprave te subjekti iz sustava obrazovanja.</p>
+<p>Uz to, <strong>članak 11.</strong> dopušta razvrstavanje neovisno o veličini svakom subjektu iz priloga koji je jedini pružatelj usluge ključne za održavanje ključnih društvenih ili gospodarskih djelatnosti, čiji bi ispad znatno utjecao na javnu sigurnost, zaštitu ili zdravlje, mogao uzrokovati sistemske rizike, ili koji je značajan zbog posebne važnosti na nacionalnoj, regionalnoj ili lokalnoj razini. Zbog tog članka mala ustanova može biti ključni subjekt jednako kao i velika, i to je najčešći izvor iznenađenja.</p>
 <div class="callout">
   <div class="c-label">Praktična posljedica</div>
   <p>Ne pokušavajte sami zaključiti u koju kategoriju spadate i na temelju toga planirati proračun. Sektorska iznimka može promijeniti cijeli scenarij. Planirajte za nepovoljniji ishod dok ne dobijete pisanu obavijest.</p>
@@ -1832,7 +1833,7 @@ EN_SECTORS = [
  ("Banking and finance", "CSA AND DORA, PARALLEL OBLIGATIONS &middot; CNB AND HANFA"),
  ("Insurance", "DORA FOR ICT RISK &middot; ISO 27001 AND BUSINESS CONTINUITY"),
  ("Energy", "GENERATION, TRANSMISSION, DISTRIBUTION, GAS AND OIL"),
- ("Healthcare and pharma", "ESSENTIAL ENTITY REGARDLESS OF SIZE FOR CRITICAL ACTIVITIES"),
+ ("Healthcare and pharma", "ANNEX I &middot; HIGH-CRITICALITY SECTOR &middot; NCSC-HR"),
  ("Food industry", "PRODUCTION, PROCESSING AND DISTRIBUTION &middot; IMPORTANT ENTITIES"),
  ("Digital infrastructure and ICT", "DATA CENTRES, CLOUD, NETWORKS, MANAGED ICT SERVICES"),
  ("Public administration", "STATE ADMINISTRATION BODIES ESSENTIAL REGARDLESS OF SIZE"),
@@ -1880,7 +1881,7 @@ EN_PROCESS = [
 
 EN_FAQ = [
  ("Who is an essential and who is an important entity under the Croatian Cybersecurity Act?",
-  "The category is determined by sector and by the size of the entity, subject to exceptions. Essential entities are subject to an independent cybersecurity audit, while important entities carry out a self-assessment. You are notified of the categorisation in writing by the competent authority. For critical healthcare activities and for state administration bodies size is not the criterion - the category follows from the activity itself.",
+  "The category is determined by sector and by the size of the entity, subject to exceptions. Essential entities are subject to an independent cybersecurity audit, while important entities carry out a self-assessment. You are notified of the categorisation in writing by the competent authority. Size is not the criterion for state administration bodies and operators of the state information infrastructure (essential), for local and regional self-government and the education system (important), nor for trust service providers, DNS service providers and the national domain registry. In addition, Article 11 allows any entity to be categorised regardless of size if it is the sole provider of an essential service or if its disruption would significantly affect public safety, security or health.",
   "Cybersecurity Act, OG 14/2024"),
  ("What are the 13 measures and where do they come from?",
   "The Croatian Cybersecurity Regulation breaks the statutory duties down into 13 cyber risk management measures, set out in 99 sub-measures across three levels of implementation: basic, medium and advanced. The level that applies to you depends on your entity category and on your risk assessment. The scope runs from security policy and risk management through to cryptography, supply chain security and physical protection. Every control requires written evidence.",
@@ -1983,7 +1984,8 @@ ARTICLES_EN.append(dict(
 
 <h2>Sector and size decide, subject to exceptions</h2>
 <p>The starting point is the annexes to the Act, which list the sectors in scope. Within a sector, the category is as a rule derived from the size of the entity against the criteria for medium and large undertakings. That is the rule. The exceptions are what matter.</p>
-<p>For <strong>state administration bodies</strong> and for <strong>certain critical healthcare activities</strong>, size is not the criterion. There the category follows from the activity itself, so a small institution can be an essential entity just as a large one is. This is the most common source of surprise: an organisation that considers itself small by headcount opens the letter and reads that it is an essential entity.</p>
+<p>The Act then lists groups where <strong>size is not a criterion at all</strong>. Essential regardless of size: qualified trust service providers, the national top-level domain registry and DNS service providers, e-invoice exchange intermediaries, entities designated as critical under the critical infrastructure legislation, state administration bodies and operators of the state information infrastructure. Important regardless of size: trust service providers not classified as essential, providers of public electronic communications networks and services not classified as essential, local and regional self-government units, and entities in the education system.</p>
+<p>In addition, <strong>Article 11</strong> allows any entity listed in the annexes to be categorised regardless of size where it is the sole provider of a service essential to maintaining critical societal or economic activities, where its disruption could significantly affect public safety, security or health, could cause systemic risk, or where it is significant because of its particular importance nationally, regionally or locally. That article is why a small institution can be an essential entity just as a large one is, and it is the most common source of surprise.</p>
 <div class="callout">
   <div class="c-label">What this means in practice</div>
   <p>Do not try to work out your own category and budget against it. A sectoral exception can change the whole scenario. Plan for the less favourable outcome until the written notice arrives.</p>
@@ -3061,7 +3063,7 @@ def en_index():
     <div class="section-header">
       <div class="section-tag">Sectors</div>
       <h2 class="section-h2">Sectors we cover</h2>
-      <p class="section-desc">Entity category is determined by sector and size, subject to exceptions. In healthcare and public administration size is not the criterion - the activity is.</p>
+      <p class="section-desc">Entity category is determined by the sector listed in the annexes to the Act and by size, subject to a number of exceptions where size is not the criterion at all.</p>
     </div>
     <div class="sector-grid">
 ''' + sectors + '''
@@ -3737,7 +3739,15 @@ def build_tools(lang, articles):
         <span class="tool-tag">%s</span>
       </a>''' % (w["hub"], w["slug"], TOOL_ICONS["clock"], w["t_name"], w["t_desc"],
                  "ZKS / NIS2" if lang == "hr" else "CSA / NIS2")
-    for icon, nm, ds in [("split", w["soon2_name"], w["soon2_desc"]), ("chart", w["soon3_name"], w["soon3_desc"])]:
+    cards += '''
+      <a class="tool-card" href="%s%s/">
+        <div class="tool-icon">%s</div>
+        <div class="tool-name">%s</div>
+        <div class="tool-desc">%s</div>
+        <span class="tool-tag">%s</span>
+      </a>''' % (w["hub"], CAT_T[lang]["slug"], TOOL_ICONS["split"], CAT_T[lang]["name"],
+                 CAT_T[lang]["desc"], "ZKS / NIS2" if lang == "hr" else "CSA / NIS2")
+    for icon, nm, ds in [("chart", w["soon3_name"], w["soon3_desc"])]:
         cards += '''
       <div class="tool-card soon">
         <div class="tool-icon">%s</div>
@@ -3977,8 +3987,408 @@ def build_tools(lang, articles):
                                           en_hub + TOOLS_T["en"]["slug"] + "/"), ld=ld))
 
 
+# ══════════════════════════════════════════════════════════════════
+# ALAT 2 - Provjera kategorizacije subjekta
+# ══════════════════════════════════════════════════════════════════
+# Sektori iz Priloga I. i II. ZKS-a, s nadleznim CSIRT-om iz Priloga III.
+# csirt: "ncsc" ili "cert"; special: posebno pravilo iz cl. 9., 10., 12. ili 13.
+SECTORS = [
+ # (kljuc, prilog, HR naziv, EN naziv, csirt, sektorsko tijelo HR, sektorsko tijelo EN)
+ ("energetika", 1, "Energetika", "Energy", "ncsc", "", ""),
+ ("promet-zracni", 1, "Promet - zračni", "Transport - air", "ncsc", "Hrvatska agencija za civilno zrakoplovstvo", "Croatian Civil Aviation Agency"),
+ ("promet-ostalo", 1, "Promet - željeznički, vodni, cestovni", "Transport - rail, water, road", "ncsc", "", ""),
+ ("bankarstvo", 1, "Bankarstvo", "Banking", "cert", "Hrvatska narodna banka", "Croatian National Bank"),
+ ("financijsko-trziste", 1, "Infrastruktura financijskog tržišta", "Financial market infrastructure", "cert", "HANFA", "HANFA"),
+ ("zdravstvo", 1, "Zdravstvo", "Health", "ncsc", "", ""),
+ ("voda", 1, "Voda za ljudsku potrošnju", "Drinking water", "ncsc", "", ""),
+ ("otpadne-vode", 1, "Otpadne vode", "Waste water", "ncsc", "", ""),
+ ("di-povjerenje", 1, "Digitalna infrastruktura - pružatelj usluga povjerenja", "Digital infrastructure - trust service provider", "ncsc", "", ""),
+ ("di-komunikacije", 1, "Digitalna infrastruktura - javne elektroničke komunikacije", "Digital infrastructure - public electronic communications", "ncsc", "HAKOM", "HAKOM"),
+ ("di-dns", 1, "Digitalna infrastruktura - DNS, registar .hr, razmjena prometa", "Digital infrastructure - DNS, .hr registry, internet exchange", "cert", "", ""),
+ ("di-oblak", 1, "Digitalna infrastruktura - oblak, podatkovni centri, CDN", "Digital infrastructure - cloud, data centres, CDN", "ncsc", "", ""),
+ ("ikt-b2b", 1, "Upravljanje uslugama IKT-a (B2B)", "ICT service management (B2B)", "ncsc", "", ""),
+ ("javni-sektor", 1, "Javni sektor", "Public administration", "ncsc", "", ""),
+ ("svemir", 1, "Svemir", "Space", "ncsc", "", ""),
+ ("posta", 2, "Poštanske i kurirske usluge", "Postal and courier services", "ncsc", "", ""),
+ ("otpad", 2, "Gospodarenje otpadom", "Waste management", "ncsc", "", ""),
+ ("kemikalije", 2, "Izrada, proizvodnja i distribucija kemikalija", "Manufacture and distribution of chemicals", "ncsc", "", ""),
+ ("hrana", 2, "Proizvodnja, prerada i distribucija hrane", "Production, processing and distribution of food", "ncsc", "", ""),
+ ("proizvodnja", 2, "Proizvodnja (medicinski proizvodi, elektronika, strojevi, vozila)", "Manufacturing (medical devices, electronics, machinery, vehicles)", "ncsc", "", ""),
+ ("digitalne-usluge", 2, "Pružatelji digitalnih usluga (tržišta, tražilice, društvene mreže)", "Digital service providers (marketplaces, search engines, social networks)", "ncsc", "", ""),
+ ("istrazivanje", 2, "Istraživanje", "Research", "cert", "", ""),
+ ("obrazovanje", 2, "Sustav obrazovanja", "Education system", "cert", "", ""),
+ ("izvan", 0, "Nijedan od navedenih", "None of the above", "", "", ""),
+]
+
+CAT_T = {
+ "hr": dict(
+   slug="provjera-kategorizacije",
+   name="Provjera kategorizacije subjekta",
+   desc="Sektor, veličina i posebne okolnosti daju vjerojatnu kategoriju subjekta prema ZKS-u i popis obveza koje iz nje slijede.",
+   title="Provjera kategorizacije subjekta prema ZKS-u",
+   lead="Kategoriju vam određuje nadležno tijelo i o njoj vas pisano obavještava. Do tada je korisno znati što je vjerojatno. Alat primjenjuje kriterije iz članaka 9. do 15. Zakona i pokaže koje pravilo je odlučilo.",
+   desc_meta="Besplatna provjera jeste li ključni ili važni subjekt prema Zakonu o kibernetičkoj sigurnosti: sektor iz Priloga I. i II., kriterij veličine i posebna pravila iz čl. 11. do 13.",
+   f_sector="Sektor iz Priloga I. ili II. Zakona",
+   f_sector_sub="Odaberite sektor u kojem obavljate djelatnost. Ako obavljate više djelatnosti, mjerodavna je ona koja je obuhvaćena prilozima.",
+   f_size="Veličina subjekta",
+   f_size_sub="Prema članku 15. Zakona uzima se godišnji prosjek broja zaposlenika i ukupan godišnji poslovni prihod, odnosno ukupna aktiva.",
+   sizes=[("mikro","Mikro ili mali - manje od 50 zaposlenih i do 10 mil. EUR prihoda ili aktive"),
+          ("srednji","Srednji - 50 do 249 zaposlenih, ili do 50 mil. EUR prihoda odnosno 43 mil. EUR aktive"),
+          ("veliki","Veliki - 250 ili više zaposlenih, ili preko 50 mil. EUR prihoda odnosno 43 mil. EUR aktive")],
+   f_special="Posebne okolnosti",
+   f_special_sub="Označite sve što se na vas odnosi. Svaka od ovih stavki nadjačava kriterij veličine.",
+   specials=[
+     ("drzavna","Tijelo državne uprave ili drugo državno tijelo s javnim ovlastima","Članak 12. stavak 1."),
+     ("dii","Upravljamo, razvijamo ili održavamo državnu informacijsku infrastrukturu","Članak 12. stavak 2."),
+     ("jlprs","Jedinica lokalne ili područne (regionalne) samouprave","Članak 12. stavak 3."),
+     ("kvalpovjerenje","Kvalificirani smo pružatelj usluga povjerenja","Članak 9. podstavak 2."),
+     ("eracun","Informacijski smo posrednik u razmjeni elektroničkog računa","Članak 9. podstavak 4."),
+     ("kriticni","Utvrđeni smo kao kritični subjekt prema zakonu o kritičnoj infrastrukturi","Članak 9. podstavak 5."),
+     ("cl11","Jedini smo pružatelj ključne usluge, ili bi naš ispad znatno utjecao na javnu sigurnost, zaštitu ili zdravlje","Članak 11."),
+   ],
+   btn="Provjeri kategoriju", reset="Poništi", copy="Kopiraj sažetak", print="Ispiši",
+   copied="Sažetak kopiran",
+   err="Odaberite sektor i veličinu subjekta.",
+   res_h="Vjerojatna kategorija",
+   r_kljucni="Ključni subjekt", r_vazni="Važni subjekt", r_izvan="Vjerojatno izvan opsega Zakona",
+   why="Zašto",
+   next_h="Što iz toga slijedi",
+   csirt_h="Nadležni CSIRT za prijavu incidenata",
+   sector_body="Sektorsko nadležno tijelo",
+   ncsc="Nacionalni centar za kibernetičku sigurnost (NCSC-HR)",
+   cert="Nacionalni CERT",
+   disclaimer="Ovo je informativna procjena, ne pravni savjet i ne službena kategorizacija. Kategorizaciju provodi nadležno tijelo i o njoj vas pisano obavještava. Mjerodavna je isključivo ta obavijest. Alat ne obuhvaća sve iznimke, posebno procjenu važnosti iz članka 12. stavaka 1. i 3. te članka 13.",
+   privacy="Alat radi isključivo u vašem pregledniku. Unesenih podataka nema na našem poslužitelju.",
+   more="Više o kategorizaciji", more_url="/blog/kategorizacija-prema-zks-u/",
+   sum_h="PROVJERA KATEGORIZACIJE PREMA ZKS-u",
+   l_sector="Sektor:", l_size="Veličina:", l_cat="Vjerojatna kategorija:", l_why="Osnova:",
+   next_kljucni=["Rok za usklađivanje: godinu dana od dostave obavijesti o kategorizaciji (čl. 26. st. 5.)",
+                 "Provjera usklađenosti: neovisna revizija kibernetičke sigurnosti",
+                 "Provedba 13 mjera iz Priloga II. Uredbe, na propisanoj razini",
+                 "Imenovanje kontakt osobe iz upravljačkog tijela i najmanje dvije osobe za operacionalizaciju dostave podataka",
+                 "Dostava podataka NCSC-u: naziv, OIB, veličina, adresa, kontakti, IP adresni rasponi, sektor i vrsta subjekta",
+                 "Prijava značajnih incidenata u rokovima 24 h, 72 h i 30 dana"],
+   next_vazni=["Rok za usklađivanje: godinu dana od dostave obavijesti o kategorizaciji (čl. 26. st. 5.)",
+               "Provjera usklađenosti: samoprocjena prema bodovnom okviru ZSIS-a",
+               "Provedba 13 mjera iz Priloga II. Uredbe, na propisanoj razini",
+               "Imenovanje kontakt osobe iz upravljačkog tijela i najmanje dvije osobe za operacionalizaciju dostave podataka",
+               "Dostava podataka NCSC-u: naziv, OIB, veličina, adresa, kontakti, IP adresni rasponi, sektor i vrsta subjekta",
+               "Prijava značajnih incidenata u rokovima 24 h, 72 h i 30 dana"],
+   next_izvan=["Prema odabranim kriterijima ne ispunjavate opće uvjete za kategorizaciju.",
+               "To ne isključuje članak 11.: nadležno tijelo može vas razvrstati neovisno o veličini ako ste jedini pružatelj ključne usluge ili bi vaš ispad imao znatan učinak.",
+               "Ako ste dobavljač kategoriziranim subjektima, njihova mjera 8 (sigurnost lanca opskrbe) ionako će vam postaviti sigurnosne zahtjeve ugovorom.",
+               "Mjere iz Priloga II. korisne su i bez obveze - one su ono što osiguravatelji i veliki kupci ionako traže."],
+   why_prilog1_veliki="Sektor je u Prilogu I., a subjekt prelazi gornje granice za srednje - članak 9. podstavak 1.",
+   why_prilog1_srednji="Sektor je u Prilogu I., a subjekt je srednji - članak 10. podstavak 2.",
+   why_prilog2="Sektor je u Prilogu II., a subjekt je srednji ili veći - članak 10. podstavak 1.",
+   why_mali="Sektor je u prilozima, ali je subjekt mikro ili mali, pa opći kriteriji veličine nisu ispunjeni.",
+   why_izvan="Odabrani sektor nije u Prilogu I. ni u Prilogu II. Zakona.",
+   why_dvostruko="Subjekt ispunjava uvjete i za ključne i za važne subjekte; prema članku 16. primjenjuju se odredbe za ključne subjekte.",
+   why_komunikacije="Pružatelji javnih elektroničkih komunikacijskih mreža i usluga kategoriziraju se neovisno o veličini - članak 9. podstavak 3. odnosno članak 10. podstavak 4.",
+   why_povjerenje="Pružatelji usluga povjerenja kategoriziraju se neovisno o veličini - članak 10. podstavak 3.",
+   why_dns="Registar naziva vršne nacionalne domene i pružatelji usluga DNS-a su ključni neovisno o veličini - članak 9. podstavak 2.",
+   why_obrazovanje="Subjekti iz sustava obrazovanja razvrstavaju se u važne neovisno o veličini, ovisno o procjeni važnosti - članak 13.",
+ ),
+ "en": dict(
+   slug="entity-categorisation-check",
+   name="Entity categorisation check",
+   desc="Sector, size and special circumstances produce a likely entity category under the Croatian Cybersecurity Act and the obligations that follow.",
+   title="Entity categorisation check under the Croatian Cybersecurity Act",
+   lead="Your category is determined by the competent authority, which notifies you in writing. Until then it helps to know what is likely. This tool applies the criteria in Articles 9 to 15 of the Act and shows which rule decided.",
+   desc_meta="Free check of whether you are an essential or important entity under the Croatian Cybersecurity Act: sector from Annexes I and II, the size criterion and the special rules in Articles 11 to 13.",
+   f_sector="Sector from Annex I or II of the Act",
+   f_sector_sub="Select the sector you operate in. If you carry out several activities, the one covered by the annexes governs.",
+   f_size="Size of the entity",
+   f_size_sub="Under Article 15 the annual average headcount and the total annual turnover or total assets are taken into account.",
+   sizes=[("mikro","Micro or small - fewer than 50 staff and up to EUR 10m turnover or assets"),
+          ("srednji","Medium - 50 to 249 staff, or up to EUR 50m turnover / EUR 43m assets"),
+          ("veliki","Large - 250 or more staff, or above EUR 50m turnover / EUR 43m assets")],
+   f_special="Special circumstances",
+   f_special_sub="Tick everything that applies. Each of these overrides the size criterion.",
+   specials=[
+     ("drzavna","State administration body or another state body with public authority","Article 12(1)"),
+     ("dii","We operate, develop or maintain the state information infrastructure","Article 12(2)"),
+     ("jlprs","Local or regional self-government unit","Article 12(3)"),
+     ("kvalpovjerenje","We are a qualified trust service provider","Article 9, indent 2"),
+     ("eracun","We are an e-invoice exchange intermediary","Article 9, indent 4"),
+     ("kriticni","We are designated a critical entity under the critical infrastructure legislation","Article 9, indent 5"),
+     ("cl11","We are the sole provider of an essential service, or our disruption would significantly affect public safety, security or health","Article 11"),
+   ],
+   btn="Check category", reset="Reset", copy="Copy summary", print="Print",
+   copied="Summary copied",
+   err="Select a sector and an entity size.",
+   res_h="Likely category",
+   r_kljucni="Essential entity", r_vazni="Important entity", r_izvan="Likely outside the scope of the Act",
+   why="Why",
+   next_h="What follows from this",
+   csirt_h="Competent CSIRT for incident reporting",
+   sector_body="Sectoral competent authority",
+   ncsc="National Cyber Security Centre (NCSC-HR)",
+   cert="National CERT",
+   disclaimer="This is an informative assessment, not legal advice and not an official categorisation. Categorisation is carried out by the competent authority, which notifies you in writing. Only that notice governs. The tool does not cover every exception, in particular the importance assessments under Article 12(1) and (3) and Article 13.",
+   privacy="The tool runs entirely in your browser. Nothing you enter reaches our server.",
+   more="More on categorisation", more_url="/en/blog/entity-categorisation-croatian-cybersecurity-act/",
+   sum_h="ENTITY CATEGORISATION CHECK",
+   l_sector="Sector:", l_size="Size:", l_cat="Likely category:", l_why="Basis:",
+   next_kljucni=["Compliance deadline: one year from delivery of the categorisation notice (Art. 26(5))",
+                 "Verification: independent cybersecurity audit",
+                 "Implementation of the 13 measures of Annex II at the prescribed level",
+                 "Appointment of a contact person from the management body and at least two people to operationalise data delivery",
+                 "Data delivery to NCSC-HR: name, company ID, size, address, contacts, IP address ranges, sector and entity type",
+                 "Reporting of significant incidents within 24 h, 72 h and 30 days"],
+   next_vazni=["Compliance deadline: one year from delivery of the categorisation notice (Art. 26(5))",
+               "Verification: self-assessment against the ZSIS scoring framework",
+               "Implementation of the 13 measures of Annex II at the prescribed level",
+               "Appointment of a contact person from the management body and at least two people to operationalise data delivery",
+               "Data delivery to NCSC-HR: name, company ID, size, address, contacts, IP address ranges, sector and entity type",
+               "Reporting of significant incidents within 24 h, 72 h and 30 days"],
+   next_izvan=["On the criteria selected you do not meet the general conditions for categorisation.",
+               "That does not rule out Article 11: the competent authority may categorise you regardless of size if you are the sole provider of an essential service or your disruption would have significant effect.",
+               "If you supply categorised entities, their measure 8 (supply chain security) will impose security requirements on you contractually anyway.",
+               "The Annex II measures are useful without an obligation - they are what insurers and large customers ask for regardless."],
+   why_prilog1_veliki="The sector is in Annex I and the entity exceeds the ceilings for medium-sized entities - Article 9, indent 1.",
+   why_prilog1_srednji="The sector is in Annex I and the entity is medium-sized - Article 10, indent 2.",
+   why_prilog2="The sector is in Annex II and the entity is medium-sized or larger - Article 10, indent 1.",
+   why_mali="The sector is in the annexes, but the entity is micro or small, so the general size criteria are not met.",
+   why_izvan="The selected sector is in neither Annex I nor Annex II of the Act.",
+   why_dvostruko="The entity meets the conditions for both essential and important; under Article 16 the provisions for essential entities apply.",
+   why_komunikacije="Providers of public electronic communications networks and services are categorised regardless of size - Article 9, indent 3 and Article 10, indent 4.",
+   why_povjerenje="Trust service providers are categorised regardless of size - Article 10, indent 3.",
+   why_dns="The national top-level domain registry and DNS service providers are essential regardless of size - Article 9, indent 2.",
+   why_obrazovanje="Entities in the education system are classified as important regardless of size, subject to an importance assessment - Article 13.",
+ ),
+}
+
+
+def build_tool2(lang, articles):
+    t = L[lang]
+    w = TOOLS_T[lang]
+    c = CAT_T[lang]
+    FOOT = footer(lang, articles)
+    out_dir = os.path.join(ROOT, "en", "tools") if lang == "en" else os.path.join(ROOT, "alati")
+    os.makedirs(os.path.join(out_dir, c["slug"]), exist_ok=True)
+    url = SITE + w["hub"] + c["slug"] + "/"
+
+    opts = "\n".join('        <option value="%s">%s</option>' % (k, (hr if lang == "hr" else en))
+                     for k, pril, hr, en, cs, sh, se in SECTORS)
+    sizes = "\n".join(
+      '      <label class="check"><input type="radio" name="size" value="%s"><span>%s</span></label>' % (k, v)
+      for k, v in c["sizes"])
+    specials = "\n".join(
+      '      <label class="check"><input type="checkbox" id="s-%s"><span>%s<em>%s</em></span></label>' % (k, lbl, art)
+      for k, lbl, art in c["specials"])
+
+    SECT_JS = json.dumps({k: {"p": pril, "csirt": cs, "body": (sh if lang == "hr" else se),
+                              "name": (hr if lang == "hr" else en)}
+                          for k, pril, hr, en, cs, sh, se in SECTORS}, ensure_ascii=False)
+    TXT_JS = json.dumps({
+      "err": c["err"], "kljucni": c["r_kljucni"], "vazni": c["r_vazni"], "izvan": c["r_izvan"],
+      "why": c["why"], "nextH": c["next_h"], "csirtH": c["csirt_h"], "sectorBody": c["sector_body"],
+      "ncsc": c["ncsc"], "cert": c["cert"],
+      "nextK": c["next_kljucni"], "nextV": c["next_vazni"], "nextI": c["next_izvan"],
+      "w1v": c["why_prilog1_veliki"], "w1s": c["why_prilog1_srednji"], "w2": c["why_prilog2"],
+      "wm": c["why_mali"], "wi": c["why_izvan"], "wd": c["why_dvostruko"],
+      "wkom": c["why_komunikacije"], "wpov": c["why_povjerenje"], "wdns": c["why_dns"],
+      "wobr": c["why_obrazovanje"],
+      "sumH": c["sum_h"], "lSector": c["l_sector"], "lSize": c["l_size"],
+      "lCat": c["l_cat"], "lWhy": c["l_why"], "disclaimer": c["disclaimer"],
+      "specials": {k: art for k, lbl, art in c["specials"]},
+      "sizeNames": {k: v.split(" - ")[0] for k, v in c["sizes"]},
+    }, ensure_ascii=False)
+
+    JS = '''<script>
+(function () {
+  var S = %s, T = %s;
+  var $ = function (id) { return document.getElementById(id); };
+
+  function chk(id) { var e = $("s-" + id); return e && e.checked; }
+
+  function decide(sector, size) {
+    var s = S[sector], reasons = [], cat = null;
+    // Pravila neovisna o velicini
+    if (chk("drzavna"))       { cat = "K"; reasons.push(T.specials["drzavna"]); }
+    if (chk("dii"))           { cat = "K"; reasons.push(T.specials["dii"]); }
+    if (chk("kvalpovjerenje")){ cat = "K"; reasons.push(T.specials["kvalpovjerenje"]); }
+    if (chk("eracun"))        { cat = "K"; reasons.push(T.specials["eracun"]); }
+    if (chk("kriticni"))      { cat = "K"; reasons.push(T.specials["kriticni"]); }
+    if (sector === "di-dns")  { cat = "K"; reasons.push(T.wdns); }
+    if (!cat && chk("jlprs")) { cat = "V"; reasons.push(T.specials["jlprs"]); }
+    if (!cat && sector === "obrazovanje") { cat = "V"; reasons.push(T.wobr); }
+    if (!cat && sector === "di-povjerenje") { cat = "V"; reasons.push(T.wpov); }
+    if (!cat && sector === "di-komunikacije") {
+      cat = (size === "mikro") ? "V" : "K"; reasons.push(T.wkom);
+    }
+    if (!cat && chk("cl11")) {
+      cat = (s && s.p === 1) ? "K" : "V"; reasons.push(T.specials["cl11"]);
+    }
+    // Opci kriteriji
+    if (!cat) {
+      if (!s || s.p === 0) { reasons.push(T.wi); return { cat: "-", reasons: reasons }; }
+      if (size === "mikro") { reasons.push(T.wm); return { cat: "-", reasons: reasons }; }
+      if (s.p === 1) {
+        if (size === "veliki") { cat = "K"; reasons.push(T.w1v); }
+        else { cat = "V"; reasons.push(T.w1s); }
+      } else { cat = "V"; reasons.push(T.w2); }
+    } else if (s && s.p !== 0 && size !== "mikro" && cat === "K") {
+      var g = (s.p === 1 && size === "veliki") ? T.w1v : (s.p === 1 ? T.w1s : T.w2);
+      if (reasons.indexOf(g) === -1) reasons.push(g + " " + T.wd);
+    }
+    return { cat: cat, reasons: reasons };
+  }
+
+  function calc() {
+    var sector = $("c-sector").value;
+    var sizeEl = document.querySelector('input[name="size"]:checked');
+    var err = $("c-err");
+    if (!sector || !sizeEl) { err.textContent = T.err; err.hidden = false; $("c-result").hidden = true; return; }
+    err.hidden = true;
+    var size = sizeEl.value, s = S[sector];
+    var r = decide(sector, size);
+
+    var label = r.cat === "K" ? T.kljucni : (r.cat === "V" ? T.vazni : T.izvan);
+    var steps = r.cat === "K" ? T.nextK : (r.cat === "V" ? T.nextV : T.nextI);
+
+    var html = '<div class="verdict ' + (r.cat === "K" ? "k" : r.cat === "V" ? "v" : "o") + '">' +
+               '<div class="verdict-label">' + label + '</div>' +
+               '<ul class="verdict-why">' + r.reasons.map(function (x) { return "<li>" + x + "</li>"; }).join("") +
+               '</ul></div>';
+
+    html += '<h3 class="res-sub">' + T.nextH + '</h3><ul class="next-list">' +
+            steps.map(function (x) { return "<li>" + x + "</li>"; }).join("") + '</ul>';
+
+    if (r.cat !== "-" && s && s.csirt) {
+      html += '<div class="auth-box"><div><span class="auth-k">' + T.csirtH + '</span>' +
+              (s.csirt === "cert" ? T.cert : T.ncsc) + '</div>';
+      if (s.body) html += '<div><span class="auth-k">' + T.sectorBody + '</span>' + s.body + '</div>';
+      html += '</div>';
+    }
+
+    $("c-out").innerHTML = html;
+    $("c-result").hidden = false;
+
+    var lines = [T.sumH, "", T.lSector + " " + (s ? s.name : "-"),
+                 T.lSize + " " + T.sizeNames[size], T.lCat + " " + label, "",
+                 T.lWhy];
+    r.reasons.forEach(function (x) { lines.push("  - " + x); });
+    lines.push("", T.nextH);
+    steps.forEach(function (x) { lines.push("  - " + x); });
+    if (r.cat !== "-" && s && s.csirt) lines.push("", T.csirtH + " " + (s.csirt === "cert" ? T.cert : T.ncsc));
+    lines.push("", T.disclaimer);
+    $("c-summary").textContent = lines.join("\\n");
+    $("c-result").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  $("c-calc").addEventListener("click", calc);
+  $("c-reset").addEventListener("click", function () {
+    $("c-sector").value = "";
+    document.querySelectorAll('input[name="size"]').forEach(function (x) { x.checked = false; });
+    document.querySelectorAll('.tool-panel input[type="checkbox"]').forEach(function (x) { x.checked = false; });
+    $("c-result").hidden = true; $("c-err").hidden = true;
+  });
+  $("c-print").addEventListener("click", function () { window.print(); });
+  $("c-copy").addEventListener("click", function () {
+    var txt = $("c-summary").textContent;
+    var done = function () { $("c-copied").hidden = false; setTimeout(function () { $("c-copied").hidden = true; }, 2500); };
+    if (navigator.clipboard) { navigator.clipboard.writeText(txt).then(done, done); }
+    else { var ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta);
+           ta.select(); try { document.execCommand("copy"); } catch (e) {} ta.remove(); done(); }
+  });
+})();
+</script>''' % (SECT_JS, TXT_JS)
+
+    body = header(lang, active_blog=False) + '''
+<main>
+  <div class="container narrow">
+    <div class="crumbs">
+      <a href="%s">%s</a><span>&rsaquo;</span><a href="%s">%s</a><span>&rsaquo;</span>%s
+    </div>
+    <header class="art-head">
+      <div class="eyebrow">%s</div>
+      <h1>%s</h1>
+      <p class="art-lead">%s</p>
+    </header>
+
+    <div class="tool-panel">
+      <div class="field">
+        <label for="c-sector">%s</label>
+        <select class="form-select-tool" id="c-sector">
+          <option value="">&mdash;</option>
+%s
+        </select>
+        <div class="sub">%s</div>
+      </div>
+      <div class="field">
+        <label>%s</label>
+        <div class="sub" style="margin:0 0 10px">%s</div>
+%s
+      </div>
+      <div class="field">
+        <label>%s</label>
+        <div class="sub" style="margin:0 0 10px">%s</div>
+%s
+      </div>
+      <p id="c-err" class="dl-left over" hidden style="margin-top:12px"></p>
+      <div class="tool-actions">
+        <button type="button" class="btn-primary" id="c-calc">%s</button>
+        <button type="button" class="btn-ghost" id="c-reset">%s</button>
+      </div>
+      <p class="sub" style="margin-top:18px">%s</p>
+    </div>
+
+    <div class="tool-result" id="c-result" hidden>
+      <div class="result-head"><h2>%s</h2></div>
+      <div id="c-out"></div>
+      <div class="summary-box" id="c-summary"></div>
+      <div class="tool-actions">
+        <button type="button" class="btn-ghost" id="c-copy">%s</button>
+        <button type="button" class="btn-ghost" id="c-print">%s</button>
+        <span class="copied" id="c-copied" hidden>%s</span>
+      </div>
+    </div>
+
+    <article style="padding-top:40px">
+      <div class="note"><p>%s</p></div>
+      <p><a href="%s">%s &rarr;</a></p>
+    </article>
+    %s
+  </div>
+</main>
+''' % (t["base"] or "/", t["home"], w["hub"], w["hub_name"], c["name"],
+       w["hub_name"], c["title"], c["lead"],
+       c["f_sector"], opts, c["f_sector_sub"],
+       c["f_size"], c["f_size_sub"], sizes,
+       c["f_special"], c["f_special_sub"], specials,
+       c["btn"], c["reset"], c["privacy"],
+       c["res_h"], c["copy"], c["print"], c["copied"],
+       c["disclaimer"], c["more_url"], c["more"], cta_block(lang)) + FOOT + JS
+
+    ld = [{
+      "@context": "https://schema.org", "@type": "WebApplication",
+      "name": c["title"], "description": c["desc_meta"], "url": url,
+      "applicationCategory": "BusinessApplication", "operatingSystem": "Any",
+      "browserRequirements": "JavaScript",
+      "inLanguage": "hr-HR" if lang == "hr" else "en-GB", "isAccessibleForFree": True,
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+      "publisher": {"@type": "Organization", "name": "Adventure Spirit Consulting",
+                    "legalName": "Adventure Spirit d.o.o.", "url": SITE + "/"},
+    }, {
+      "@context": "https://schema.org", "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": t["home"], "item": SITE + (t["base"] or "/")},
+        {"@type": "ListItem", "position": 2, "name": w["hub_name"], "item": SITE + w["hub"]},
+        {"@type": "ListItem", "position": 3, "name": c["name"], "item": url}]}]
+
+    io.open(os.path.join(out_dir, c["slug"], "index.html"), "w", encoding="utf-8").write(
+      page(c["title"] + " | Adventure Spirit Consulting", c["desc_meta"], body, url,
+           lang=lang, extra_head=hreflang(SITE + "/alati/" + CAT_T["hr"]["slug"] + "/",
+                                          SITE + "/en/tools/" + CAT_T["en"]["slug"] + "/"), ld=ld))
+
+
 build_tools("hr", ARTICLES)
 build_tools("en", ARTICLES_EN)
+build_tool2("hr", ARTICLES)
+build_tool2("en", ARTICLES_EN)
+
 
 # ══════════════════════════════════════════════════════════════════
 # hreflang i preklopnik jezika na hrvatskoj naslovnici
@@ -4023,7 +4433,9 @@ urls = [(SITE + "/", "1.0", "weekly"), (SITE + "/en/", "0.9", "weekly"),
         (SITE + "/blog/", "0.9", "weekly"), (SITE + "/en/blog/", "0.8", "weekly"),
         (SITE + "/alati/", "0.9", "monthly"), (SITE + "/en/tools/", "0.8", "monthly"),
         (SITE + "/alati/" + TOOLS_T["hr"]["slug"] + "/", "0.9", "monthly"),
-        (SITE + "/en/tools/" + TOOLS_T["en"]["slug"] + "/", "0.8", "monthly")]
+        (SITE + "/en/tools/" + TOOLS_T["en"]["slug"] + "/", "0.8", "monthly"),
+        (SITE + "/alati/" + CAT_T["hr"]["slug"] + "/", "0.9", "monthly"),
+        (SITE + "/en/tools/" + CAT_T["en"]["slug"] + "/", "0.8", "monthly")]
 urls += [("%s/blog/%s/" % (SITE, a["slug"]), "0.8", "monthly") for a in ARTICLES]
 urls += [("%s/en/blog/%s/" % (SITE, a["slug"]), "0.7", "monthly") for a in ARTICLES_EN]
 urls += [(SITE + "/uvjeti/", "0.3", "yearly"), (SITE + "/privatnost/", "0.3", "yearly"),
