@@ -62,7 +62,7 @@ L = {
  "hr": dict(
    lang="hr", base="", blog="/blog/", other="/en/", other_label="EN", self_label="HR",
    nav=[("/#onama","O nama"),("/usluge/","Usluge"),("/sektori/","Sektori"),
-        ("/blog/","Baza znanja"),("/mjere/","13 mjera"),("/alati/","Alati"),("/#reference","Reference"),
+        ("/blog/","Baza znanja"),("/propisi/","Propisi"),("/mjere/","13 mjera"),("/alati/","Alati"),("/#reference","Reference"),
         ("/#faq","FAQ"),("/#kontakt","Kontakt")],
    legal_line="Adventure Spirit d.o.o. &middot; Zagreb",
    brand_line="Tržišni naziv: Adventure Spirit Consulting",
@@ -95,7 +95,7 @@ L = {
  "en": dict(
    lang="en", base="/en", blog="/en/blog/", other="/", other_label="HR", self_label="EN",
    nav=[("/en/#about","About"),("/en/services/","Services"),("/en/sectors/","Sectors"),
-        ("/en/blog/","Insights"),("/en/measures/","13 measures"),("/en/tools/","Tools"),("/en/#clients","Clients"),
+        ("/en/blog/","Insights"),("/en/regulations/","Regulations"),("/en/measures/","13 measures"),("/en/tools/","Tools"),("/en/#clients","Clients"),
         ("/en/#faq","FAQ"),("/en/#contact","Contact")],
    legal_line="Adventure Spirit d.o.o. &middot; Zagreb, Croatia",
    brand_line="Trading as: Adventure Spirit Consulting",
@@ -1678,6 +1678,214 @@ ARTICLES.append(dict(
  sources=[('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
           ('Direktiva (EU) 2022/2555 (NIS2) - sektori energetike, vodoopskrbe i prometa', 'https://eur-lex.europa.eu/eli/dir/2022/2555/oj/hrv'),
           ('Prioritetne preporuke za zaštitu od kibernetičkih napada, NCSC-HR', 'https://www.ncsc.hr/')]))
+
+# ══════════════════════════════════════════════════════════════════
+# Novi clanci: kazne, revizija, sigurnosna kultura
+# ══════════════════════════════════════════════════════════════════
+ARTICLES.append(dict(
+ slug="zks-kazne-tko-placa-i-koliko", cat="ZKS / NIS2", catkey="zks",
+ date="2026-06-23", read=8, featured=False,
+ title="Kazne prema ZKS-u: tko plaća, koliko, i zašto se to tiče uprave osobno",
+ lead="Do 10 milijuna eura ili 2 posto svjetskog prometa za ključne subjekte. Ali brojka koja mijenja razgovor s upravom nije ta - nego ona uz nju: članovi upravljačkog tijela odgovaraju osobno, vlastitim novcem.",
+ desc="Pregled prekršajnih odredbi Zakona o kibernetičkoj sigurnosti: rasponi kazni za ključne i važne subjekte, osobna odgovornost članova upravljačkih tijela, okolnosti koje utječu na visinu i pravilo o zabrani dvostrukog kažnjavanja s AZOP-om.",
+ body='''
+<p>U razgovorima o usklađivanju sa Zakonom o kibernetičkoj sigurnosti brojka koja se najčešće spominje je deset milijuna eura. Točna je, ali nepotpuna, i sama po sebi rijetko pomiče stvari s mrtve točke.</p>
+<p>Ono što ih pomiče je članak 88. stavak 2. i njegov parnjak za važne subjekte - odredba po kojoj <strong>fizičke osobe odgovorne za upravljanje mjerama odgovaraju osobno</strong>.</p>
+
+<h2>Rasponi kazni</h2>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Tko</th><th>Raspon</th><th>Alternativno</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Ključni subjekt</strong></td><td>10.000 - 10.000.000 EUR</td><td>0,5 % do 2 % ukupnog godišnjeg svjetskog prometa</td></tr>
+      <tr><td><strong>Važni subjekt</strong></td><td>5.000 - 7.000.000 EUR</td><td>0,2 % do 1,4 % ukupnog godišnjeg svjetskog prometa</td></tr>
+      <tr><td><strong>Odgovorna osoba, ključni subjekt</strong></td><td class="num">1.000 - 6.000 EUR</td><td>-</td></tr>
+      <tr><td><strong>Odgovorna osoba, važni subjekt</strong></td><td class="num">500 - 3.000 EUR</td><td>-</td></tr>
+      <tr><td><strong>Nedostava podataka NCSC-u</strong></td><td>2.000 - 20.000 EUR</td><td>odgovorna osoba 200 - 1.000 EUR</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Kod pravnih osoba primjenjuje se <strong>viši od dva iznosa</strong> - fiksni ili postotak prometa. Za subjekt s prometom od 400 milijuna eura gornja granica nije 10 milijuna nego 8 milijuna po postotku, pa se primjenjuje fiksni iznos. Za subjekt s prometom od milijardu, postotak nadmašuje fiksni iznos.</p>
+
+<h2>Tko je "odgovorna osoba"</h2>
+<p>Članak 29. je precizan i širi nego što se očekuje. Za provedbu mjera odgovorni su:</p>
+<ul>
+  <li><strong>članovi upravljačkih tijela</strong> ključnih i važnih subjekata</li>
+  <li><strong>čelnici tijela državne uprave</strong> i drugih državnih tijela</li>
+  <li><strong>izvršna tijela</strong> jedinica lokalne i područne samouprave</li>
+</ul>
+<p>Stavak 4. proširuje krug i na druge fizičke osobe koje na temelju ovlasti za nadzor nad vođenjem poslova, punomoći ili druge ovlasti za zastupanje <strong>sudjeluju u donošenju odluka o mjerama ili u njihovoj provedbi</strong>.</p>
+<div class="callout">
+  <div class="c-label">Praktična posljedica</div>
+  <p>Prokurist, član nadzornog odbora koji odlučuje o ulaganju u sigurnost, ili direktor informatike s punomoći - svi mogu ući u krug osobno odgovornih. Odgovornost se ne prenosi ugovorom na dobavljača ni na konzultanta.</p>
+</div>
+
+<h2>Dvije obveze koje uprava ne može delegirati</h2>
+<p>Članak 29. stavak 2. traži da odgovorne osobe <strong>odobravaju</strong> mjere i <strong>kontroliraju njihovu provedbu</strong>. Stavak 3. dodaje obvezu koja se redovito previđa:</p>
+<ul>
+  <li>odgovorne osobe dužne su <strong>same pohađati odgovarajuća osposobljavanja</strong></li>
+  <li>i zaposlenicima omogućiti pohađanje osposobljavanja</li>
+</ul>
+<p>Uprava koja nije prošla edukaciju ne ispunjava zakonsku obvezu, bez obzira na to koliko je dobar sustav ispod nje. To je jedan od rijetkih zahtjeva gdje dokaz mora glasiti na ime člana uprave.</p>
+
+<h2>Što utječe na visinu kazne</h2>
+<p>Članak 85. nabraja okolnosti koje nadležno tijelo uzima u obzir:</p>
+<ul>
+  <li>ozbiljnost povrede i važnost prekršene odredbe</li>
+  <li>trajanje povrede</li>
+  <li>ranije povrede istog subjekta</li>
+  <li>uzrokovana šteta, uključujući financijske gubitke, učinak na druge usluge i broj pogođenih korisnika</li>
+  <li>je li subjekt postupao <strong>s namjerom ili nepažnjom</strong></li>
+  <li>mjere poduzete radi sprječavanja ili ublažavanja štete</li>
+  <li>postupanje sukladno kodeksima ponašanja i uvjetima certificiranja</li>
+  <li><strong>razina suradnje odgovornih osoba s nadležnim tijelima</strong></li>
+</ul>
+<div class="callout">
+  <div class="c-label">Što se izrijekom smatra ozbiljnom povredom</div>
+  <p>Stavak 2. istog članka nabraja: opetovane povrede, <strong>neprijavljivanje ili nerješavanje značajnih incidenata</strong>, neuklanjanje nedostataka po nalogu nadležnog tijela, te <strong>onemogućavanje ili otežavanje provedbe revizije</strong>.</p>
+  <p>Drugim riječima: propuštena prijava incidenta i opstrukcija revizije nisu tehnički previdi nego otegotne okolnosti koje same po sebi podižu kaznu.</p>
+</div>
+
+<h2>Neće vas kazniti dvaput za istu stvar</h2>
+<p>Odredba koja se rijetko spominje, a vrijedi je znati: ako je za povrede osobnih podataka koje proizlaze iz <strong>istog postupanja</strong> Agencija za zaštitu osobnih podataka već izrekla upravnu novčanu kaznu prema Općoj uredbi, u stručnom se nadzoru za to isto postupanje ne može podnijeti prijava ovlaštenom tužitelju ni izdati prekršajni nalog.</p>
+<p>To ne znači da se obveze preklapaju - znači da se za isto djelo ne kažnjava dvaput. Prijava incidenta nadležnom CSIRT-u i prijava AZOP-u ostaju dvije odvojene obveze s vlastitim rokovima.</p>
+
+<h2>Kako o ovome razgovarati s upravom</h2>
+<p>Iz iskustva, tri stvari mijenjaju ton sastanka:</p>
+<ol>
+  <li><strong>Osobna odgovornost.</strong> Raspon od 1.000 do 6.000 eura nije velik novac za tvrtku, ali je vrlo konkretan za pojedinca koji ga plaća iz svog džepa.</li>
+  <li><strong>Suradnja se boduje.</strong> Razina suradnje s nadležnim tijelom izrijekom utječe na kaznu. Organizacija koja sama prijavi propust i ima plan popravka nije u istoj poziciji kao ona koja čeka nadzor.</li>
+  <li><strong>Edukacija uprave je zakonska obveza</strong>, ne preporuka. To je najlakša stavka za zatvoriti i najčešće otvorena.</li>
+</ol>
+
+<div class="note">
+  <p>Ovaj tekst je informativni pregled prekršajnih odredbi, ne pravni savjet. Visina kazne u konkretnom slučaju ovisi o okolnostima iz članka 85. i o odluci nadležnog tijela odnosno suda. Za procjenu izloženosti vaše organizacije pogledajte <a href="/alati/provjera-kategorizacije/">provjeru kategorizacije</a> - kategorija određuje koji se raspon primjenjuje.</p>
+</div>
+''',
+ sources=[('Zakon o kibernetičkoj sigurnosti, NN 14/2024, čl. 29., 85. i prekršajne odredbe', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html'),
+          ('Uredba (EU) 2016/679 (Opća uredba o zaštiti podataka)', 'https://eur-lex.europa.eu/eli/reg/2016/679/oj/hrv'),
+          ('Direktiva (EU) 2022/2555 (NIS2)', 'https://eur-lex.europa.eu/eli/dir/2022/2555/oj/hrv')]))
+
+ARTICLES.append(dict(
+ slug="revizija-kiberneticke-sigurnosti", cat="Samoprocjena", catkey="samoprocjena",
+ date="2026-07-21", read=7,
+ title="Revizija kibernetičke sigurnosti: tko je smije provoditi i kako teče",
+ lead="Ključni subjekti ne provode samoprocjenu nego neovisnu reviziju. Provodi je pružatelj s propisanim ovlaštenjem, a kod tijela državne uprave nadležno tijelo. Evo kako postupak izgleda i što se najčešće ne prizna.",
+ desc="Kako teče neovisna revizija kibernetičke sigurnosti ključnih subjekata: tko je smije provoditi, koraci postupka, kako revizor ocjenjuje dokumentaciju i provedbu, i koji se dokazi najčešće ne priznaju.",
+ body='''
+<p>Razlika između ključnog i važnog subjekta svodi se na jednu rečenicu: važni provode samoprocjenu, ključni prolaze <strong>neovisnu reviziju kibernetičke sigurnosti</strong>. To je razlika u trošku, u vremenu i u tome tko drži olovku.</p>
+
+<h2>Tko je smije provoditi</h2>
+<p>Reviziju ne može provesti bilo koji konzultant. Provodi je pružatelj usluga s propisanim ovlaštenjem, a kod tijela državne uprave nadležno tijelo za informacijsku sigurnost.</p>
+<div class="callout">
+  <div class="c-label">Zašto vas ta razdvojenost štiti</div>
+  <p>Tko je sustav gradio ne smije ga i ocjenjivati. Ako vam netko nudi i uspostavu sustava i njegovu formalnu reviziju, to nije ušteda nego sukob interesa - i nalaz takve revizije nema težinu prema nadležnom tijelu.</p>
+</div>
+
+<h2>Kako postupak teče</h2>
+<ol>
+  <li><strong>Najava i dogovor opsega.</strong> Utvrđuje se koji su sustavi, procesi i lokacije obuhvaćeni te koja je razina provedbe mjerodavna za vašu kategoriju.</li>
+  <li><strong>Plan revizije.</strong> Raspored, sugovornici i popis dokumentacije koja se dostavlja unaprijed.</li>
+  <li><strong>Pregled dokumentacije.</strong> Politike, procedure, registri i zapisi - prije razgovora, ne umjesto njih.</li>
+  <li><strong>Razgovori.</strong> S upravom, s vlasnicima procesa i s ljudima koji mjere stvarno provode. Ovdje se najbrže vidi razlika između napisanog i primijenjenog.</li>
+  <li><strong>Uzorkovanje dokaza.</strong> Revizor bira uzorak i traži dokaz za svaku odabranu kontrolu. Ne provjerava se sve, nego se iz uzorka zaključuje o cjelini.</li>
+  <li><strong>Nalazi i rokovi.</strong> Izvještaj s nalazima, njihovom ozbiljnošću i rokovima za uklanjanje.</li>
+</ol>
+
+<h2>Kako revizor ocjenjuje</h2>
+<p>Ocjenjivanje se oslanja na isti bodovni okvir koji se koristi i u samoprocjeni: ocjena po kontroli, uz prag koji svaka kontrola mora doseći i dodatni prag prosjeka po podmjeri.</p>
+<p>Praktično važno: <strong>dokumentiranost i provedba ocjenjuju se odvojeno</strong>. Savršena politika koja se ne primjenjuje ne daje visoku ocjenu, a dobra praksa bez zapisa ne daje ocjenu uopće - jer se ne može dokazati.</p>
+
+<h2>Što se najčešće ne prizna</h2>
+<p>Popis nalaza koji se ponavljaju iz revizije u reviziju:</p>
+<ul>
+  <li><strong>Dokument bez datuma i bez odobrenja.</strong> Politika koju nitko nije usvojio nije politika nego nacrt.</li>
+  <li><strong>Zapis koji je nastao nakon najave revizije.</strong> Vidi se po datumima i po tome što nedostaje za razdoblje prije toga.</li>
+  <li><strong>Ekran umjesto zapisa.</strong> Snimka zaslona koja pokazuje trenutno stanje ne dokazuje da je kontrola radila kroz cijelo razdoblje.</li>
+  <li><strong>Registar rizika bez vlasnika i bez promjena.</strong> Ako se nije mijenjao godinu dana, ne koristi se u odlučivanju.</li>
+  <li><strong>Plan kontinuiteta koji nije isproban.</strong> Bez zapisa o vježbi, plan dokumentira namjeru, ne sposobnost.</li>
+  <li><strong>Edukacija bez evidencije.</strong> "Svi su prošli obuku" nije dokaz; popis s imenima i datumima jest.</li>
+  <li><strong>Mjere kod dobavljača bez ugovorne osnove.</strong> Usmeno uvjeravanje pružatelja usluge ne zamjenjuje klauzulu.</li>
+</ul>
+<div class="callout">
+  <div class="c-label">Zajednički nazivnik</div>
+  <p>Gotovo svi ovi nalazi imaju isti uzrok: dokaz se pokušava proizvesti u trenutku revizije. Većina mjera dokazuje se zapisima koji nastaju tijekom ciklusa, pa se ne mogu retroaktivno napraviti. Zato rok od dvanaest mjeseci nije velikodušan.</p>
+</div>
+
+<h2>Kako se pripremiti</h2>
+<p>Redoslijed koji funkcionira:</p>
+<ol>
+  <li><strong>Bodujte se sami, po istom okviru.</strong> Interna provjera koja simulira revizijski postupak otkriva iste nalaze, samo bez posljedica.</li>
+  <li><strong>Prođite dokumentaciju kronološki.</strong> Postoji li zapis za svaki mjesec razdoblja, ili samo za zadnji?</li>
+  <li><strong>Provjerite ono što se ne može popraviti brzo.</strong> Godišnji ciklus izvještavanja uprave, vježba plana kontinuiteta i evidencija edukacija traže kalendarsko vrijeme.</li>
+  <li><strong>Pripremite sugovornike.</strong> Ne da nauče odgovore, nego da znaju gdje je što - revizor prepoznaje razliku.</li>
+</ol>
+
+<div class="note">
+  <p>Mi provodimo interne revizije i provjeru koja simulira revizijski postupak. Formalnu neovisnu reviziju ključnih subjekata provodi ovlašteni pružatelj. Više o tome što radimo na stranici <a href="/usluge/revizije-i-interne-provjere/">Revizije i interne provjere</a>, a bodovni okvir objašnjen je u tekstu <a href="/blog/kako-se-boduje-samoprocjena/">Kako se zapravo boduje samoprocjena</a>.</p>
+</div>
+''',
+ sources=[('Zakon o kibernetičkoj sigurnosti, NN 14/2024', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html'),
+          ('Uredba o kibernetičkoj sigurnosti, NN 135/2024', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('ZSIS - Prilog B, Okvir za evaluaciju mjera', 'https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20B%20-%20Okvir%20za%20evaluaciju.pdf')]))
+
+ARTICLES.append(dict(
+ slug="sigurnosna-kultura-i-ljudski-faktor", cat="Ljudski faktor", catkey="ljudi",
+ date="2026-08-11", read=6,
+ title="Sigurnosna kultura: zašto edukacija ne mijenja ponašanje, i što mijenja",
+ lead="Godišnja prezentacija o phishingu proizvodi evidenciju, a ne promjenu. Mjera 5 traži podizanje svijesti, ali ono što se stvarno mjeri je ponašanje - a ono se mijenja drukčijim polugama.",
+ desc="Kako pristupiti podizanju svijesti o sigurnosti tako da mijenja ponašanje, a ne samo proizvodi evidenciju: mjerenje, kultura prijave, i veza s mjerom 5 iz Priloga II. Uredbe.",
+ body='''
+<p>Mjera 5 iz Priloga II. traži osnovne prakse kibernetičke higijene i podizanje svijesti zaposlenika. Većina organizacija to ispuni godišnjom prezentacijom i popisom potpisa.</p>
+<p>Formalno prolazi. Ponašanje se ne mijenja, i sljedeći incident dolazi kroz isti kanal kao i prošli.</p>
+
+<h2>Zašto klasična edukacija ne radi</h2>
+<h3>Uči prepoznavanje po znakovima koji su nestali</h3>
+<p>Generacija materijala koja uči da se phishing prepoznaje po lošem jeziku i čudnoj adresi zastarjela je. Jezične pogreške više nisu signal - poruke su gramatički besprijekorne i prilagođene primatelju. Ono što je ostalo kao signal je <strong>kontekst</strong>: neočekivan zahtjev, pritisak vremena, promjena kanala, traženje iznimke od pravila.</p>
+<h3>Mjeri pohađanje, ne ponašanje</h3>
+<p>Evidencija odgovara na pitanje tko je bio prisutan. Ne odgovara na pitanje bi li ta osoba postupila drukčije. To su različite stvari i samo se druga vidi u incidentu.</p>
+<h3>Kažnjava prijavu</h3>
+<p>Ovo je najveći problem i najmanje se spominje. U organizaciji u kojoj se onaj tko klikne na phishing izloži poruzi ili razgovoru s nadređenim, sljedeći put nitko neće prijaviti - nego će šutjeti i nadati se. Vrijeme do otkrivanja incidenta tada se mjeri tjednima umjesto minutama.</p>
+
+<div class="callout">
+  <div class="c-label">Jedno pitanje koje otkriva stanje</div>
+  <p>Pitajte nekoliko zaposlenika: "Da ste jučer kliknuli na sumnjivu poveznicu, kome biste to rekli i što mislite da bi se dogodilo?" Odgovor na drugi dio pitanja govori više o vašoj otpornosti od bilo koje evidencije edukacija.</p>
+</div>
+
+<h2>Što stvarno mijenja ponašanje</h2>
+<ol>
+  <li><strong>Kratko i često, umjesto dugo i jednom.</strong> Petnaest minuta u kvartalu s jednim konkretnim scenarijem nadmašuje dva sata jednom godišnje.</li>
+  <li><strong>Simulacije s povratnom informacijom, ne s posljedicom.</strong> Tko klikne, dobije objašnjenje odmah, na mjestu. Rezultati se prijavljuju zbirno, nikad po osobi.</li>
+  <li><strong>Prijava se nagrađuje.</strong> Onaj tko prijavi sumnjivu poruku, čak i ako se pokaže bezopasnom, treba dobiti potvrdu da je postupio ispravno. To je jedina poluga koja skraćuje vrijeme do otkrivanja.</li>
+  <li><strong>Uloge dobivaju svoj sadržaj.</strong> Računovodstvo treba znati za prijevaru s promjenom bankovnog računa, informatika za napade na povlaštene račune, uprava za prijevaru s lažnim nalogom uprave.</li>
+  <li><strong>Postupak umjesto opreza.</strong> "Budite oprezni s plaćanjima" ne radi. "Svako plaćanje iznad iznosa X ili promjena bankovnog računa potvrđuje se telefonski na broj iz našeg registra, nikad na broj iz e-poruke" radi, jer ne ovisi o procjeni pojedinca u trenutku pritiska.</li>
+</ol>
+
+<h2>Što mjeriti</h2>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Umjesto</th><th>Mjerite</th></tr></thead>
+    <tbody>
+      <tr><td>Postotak zaposlenika koji su prošli obuku</td><td>Udio prijavljenih simuliranih poruka</td></tr>
+      <tr><td>Ocjena na kvizu</td><td>Prosječno vrijeme do prve prijave</td></tr>
+      <tr><td>Broj održanih edukacija</td><td>Broj prijava iz odjela koji ranije nisu prijavljivali</td></tr>
+      <tr><td>Zadovoljstvo edukacijom</td><td>Udio plaćanja provjerenih drugim kanalom</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Lijeva strana zadovoljava evidenciju. Desna pokazuje mijenja li se otpornost.</p>
+
+<h2>Veza s obvezama</h2>
+<p>Podizanje svijesti pripada mjeri 5, a osposobljavanje odgovornih osoba traži i članak 29. stavak 3. Zakona - članovi uprave dužni su sami pohađati odgovarajuća osposobljavanja. Uz to, članak 4. Akta o umjetnoj inteligenciji traži dostatnu razinu osposobljenosti za rad sa sustavima umjetne inteligencije.</p>
+<p>Sva tri zahtjeva traže <strong>evidenciju</strong>. Dobra vijest je da program koji stvarno mijenja ponašanje proizvodi bogatiju evidenciju od onoga koji to ne čini - jer ima više dodirnih točaka kroz godinu.</p>
+
+<div class="note">
+  <p>Radionice po ulogama - za upravu, informatiku i sve zaposlenike - opisane su na stranici <a href="/predavanja/">Predavanja i radionice</a>. Svaka proizvodi evidenciju koja zadovoljava mjeru 5.</p>
+</div>
+''',
+ sources=[('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjera 5', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('Zakon o kibernetičkoj sigurnosti, NN 14/2024, čl. 29. st. 3.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html'),
+          ('Uredba (EU) 2024/1689 (Akt o umjetnoj inteligenciji), čl. 4.', 'https://eur-lex.europa.eu/eli/reg/2024/1689/oj/hrv')]))
 
 # ══════════════════════════════════════════════════════════════════
 # ENGLESKA VERZIJA - /en/
@@ -3420,7 +3628,7 @@ def en_index():
     CHK = '<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>'
     deliverables = "\n".join('        <div class="deliver-item">%s<span>%s</span></div>' % (CHK, d)
                              for d in EN_DELIVERABLES)
-    REF_URLS = {'Zagreb Stock Exchange': 'https://www.zse.hr/', 'Partner banka': 'https://www.paba.hr/', 'Euroleasing': 'https://www.euroleasing.hr/', 'Fintastic': 'https://www.fintastic.hr/', 'Croatia osiguranje': 'https://www.crosig.hr/', 'Adriatic osiguranje': 'https://www.adriatic.hr/', 'UNIQA osiguranje': 'https://www.uniqa.hr/', 'HROTE': 'https://www.hrote.hr/', 'E.ON': 'https://www.eon.hr/', 'INA': 'https://www.ina.hr/', 'TEHMA': 'https://www.tehma.hr/', 'APIS-IT': 'https://www.apis-it.hr/', 'Rocket DBS': 'https://www.rocketdbs.com/', 'SmartGroup HR Solutions': 'https://www.smartgroup.hr/', 'SmartGroup Recruitment': 'https://www.smartgroup.hr/', 'AMODO': 'https://amodo.eu/', 'Cooperante': 'https://www.cooperante.hr/', 'TPA Hrvatska': 'https://www.tpa-group.hr/', 'Franck d.d.': 'https://www.franck.eu/', 'Pan-pek': 'https://www.panpek.hr/', 'Mlinar': 'https://www.mlinar.hr/', 'Offertissima': 'https://www.offertissima.hr/', 'Medika d.d.': 'https://www.medika.hr/', 'Biovega': 'https://www.biovega.hr/', 'EOS Matrix': 'https://hr.eos-solutions.com/', 'Kompas': 'https://www.kompas.hr/', 'Hrvatski Telekom': 'https://www.hrvatskitelekom.hr/', 'Hajduk Split': 'https://hajduk.hr/', 'Krypto Investment Partners': 'https://kip.investments/', 'ANO Insurance Solutions': 'https://www.ano.hr/hr/naslovna/', 'Sunce osiguranje': 'https://www.agramlife.hr/', 'IHC Engineering Croatia': 'https://www.royalihc.com/about-us/global-presence/croatia', 'Digital Assembly': 'https://digital-assembly.hr/', 'Delmerion Natural Beauty': 'https://kip.investments/', 'Log Adria': 'https://www.rhenus.group/', 'Travel Experience Museum': 'https://travelexperiencemuseum.com/', 'Intersnack': 'https://www.intersnack.hr/', 'BCC Services': 'https://www.bccservices.com/'}
+    REF_URLS = {'Zagreb Stock Exchange': 'https://www.zse.hr/', 'Partner banka': 'https://www.paba.hr/', 'Euroleasing': 'https://www.euroleasing.hr/', 'Fintastic': 'https://www.fintastic.hr/', 'Croatia osiguranje': 'https://www.crosig.hr/', 'Adriatic osiguranje': 'https://www.adriatic.hr/', 'UNIQA osiguranje': 'https://www.uniqa.hr/', 'HROTE': 'https://www.hrote.hr/', 'E.ON': 'https://www.eon.hr/', 'INA': 'https://www.ina.hr/', 'TEHMA': 'https://www.tehma.hr/', 'APIS-IT': 'https://www.apis-it.hr/', 'Rocket DBS': 'https://www.rocketdbs.com/', 'SmartGroup HR Solutions': 'https://www.smartgroup.hr/', 'SmartGroup Recruitment': 'https://www.smartgroup.hr/', 'AMODO': 'https://amodo.eu/', 'Cooperante': 'https://www.cooperante.hr/', 'TPA Hrvatska': 'https://www.tpa-group.hr/', 'Franck d.d.': 'https://www.franck.eu/', 'Pan-pek': 'https://www.panpek.hr/', 'Mlinar': 'https://www.mlinar.hr/', 'Offertissima': 'https://www.offertissima.hr/', 'Medika d.d.': 'https://www.medika.hr/', 'Biovega': 'https://www.biovega.hr/', 'EOS Matrix': 'https://hr.eos-solutions.com/', 'Kompas': 'https://kompas-travel.com/', 'Hrvatski Telekom': 'https://www.hrvatskitelekom.hr/', 'Hajduk Split': 'https://hajduk.hr/', 'Krypto Investment Partners': 'https://kip.investments/', 'ANO Insurance Solutions': 'https://www.ano.hr/hr/naslovna/', 'Sunce osiguranje': 'https://www.agramlife.hr/', 'IHC Engineering Croatia': 'https://www.royalihc.com/about-us/global-presence/croatia', 'Digital Assembly': 'https://digital-assembly.hr/', 'Delmerion Natural Beauty': 'https://delmerion.hr/', 'Log Adria': 'https://www.rhenus.group/', 'Travel Experience Museum': 'https://travelexperiencemuseum.com/', 'Intersnack': 'https://www.intersnack.hr/', 'BCC Services': 'https://www.bccservices.com/'}
     REF_TIPS = {'Sunce osiguranje': 'Merged into Agram Life osiguranje', 'IHC Engineering Croatia': 'Part of the Royal IHC group', 'Log Adria': 'Acquired by the Rhenus group', 'Šted banka': 'In liquidation', 'MCZ': 'Ceased operations', 'Intersnack': 'Formerly Adria Snack Company'}
     def _ref(c):
         u = REF_URLS.get(c)
@@ -6174,6 +6382,228 @@ def build_speaking(lang, articles):
       page(pt["h1"] + " | Adventure Spirit Consulting", pt["desc"], body, url, lang=lang,
            extra_head=hreflang(SITE + "/predavanja/", SITE + "/en/speaking/"), ld=ld))
 
+
+# ══════════════════════════════════════════════════════════════════
+# REFERENTNA STRANICA - PROPISI
+# ══════════════════════════════════════════════════════════════════
+PROPISI = [
+ dict(k="zks", oznHR="NN 14/2024", oznEN="OG 14/2024",
+   nHR="Zakon o kibernetičkoj sigurnosti", nEN="Cybersecurity Act",
+   sHR="Štiti sustave", sEN="Protects systems",
+   url="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html",
+   traziHR=["Kategorizacija subjekta na ključne i važne", "13 mjera iz Priloga II. Uredbe, na propisanoj razini",
+            "Prijava značajnog incidenta u 24, 72 sata i 30 dana", "Neovisna revizija ili samoprocjena",
+            "Dostava podataka NCSC-u, uključujući IP raspone"],
+   traziEN=["Categorisation into essential and important entities", "The 13 measures of Annex II at the prescribed level",
+            "Significant incident notification within 24 h, 72 h and 30 days", "Independent audit or self-assessment",
+            "Data delivery to NCSC-HR, including IP ranges"],
+   kaznaHR="Do 10 mil. EUR ili 2 % svjetskog prometa (ključni)<br>Do 7 mil. EUR ili 1,4 % (važni)<br><b>Odgovorne osobe osobno: 500 do 6.000 EUR</b>",
+   kaznaEN="Up to EUR 10m or 2 % of global turnover (essential)<br>Up to EUR 7m or 1.4 % (important)<br><b>Responsible individuals personally: EUR 500 to 6,000</b>",
+   nadzorHR="SOA i sektorska tijela &middot; prijava incidenata NCSC-HR i Nacionalni CERT",
+   nadzorEN="SOA and sectoral authorities &middot; incidents to NCSC-HR and the National CERT",
+   clHR="kazne", clEN=None),
+
+ dict(k="gdpr", oznHR="EU 2016/679", oznEN="EU 2016/679",
+   nHR="Opća uredba o zaštiti podataka", nEN="General Data Protection Regulation",
+   sHR="Štiti osobne podatke", sEN="Protects personal data",
+   url="https://eur-lex.europa.eu/eli/reg/2016/679/oj/hrv",
+   urlEN="https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng",
+   traziHR=["Evidencija obrada i pravna osnova za svaku", "Procjena učinka gdje je rizik visok",
+            "Ugovori s izvršiteljima i prijenosi izvan EU", "Zahtjevi ispitanika u propisanim rokovima",
+            "Prijava povrede AZOP-u u 72 sata"],
+   traziEN=["Records of processing and a lawful basis for each", "Impact assessment where risk is high",
+            "Processor contracts and transfers outside the EU", "Data subject requests within statutory deadlines",
+            "Breach notification to the authority within 72 hours"],
+   kaznaHR="Do 20 mil. EUR ili 4 % svjetskog prometa,<br>ovisno o tome koji je iznos veći",
+   kaznaEN="Up to EUR 20m or 4 % of global turnover,<br>whichever is higher",
+   nadzorHR="Agencija za zaštitu osobnih podataka (AZOP)",
+   nadzorEN="Croatian Personal Data Protection Agency (AZOP)",
+   clHR=None, clEN=None),
+
+ dict(k="ai", oznHR="EU 2024/1689", oznEN="EU 2024/1689",
+   nHR="Akt o umjetnoj inteligenciji", nEN="AI Act",
+   sHR="Uređuje automatizirano odlučivanje", sEN="Governs automated decision-making",
+   url="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/hrv",
+   urlEN="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng",
+   traziHR=["Popis AI sustava po slučaju uporabe", "Klasifikacija u četiri razine rizika",
+            "Zabranjene prakse se ne smiju primjenjivati", "Osposobljenost osoblja koje sustave koristi",
+            "Obveze transparentnosti prema korisnicima"],
+   traziEN=["Inventory of AI systems by use case", "Classification into four risk levels",
+            "Prohibited practices must not be used", "AI literacy for staff operating the systems",
+            "Transparency duties towards users"],
+   kaznaHR="Do 35 mil. EUR ili 7 % svjetskog prometa<br>za zabranjene prakse; niži rasponi za ostale povrede",
+   kaznaEN="Up to EUR 35m or 7 % of global turnover<br>for prohibited practices; lower ranges for other breaches",
+   nadzorHR="Tijela određena nacionalnom provedbom",
+   nadzorEN="Authorities designated by national implementation",
+   clHR=None, clEN=None),
+
+ dict(k="dora", oznHR="EU 2022/2554", oznEN="EU 2022/2554",
+   nHR="DORA - digitalna operativna otpornost", nEN="DORA - digital operational resilience",
+   sHR="Poseban režim za financijski sektor", sEN="A specific regime for financial services",
+   url="https://eur-lex.europa.eu/eli/reg/2022/2554/oj/hrv",
+   urlEN="https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng",
+   traziHR=["Okvir upravljanja IKT rizikom", "Registar informacija o ugovorima s IKT pružateljima",
+            "Prijava velikih IKT incidenata", "Program testiranja otpornosti",
+            "Izlazne strategije za kritične pružatelje"],
+   traziEN=["ICT risk management framework", "Register of information on ICT provider contracts",
+            "Reporting of major ICT-related incidents", "Resilience testing programme",
+            "Exit strategies for critical providers"],
+   kaznaHR="Prema Zakonu o provedbi DORA-e (NN 136/2024)<br>i sektorskim propisima",
+   kaznaEN="Under the Croatian DORA implementation act (OG 136/2024)<br>and sectoral legislation",
+   nadzorHR="Hrvatska narodna banka i HANFA",
+   nadzorEN="Croatian National Bank and HANFA",
+   clHR=None, clEN=None),
+]
+
+PROP_T = {
+ "hr": dict(url="/propisi/", name="Propisi",
+   h1="Četiri propisa koja zajedno određuju kako štitite sustave i podatke",
+   intro="U praksi se stalno preklapaju na istim mjestima: isti popis imovine, isti registar rizika, isti zapisi o incidentima. Ovdje su jedan pored drugoga - što svaki traži, tko ga nadzire i koliko košta neusklađenost.",
+   desc="Pregled ZKS-a, Opće uredbe, Akta o umjetnoj inteligenciji i DORA-e: što svaki propis traži, tko nadzire provedbu i koje su kazne za neusklađenost.",
+   home="Početna",
+   trazi="Što traži", kazna="Kazne", nadzor="Nadzor", tekst="Puni tekst propisa",
+   prekl_h="Gdje se preklapaju",
+   prekl_p="Tri točke u kojima se sva četiri propisa oslanjaju na isti materijal. Organizacija koja ih vodi kao jedan izvor izvještava; ona koja ih vodi odvojeno prepisuje.",
+   prekl=[("Popis imovine", "Registar informacijske imovine, registar AI sustava i DORA registar informacija tri su pogleda na istu imovinu. Jedan izvor, tri izvještaja."),
+          ("Procjena rizika", "Sva četiri propisa traže dokumentiranu procjenu rizika s vlasnikom i planom obrade. Dvije metodologije znače dva registra koja se raziđu."),
+          ("Prijava incidenta", "Rokovi i primatelji se razlikuju, ali zapis o incidentu je isti. Ako je zahvaćena i povreda osobnih podataka, dvije prijave teku usporedno.")],
+   nap="Iznosi kazni navedeni su kao gornje granice iz propisa. Stvarna visina ovisi o okolnostima koje propis nabraja - ozbiljnosti i trajanju povrede, namjeri ili nepažnji, poduzetim mjerama i razini suradnje s nadležnim tijelom. Ovo je informativni pregled, ne pravni savjet.",
+   dvostruko_h="Nećete biti kažnjeni dvaput za isto",
+   dvostruko="Ako je za povrede osobnih podataka koje proizlaze iz istog postupanja AZOP već izrekao upravnu novčanu kaznu prema Općoj uredbi, u stručnom se nadzoru za to isto postupanje ne može podnijeti prijava ovlaštenom tužitelju ni izdati prekršajni nalog prema ZKS-u. Obveze ostaju odvojene, ali se za isto djelo ne kažnjava dvaput.",
+   cl_h="Detaljnije u bazi znanja",
+   cl=["zks-kazne-tko-placa-i-koliko","trinaest-mjera-priloga-ii","akt-o-umjetnoj-inteligenciji-razine-rizika"],
+ ),
+ "en": dict(url="/en/regulations/", name="Regulations",
+   h1="Four instruments that together set how you protect systems and data",
+   intro="In practice they keep overlapping at the same points: the same asset inventory, the same risk register, the same incident records. Here they are side by side - what each requires, who supervises it, and what non-compliance costs.",
+   desc="Overview of the Croatian Cybersecurity Act, the GDPR, the AI Act and DORA: what each requires, who supervises enforcement, and the penalties for non-compliance.",
+   home="Home",
+   trazi="What it requires", kazna="Penalties", nadzor="Supervision", tekst="Full text",
+   prekl_h="Where they overlap",
+   prekl_p="Three points where all four rely on the same material. An organisation that keeps them as one source reports; one that keeps them apart transcribes.",
+   prekl=[("Asset inventory", "The information asset register, the AI system inventory and the DORA register of information are three views of the same assets. One source, three reports."),
+          ("Risk assessment", "All four require a documented risk assessment with an owner and a treatment plan. Two methodologies mean two registers that diverge."),
+          ("Incident reporting", "Deadlines and recipients differ, but the incident record is the same. Where a personal data breach is involved, two notifications run in parallel.")],
+   nap="The penalty figures are the upper limits set by each instrument. The actual amount depends on the circumstances each instrument lists - the seriousness and duration of the breach, intent or negligence, measures taken, and the level of cooperation with the authority. This is an informative overview, not legal advice.",
+   dvostruko_h="You will not be penalised twice for the same conduct",
+   dvostruko="Where the data protection authority has already imposed an administrative fine under the GDPR for a personal data breach arising from the same conduct, no misdemeanour charge or order may be issued under the Cybersecurity Act for that same conduct. The obligations remain separate, but the same act is not punished twice.",
+   cl_h="More in the knowledge base",
+   cl=["thirteen-measures-annex-ii","ai-act-risk-levels","incident-reporting-deadlines"],
+ ),
+}
+
+
+def build_regulations(lang, articles):
+    t = L[lang]
+    pt = PROP_T[lang]
+    FOOT = footer(lang, articles)
+    arts = {a["slug"]: a for a in articles}
+    url = SITE + pt["url"]
+
+    kartice = []
+    for p in PROPISI:
+        nm = p["nEN"] if lang == "en" else p["nHR"]
+        ozn = p["oznEN"] if lang == "en" else p["oznHR"]
+        sub = p["sEN"] if lang == "en" else p["sHR"]
+        traz = p["traziEN"] if lang == "en" else p["traziHR"]
+        kazna = p["kaznaEN"] if lang == "en" else p["kaznaHR"]
+        nadzor = p["nadzorEN"] if lang == "en" else p["nadzorHR"]
+        link = p.get("urlEN") if (lang == "en" and p.get("urlEN")) else p["url"]
+        stavke = "\n".join("            <li>%s</li>" % x for x in traz)
+        kartice.append('''      <div class="prop">
+        <div class="prop-h">
+          <div>
+            <span class="prop-ozn">%s</span>
+            <h2>%s</h2>
+            <div class="prop-sub">%s</div>
+          </div>
+        </div>
+        <div class="prop-body">
+          <div>
+            <div class="mjera-lbl">%s</div>
+            <ul class="mjera-list">
+%s
+            </ul>
+          </div>
+          <div>
+            <div class="mjera-lbl">%s</div>
+            <p class="prop-kazna">%s</p>
+            <div class="mjera-lbl" style="margin-top:18px">%s</div>
+            <p class="prop-nadzor">%s</p>
+            <a class="chip-link" style="margin-top:14px;display:inline-block" href="%s" target="_blank" rel="noopener">%s &rarr;</a>
+          </div>
+        </div>
+      </div>''' % (ozn, nm, sub, pt["trazi"], stavke, pt["kazna"], kazna,
+                   pt["nadzor"], nadzor, link, pt["tekst"]))
+
+    prekl = "\n".join('''      <div class="gap-item crit">
+        <div class="gap-h"><span class="gap-t">%s</span></div>
+        <div class="gap-d" style="margin-left:0">%s</div>
+      </div>''' % (a, b) for a, b in pt["prekl"])
+
+    rel = [arts[c] for c in pt["cl"] if c in arts]
+    clanci = "\n".join(card(a, lang) for a in rel)
+
+    body = header(lang, active_blog=False) + '''
+<main>
+  <section class="kb-hero">
+    <div class="container">
+      <div class="crumbs" style="padding:0 0 14px"><a href="%s">%s</a><span>&rsaquo;</span>%s</div>
+      <div class="eyebrow">%s</div>
+      <h1>%s</h1>
+      <p>%s</p>
+    </div>
+  </section>
+  <div class="container narrow">
+    <div class="prop-wrap">
+%s
+    </div>
+
+    <article style="padding-top:10px">
+      <h2>%s</h2>
+      <p>%s</p>
+%s
+
+      <div class="callout">
+        <div class="c-label">%s</div>
+        <p>%s</p>
+      </div>
+
+      <div class="note"><p>%s</p></div>
+    </article>
+
+    <div class="related">
+      <h3>%s</h3>
+      <div class="related-grid">
+%s
+      </div>
+    </div>
+    %s
+  </div>
+</main>
+''' % (t["base"] or "/", pt["home"], pt["name"], pt["name"], pt["h1"], pt["intro"],
+       "\n".join(kartice), pt["prekl_h"], pt["prekl_p"], prekl,
+       pt["dvostruko_h"], pt["dvostruko"], pt["nap"],
+       pt["cl_h"], clanci, cta_block(lang)) + FOOT
+
+    ld = [{
+      "@context": "https://schema.org", "@type": "WebPage",
+      "name": pt["h1"], "description": pt["desc"], "url": url,
+      "inLanguage": "hr-HR" if lang == "hr" else "en-GB",
+      "publisher": {"@type": "Organization", "name": "Adventure Spirit Consulting",
+                    "legalName": "Adventure Spirit d.o.o.", "url": SITE + "/"},
+    }, {
+      "@context": "https://schema.org", "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": pt["home"], "item": SITE + (t["base"] or "/")},
+        {"@type": "ListItem", "position": 2, "name": pt["name"], "item": url}]}]
+
+    d = os.path.join(ROOT, "en", "regulations") if lang == "en" else os.path.join(ROOT, "propisi")
+    os.makedirs(d, exist_ok=True)
+    io.open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(
+      page(pt["h1"] + " | Adventure Spirit Consulting", pt["desc"], body, url, lang=lang,
+           extra_head=hreflang(SITE + "/propisi/", SITE + "/en/regulations/"), ld=ld))
+
 build_tools("hr", ARTICLES)
 build_tools("en", ARTICLES_EN)
 build_tool2("hr", ARTICLES)
@@ -6188,6 +6618,8 @@ build_measures("hr", ARTICLES)
 build_measures("en", ARTICLES_EN)
 build_speaking("hr", ARTICLES)
 build_speaking("en", ARTICLES_EN)
+build_regulations("hr", ARTICLES)
+build_regulations("en", ARTICLES_EN)
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -6244,6 +6676,7 @@ urls = [(SITE + "/", "1.0", "weekly"), (SITE + "/en/", "0.9", "weekly"),
         (SITE + "/sektori/", "0.9", "monthly"), (SITE + "/en/sectors/", "0.8", "monthly")]
 urls += [(SITE + "/mjere/", "0.95", "monthly"), (SITE + "/en/measures/", "0.85", "monthly")]
 urls += [(SITE + "/predavanja/", "0.8", "monthly"), (SITE + "/en/speaking/", "0.7", "monthly")]
+urls += [(SITE + "/propisi/", "0.95", "monthly"), (SITE + "/en/regulations/", "0.85", "monthly")]
 urls += [(SITE + "/usluge/", "0.95", "monthly"), (SITE + "/en/services/", "0.85", "monthly")]
 urls += [("%s/usluge/%s/" % (SITE, x["hr"]), "0.9", "monthly") for x in USLUGE_META]
 urls += [("%s/en/services/%s/" % (SITE, x["en"]), "0.8", "monthly") for x in USLUGE_META]

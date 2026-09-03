@@ -31,6 +31,14 @@
     <description>Najčešći nalazi u sigurnosnim procjenama Active Directoryja: naslijeđeni protokoli, prekomjerne delegacije, lozinke u atributima, nepotrebna članstva u povlaštenim grupama i pristup sigurnosnim kopijama.</description>
   </item>
   <item>
+    <title>Sigurnosna kultura: zašto edukacija ne mijenja ponašanje, i što mijenja</title>
+    <link>https://adventurespirit.hr/blog/sigurnosna-kultura-i-ljudski-faktor/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/blog/sigurnosna-kultura-i-ljudski-faktor/</guid>
+    <category>Ljudski faktor</category>
+    <pubDate>Tue, 11 Aug 2026 09:00:00 +0200</pubDate>
+    <description>Kako pristupiti podizanju svijesti o sigurnosti tako da mijenja ponašanje, a ne samo proizvodi evidenciju: mjerenje, kultura prijave, i veza s mjerom 5 iz Priloga II. Uredbe.</description>
+  </item>
+  <item>
     <title>Umjetna inteligencija u obrani: gdje stvarno pomaže, a gdje samo pomiče problem</title>
     <link>https://adventurespirit.hr/blog/ai-u-obrani-gdje-pomaze-gdje-odmaze/</link>
     <guid isPermaLink="true">https://adventurespirit.hr/blog/ai-u-obrani-gdje-pomaze-gdje-odmaze/</guid>
@@ -45,6 +53,14 @@
     <category>Okviri</category>
     <pubDate>Tue, 28 Jul 2026 09:00:00 +0200</pubDate>
     <description>Što donosi funkcija Govern u NIST Cybersecurity Framework 2.0, kako se šest funkcija odnosi prema 13 mjera Uredbe o kibernetičkoj sigurnosti i zašto se okvir isplati koristiti kao zajednički jezik prema upravi.</description>
+  </item>
+  <item>
+    <title>Revizija kibernetičke sigurnosti: tko je smije provoditi i kako teče</title>
+    <link>https://adventurespirit.hr/blog/revizija-kiberneticke-sigurnosti/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/blog/revizija-kiberneticke-sigurnosti/</guid>
+    <category>Samoprocjena</category>
+    <pubDate>Tue, 21 Jul 2026 09:00:00 +0200</pubDate>
+    <description>Kako teče neovisna revizija kibernetičke sigurnosti ključnih subjekata: tko je smije provoditi, koraci postupka, kako revizor ocjenjuje dokumentaciju i provedbu, i koji se dokazi najčešće ne priznaju.</description>
   </item>
   <item>
     <title>Registar AI sustava i registar imovine: zašto se vode kao jedan</title>
@@ -69,6 +85,14 @@
     <category>Umjetna inteligencija</category>
     <pubDate>Tue, 30 Jun 2026 09:00:00 +0200</pubDate>
     <description>Koje prakse Akt o umjetnoj inteligenciji zabranjuje bez iznimke, što znači obveza AI pismenosti iz članka 4. i kako je ispuniti bez posebnog programa edukacije.</description>
+  </item>
+  <item>
+    <title>Kazne prema ZKS-u: tko plaća, koliko, i zašto se to tiče uprave osobno</title>
+    <link>https://adventurespirit.hr/blog/zks-kazne-tko-placa-i-koliko/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/blog/zks-kazne-tko-placa-i-koliko/</guid>
+    <category>ZKS / NIS2</category>
+    <pubDate>Tue, 23 Jun 2026 09:00:00 +0200</pubDate>
+    <description>Pregled prekršajnih odredbi Zakona o kibernetičkoj sigurnosti: rasponi kazni za ključne i važne subjekte, osobna odgovornost članova upravljačkih tijela, okolnosti koje utječu na visinu i pravilo o zabrani dvostrukog kažnjavanja s AZOP-om.</description>
   </item>
   <item>
     <title>DORA registar informacija: zašto pada na podacima, a ne na propisu</title>
