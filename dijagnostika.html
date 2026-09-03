@@ -46,7 +46,7 @@ a{color:#EF653F}
   </div>
 </div>
 
-<iframe id="fr" src="/?dijag=1" style="position:fixed;left:-9999px;top:0;width:1280px;height:900px;border:0"></iframe>
+<iframe id="fr" src="/?dijag=1" style="position:fixed;left:-9999px;top:0;width:1352px;height:672px;border:0"></iframe>
 
 <script>
 (function () {
@@ -103,11 +103,56 @@ a{color:#EF653F}
         add(okp, 'Skrol na ' + sel, 'cilj ' + cilj + ' px, stigao ' + stigao + ' px' + (okp ? '' : ' - NE STIŽE'));
       });
 
+      // ── Je li gumb stvarno dohvatljiv mišem ──────────────
+      var btns = d.querySelectorAll('.hero-btns a');
+      add(btns.length === 2, 'Gumbi u heroju pronađeni', btns.length + ' komada');
+
+      Array.prototype.forEach.call(btns, function (b) {
+        var naziv = b.textContent.trim().slice(0, 22);
+        // dovedi u sredinu prozora, kao da je korisnik doskrolao
+        var y0 = b.getBoundingClientRect().top + w.pageYOffset - w.innerHeight / 2;
+        w.scrollTo({ top: Math.max(0, y0), behavior: 'instant' });
+        var r = b.getBoundingClientRect();
+        var x = Math.round(r.left + r.width / 2), y = Math.round(r.top + r.height / 2);
+        var gore = d.elementFromPoint(x, y);
+        var dohvatljiv = gore && (b.contains(gore) || gore === b);
+        var opis = gore ? (gore.tagName + (gore.id ? '#' + gore.id : '') +
+                   (typeof gore.className === 'string' && gore.className ? '.' + gore.className.split(' ')[0] : '')) : 'nista';
+        add(dohvatljiv, 'Gumb "' + naziv + '" dohvatljiv mišem',
+            dohvatljiv ? ('na (' + x + ',' + y + ') je sam gumb') : ('na (' + x + ',' + y + ') je ' + opis + ' - PREKRIVA GA'));
+      });
+
+      // ── Pravi klik ────────────────────────────────────────
+      Array.prototype.forEach.call(btns, function (b) {
+        var naziv = b.textContent.trim().slice(0, 22);
+        var cilj = b.getAttribute('href');
+        var meta = d.querySelector(cilj);
+        if (!meta) { add(false, 'Klik na "' + naziv + '"', 'odredište ' + cilj + ' ne postoji'); return; }
+        w.scrollTo({ top: 0, behavior: 'instant' });
+        var prije = Math.round(w.pageYOffset);
+        var r = b.getBoundingClientRect();
+        var ev = new w.MouseEvent('click', { bubbles: true, cancelable: true, view: w,
+                  clientX: Math.round(r.left + r.width / 2), clientY: Math.round(r.top + r.height / 2) });
+        var sprijeceno = !b.dispatchEvent(ev);
+        var ocekivano = Math.round(meta.getBoundingClientRect().top + w.pageYOffset - 104);
+        setTimeout(function () {}, 0);
+        var poslije = Math.round(w.pageYOffset);
+        add(sprijeceno, 'Klik na "' + naziv + '" prepoznat',
+            sprijeceno ? ('rukovatelj je preuzeo klik, cilj ' + ocekivano + ' px')
+                       : 'rukovatelj NIJE reagirao - preventDefault se nije dogodio');
+        lines.push('       (prije klika ' + prije + ' px, odmah nakon ' + poslije + ' px, ocekivano ' + ocekivano + ' px)');
+      });
+
       var errs = w.__dijagErrs || [];
       add(errs.length === 0, 'JavaScript greške na naslovnici',
           errs.length ? errs.join(' | ') : 'nema');
 
-      finish();
+      // konacna pozicija nakon glatke animacije
+      setTimeout(function () {
+        add(null, 'Pozicija 1,5 s nakon zadnjeg klika', Math.round(w.pageYOffset) + ' px');
+        finish();
+      }, 1500);
+      return;
     }, 1400);
   });
 
