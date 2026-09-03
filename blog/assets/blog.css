@@ -479,3 +479,5 @@ a.sector-card { text-decoration: none; display: flex; flex-direction: column; }
 
 a.ref-chip { text-decoration: none; }
 a.ref-chip:hover { border-color: rgba(239,101,63,.45); color: var(--white); }
+.ref-past { opacity: .6; }
+.ref-chip[title] { cursor: help; }
