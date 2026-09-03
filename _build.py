@@ -62,7 +62,7 @@ L = {
  "hr": dict(
    lang="hr", base="", blog="/blog/", other="/en/", other_label="EN", self_label="HR",
    nav=[("/#onama","O nama"),("/usluge/","Usluge"),("/sektori/","Sektori"),
-        ("/blog/","Baza znanja"),("/alati/","Alati"),("/#reference","Reference"),
+        ("/blog/","Baza znanja"),("/mjere/","13 mjera"),("/alati/","Alati"),("/#reference","Reference"),
         ("/#faq","FAQ"),("/#kontakt","Kontakt")],
    legal_line="Adventure Spirit d.o.o. &middot; Zagreb",
    brand_line="Tržišni naziv: Adventure Spirit Consulting",
@@ -71,7 +71,7 @@ L = {
    f_kb="Baza znanja", f_all="Svi članci", f_svc="Usluge", f_co="Tvrtka",
    f_links=[("/usluge/zks-nis2-uskladenost/","ZKS / NIS2"),("/usluge/gdpr-uskladenost/","GDPR"),
             ("/usluge/iso-27001/","ISO 27001"),("/usluge/dora/","DORA"),("/usluge/","Sve usluge")],
-   f_co_links=[("/#onama","O konzultantu"),("/alati/","Alati"),("/#faq","Česta pitanja"),
+   f_co_links=[("/#onama","O konzultantu"),("/predavanja/","Predavanja"),("/#faq","Česta pitanja"),
                ("/#kontakt","Kontakt"),("/en/","English version")],
    rights="Sva prava pridržana", terms="Uvjeti korištenja", privacy="Privatnost",
    terms_url="/uvjeti/", privacy_url="/privatnost/",
@@ -95,7 +95,7 @@ L = {
  "en": dict(
    lang="en", base="/en", blog="/en/blog/", other="/", other_label="HR", self_label="EN",
    nav=[("/en/#about","About"),("/en/services/","Services"),("/en/sectors/","Sectors"),
-        ("/en/blog/","Insights"),("/en/tools/","Tools"),("/en/#clients","Clients"),
+        ("/en/blog/","Insights"),("/en/measures/","13 measures"),("/en/tools/","Tools"),("/en/#clients","Clients"),
         ("/en/#faq","FAQ"),("/en/#contact","Contact")],
    legal_line="Adventure Spirit d.o.o. &middot; Zagreb, Croatia",
    brand_line="Trading as: Adventure Spirit Consulting",
@@ -104,7 +104,7 @@ L = {
    f_kb="Insights", f_all="All articles", f_svc="Services", f_co="Company",
    f_links=[("/en/services/csa-nis2-compliance/","CSA / NIS2"),("/en/services/gdpr-compliance/","GDPR"),
             ("/en/services/iso-27001/","ISO 27001"),("/en/services/dora/","DORA"),("/en/services/","All services")],
-   f_co_links=[("/en/#about","About the consultant"),("/en/tools/","Tools"),("/en/#faq","FAQ"),
+   f_co_links=[("/en/#about","About the consultant"),("/en/speaking/","Speaking"),("/en/#faq","FAQ"),
                ("/en/#contact","Contact"),("/","Hrvatska verzija")],
    rights="All rights reserved", terms="Terms (HR)", privacy="Privacy (HR)",
    terms_url="/uvjeti/", privacy_url="/privatnost/",
@@ -5808,6 +5808,372 @@ def build_services(lang, articles):
                extra_head=hreflang(SITE + "/usluge/" + u["hr"] + "/",
                                    SITE + "/en/services/" + u["en"] + "/"), ld=ld))
 
+
+# ══════════════════════════════════════════════════════════════════
+# REFERENTNA STRANICA - 13 MJERA
+# ══════════════════════════════════════════════════════════════════
+# Sluzbeni ciljevi iz Priloga B ZSIS-a, skraceni na jednu recenicu gdje
+# je izvornik predugacak. Broj podmjera prebrojan iz istog dokumenta.
+MJ_REF = [
+ (1, 11, "Osigurati da osobe odgovorne za upravljanje mjerama prepoznaju kibernetičku sigurnost kao ključni aspekt poslovanja i aktivno sudjeluju u njezinu upravljanju, kroz integraciju u strateške planove i odluke.",
+     "Ensure that those responsible for managing the measures treat cyber security as a core aspect of the business and take an active part in managing it, through integration into strategic plans and decisions.",
+     ["Odluka uprave o politici kibernetičke sigurnosti", "Imenovanje odgovornih osoba", "Osigurani financijski, tehnički i ljudski resursi", "Redovito izvještavanje uprave"],
+     ["Board decision on the cyber security policy", "Appointment of responsible people", "Financial, technical and human resources secured", "Regular reporting to the board"],
+     ["ciso", "revizije"]),
+ (2, 9, "Uspostaviti strukturirani pristup identifikaciji i klasifikaciji programske i sklopovske imovine te potpunu kontrolu nad njom kroz cijeli životni ciklus, od korištenja i pohrane do brisanja ili uništavanja.",
+     "Establish a structured approach to identifying and classifying software and hardware assets, and full control over them across the entire lifecycle, from use and storage through to deletion or destruction.",
+     ["Inventar programske i sklopovske imovine", "Izdvojen inventar kritične imovine", "Klasifikacija podataka", "Pravila za uklanjanje i ponovnu upotrebu opreme"],
+     ["Inventory of software and hardware assets", "Separate inventory of critical assets", "Data classification", "Rules for disposal and reuse of equipment"],
+     ["zks", "iso27001", "vendor"]),
+ (3, 8, "Uspostaviti organizacijski okvir za upravljanje rizikom kako bi subjekt utvrdio i odgovorio na sve rizike koji prijete sigurnosti njegovih mrežnih i informacijskih sustava.",
+     "Establish an organisational framework for risk management so the entity identifies and responds to every risk threatening the security of its network and information systems.",
+     ["Dokumentiran proces procjene rizika", "Procjena po načelu svih opasnosti", "Registar rizika s vlasnicima", "Plan obrade rizika"],
+     ["Documented risk assessment process", "All-hazards assessment approach", "Risk register with owners", "Risk treatment plan"],
+     ["zks", "iso27001", "ciso"]),
+ (4, 12, "Uspostaviti strukturirani pristup upravljanju zapošljavanjem odgovarajućeg ljudskog potencijala te pravima pristupa zaposlenika i vanjskog osoblja mrežnim i informacijskim sustavima.",
+     "Establish a structured approach to hiring suitable people and to managing the access rights of employees and external staff to network and information systems.",
+     ["Provjere pri zapošljavanju", "Ugovorne obveze o povjerljivosti", "Upravljanje pravima kroz životni ciklus", "Odvojeni administratorski računi"],
+     ["Pre-employment checks", "Contractual confidentiality duties", "Lifecycle management of access rights", "Separate administrator accounts"],
+     ["zks", "audit", "dpo"]),
+ (5, 11, "Za sve zaposlenike te mrežne i informacijske sustave osigurati provedbu osnovnih praksi kibernetičke higijene i redovito podizanje svijesti o kibernetičkim prijetnjama.",
+     "Ensure basic cyber hygiene practices are applied across all staff and all network and information systems, with regular awareness raising about cyber threats.",
+     ["Redovito zakrpavanje", "Sigurnosne kopije i testirano vraćanje", "Zaštita krajnjih točaka", "Edukacija zaposlenika uz evidenciju"],
+     ["Regular patching", "Backups with tested restore", "Endpoint protection", "Staff training with records"],
+     ["zks", "audit"]),
+ (6, 5, "Osigurati cjelovitost, povjerljivost i dostupnost mrežnih resursa subjekta.",
+     "Ensure the integrity, confidentiality and availability of the entity's network resources.",
+     ["Segmentacija mreže", "Zaštita perimetra", "Nadzor mrežnog prometa", "Sigurna konfiguracija mrežne opreme"],
+     ["Network segmentation", "Perimeter protection", "Network traffic monitoring", "Secure network device configuration"],
+     ["zks", "audit"]),
+ (7, 6, "Uspostaviti sveobuhvatan sustav politika i procedura za kontrolu fizičkog i logičkog pristupa mrežnim i informacijskim sustavima.",
+     "Establish a comprehensive set of policies and procedures for controlling physical and logical access to network and information systems.",
+     ["Načelo najmanje privilegije", "Višefaktorska autentifikacija", "Upravljanje povlaštenim pristupom", "Evidencija pristupa"],
+     ["Least privilege", "Multi-factor authentication", "Privileged access management", "Access records"],
+     ["zks", "audit", "iso27001"]),
+ (8, 6, "Uspostaviti jasnu i sveobuhvatnu politiku za izravne dobavljače i pružatelje usluga, uz procjenu rizika koji iz tih odnosa proizlaze.",
+     "Establish a clear and comprehensive policy for direct suppliers and service providers, with assessment of the risks arising from those relationships.",
+     ["Minimalni sigurnosni zahtjevi za dobavljače", "Ugovorne sigurnosne klauzule", "Procjena rizika trećih strana", "Praćenje kroz vrijeme"],
+     ["Minimum security requirements for suppliers", "Contractual security clauses", "Third-party risk assessment", "Monitoring over time"],
+     ["vendor", "dora", "zks"]),
+ (9, 6, "Osigurati da subjekt uspostavi, dokumentira i kontinuirano provodi sigurnosne zahtjeve u nabavi, razvoju i održavanju mrežnih i informacijskih sustava.",
+     "Ensure the entity establishes, documents and continuously applies security requirements in the acquisition, development and maintenance of network and information systems.",
+     ["Sigurnosni zahtjevi u razvoju", "Odvojena razvojna, testna i produkcijska okruženja", "Upravljanje promjenama", "Testiranje prije puštanja u rad"],
+     ["Security requirements in development", "Separated development, test and production environments", "Change management", "Testing before go-live"],
+     ["zks", "iso27001"]),
+ (10, 6, "Uspostaviti sveobuhvatan okvir primjene kriptografije, sukladno vlastitim poslovnim potrebama i procijenjenom riziku.",
+     "Establish a comprehensive framework for the use of cryptography, in line with business needs and assessed risk.",
+     ["Pravila primjene kriptografije", "Zaštita podataka u prijenosu", "Zaštita podataka u mirovanju", "Upravljanje kriptografskim ključevima"],
+     ["Rules on the use of cryptography", "Protection of data in transit", "Protection of data at rest", "Cryptographic key management"],
+     ["zks", "gdpr", "iso27001"]),
+ (11, 6, "Uspostaviti sveobuhvatan okvir za utvrđivanje uloga, odgovornosti i postupaka pri otkrivanju incidenata, odgovoru na njih i njihovoj prijavi.",
+     "Establish a comprehensive framework defining roles, responsibilities and procedures for detecting, responding to and reporting incidents.",
+     ["Kriterij značajnosti incidenta", "Plan odgovora na incident", "Prijava nadležnom CSIRT-u u rokovima", "Analiza nakon incidenta"],
+     ["Incident significance criteria", "Incident response plan", "Notification to the competent CSIRT within deadlines", "Post-incident analysis"],
+     ["zks", "ciso", "dpo"]),
+ (12, 8, "Osigurati postojanje unaprijed pripremljenih planova za minimiziranje posljedica poremećaja i za oporavak poslovanja nakon incidenta ili krize.",
+     "Ensure that plans exist in advance to minimise the consequences of disruption and to recover the business after an incident or crisis.",
+     ["Analiza poslovnog utjecaja", "Planovi kontinuiteta i oporavka", "Upravljanje kibernetičkom krizom", "Redovito testiranje planova"],
+     ["Business impact analysis", "Continuity and recovery plans", "Cyber crisis management", "Regular exercising of plans"],
+     ["iso22301", "zks", "dora"]),
+ (13, 5, "Uspostaviti mjere za sprječavanje i nadziranje neovlaštenog fizičkog pristupa prostorima u kojima se nalaze mrežni i informacijski sustavi te za njihovu zaštitu od okolišnih prijetnji.",
+     "Establish measures to prevent and monitor unauthorised physical access to areas holding network and information systems, and to protect them from environmental threats.",
+     ["Kontrola ulaska u prostore s opremom", "Zaštita od požara i vode", "Sigurnost napajanja i kabliranja", "Nadzor prostora"],
+     ["Entry control to equipment areas", "Fire and water protection", "Power and cabling security", "Premises monitoring"],
+     ["zks", "iso27001", "iso22301"]),
+]
+
+MJ_T = {
+ "hr": dict(url="/mjere/", name="13 mjera",
+   h1="Trinaest mjera upravljanja kibernetičkim sigurnosnim rizicima",
+   intro="Uredba o kibernetičkoj sigurnosti (NN 135/2024) razrađuje obveze iz Zakona u trinaest mjera, raspisanih kroz 99 podmjera. Uz njih ZSIS je objavio katalog od 132 kontrole s bodovnim pragovima za tri razine provedbe. Ovo je pregled svih trinaest, s ciljem svake mjere i onim što u praksi traži.",
+   desc="Pregled svih 13 mjera upravljanja kibernetičkim sigurnosnim rizicima iz Priloga II. Uredbe NN 135/2024, s ciljem svake mjere, brojem podmjera i onim što traži u praksi.",
+   home="Početna", cilj="Cilj mjere", trazi="Što traži u praksi",
+   pod="podmjera", usl="Usluge koje pokrivaju ovu mjeru",
+   napomena="Nazivi mjera i ciljevi preuzeti su iz Priloga II. Uredbe odnosno iz Priloga B ZSIS-ovog okvira za evaluaciju. Broj podmjera prebrojan je iz istog dokumenta i zbraja se na 99. Katalog kontrola sadrži 132 jedinstvene oznake. Prije formalne samoprocjene provjerite koja je verzija okvira na snazi.",
+   alat="Napravite mini samoprocjenu po svih 13 mjera",
+   clanci="Detaljnije u bazi znanja",
+   cl=["trinaest-mjera-priloga-ii","kako-se-boduje-samoprocjena","korelacijski-pregled-mjera"],
+ ),
+ "en": dict(url="/en/measures/", name="The 13 measures",
+   h1="The thirteen cyber risk management measures",
+   intro="The Croatian Cybersecurity Regulation (OG 135/2024) breaks the statutory duties into thirteen measures, set out across 99 sub-measures. Alongside them ZSIS published a catalogue of 132 controls with scoring thresholds for three levels of implementation. This is an overview of all thirteen, with the objective of each and what it asks for in practice.",
+   desc="Overview of all 13 cyber risk management measures from Annex II of the Croatian Cybersecurity Regulation, with each measure's objective, sub-measure count and what it requires in practice.",
+   home="Home", cilj="Objective", trazi="What it requires in practice",
+   pod="sub-measures", usl="Services covering this measure",
+   napomena="Measure names and objectives are taken from Annex II of the Regulation and from Annex B of the ZSIS evaluation framework. The sub-measure count was taken from the same document and totals 99. The control catalogue contains 132 unique identifiers. Check which version of the framework is current before a formal self-assessment.",
+   alat="Run the readiness check against all 13 measures",
+   clanci="More in the knowledge base",
+   cl=["thirteen-measures-annex-ii","how-self-assessment-is-scored","iso-27001-and-the-cybersecurity-act"],
+ ),
+}
+
+
+def build_measures(lang, articles):
+    t = L[lang]
+    mt = MJ_T[lang]
+    ut = USL_T[lang]
+    FOOT = footer(lang, articles)
+    arts = {a["slug"]: a for a in articles}
+    usl_ime = {}
+    for u in USLUGE_META:
+        if lang == "hr":
+            usl_ime[u["key"]] = (MODALI[u["key"]]["title"], u["hr"])
+        else:
+            usl_ime[u["key"]] = (u["nEN"], u["en"])
+
+    blokovi = []
+    for br, pod, cHR, cEN, tHR, tEN, usl in MJ_REF:
+        cilj = cEN if lang == "en" else cHR
+        traz = tEN if lang == "en" else tHR
+        stavke = "\n".join("          <li>%s</li>" % x for x in traz)
+        uslchips = "\n".join('          <a class="chip-link" href="%s%s/">%s</a>'
+                             % (ut["hub"], usl_ime[k][1], usl_ime[k][0]) for k in usl if k in usl_ime)
+        blokovi.append('''      <div class="mjera" id="mjera-%d">
+        <div class="mjera-h">
+          <span class="mjera-n">%02d</span>
+          <h2>%s</h2>
+          <span class="mjera-pod">%d %s</span>
+        </div>
+        <p class="mjera-cilj"><b>%s</b> %s</p>
+        <div class="mjera-body">
+          <div>
+            <div class="mjera-lbl">%s</div>
+            <ul class="mjera-list">
+%s
+            </ul>
+          </div>
+          <div>
+            <div class="mjera-lbl">%s</div>
+            <div class="chip-row">
+%s
+            </div>
+          </div>
+        </div>
+      </div>''' % (br, br, (MJERE_EN if lang == "en" else MJERE)[br-1][1], pod, mt["pod"],
+                   mt["cilj"], cilj, mt["trazi"], stavke, mt["usl"], uslchips))
+
+    nav = " ".join('<a href="#mjera-%d">%02d</a>' % (b[0], b[0]) for b in MJ_REF)
+    rel = [arts[c] for c in mt["cl"] if c in arts]
+    clanci = "\n".join(card(a, lang) for a in rel)
+    url = SITE + mt["url"]
+
+    body = header(lang, active_blog=False) + '''
+<main>
+  <section class="kb-hero">
+    <div class="container">
+      <div class="crumbs" style="padding:0 0 14px"><a href="%s">%s</a><span>&rsaquo;</span>%s</div>
+      <div class="eyebrow">%s</div>
+      <h1>%s</h1>
+      <p>%s</p>
+      <div class="mjera-nav">%s</div>
+    </div>
+  </section>
+  <div class="container narrow">
+    <div class="mjere-wrap">
+%s
+    </div>
+    <div class="note" style="margin-bottom:30px"><p>%s</p></div>
+    <div class="nf-nav" style="border:none;margin-top:0;padding-top:0">
+      <a href="%s%s/">%s</a>
+    </div>
+    <div class="related">
+      <h3>%s</h3>
+      <div class="related-grid">
+%s
+      </div>
+    </div>
+    %s
+  </div>
+</main>
+''' % (t["base"] or "/", mt["home"], mt["name"], mt["name"], mt["h1"], mt["intro"], nav,
+       "\n".join(blokovi), mt["napomena"],
+       TOOLS_T[lang]["hub"], SA_T[lang]["slug"], mt["alat"],
+       mt["clanci"], clanci, cta_block(lang)) + FOOT
+
+    ld = [{
+      "@context": "https://schema.org", "@type": "ItemList",
+      "name": mt["h1"], "description": mt["desc"], "url": url,
+      "numberOfItems": 13,
+      "itemListElement": [{"@type": "ListItem", "position": b[0],
+                           "name": (MJERE_EN if lang == "en" else MJERE)[b[0]-1][1],
+                           "url": url + "#mjera-%d" % b[0]} for b in MJ_REF],
+    }, {
+      "@context": "https://schema.org", "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": mt["home"], "item": SITE + (t["base"] or "/")},
+        {"@type": "ListItem", "position": 2, "name": mt["name"], "item": url}]}]
+
+    d = os.path.join(ROOT, "en", "measures") if lang == "en" else os.path.join(ROOT, "mjere")
+    os.makedirs(d, exist_ok=True)
+    io.open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(
+      page(mt["h1"] + " | Adventure Spirit Consulting", mt["desc"], body, url, lang=lang,
+           extra_head=hreflang(SITE + "/mjere/", SITE + "/en/measures/"), ld=ld))
+
+
+# ══════════════════════════════════════════════════════════════════
+# PREDAVANJA I NASTUPI
+# ══════════════════════════════════════════════════════════════════
+PRED_T = {
+ "hr": dict(url="/predavanja/", name="Predavanja",
+   h1="Predavanja, radionice i nastupi",
+   intro="Predajem od 2017. i to je razlog zašto ova stranica postoji: objasniti propis nekome tko ga prvi put vidi teže je nego provesti ga. Radionice držim za upravu, informatiku i zaposlenike, a teme dolaze iz stvarnih projekata, ne iz prezentacija.",
+   desc="Predavanja, radionice i konferencijski nastupi iz kibernetičke sigurnosti, ZKS-a, GDPR-a i upravljanja rizicima. Daniel Bara, predavač na RIT Croatia od 2017.",
+   home="Početna",
+   nast_h="Nastavno iskustvo", nast_p="Predajem na dodiplomskoj i diplomskoj razini, s naglaskom na spoju informacijskih sustava, upravljanja rizicima i vođenja projekata.",
+   nastava=[("RIT Croatia", "od 2017.", "Information Systems and Technology, Strateški menadžment, Upravljanje projektima", True),
+            ("Zagreb School of Economics and Management", "gostujuća predavanja", "Informacijska sigurnost i upravljanje rizicima", False),
+            ("VERN", "gostujuća predavanja", "Kibernetička sigurnost i zaštita podataka", False),
+            ("Libertas", "gostujuća predavanja", "Upravljanje informacijskim sustavima", False)],
+   cred_h="Uz nastavu",
+   cred=[("Doktorat iz Business Intelligencea", "Ekonomski fakultet u Osijeku"),
+         ("MBA", "Zagreb School of Economics and Management"),
+         ("PMP - Project Management Professional", "Project Management Institute"),
+         ("Aktivan član", "PMI Croatia"),
+         ("Vanjski evaluator", "HAMAG-BICRO, više od 300 EU projekata")],
+   tema_h="Teme za radionice i nastupe",
+   tema_p="Svaka tema postoji i kao tekst u bazi znanja, pa možete unaprijed vidjeti pristup i razinu detalja. Trajanje i dubina prilagođavaju se publici - upravi, informatici ili svim zaposlenicima.",
+   pub_h="Za koga",
+   pub=[("Uprava i nadzorni odbor", "Što propis traži od vas osobno, koje odluke morate donijeti i što potpisujete. Bez tehničkog rječnika. Obično 60 do 90 minuta."),
+        ("Informatika i sigurnost", "Mjere, podmjere, kontrole i dokazi. Kako se bodovi računaju i gdje se najčešće pada. Pola dana ili dan."),
+        ("Svi zaposlenici", "Podizanje svijesti koje ne uči ljude da phishing prepoznaju po lošem hrvatskom. Kratko, konkretno, uz evidenciju koja zadovoljava mjeru 5."),
+        ("Konferencije i stručni skupovi", "Nastupi na temu ZKS-a, DORA-e, umjetne inteligencije i upravljanja rizicima.")],
+   cta_h="Trebate predavanje ili radionicu?",
+   cta_p="Javite temu, publiku i okvirni termin. Odgovaramo u roku 24 sata i predlažemo program prilagođen razini polaznika.",
+   cta_b="Dogovorite termin",
+   napomena="Edukacija zaposlenika i podizanje svijesti dio su mjere 5 iz Priloga II. Uredbe, a osposobljenost za rad sa sustavima umjetne inteligencije traži članak 4. Akta o umjetnoj inteligenciji. U oba slučaja traži se evidencija - tko je, kada i što prošao.",
+ ),
+ "en": dict(url="/en/speaking/", name="Speaking",
+   h1="Lectures, workshops and conference talks",
+   intro="I have been teaching since 2017, and that is why this page exists: explaining a regulation to someone seeing it for the first time is harder than implementing it. Workshops are run for boards, for IT and for all staff, and the material comes from real projects rather than from slide decks.",
+   desc="Lectures, workshops and conference talks on cyber security, the Croatian Cybersecurity Act, GDPR and risk management. Daniel Bara, lecturer at RIT Croatia since 2017.",
+   home="Home",
+   nast_h="Teaching experience", nast_p="I teach at undergraduate and graduate level, focused on where information systems, risk management and project delivery meet.",
+   nastava=[("RIT Croatia", "since 2017", "Information Systems and Technology, Strategic Management, Project Management", True),
+            ("Zagreb School of Economics and Management", "guest lectures", "Information security and risk management", False),
+            ("VERN University", "guest lectures", "Cyber security and data protection", False),
+            ("Libertas International University", "guest lectures", "Information systems management", False)],
+   cred_h="Alongside teaching",
+   cred=[("PhD in business intelligence", "Faculty of Economics, Osijek"),
+         ("MBA", "Zagreb School of Economics and Management"),
+         ("PMP - Project Management Professional", "Project Management Institute"),
+         ("Active member", "PMI Croatia"),
+         ("External evaluator", "HAMAG-BICRO, more than 300 EU-funded projects")],
+   tema_h="Topics for workshops and talks",
+   tema_p="Every topic also exists as an article in the knowledge base, so you can see the approach and the level of detail in advance. Length and depth are adapted to the audience - board, IT, or all staff.",
+   pub_h="Audiences",
+   pub=[("Board and supervisory board", "What the rules require of you personally, which decisions you must take and what you are signing. No technical vocabulary. Usually 60 to 90 minutes."),
+        ("IT and security", "Measures, sub-measures, controls and evidence. How the scoring works and where organisations most often fail. Half a day or a full day."),
+        ("All staff", "Awareness training that does not teach people to spot phishing by its bad grammar. Short, concrete, with records that satisfy measure 5."),
+        ("Conferences and professional events", "Talks on the Cybersecurity Act, DORA, artificial intelligence and risk management.")],
+   cta_h="Need a lecture or a workshop?",
+   cta_p="Tell us the topic, the audience and a rough date. We reply within 24 hours with a programme matched to the participants' level.",
+   cta_b="Arrange a date",
+   napomena="Staff training and awareness form part of measure 5 of Annex II of the Regulation, and AI literacy is required by Article 4 of the AI Act. Both require records - who completed what, and when.",
+ ),
+}
+
+
+def build_speaking(lang, articles):
+    t = L[lang]
+    pt = PRED_T[lang]
+    FOOT = footer(lang, articles)
+
+    nastava = "\n".join('''      <div class="pred-item%s">
+        <div class="pred-top"><span class="pred-org">%s</span><span class="pred-when">%s</span></div>
+        <div class="pred-what">%s</div>
+      </div>''' % (" main" if glavni else "", org, kada, sto)
+      for org, kada, sto, glavni in pt["nastava"])
+
+    cred = "\n".join('        <li><strong>%s</strong><span>%s</span></li>' % (a, b) for a, b in pt["cred"])
+
+    # teme dolaze iz baze znanja, po jedna kartica po clanku
+    izbor = articles[:9]
+    teme = "\n".join(card(a, lang) for a in izbor)
+
+    pub = "\n".join('''      <div class="gap-item crit">
+        <div class="gap-h"><span class="gap-t">%s</span></div>
+        <div class="gap-d" style="margin-left:0">%s</div>
+      </div>''' % (kome, opis) for kome, opis in pt["pub"])
+
+    url = SITE + pt["url"]
+    body = header(lang, active_blog=False) + '''
+<main>
+  <section class="kb-hero">
+    <div class="container">
+      <div class="crumbs" style="padding:0 0 14px"><a href="%s">%s</a><span>&rsaquo;</span>%s</div>
+      <div class="eyebrow">%s</div>
+      <h1>%s</h1>
+      <p>%s</p>
+    </div>
+  </section>
+  <div class="container narrow">
+    <article>
+      <h2>%s</h2>
+      <p>%s</p>
+      <div class="pred-list">
+%s
+      </div>
+
+      <h2>%s</h2>
+      <ul class="cred-list">
+%s
+      </ul>
+
+      <h2>%s</h2>
+%s
+
+      <h2>%s</h2>
+      <p>%s</p>
+    </article>
+
+    <div class="related" style="margin-top:14px">
+      <div class="related-grid">
+%s
+      </div>
+    </div>
+
+    <div class="note" style="margin-bottom:30px"><p>%s</p></div>
+
+    <div class="art-cta">
+      <h3>%s</h3>
+      <p>%s</p>
+      <div class="cta-btns">
+        <a href="%s#%s" class="btn-primary">%s</a>
+        <a href="%s" class="btn-outline">%s</a>
+      </div>
+    </div>
+  </div>
+</main>
+''' % (t["base"] or "/", pt["home"], pt["name"], pt["name"], pt["h1"], pt["intro"],
+       pt["nast_h"], pt["nast_p"], nastava,
+       pt["cred_h"], cred,
+       pt["pub_h"], pub,
+       pt["tema_h"], pt["tema_p"], teme, pt["napomena"],
+       pt["cta_h"], pt["cta_p"],
+       t["base"] or "/", "kontakt" if lang == "hr" else "contact", pt["cta_b"],
+       L[lang]["blog"], L[lang]["kb_title"]) + FOOT
+
+    ld = [{
+      "@context": "https://schema.org", "@type": "WebPage",
+      "name": pt["h1"], "description": pt["desc"], "url": url,
+      "inLanguage": "hr-HR" if lang == "hr" else "en-GB",
+      "about": {"@type": "Person", "name": "Daniel Bara",
+                "honorificSuffix": "dr. sc." if lang == "hr" else "PhD",
+                "jobTitle": "Osnivač i glavni konzultant" if lang == "hr" else "Founder and Principal Consultant",
+                "worksFor": {"@type": "Organization", "name": "Adventure Spirit Consulting"},
+                "alumniOf": ["Ekonomski fakultet u Osijeku", "Zagreb School of Economics and Management"]},
+    }, {
+      "@context": "https://schema.org", "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": pt["home"], "item": SITE + (t["base"] or "/")},
+        {"@type": "ListItem", "position": 2, "name": pt["name"], "item": url}]}]
+
+    d = os.path.join(ROOT, "en", "speaking") if lang == "en" else os.path.join(ROOT, "predavanja")
+    os.makedirs(d, exist_ok=True)
+    io.open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(
+      page(pt["h1"] + " | Adventure Spirit Consulting", pt["desc"], body, url, lang=lang,
+           extra_head=hreflang(SITE + "/predavanja/", SITE + "/en/speaking/"), ld=ld))
+
 build_tools("hr", ARTICLES)
 build_tools("en", ARTICLES_EN)
 build_tool2("hr", ARTICLES)
@@ -5818,6 +6184,10 @@ build_sectors("hr", ARTICLES)
 build_sectors("en", ARTICLES_EN)
 build_services("hr", ARTICLES)
 build_services("en", ARTICLES_EN)
+build_measures("hr", ARTICLES)
+build_measures("en", ARTICLES_EN)
+build_speaking("hr", ARTICLES)
+build_speaking("en", ARTICLES_EN)
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -5872,6 +6242,8 @@ urls = [(SITE + "/", "1.0", "weekly"), (SITE + "/en/", "0.9", "weekly"),
         (SITE + "/alati/" + SA_T["hr"]["slug"] + "/", "0.9", "monthly"),
         (SITE + "/en/tools/" + SA_T["en"]["slug"] + "/", "0.8", "monthly"),
         (SITE + "/sektori/", "0.9", "monthly"), (SITE + "/en/sectors/", "0.8", "monthly")]
+urls += [(SITE + "/mjere/", "0.95", "monthly"), (SITE + "/en/measures/", "0.85", "monthly")]
+urls += [(SITE + "/predavanja/", "0.8", "monthly"), (SITE + "/en/speaking/", "0.7", "monthly")]
 urls += [(SITE + "/usluge/", "0.95", "monthly"), (SITE + "/en/services/", "0.85", "monthly")]
 urls += [("%s/usluge/%s/" % (SITE, x["hr"]), "0.9", "monthly") for x in USLUGE_META]
 urls += [("%s/en/services/%s/" % (SITE, x["en"]), "0.8", "monthly") for x in USLUGE_META]
