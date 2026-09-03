@@ -1950,7 +1950,7 @@ EN_CLIENTS = [
  ("Insurance", ["Croatia osiguranje", "Adriatic osiguranje", "Sunce osiguranje", "UNIQA osiguranje", "ANO Insurance Solutions"]),
  ("Energy and industry", ["HROTE", "E.ON", "INA", "IHC Engineering Croatia", "TEHMA", "MCZ"]),
  ("IT and digital services", ["APIS-IT", "Rocket DBS", "SmartGroup HR Solutions", "SmartGroup Recruitment", "BCC Services", "Digital Assembly", "AMODO", "Cooperante", "TPA Hrvatska"]),
- ("Food industry", ["Franck d.d.", "Pan-pek", "Mlinar", "Adria Snack Company", "Offertissima"]),
+ ("Food industry", ["Franck d.d.", "Pan-pek", "Mlinar", "Intersnack", "Offertissima"]),
  ("Health and pharma", ["Medika d.d.", "Biovega", "Delmerion Natural Beauty"]),
  ("Business services", ["EOS Matrix", "Log Adria", "Kompas", "Travel Experience Museum", "Hrvatski Telekom", "Hajduk Split"]),
 ]
@@ -3420,8 +3420,8 @@ def en_index():
     CHK = '<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>'
     deliverables = "\n".join('        <div class="deliver-item">%s<span>%s</span></div>' % (CHK, d)
                              for d in EN_DELIVERABLES)
-    REF_URLS = {'Zagreb Stock Exchange': 'https://www.zse.hr/', 'Partner banka': 'https://www.paba.hr/', 'Euroleasing': 'https://www.euroleasing.hr/', 'Fintastic': 'https://www.fintastic.hr/', 'Croatia osiguranje': 'https://www.crosig.hr/', 'Adriatic osiguranje': 'https://www.adriatic.hr/', 'UNIQA osiguranje': 'https://www.uniqa.hr/', 'HROTE': 'https://www.hrote.hr/', 'E.ON': 'https://www.eon.hr/', 'INA': 'https://www.ina.hr/', 'TEHMA': 'https://www.tehma.hr/', 'APIS-IT': 'https://www.apis-it.hr/', 'Rocket DBS': 'https://www.rocketdbs.com/', 'SmartGroup HR Solutions': 'https://www.smartgroup.hr/', 'SmartGroup Recruitment': 'https://www.smartgroup.hr/', 'AMODO': 'https://amodo.eu/', 'Cooperante': 'https://www.cooperante.hr/', 'TPA Hrvatska': 'https://www.tpa-group.hr/', 'Franck d.d.': 'https://www.franck.eu/', 'Pan-pek': 'https://www.panpek.hr/', 'Mlinar': 'https://www.mlinar.hr/', 'Offertissima': 'https://www.offertissima.hr/', 'Medika d.d.': 'https://www.medika.hr/', 'Biovega': 'https://www.biovega.hr/', 'EOS Matrix': 'https://hr.eos-solutions.com/', 'Kompas': 'https://www.kompas.hr/', 'Hrvatski Telekom': 'https://www.hrvatskitelekom.hr/', 'Hajduk Split': 'https://hajduk.hr/', 'Krypto Investment Partners': 'https://kip.investments/', 'ANO Insurance Solutions': 'https://www.ano.hr/hr/naslovna/', 'Sunce osiguranje': 'https://www.agramlife.hr/', 'IHC Engineering Croatia': 'https://www.royalihc.com/about-us/global-presence/croatia', 'Digital Assembly': 'https://digital-assembly.hr/', 'Delmerion Natural Beauty': 'https://kip.investments/', 'Log Adria': 'https://www.rhenus.group/', 'Travel Experience Museum': 'https://travelexperiencemuseum.com/'}
-    REF_TIPS = {'Sunce osiguranje': 'Merged into Agram Life osiguranje', 'IHC Engineering Croatia': 'Part of the Royal IHC group', 'Log Adria': 'Acquired by the Rhenus group', 'Šted banka': 'In liquidation', 'MCZ': 'Ceased operations'}
+    REF_URLS = {'Zagreb Stock Exchange': 'https://www.zse.hr/', 'Partner banka': 'https://www.paba.hr/', 'Euroleasing': 'https://www.euroleasing.hr/', 'Fintastic': 'https://www.fintastic.hr/', 'Croatia osiguranje': 'https://www.crosig.hr/', 'Adriatic osiguranje': 'https://www.adriatic.hr/', 'UNIQA osiguranje': 'https://www.uniqa.hr/', 'HROTE': 'https://www.hrote.hr/', 'E.ON': 'https://www.eon.hr/', 'INA': 'https://www.ina.hr/', 'TEHMA': 'https://www.tehma.hr/', 'APIS-IT': 'https://www.apis-it.hr/', 'Rocket DBS': 'https://www.rocketdbs.com/', 'SmartGroup HR Solutions': 'https://www.smartgroup.hr/', 'SmartGroup Recruitment': 'https://www.smartgroup.hr/', 'AMODO': 'https://amodo.eu/', 'Cooperante': 'https://www.cooperante.hr/', 'TPA Hrvatska': 'https://www.tpa-group.hr/', 'Franck d.d.': 'https://www.franck.eu/', 'Pan-pek': 'https://www.panpek.hr/', 'Mlinar': 'https://www.mlinar.hr/', 'Offertissima': 'https://www.offertissima.hr/', 'Medika d.d.': 'https://www.medika.hr/', 'Biovega': 'https://www.biovega.hr/', 'EOS Matrix': 'https://hr.eos-solutions.com/', 'Kompas': 'https://www.kompas.hr/', 'Hrvatski Telekom': 'https://www.hrvatskitelekom.hr/', 'Hajduk Split': 'https://hajduk.hr/', 'Krypto Investment Partners': 'https://kip.investments/', 'ANO Insurance Solutions': 'https://www.ano.hr/hr/naslovna/', 'Sunce osiguranje': 'https://www.agramlife.hr/', 'IHC Engineering Croatia': 'https://www.royalihc.com/about-us/global-presence/croatia', 'Digital Assembly': 'https://digital-assembly.hr/', 'Delmerion Natural Beauty': 'https://kip.investments/', 'Log Adria': 'https://www.rhenus.group/', 'Travel Experience Museum': 'https://travelexperiencemuseum.com/', 'Intersnack': 'https://www.intersnack.hr/', 'BCC Services': 'https://www.bccservices.com/'}
+    REF_TIPS = {'Sunce osiguranje': 'Merged into Agram Life osiguranje', 'IHC Engineering Croatia': 'Part of the Royal IHC group', 'Log Adria': 'Acquired by the Rhenus group', 'Šted banka': 'In liquidation', 'MCZ': 'Ceased operations', 'Intersnack': 'Formerly Adria Snack Company'}
     def _ref(c):
         u = REF_URLS.get(c)
         tip = REF_TIPS.get(c)
@@ -3772,12 +3772,21 @@ window.addEventListener('scroll', function () {
 });
 document.querySelectorAll('a[href^="#"]').forEach(function (a) {
   a.addEventListener('click', function (e) {
-    var t = document.querySelector(a.getAttribute('href'));
-    if (t) {
-      e.preventDefault();
-      var y = t.getBoundingClientRect().top + window.pageYOffset - 104;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+    var href = a.getAttribute('href');
+    if (!href || href === '#') { return; }
+    var t = null;
+    try { t = document.querySelector(href); } catch (err) { return; }
+    if (!t) { return; }
+    e.preventDefault();
+    if (document.body.style.overflow === 'hidden' && !document.querySelector('.modal-overlay.open')) {
+      document.body.style.overflow = '';
     }
+    var y = Math.max(0, t.getBoundingClientRect().top + window.pageYOffset - 104);
+    try { window.scrollTo({ top: y, behavior: 'smooth' }); }
+    catch (err) { window.scrollTo(0, y); }
+    setTimeout(function () {
+      if (Math.abs(window.pageYOffset - y) > 4) { window.scrollTo(0, y); }
+    }, 600);
   });
 });
 function toggleFaq(btn) {

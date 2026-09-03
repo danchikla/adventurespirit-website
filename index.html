@@ -614,6 +614,7 @@
   </style>
 </head>
 <body>
+<script>window.__dijagErrs=[];window.addEventListener("error",function(e){window.__dijagErrs.push((e.message||"greska")+" @"+(e.lineno||"?"));});</script>
 
 <!-- ════════════════════════════════════════════════
      NAVIGATION
@@ -1505,7 +1506,7 @@
           <a class="ref-chip" href="https://www.rocketdbs.com/" target="_blank" rel="noopener">Rocket DBS</a>
           <a class="ref-chip" href="https://www.smartgroup.hr/" target="_blank" rel="noopener">SmartGroup HR Solutions</a>
           <a class="ref-chip" href="https://www.smartgroup.hr/" target="_blank" rel="noopener">SmartGroup Recruitment</a>
-          <span class="ref-chip">BCC Services</span>
+          <a class="ref-chip" href="https://www.bccservices.com/" target="_blank" rel="noopener">BCC Services</a>
           <a class="ref-chip" href="https://digital-assembly.hr/" target="_blank" rel="noopener">Digital Assembly</a>
           <a class="ref-chip" href="https://amodo.eu/" target="_blank" rel="noopener">AMODO</a>
           <a class="ref-chip" href="https://www.cooperante.hr/" target="_blank" rel="noopener">Cooperante</a>
@@ -1519,7 +1520,7 @@
           <a class="ref-chip" href="https://www.franck.eu/" target="_blank" rel="noopener">Franck d.d.</a>
           <a class="ref-chip" href="https://www.panpek.hr/" target="_blank" rel="noopener">Pan-pek</a>
           <a class="ref-chip" href="https://www.mlinar.hr/" target="_blank" rel="noopener">Mlinar</a>
-          <span class="ref-chip">Adria Snack Company</span>
+          <a class="ref-chip" href="https://www.intersnack.hr/" target="_blank" rel="noopener" title="Ranije Adria Snack Company">Intersnack</a>
           <a class="ref-chip" href="https://www.offertissima.hr/" target="_blank" rel="noopener">Offertissima</a>
         </div>
       </div>
@@ -1829,12 +1830,24 @@
   // ── Smooth scroll ─────────────────────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) {
-        e.preventDefault();
-        var y = t.getBoundingClientRect().top + window.pageYOffset - 104;
-        window.scrollTo({ top: y, behavior: 'smooth' });
+      const href = a.getAttribute('href');
+      if (!href || href === '#') return;          // logo i prazna sidra
+      let t = null;
+      try { t = document.querySelector(href); } catch (err) { return; }
+      if (!t) return;
+      e.preventDefault();
+      // Ako je neki modal ostavio body zakljucan, otkljucaj ga
+      if (document.body.style.overflow === 'hidden' &&
+          !document.querySelector('.modal-overlay.open')) {
+        document.body.style.overflow = '';
       }
+      const y = Math.max(0, t.getBoundingClientRect().top + window.pageYOffset - 104);
+      try { window.scrollTo({ top: y, behavior: 'smooth' }); }
+      catch (err) { window.scrollTo(0, y); }
+      // Rezerva: ako glatko skrolanje nije proradilo, skoci izravno
+      setTimeout(() => {
+        if (Math.abs(window.pageYOffset - y) > 4) { window.scrollTo(0, y); }
+      }, 600);
     });
   });
 

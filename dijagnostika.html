@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Dijagnostika skrolanja</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:#0f1117;color:#e2e8f0;line-height:1.6;padding:32px 20px}
+.w{max-width:820px;margin:0 auto}
+h1{font-size:22px;font-weight:800;color:#fff;margin-bottom:6px}
+p.s{font-size:13.5px;color:#94a3b8;margin-bottom:26px}
+.row{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.row:last-child{border-bottom:none}
+.st{flex-shrink:0;width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800}
+.ok{background:rgba(110,196,122,.15);color:#6ec47a}
+.bad{background:rgba(248,113,113,.15);color:#f87171}
+.inf{background:rgba(255,255,255,.06);color:#94a3b8}
+.t{font-size:14.5px;font-weight:600;color:#fff}
+.v{font-size:13px;color:#94a3b8;font-family:ui-monospace,Menlo,monospace;margin-top:3px;word-break:break-all}
+.box{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px 26px;margin-bottom:20px}
+.sum{font-size:16px;font-weight:700;padding:18px 22px;border-radius:12px;margin-bottom:22px}
+.sum.ok{background:rgba(110,196,122,.1);border:1px solid rgba(110,196,122,.35);color:#6ec47a}
+.sum.bad{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.35);color:#f87171}
+textarea{width:100%;height:190px;font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#e2e8f0;
+ background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:14px;margin-top:12px}
+button{font-family:inherit;font-size:14px;font-weight:700;color:#fff;background:#EF653F;border:none;
+ border-radius:9px;padding:11px 22px;cursor:pointer;margin-top:12px}
+button:hover{background:#c14b28}
+a{color:#EF653F}
+</style>
+</head>
+<body>
+<div class="w">
+  <h1>Dijagnostika skrolanja</h1>
+  <p class="s">Ova stranica u pozadini učita naslovnicu i provjeri rade li poveznice na sidra. Ne treba vam konzola - samo pričekajte nekoliko sekundi.</p>
+  <div id="sum" class="sum inf" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:#94a3b8">Provjeravam...</div>
+  <div class="box" id="out"></div>
+  <div class="box">
+    <div class="t">Pošaljite ovo</div>
+    <p class="s" style="margin:6px 0 0">Kopirajte tekst i pošaljite ga - iz njega se vidi točan uzrok.</p>
+    <textarea id="txt" readonly></textarea>
+    <button id="cp">Kopiraj</button>
+    <span id="done" style="display:none;color:#6ec47a;font-size:13px;font-weight:600;margin-left:10px">Kopirano</span>
+  </div>
+</div>
+
+<iframe id="fr" src="/?dijag=1" style="position:fixed;left:-9999px;top:0;width:1280px;height:900px;border:0"></iframe>
+
+<script>
+(function () {
+  var out = document.getElementById('out'), lines = [], fails = 0;
+
+  function add(okState, title, value) {
+    var cls = okState === true ? 'ok' : (okState === false ? 'bad' : 'inf');
+    var mark = okState === true ? '✓' : (okState === false ? '✕' : 'i');
+    if (okState === false) fails++;
+    out.insertAdjacentHTML('beforeend',
+      '<div class="row"><div class="st ' + cls + '">' + mark + '</div>' +
+      '<div><div class="t">' + title + '</div><div class="v">' + value + '</div></div></div>');
+    lines.push((okState === true ? '[OK]  ' : okState === false ? '[X]   ' : '[i]   ') + title + ': ' + value);
+  }
+
+  add(null, 'Preglednik', navigator.userAgent);
+  add(null, 'Prozor', window.innerWidth + ' x ' + window.innerHeight +
+      ', devicePixelRatio ' + window.devicePixelRatio);
+  add(null, 'Smanjena animacija', window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'uključena' : 'isključena');
+
+  var fr = document.getElementById('fr');
+  fr.addEventListener('load', function () {
+    setTimeout(function () {
+      var d, w;
+      try { d = fr.contentDocument; w = fr.contentWindow; }
+      catch (e) { add(false, 'Pristup naslovnici', 'blokiran: ' + e.message); finish(); return; }
+
+      add(true, 'Naslovnica učitana', d.title.slice(0, 70));
+
+      var bodyOv = w.getComputedStyle(d.body).overflowY;
+      add(bodyOv === 'visible', 'CSS: overflow-y na body', bodyOv +
+          (bodyOv === 'visible' ? ' (ispravno)' : ' (stara verzija - body je spremnik za skrolanje)'));
+
+      var htmlOx = w.getComputedStyle(d.documentElement).overflowX;
+      add(htmlOx === 'hidden', 'CSS: overflow-x na html', htmlOx);
+
+      var inline = d.body.style.overflow;
+      add(!inline, 'Body nije zaključan modalom', inline ? ('style.overflow = "' + inline + '"') : 'nije');
+
+      var max = Math.round(d.documentElement.scrollHeight - w.innerHeight);
+      add(max > 3000, 'Najveći mogući skrol', max + ' px' + (max > 3000 ? '' : ' (premalo - skrolanje je blokirano)'));
+
+      var hasNew = /getBoundingClientRect\(\)\.top \+ window\.pageYOffset/.test(d.documentElement.innerHTML);
+      add(hasNew, 'Verzija koda za skrolanje', hasNew ? 'nova' : 'STARA - preglednik služi iz predmemorije');
+
+      ['#sigurnost', '#kontakt', '#onama', '#faq'].forEach(function (sel) {
+        var t = d.querySelector(sel);
+        if (!t) { add(false, 'Odredište ' + sel, 'ne postoji na stranici'); return; }
+        w.scrollTo(0, 0);
+        var cilj = Math.round(t.getBoundingClientRect().top + w.pageYOffset - 104);
+        w.scrollTo({ top: cilj, behavior: 'instant' });
+        var stigao = Math.round(w.pageYOffset);
+        var okp = Math.abs(stigao - cilj) < 4;
+        add(okp, 'Skrol na ' + sel, 'cilj ' + cilj + ' px, stigao ' + stigao + ' px' + (okp ? '' : ' - NE STIŽE'));
+      });
+
+      var errs = w.__dijagErrs || [];
+      add(errs.length === 0, 'JavaScript greške na naslovnici',
+          errs.length ? errs.join(' | ') : 'nema');
+
+      finish();
+    }, 1400);
+  });
+
+  function finish() {
+    var sum = document.getElementById('sum');
+    if (fails === 0) {
+      sum.className = 'sum ok';
+      sum.textContent = 'Sve je ispravno. Skrolanje radi na verziji koju vaš preglednik trenutno ima.';
+    } else {
+      sum.className = 'sum bad';
+      sum.textContent = fails + ' provjera nije prošla. Detalji ispod, a najvažniji redak je prvi označen crveno.';
+    }
+    document.getElementById('txt').value =
+      'DIJAGNOSTIKA ' + new Date().toISOString() + '\n' + location.href + '\n\n' + lines.join('\n');
+  }
+
+  setTimeout(function () {
+    if (!document.getElementById('txt').value) {
+      add(false, 'Vremensko ograničenje', 'naslovnica se nije učitala u 12 sekundi');
+      finish();
+    }
+  }, 12000);
+
+  document.getElementById('cp').addEventListener('click', function () {
+    var ta = document.getElementById('txt');
+    ta.select();
+    var done = function () {
+      document.getElementById('done').style.display = 'inline';
+      setTimeout(function () { document.getElementById('done').style.display = 'none'; }, 2500);
+    };
+    if (navigator.clipboard) { navigator.clipboard.writeText(ta.value).then(done, done); }
+    else { try { document.execCommand('copy'); } catch (e) {} done(); }
+  });
+})();
+</script>
+</body>
+</html>
