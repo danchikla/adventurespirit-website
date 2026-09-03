@@ -345,3 +345,53 @@ input[type="datetime-local"]:focus, input[type="date"]:focus { outline: none; bo
 .auth-box > div { font-size: 14.5px; color: var(--white); font-weight: 600; line-height: 1.55; }
 .auth-k { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--orange); margin-bottom: 6px; }
 @media (max-width: 600px) { .verdict { padding: 20px 18px; } .verdict-label { font-size: 22px; } }
+
+/* Alat: mini samoprocjena */
+.q-block { border-bottom: 1px solid var(--line); padding: 22px 0; }
+.q-block:last-of-type { border-bottom: none; }
+.q-head { display: flex; gap: 14px; align-items: baseline; margin-bottom: 6px; }
+.q-num { font-size: 12px; font-weight: 800; color: var(--orange); font-variant-numeric: tabular-nums; flex-shrink: 0; letter-spacing: .5px; }
+.q-title { font-size: 15.5px; font-weight: 700; color: var(--white); line-height: 1.45; }
+.q-sub { font-size: 13px; color: #6b7488; line-height: 1.65; margin: 0 0 14px 26px; }
+.q-opts { display: flex; flex-direction: column; gap: 7px; margin-left: 26px; }
+.q-opt { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; padding: 7px 10px; border-radius: 8px; border: 1px solid transparent; transition: .15s; }
+.q-opt:hover { background: rgba(255,255,255,.03); border-color: var(--line); }
+.q-opt input { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--orange); flex-shrink: 0; cursor: pointer; }
+.q-opt span { font-size: 13.5px; color: #c3ccdb; line-height: 1.55; }
+.q-opt input:checked ~ span { color: var(--white); font-weight: 600; }
+.progress-bar { height: 4px; background: rgba(255,255,255,.07); border-radius: 3px; overflow: hidden; margin: 0 0 4px; }
+.progress-bar i { display: block; height: 100%; background: var(--orange); width: 0; transition: width .3s; }
+.progress-txt { font-size: 12px; color: #6b7488; margin-bottom: 22px; }
+
+.score-top { display: grid; grid-template-columns: auto 1fr; gap: 30px; align-items: center; background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: 18px; padding: 28px 30px; margin-bottom: 28px; }
+.score-num { font-size: 58px; font-weight: 900; line-height: 1; color: var(--orange); font-variant-numeric: tabular-nums; }
+.score-num small { font-size: 26px; }
+.score-lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #6b7488; margin-top: 8px; }
+.score-txt { font-size: 15px; color: #c3ccdb; line-height: 1.75; }
+
+.sa-chart-wrap { position: relative; padding-right: 52px; background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: 16px; padding: 26px 62px 22px 26px; margin-bottom: 28px; }
+.sa-chart { display: grid; grid-template-columns: repeat(13, 1fr); gap: 6px; }
+.sa-col { display: flex; flex-direction: column-reverse; gap: 4px; }
+.sa-col .sa-lab { font-size: 9px; line-height: 13px; text-align: center; color: #5b6478; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.sa-cell { height: 15px; border-radius: 3px; background: rgba(255,255,255,.055); }
+.sa-col.ok .sa-cell.on { background: var(--orange); }
+.sa-col.low .sa-cell.on { background: #4c556b; }
+.sa-thresh { position: absolute; left: 26px; right: 62px; bottom: 103px; border-top: 1px dashed rgba(255,255,255,.3); }
+.sa-thresh span { position: absolute; left: calc(100% + 8px); top: -8px; white-space: nowrap; font-size: 9px; font-weight: 700; letter-spacing: .6px; color: #8b95ab; }
+
+.gap-item { background: rgba(255,255,255,.03); border: 1px solid var(--line); border-left: 3px solid #4c556b; border-radius: 0 12px 12px 0; padding: 16px 20px; margin-bottom: 10px; }
+.gap-item.crit { border-left-color: var(--orange); }
+.gap-h { display: flex; gap: 12px; align-items: baseline; margin-bottom: 6px; }
+.gap-n { font-size: 12px; font-weight: 800; color: var(--orange); font-variant-numeric: tabular-nums; }
+.gap-t { font-size: 14.5px; font-weight: 700; color: var(--white); line-height: 1.4; }
+.gap-s { font-size: 11.5px; color: #6b7488; margin-left: auto; white-space: nowrap; font-weight: 600; }
+.gap-d { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; margin-left: 24px; }
+
+@media (max-width: 600px) {
+  .score-top { grid-template-columns: 1fr; gap: 14px; padding: 22px 18px; text-align: center; }
+  .sa-chart-wrap { padding: 20px 46px 18px 14px; }
+  .sa-thresh { left: 14px; right: 46px; bottom: 90px; }
+  .sa-cell { height: 12px; }
+  .sa-col .sa-lab { font-size: 8px; }
+  .q-sub, .q-opts { margin-left: 0; }
+}

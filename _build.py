@@ -3747,7 +3747,15 @@ def build_tools(lang, articles):
         <span class="tool-tag">%s</span>
       </a>''' % (w["hub"], CAT_T[lang]["slug"], TOOL_ICONS["split"], CAT_T[lang]["name"],
                  CAT_T[lang]["desc"], "ZKS / NIS2" if lang == "hr" else "CSA / NIS2")
-    for icon, nm, ds in [("chart", w["soon3_name"], w["soon3_desc"])]:
+    cards += '''
+      <a class="tool-card" href="%s%s/">
+        <div class="tool-icon">%s</div>
+        <div class="tool-name">%s</div>
+        <div class="tool-desc">%s</div>
+        <span class="tool-tag">%s</span>
+      </a>''' % (w["hub"], SA_T[lang]["slug"], TOOL_ICONS["chart"], SA_T[lang]["name"],
+                 SA_T[lang]["desc"], "ZKS / NIS2" if lang == "hr" else "CSA / NIS2")
+    for icon, nm, ds in []:
         cards += '''
       <div class="tool-card soon">
         <div class="tool-icon">%s</div>
@@ -4384,10 +4392,384 @@ def build_tool2(lang, articles):
                                           SITE + "/en/tools/" + CAT_T["en"]["slug"] + "/"), ld=ld))
 
 
+
+# ══════════════════════════════════════════════════════════════════
+# ALAT 3 - Mini samoprocjena po 13 mjera
+# ══════════════════════════════════════════════════════════════════
+# Pitanje po mjeri + preporuka koja se prikaze kad je mjera ispod praga.
+SA_Q_HR = [
+ ("Je li uprava formalno usvojila politiku kibernetičke sigurnosti, imenovala odgovorne osobe i prima li redovito izvještaje o stanju?",
+  "Uprava odobrava, imenuje, osigurava resurse i preispituje. Bez toga ostale mjere nemaju vlasnika.",
+  "Donesite odluku uprave o politici i imenovanju odgovorne osobe, i uvedite izvještaj upravi barem jednom godišnje. Ovo je mjera s najduljim vremenom dozrijevanja jer se dokazuje zapisima koji nastaju kroz ciklus."),
+ ("Postoji li ažuran inventar programske i sklopovske imovine, s izdvojenom kritičnom imovinom i klasifikacijom podataka?",
+  "Inventar je preduvjet za procjenu rizika, nadzor i gotovo svaku drugu mjeru.",
+  "Napravite jedan inventar i držite ga jedinim izvorom. Označite kritičnu imovinu i vlasnika po stavci. Ako imate odvojene popise po odjelima, prvo ih uskladite."),
+ ("Postoji li dokumentiran proces procjene rizika, s registrom rizika, vlasnicima i planom obrade?",
+  "Uredba traži pristup koji obuhvaća sve vrste opasnosti, ne samo informacijske prijetnje.",
+  "Povežite svaki rizik s imovinom iz inventara i osobom kao vlasnikom. Proširite opseg procjene na fizičke opasnosti - požar, poplava, nestanak struje, ispad komunikacija."),
+ ("Kako upravljate pravima pristupa kroz cijeli životni ciklus zaposlenika i vanjskog osoblja?",
+  "Od zapošljavanja i ugovornih obveza do oduzimanja prava pri odlasku, uz odvojene administratorske račune.",
+  "Uvedite postupak oduzimanja prava pri odlasku s dokazom o izvršenju i redovitu reviziju povlaštenih računa. Odvojite administratorske od redovnih računa."),
+ ("Kako stojite s osnovnom higijenom - zakrpe, sigurnosne kopije, zaštita krajnjih točaka i edukacija zaposlenika?",
+  "Mjera s najviše podmjera nakon upravljanja identitetima; ujedno ona koja najviše smanjuje stvarni rizik.",
+  "Odredite tko je zadužen za zakrpe po svakom dijelu infrastrukture i uspostavite mjesečni ciklus. Testirajte vraćanje podataka iz sigurnosne kopije i zapišite koliko je trajalo."),
+ ("Je li mreža segmentirana, je li perimetar zaštićen i prati li se mrežni promet?",
+  "Segmentacija je najisplativija kontrola jer smanjuje doseg napada bez dodiranja pojedinih sustava.",
+  "Odvojite poslužiteljsku od korisničke mreže i uklonite izravan pristup internetu s poslužitelja. Provjerite koji su servisi javno izloženi - vanjskom tražilicom, ne popisom iz informatike."),
+ ("Primjenjuje li se načelo najmanje privilegije i višefaktorska autentifikacija na izloženim sučeljima?",
+  "Posebno na udaljenom pristupu, elektroničkoj pošti i administratorskim računima.",
+  "Uključite višefaktorsku autentifikaciju na udaljenom pristupu i za administratorske račune. Prebrojite članove najpovlaštenije grupe i uklonite one koji ta prava ne koriste."),
+ ("Postavljate li sigurnosne zahtjeve dobavljačima i procjenjujete li rizik trećih strana?",
+  "Ugovorne klauzule, upitnici, procjena i praćenje kroz vrijeme.",
+  "Napravite popis dobavljača koji imaju pristup vašim sustavima ili podacima i procijenite ih po istoj metodologiji kao vlastite rizike. Provjerite obvezuju li ugovori na prijavu incidenta."),
+ ("Postoje li sigurnosni zahtjevi u razvoju i održavanju sustava, uz upravljanje promjenama?",
+  "Odvojena okruženja, testiranje prije puštanja u rad, pravila sigurnog kodiranja i za nabavljeni softver.",
+  "Odvojite testno od produkcijskog okruženja i uvedite zapis o odobrenju promjene. Ako razvoj radi vanjski partner, ovi zahtjevi idu u ugovor."),
+ ("Imate li pravila primjene kriptografije, zaštitu podataka u prijenosu i mirovanju te upravljanje ključevima?",
+  "Uredba uz to traži i razmatranje kvantno otporne kriptografije razmjerno procijenjenom riziku.",
+  "Popišite gdje se kriptografija koristi i tko upravlja ključevima. Provjerite jesu li sigurnosne kopije i prijenosna računala šifrirani."),
+ ("Postoji li plan odgovora na incident, kriterij značajnosti i uspostavljen proces prijave nadležnom CSIRT-u?",
+  "Rokovi su 24 sata, 72 sata i 30 dana, a teku od saznanja. Proces mora postojati prije incidenta.",
+  "Odredite tko donosi odluku o značajnosti i tko šalje prijavu, uz zamjenu. Provjerite ima li netko pristup platformi PiXi. Napravite vježbu na stolu i izmjerite vrijeme do pripremljenog ranog upozorenja."),
+ ("Postoji li analiza poslovnog utjecaja, planovi kontinuiteta i oporavka, i jesu li testirani?",
+  "Plan koji nije isproban dokumentira namjeru, ne sposobnost.",
+  "Ako svi procesi imaju isti RTO, analiza nije razlikovala - mjerite utjecaj kroz vrijeme, ne u jednoj točki. Provedite vježbu i zapišite rezultat; taj zapis je dokaz koji mjera traži."),
+ ("Je li fizički pristup prostorima s opremom kontroliran, uz zaštitu od požara, vode i ispada napajanja?",
+  "Zasebna mjera s vlastitim podmjerama, ne dio šireg skupa kontrola.",
+  "Provjerite tko sve ima pristup prostoru s opremom i postoji li evidencija ulazaka. Zaštita napajanja i kabliranja spada ovdje, a redovito se previdi."),
+]
+
+SA_Q_EN = [
+ ("Has the board formally adopted a cybersecurity policy, appointed responsible people and does it receive regular reports?",
+  "The board approves, appoints, provides resources and reviews. Without that the other measures have no owner.",
+  "Pass a board decision on the policy and the appointment, and introduce a report to the board at least annually. This measure has the longest lead time because it is evidenced by records produced over a cycle."),
+ ("Is there a current inventory of software and hardware assets, with critical assets identified and data classified?",
+  "The inventory is a precondition for risk assessment, monitoring and almost every other measure.",
+  "Build one inventory and keep it as the single source. Mark critical assets and an owner per item. If departments keep separate lists, reconcile them first."),
+ ("Is there a documented risk assessment process, with a risk register, owners and a treatment plan?",
+  "The Regulation requires an all-hazards approach, not just information threats.",
+  "Link every risk to an asset in the inventory and to a person as owner. Widen the scope to physical hazards - fire, flood, power loss, communications failure."),
+ ("How do you manage access rights across the full lifecycle of employees and external staff?",
+  "From hiring and contractual duties through to revoking rights on departure, with separate administrator accounts.",
+  "Introduce a leaver process with evidence of execution, and a regular review of privileged accounts. Separate administrator accounts from ordinary ones."),
+ ("How do you stand on basic hygiene - patching, backups, endpoint protection and staff training?",
+  "The measure with the most sub-measures after identity management, and the one that reduces real risk most.",
+  "Name who is responsible for patching each part of the infrastructure and establish a monthly cycle. Test a restore from backup and record how long it took."),
+ ("Is the network segmented, is the perimeter protected and is traffic monitored?",
+  "Segmentation is the highest-return control because it limits reach without touching individual systems.",
+  "Separate server from user networks and remove direct internet access from servers. Check which services are publicly exposed - with an external search engine, not with IT's list."),
+ ("Is least privilege applied, and multi-factor authentication on exposed interfaces?",
+  "Particularly on remote access, email and administrator accounts.",
+  "Enable multi-factor authentication on remote access and for administrator accounts. Count the members of the most privileged group and remove those not using those rights."),
+ ("Do you set security requirements for suppliers and assess third-party risk?",
+  "Contractual clauses, questionnaires, assessment and monitoring over time.",
+  "List suppliers with access to your systems or data and assess them with the same methodology as your own risks. Check whether contracts oblige them to report incidents."),
+ ("Are there security requirements in system development and maintenance, with change management?",
+  "Separated environments, testing before go-live, secure coding rules that also apply to acquired software.",
+  "Separate test from production and introduce a record of change approval. If an external partner develops for you, these requirements belong in the contract."),
+ ("Do you have rules on cryptography, protection of data in transit and at rest, and key management?",
+  "The Regulation also asks you to consider quantum-resistant cryptography proportionate to assessed risk.",
+  "List where cryptography is used and who manages the keys. Check whether backups and laptops are encrypted."),
+ ("Is there an incident response plan, a significance criterion and an established process for notifying the competent CSIRT?",
+  "The deadlines are 24 hours, 72 hours and 30 days, running from awareness. The process must exist before the incident.",
+  "Decide who makes the significance call and who sends the notification, with a deputy. Check that someone has access to the PiXi platform. Run a tabletop and measure the time to a prepared early warning."),
+ ("Is there a business impact analysis, continuity and recovery plans, and have they been exercised?",
+  "A plan that has never been exercised documents intent, not capability.",
+  "If every process carries the same RTO, the analysis did not discriminate - measure impact over time, not at a single point. Run an exercise and record the result; that record is the evidence the measure asks for."),
+ ("Is physical access to areas holding equipment controlled, with fire, water and power protection?",
+  "A standalone measure with its own sub-measures, not part of a wider control set.",
+  "Check who has access to the equipment area and whether entries are logged. Power and cabling protection belongs here and is regularly overlooked."),
+]
+
+SA_T = {
+ "hr": dict(
+   slug="samoprocjena-13-mjera", name="Mini samoprocjena po 13 mjera",
+   desc="Trinaest pitanja, jedno po mjeri iz Priloga II. Uredbe. Rezultat je graf spremnosti s pragom od 60 % i popis mjera koje su ispod njega.",
+   title="Mini samoprocjena spremnosti po 13 mjera ZKS-a",
+   lead="Trinaest pitanja, jedno po mjeri iz Priloga II. Uredbe. Nije zamjena za formalnu samoprocjenu prema bodovnom okviru ZSIS-a, ali pokazuje gdje ste i što je prvo na redu.",
+   desc_meta="Besplatna mini samoprocjena spremnosti po 13 mjera upravljanja kibernetičkim sigurnosnim rizicima iz Priloga II. Uredbe NN 135/2024, s grafom i pragom spremnosti.",
+   scale_h="Za svaku mjeru odaberite tvrdnju koja najbolje opisuje stvarno stanje, ne željeno.",
+   scale=["Ne postoji ili se ne provodi",
+          "Provodi se djelomično, nije dokumentirano",
+          "Dokumentirano, ali se primjenjuje neujednačeno",
+          "Dokumentirano, primjenjuje se, postoje zapisi",
+          "Uz to se redovito preispituje i poboljšava"],
+   btn="Prikaži rezultat", reset="Poništi", copy="Kopiraj sažetak", print="Ispiši",
+   copied="Sažetak kopiran",
+   err="Odgovorite na sva pitanja - nedostaje ih još %d.",
+   progress="Odgovoreno %d od 13",
+   res_h="Vaša snimka stanja",
+   score_lbl="Spremnost",
+   verdict=[(0, 40, "Sustav je u ranoj fazi. Prioritet su mjere 1, 2 i 3 - bez vlasnika, inventara i registra rizika ostale mjere nemaju na čemu stajati."),
+            (40, 60, "Temelji postoje, ali dokazna baza je nejednaka. Većina posla je dopuna postojećeg, ne pisanje novog."),
+            (60, 80, "Iznad praga spremnosti. Preostalo je produbljivanje i zapisi koji dokazuju da sustav živi kroz ciklus."),
+            (80, 101, "Visoka spremnost. Fokus prelazi na dokazivanje kontinuiteta primjene i na pripremu za provjeru.")],
+   chart_h="Spremnost po mjerama", thresh="PRAG 60 %",
+   legend="Jedna kocka je jedna razina zrelosti. Sivi stupci su mjere ispod praga spremnosti. Prag je naš interni pokazatelj, a ne zakonski prag - bodovne pragove propisuje okvir ZSIS-a po podmjeri i razini.",
+   gaps_h="Mjere ispod praga", gaps_none="Nijedna mjera nije ispod praga spremnosti.",
+   score_of="%d od 5",
+   disclaimer="Ovo je informativna procjena zrelosti, ne formalna samoprocjena. Formalna samoprocjena provodi se po bodovnom okviru ZSIS-a, gdje se svaka od 13 mjera razrađuje kroz 99 podmjera i katalog od 132 kontrole, s pragom po kontroli i dodatnim pragom prosjeka po podmjeri. Ovaj alat daje jednu ocjenu po mjeri i služi za grubu orijentaciju.",
+   privacy="Alat radi isključivo u vašem pregledniku. Odgovora nema na našem poslužitelju.",
+   more="Kako se boduje formalna samoprocjena", more_url="/blog/kako-se-boduje-samoprocjena/",
+   sum_h="MINI SAMOPROCJENA - 13 MJERA ZKS-a", sum_score="Ukupna spremnost:", sum_gaps="Ispod praga:",
+   cta_h="Ovo je izvadak iz naše GRC platforme",
+   cta_p="U platformi se ista procjena vodi po svih 99 podmjera i 132 kontrole, s dokazima, vlasnicima, rokovima i revizijskim tragom - pa napredak pratite kontinuirano, a ne jednom godišnje.",
+   cta_b1="Pogledajte GRC Portal", cta_b2="Dogovorite razgovor",
+ ),
+ "en": dict(
+   slug="readiness-check-13-measures", name="Readiness check against the 13 measures",
+   desc="Thirteen questions, one per measure of Annex II. The result is a readiness chart with a 60 % threshold and a list of the measures below it.",
+   title="Readiness check against the 13 measures",
+   lead="Thirteen questions, one per measure of Annex II of the Croatian Cybersecurity Regulation. Not a substitute for the formal self-assessment against the ZSIS scoring framework, but it shows where you stand and what comes first.",
+   desc_meta="Free readiness check against the 13 cyber risk management measures of Annex II of the Croatian Cybersecurity Regulation, with a chart and a readiness threshold.",
+   scale_h="For each measure choose the statement that best describes the actual state, not the intended one.",
+   scale=["Does not exist or is not performed",
+          "Partly performed, not documented",
+          "Documented, but applied inconsistently",
+          "Documented, applied, records exist",
+          "And regularly reviewed and improved"],
+   btn="Show result", reset="Reset", copy="Copy summary", print="Print",
+   copied="Summary copied",
+   err="Answer all questions - %d still missing.",
+   progress="%d of 13 answered",
+   res_h="Your readiness snapshot",
+   score_lbl="Readiness",
+   verdict=[(0, 40, "The system is at an early stage. Measures 1, 2 and 3 come first - without an owner, an inventory and a risk register the other measures have nothing to stand on."),
+            (40, 60, "The foundations are there but the evidence base is uneven. Most of the work is extending what exists rather than writing something new."),
+            (60, 80, "Above the readiness threshold. What remains is depth, and the records proving the system runs through a full cycle."),
+            (80, 101, "High readiness. The focus moves to evidencing continuity of application and preparing for verification.")],
+   chart_h="Readiness by measure", thresh="THRESHOLD 60 %",
+   legend="One block is one maturity level. Grey columns are measures below the readiness threshold. The threshold is our internal indicator, not a statutory one - the statutory thresholds are set by the ZSIS framework per sub-measure and level.",
+   gaps_h="Measures below the threshold", gaps_none="No measure is below the readiness threshold.",
+   score_of="%d of 5",
+   disclaimer="This is an informative maturity assessment, not a formal self-assessment. The formal self-assessment follows the ZSIS scoring framework, where each of the 13 measures is broken into 99 sub-measures and a catalogue of 132 controls, with a threshold per control and an additional average threshold per sub-measure. This tool gives one score per measure and serves for rough orientation.",
+   privacy="The tool runs entirely in your browser. Your answers do not reach our server.",
+   more="How the formal self-assessment is scored", more_url="/en/blog/how-self-assessment-is-scored/",
+   sum_h="READINESS CHECK - 13 MEASURES", sum_score="Overall readiness:", sum_gaps="Below threshold:",
+   cta_h="This is an extract from our GRC platform",
+   cta_p="In the platform the same assessment runs across all 99 sub-measures and 132 controls, with evidence, owners, deadlines and an audit trail - so you track progress continuously rather than once a year.",
+   cta_b1="See the GRC Portal", cta_b2="Book a conversation",
+ ),
+}
+
+
+def build_tool3(lang, articles):
+    t = L[lang]
+    w = TOOLS_T[lang]
+    a = SA_T[lang]
+    QS = SA_Q_HR if lang == "hr" else SA_Q_EN
+    MJ = MJERE if lang == "hr" else MJERE_EN
+    FOOT = footer(lang, articles)
+    out_dir = os.path.join(ROOT, "en", "tools") if lang == "en" else os.path.join(ROOT, "alati")
+    os.makedirs(os.path.join(out_dir, a["slug"]), exist_ok=True)
+    url = SITE + w["hub"] + a["slug"] + "/"
+
+    qs = []
+    for i, (q, sub, rec) in enumerate(QS):
+        opts = "\n".join(
+          '          <label class="q-opt"><input type="radio" name="m%d" value="%d"><span>%s</span></label>'
+          % (i + 1, v + 1, a["scale"][v]) for v in range(5))
+        qs.append('''      <div class="q-block">
+        <div class="q-head"><span class="q-num">%02d</span><span class="q-title">%s</span></div>
+        <p class="q-sub">%s &middot; %s</p>
+        <div class="q-opts">
+%s
+        </div>
+      </div>''' % (i + 1, q, MJ[i][1], sub, opts))
+
+    JS = '''<script>
+(function () {
+  var T = %s;
+  var $ = function (id) { return document.getElementById(id); };
+
+  function answers() {
+    var out = [];
+    for (var i = 1; i <= 13; i++) {
+      var el = document.querySelector('input[name="m' + i + '"]:checked');
+      out.push(el ? parseInt(el.value, 10) : 0);
+    }
+    return out;
+  }
+  function progress() {
+    var n = answers().filter(function (x) { return x > 0; }).length;
+    $("sa-bar").style.width = Math.round(n / 13 * 100) + "%%";
+    $("sa-prog").textContent = T.progress.replace("%%d", n);
+  }
+  document.querySelectorAll('.q-opt input').forEach(function (el) {
+    el.addEventListener("change", progress);
+  });
+
+  function calc() {
+    var v = answers(), missing = v.filter(function (x) { return x === 0; }).length;
+    var err = $("sa-err");
+    if (missing) { err.textContent = T.err.replace("%%d", missing); err.hidden = false; $("sa-result").hidden = true; return; }
+    err.hidden = true;
+
+    var total = v.reduce(function (s, x) { return s + x; }, 0);
+    var pct = Math.round(total / 65 * 100);
+
+    var cols = "";
+    for (var i = 0; i < 13; i++) {
+      var cells = "";
+      for (var k = 0; k < 5; k++) cells += '<div class="sa-cell' + (k < v[i] ? " on" : "") + '"></div>';
+      cols += '<div class="sa-col ' + (v[i] >= 3 ? "ok" : "low") + '">' +
+              '<div class="sa-lab">' + (i + 1 < 10 ? "0" : "") + (i + 1) + '</div>' + cells + '</div>';
+    }
+    $("sa-chart").innerHTML = cols;
+    $("sa-pct").innerHTML = pct + '<small>%%</small>';
+
+    var msg = T.verdict[T.verdict.length - 1][2];
+    for (var j = 0; j < T.verdict.length; j++) {
+      if (pct >= T.verdict[j][0] && pct < T.verdict[j][1]) { msg = T.verdict[j][2]; break; }
+    }
+    $("sa-msg").textContent = msg;
+
+    var gaps = "";
+    for (var i2 = 0; i2 < 13; i2++) {
+      if (v[i2] >= 3) continue;
+      gaps += '<div class="gap-item' + (v[i2] === 1 ? " crit" : "") + '">' +
+        '<div class="gap-h"><span class="gap-n">' + (i2 + 1 < 10 ? "0" : "") + (i2 + 1) + '</span>' +
+        '<span class="gap-t">' + T.names[i2] + '</span>' +
+        '<span class="gap-s">' + T.scoreOf.replace("%%d", v[i2]) + '</span></div>' +
+        '<div class="gap-d">' + T.recs[i2] + '</div></div>';
+    }
+    $("sa-gaps").innerHTML = gaps || '<p class="dl-left ok" style="font-size:14px">' + T.gapsNone + '</p>';
+    $("sa-result").hidden = false;
+
+    var lines = [T.sumH, "", T.sumScore + " " + pct + " %%", "", ];
+    for (var i3 = 0; i3 < 13; i3++) {
+      lines.push("  " + (i3 + 1 < 10 ? "0" : "") + (i3 + 1) + "  " +
+        "#####".slice(0, v[i3]) + ".....".slice(0, 5 - v[i3]) + "  " + T.names[i3]);
+    }
+    var below = [];
+    for (var i4 = 0; i4 < 13; i4++) if (v[i4] < 3) below.push(i4 + 1);
+    lines.push("", T.sumGaps + " " + (below.length ? below.join(", ") : "-"));
+    lines.push("", T.disclaimer);
+    $("sa-summary").textContent = lines.join("\\n");
+    $("sa-result").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  $("sa-calc").addEventListener("click", calc);
+  $("sa-reset").addEventListener("click", function () {
+    document.querySelectorAll('.q-opt input').forEach(function (x) { x.checked = false; });
+    $("sa-result").hidden = true; $("sa-err").hidden = true; progress();
+  });
+  $("sa-print").addEventListener("click", function () { window.print(); });
+  $("sa-copy").addEventListener("click", function () {
+    var txt = $("sa-summary").textContent;
+    var done = function () { $("sa-copied").hidden = false; setTimeout(function () { $("sa-copied").hidden = true; }, 2500); };
+    if (navigator.clipboard) { navigator.clipboard.writeText(txt).then(done, done); }
+    else { var ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta);
+           ta.select(); try { document.execCommand("copy"); } catch (e) {} ta.remove(); done(); }
+  });
+  progress();
+})();
+</script>''' % json.dumps({
+      "progress": a["progress"], "err": a["err"], "verdict": a["verdict"],
+      "names": [m[1] for m in MJ], "recs": [q[2] for q in QS],
+      "gapsNone": a["gaps_none"], "scoreOf": a["score_of"],
+      "sumH": a["sum_h"], "sumScore": a["sum_score"], "sumGaps": a["sum_gaps"],
+      "disclaimer": a["disclaimer"],
+    }, ensure_ascii=False)
+
+    body = header(lang, active_blog=False) + '''
+<main>
+  <div class="container narrow">
+    <div class="crumbs">
+      <a href="%s">%s</a><span>&rsaquo;</span><a href="%s">%s</a><span>&rsaquo;</span>%s
+    </div>
+    <header class="art-head">
+      <div class="eyebrow">%s</div>
+      <h1>%s</h1>
+      <p class="art-lead">%s</p>
+    </header>
+
+    <div class="tool-panel">
+      <div class="progress-bar"><i id="sa-bar"></i></div>
+      <p class="progress-txt" id="sa-prog"></p>
+      <p class="hint">%s</p>
+%s
+      <p id="sa-err" class="dl-left over" hidden style="margin-top:16px"></p>
+      <div class="tool-actions">
+        <button type="button" class="btn-primary" id="sa-calc">%s</button>
+        <button type="button" class="btn-ghost" id="sa-reset">%s</button>
+      </div>
+      <p class="sub" style="margin-top:18px">%s</p>
+    </div>
+
+    <div class="tool-result" id="sa-result" hidden>
+      <div class="result-head"><h2>%s</h2></div>
+      <div class="score-top">
+        <div><div class="score-num" id="sa-pct"></div><div class="score-lbl">%s</div></div>
+        <p class="score-txt" id="sa-msg"></p>
+      </div>
+      <h3 class="res-sub">%s</h3>
+      <div class="sa-chart-wrap">
+        <div class="sa-chart" id="sa-chart"></div>
+        <div class="sa-thresh"><span>%s</span></div>
+      </div>
+      <p class="sub" style="margin:-14px 0 30px">%s</p>
+      <h3 class="res-sub">%s</h3>
+      <div id="sa-gaps" style="margin-bottom:28px"></div>
+      <div class="summary-box" id="sa-summary"></div>
+      <div class="tool-actions">
+        <button type="button" class="btn-ghost" id="sa-copy">%s</button>
+        <button type="button" class="btn-ghost" id="sa-print">%s</button>
+        <span class="copied" id="sa-copied" hidden>%s</span>
+      </div>
+
+      <div class="art-cta" style="margin-top:44px">
+        <h3>%s</h3>
+        <p>%s</p>
+        <div class="cta-btns">
+          <a href="https://app.adventurespirit.hr" target="_blank" rel="noopener" class="btn-primary">%s</a>
+          <a href="%s#%s" class="btn-outline">%s</a>
+        </div>
+      </div>
+    </div>
+
+    <article style="padding-top:40px">
+      <div class="note"><p>%s</p></div>
+      <p><a href="%s">%s &rarr;</a></p>
+    </article>
+  </div>
+</main>
+''' % (t["base"] or "/", t["home"], w["hub"], w["hub_name"], a["name"],
+       w["hub_name"], a["title"], a["lead"],
+       a["scale_h"], "\n".join(qs), a["btn"], a["reset"], a["privacy"],
+       a["res_h"], a["score_lbl"], a["chart_h"], a["thresh"], a["legend"],
+       a["gaps_h"], a["copy"], a["print"], a["copied"],
+       a["cta_h"], a["cta_p"], a["cta_b1"],
+       t["base"] or "/", "kontakt" if lang == "hr" else "contact", a["cta_b2"],
+       a["disclaimer"], a["more_url"], a["more"]) + FOOT + JS
+
+    ld = [{
+      "@context": "https://schema.org", "@type": "WebApplication",
+      "name": a["title"], "description": a["desc_meta"], "url": url,
+      "applicationCategory": "BusinessApplication", "operatingSystem": "Any",
+      "browserRequirements": "JavaScript",
+      "inLanguage": "hr-HR" if lang == "hr" else "en-GB", "isAccessibleForFree": True,
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+      "publisher": {"@type": "Organization", "name": "Adventure Spirit Consulting",
+                    "legalName": "Adventure Spirit d.o.o.", "url": SITE + "/"},
+    }, {
+      "@context": "https://schema.org", "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": t["home"], "item": SITE + (t["base"] or "/")},
+        {"@type": "ListItem", "position": 2, "name": w["hub_name"], "item": SITE + w["hub"]},
+        {"@type": "ListItem", "position": 3, "name": a["name"], "item": url}]}]
+
+    io.open(os.path.join(out_dir, a["slug"], "index.html"), "w", encoding="utf-8").write(
+      page(a["title"] + " | Adventure Spirit Consulting", a["desc_meta"], body, url,
+           lang=lang, extra_head=hreflang(SITE + "/alati/" + SA_T["hr"]["slug"] + "/",
+                                          SITE + "/en/tools/" + SA_T["en"]["slug"] + "/"), ld=ld))
+
 build_tools("hr", ARTICLES)
 build_tools("en", ARTICLES_EN)
 build_tool2("hr", ARTICLES)
 build_tool2("en", ARTICLES_EN)
+build_tool3("hr", ARTICLES)
+build_tool3("en", ARTICLES_EN)
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -4435,7 +4817,9 @@ urls = [(SITE + "/", "1.0", "weekly"), (SITE + "/en/", "0.9", "weekly"),
         (SITE + "/alati/" + TOOLS_T["hr"]["slug"] + "/", "0.9", "monthly"),
         (SITE + "/en/tools/" + TOOLS_T["en"]["slug"] + "/", "0.8", "monthly"),
         (SITE + "/alati/" + CAT_T["hr"]["slug"] + "/", "0.9", "monthly"),
-        (SITE + "/en/tools/" + CAT_T["en"]["slug"] + "/", "0.8", "monthly")]
+        (SITE + "/en/tools/" + CAT_T["en"]["slug"] + "/", "0.8", "monthly"),
+        (SITE + "/alati/" + SA_T["hr"]["slug"] + "/", "0.9", "monthly"),
+        (SITE + "/en/tools/" + SA_T["en"]["slug"] + "/", "0.8", "monthly")]
 urls += [("%s/blog/%s/" % (SITE, a["slug"]), "0.8", "monthly") for a in ARTICLES]
 urls += [("%s/en/blog/%s/" % (SITE, a["slug"]), "0.7", "monthly") for a in ARTICLES_EN]
 urls += [(SITE + "/uvjeti/", "0.3", "yearly"), (SITE + "/privatnost/", "0.3", "yearly"),
