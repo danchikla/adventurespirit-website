@@ -44,8 +44,10 @@
       --dark: #0f1117; --dark2: #1a1e2e; --mid: #2d3348;
       --text: #e2e8f0; --text-muted: #94a3b8; --white: #ffffff;
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: var(--dark); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    /* overflow-x mora biti na html, ne na body: na body pretvara body u vlastiti
+       spremnik za skrolanje, pa window.scrollTo ne pomice stranicu. */
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--dark); color: var(--text); line-height: 1.6; }
 
     /* ─── NAV ─────────────────────────────────────────────── */
     nav {
