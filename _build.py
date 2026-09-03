@@ -228,6 +228,35 @@ def hreflang(hr_url, en_url):
             '<link rel="alternate" hreflang="x-default" href="%s">' % (hr_url, en_url, hr_url))
 
 
+
+# ── Mjerni skript (prvostrana analitika, bez kolacica) ────────────
+BEACON = """<script>
+(function () {
+  var Q = "/analitika/collect.php";
+  function send(body) {
+    try {
+      var s = JSON.stringify(body);
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(Q, new Blob([s], { type: "application/json" }));
+      } else {
+        fetch(Q, { method: "POST", headers: { "Content-Type": "application/json" },
+                   body: s, keepalive: true }).catch(function () {});
+      }
+    } catch (e) {}
+  }
+  window.asTrack = function (name, value) {
+    send({ p: location.pathname, e: name, v: value === undefined ? "" : value, w: window.innerWidth });
+  };
+  if (location.hostname === "localhost" || location.hostname === "127.0.0.1") { return; }
+  send({ p: location.pathname, r: document.referrer, l: (navigator.language || "").slice(0, 5),
+         w: window.innerWidth });
+  document.addEventListener("click", function (ev) {
+    var a = ev.target.closest && ev.target.closest("a[href]");
+    if (a && a.hostname === "app.adventurespirit.hr") { window.asTrack("portal_click"); }
+  }, true);
+})();
+</script>"""
+
 def page(title, desc, body, canonical, lang="hr", extra_head="", og_type="website", ld=None,
          css_link=True, feed=None):
     ldjs = ""
@@ -273,12 +302,13 @@ document.querySelectorAll('#nav-links a').forEach(function (a) {
   a.addEventListener('click', function () { document.getElementById('nav-links').classList.remove('open'); });
 });
 </script>
+%s
 </body>
 </html>
 ''' % (lang, html.escape(title), html.escape(desc), canonical, AUTHOR, og_type,
        "hr_HR" if lang == "hr" else "en_GB", canonical, html.escape(title), html.escape(desc),
        SITE, html.escape(title), html.escape(desc), html.escape(L[lang]["feed_title"]), feed,
-       FAVICON, css, extra_head, body, ldjs)
+       FAVICON, css, extra_head, body, ldjs, BEACON)
 
 # ══════════════════════════════════════════════════════════════════
 # 13 mjera - sluzbeni nazivi iz Priloga II. Uredbe / Priloga B ZSIS-a
@@ -3871,6 +3901,7 @@ def build_tools(lang, articles):
     lines.push("", T.disclaimer);
     $("t-summary").textContent = lines.join("\\n");
     $("t-result").scrollIntoView({ behavior: "smooth", block: "start" });
+    if (window.asTrack) window.asTrack("tool_deadlines");
   }
 
   $("t-calc").addEventListener("click", calc);
@@ -4284,6 +4315,7 @@ def build_tool2(lang, articles):
     lines.push("", T.disclaimer);
     $("c-summary").textContent = lines.join("\\n");
     $("c-result").scrollIntoView({ behavior: "smooth", block: "start" });
+    if (window.asTrack) window.asTrack("tool_categorisation");
   }
 
   $("c-calc").addEventListener("click", calc);
@@ -4515,6 +4547,17 @@ SA_T = {
    cta_h="Ovo je izvadak iz naše GRC platforme",
    cta_p="U platformi se ista procjena vodi po svih 99 podmjera i 132 kontrole, s dokazima, vlasnicima, rokovima i revizijskim tragom - pa napredak pratite kontinuirano, a ne jednom godišnje.",
    cta_b1="Pogledajte GRC Portal", cta_b2="Dogovorite razgovor",
+   rep_h="Detaljan izvještaj na e-mail",
+   rep_p="Pošaljemo vam vaš rezultat s preporukama po mjerama, i kratku napomenu što bismo prvo napravili da smo na vašem mjestu. Izvještaj možete i odmah ispisati ili spremiti kao PDF gumbom iznad.",
+   rep_email="Vaša e-mail adresa", rep_org="Organizacija (nije obavezno)",
+   rep_consent='Pristajem da mi Adventure Spirit d.o.o. pošalje ovaj izvještaj na navedenu adresu i da me kontaktira u vezi s njim. Privolu mogu povući u svakom trenutku porukom na info@adventurespirit.hr. Više u <a href="/privatnost/">politici privatnosti</a>.',
+   rep_btn="Pošalji mi izvještaj",
+   rep_legal="Šaljemo samo rezultat ove procjene i odgovor na njega. Ne uvrštavamo vas na listu za slanje obavijesti i ne prosljeđujemo vašu adresu trećim stranama.",
+   rep_ok="Hvala. Izvještaj šaljemo na navedenu adresu, obično isti radni dan.",
+   rep_err="Slanje nije uspjelo. Kontaktirajte nas izravno na info@adventurespirit.hr.",
+   rep_need="Upišite ispravnu e-mail adresu i potvrdite privolu.",
+   rep_sending="Šaljem...",
+   print_title="Snimka stanja po 13 mjera ZKS-a",
  ),
  "en": dict(
    slug="readiness-check-13-measures", name="Readiness check against the 13 measures",
@@ -4549,6 +4592,17 @@ SA_T = {
    cta_h="This is an extract from our GRC platform",
    cta_p="In the platform the same assessment runs across all 99 sub-measures and 132 controls, with evidence, owners, deadlines and an audit trail - so you track progress continuously rather than once a year.",
    cta_b1="See the GRC Portal", cta_b2="Book a conversation",
+   rep_h="Detailed report by email",
+   rep_p="We send you your result with per-measure recommendations, and a short note on what we would tackle first in your position. You can also print or save the report as PDF right now with the button above.",
+   rep_email="Your email address", rep_org="Organisation (optional)",
+   rep_consent='I agree that Adventure Spirit d.o.o. may send this report to the address given and contact me about it. I can withdraw this consent at any time by writing to info@adventurespirit.hr. See the <a href="/privatnost/">privacy policy</a>.',
+   rep_btn="Send me the report",
+   rep_legal="We send only the result of this assessment and a response to it. You are not added to a mailing list and your address is not shared with third parties.",
+   rep_ok="Thank you. We will send the report to the address given, usually the same working day.",
+   rep_err="Sending failed. Please contact us directly at info@adventurespirit.hr.",
+   rep_need="Enter a valid email address and confirm consent.",
+   rep_sending="Sending...",
+   print_title="Readiness snapshot against the 13 measures",
  ),
 }
 
@@ -4646,8 +4700,39 @@ def build_tool3(lang, articles):
     lines.push("", T.sumGaps + " " + (below.length ? below.join(", ") : "-"));
     lines.push("", T.disclaimer);
     $("sa-summary").textContent = lines.join("\\n");
+    lastResult = lines.join("\\n");
     $("sa-result").scrollIntoView({ behavior: "smooth", block: "start" });
+    if (window.asTrack) window.asTrack("selfassessment_completed", pct);
   }
+
+  // Zahtjev za izvjestajem na e-mail
+  var lastResult = null;
+  $("rp-send").addEventListener("click", function () {
+    var mail = $("rp-mail").value.trim(), org = $("rp-org").value.trim();
+    var msg = $("rp-msg");
+    var okMail = /^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(mail);
+    if (!okMail || !$("rp-ok").checked || !lastResult) {
+      msg.textContent = T.repNeed; msg.className = "report-msg bad"; msg.hidden = false; return;
+    }
+    var btn = $("rp-send"), label = btn.textContent;
+    btn.disabled = true; btn.textContent = T.repSending; msg.hidden = true;
+    fetch("https://formspree.io/f/mojpkknr", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        name: org || "-", email: mail, _subject: T.repSubject,
+        message: T.repSubject + "\\n" + (org ? T.repOrg2 + " " + org + "\\n" : "") +
+                 "\\n" + lastResult + "\\n\\n" + T.repConsentLog
+      })
+    }).then(function (r) {
+      if (!r.ok) throw new Error();
+      msg.textContent = T.repOk; msg.className = "report-msg ok"; msg.hidden = false;
+      $("rp-mail").value = ""; $("rp-org").value = ""; $("rp-ok").checked = false;
+      if (window.asTrack) window.asTrack("report_requested");
+    }).catch(function () {
+      msg.textContent = T.repErr; msg.className = "report-msg bad"; msg.hidden = false;
+    }).finally(function () { btn.disabled = false; btn.textContent = label; });
+  });
 
   $("sa-calc").addEventListener("click", calc);
   $("sa-reset").addEventListener("click", function () {
@@ -4670,6 +4755,14 @@ def build_tool3(lang, articles):
       "gapsNone": a["gaps_none"], "scoreOf": a["score_of"],
       "sumH": a["sum_h"], "sumScore": a["sum_score"], "sumGaps": a["sum_gaps"],
       "disclaimer": a["disclaimer"],
+      "repNeed": a["rep_need"], "repSending": a["rep_sending"],
+      "repOk": a["rep_ok"], "repErr": a["rep_err"],
+      "repSubject": ("Zahtjev za izvjestajem - mini samoprocjena 13 mjera" if lang == "hr"
+                     else "Report request - readiness check, 13 measures"),
+      "repOrg2": ("Organizacija:" if lang == "hr" else "Organisation:"),
+      "repConsentLog": ("Privola za slanje izvjestaja i kontakt dana kroz obrazac na "
+                        "/alati/samoprocjena-13-mjera/" if lang == "hr"
+                        else "Consent given via the form at /en/tools/readiness-check-13-measures/"),
     }, ensure_ascii=False)
 
     body = header(lang, active_blog=False) + '''
@@ -4677,6 +4770,10 @@ def build_tool3(lang, articles):
   <div class="container narrow">
     <div class="crumbs">
       <a href="%s">%s</a><span>&rsaquo;</span><a href="%s">%s</a><span>&rsaquo;</span>%s
+    </div>
+    <div class="print-head">
+      <div class="ph-name">Adventure Spirit Consulting &middot; %s</div>
+      <div class="ph-meta">Adventure Spirit d.o.o. &middot; adventurespirit.hr &middot; info@adventurespirit.hr &middot; +385 95 504 1496</div>
     </div>
     <header class="art-head">
       <div class="eyebrow">%s</div>
@@ -4718,7 +4815,22 @@ def build_tool3(lang, articles):
         <span class="copied" id="sa-copied" hidden>%s</span>
       </div>
 
-      <div class="art-cta" style="margin-top:44px">
+      <div class="report-box">
+        <h3>%s</h3>
+        <p>%s</p>
+        <div class="report-row">
+          <input type="email" id="rp-mail" placeholder="%s" autocomplete="email">
+          <input type="text" id="rp-org" placeholder="%s" autocomplete="organization">
+        </div>
+        <label class="consent"><input type="checkbox" id="rp-ok"><span>%s</span></label>
+        <div class="tool-actions" style="border:none;padding-top:14px;margin-top:6px">
+          <button type="button" class="btn-primary" id="rp-send">%s</button>
+        </div>
+        <p class="report-msg" id="rp-msg" hidden></p>
+        <p class="report-legal">%s</p>
+      </div>
+
+      <div class="art-cta" style="margin-top:36px">
         <h3>%s</h3>
         <p>%s</p>
         <div class="cta-btns">
@@ -4735,10 +4847,12 @@ def build_tool3(lang, articles):
   </div>
 </main>
 ''' % (t["base"] or "/", t["home"], w["hub"], w["hub_name"], a["name"],
-       w["hub_name"], a["title"], a["lead"],
+       a["print_title"], w["hub_name"], a["title"], a["lead"],
        a["scale_h"], "\n".join(qs), a["btn"], a["reset"], a["privacy"],
        a["res_h"], a["score_lbl"], a["chart_h"], a["thresh"], a["legend"],
        a["gaps_h"], a["copy"], a["print"], a["copied"],
+       a["rep_h"], a["rep_p"], a["rep_email"], a["rep_org"], a["rep_consent"],
+       a["rep_btn"], a["rep_legal"],
        a["cta_h"], a["cta_p"], a["cta_b1"],
        t["base"] or "/", "kontakt" if lang == "hr" else "contact", a["cta_b2"],
        a["disclaimer"], a["more_url"], a["more"]) + FOOT + JS
@@ -4801,6 +4915,9 @@ _cards = "\n".join('''      <a class="kb-card" href="/blog/%s/">
                  html.escape(a["lead"]), a["read"]) for a in _top)
 _s = re.sub(r'(<div class="kb-grid">\n).*?(\n    </div>\n    <div class="kb-all">)',
             lambda m: m.group(1) + _cards + m.group(2), _s, count=1, flags=re.S)
+
+if 'asTrack' not in _s:
+    _s = _s.replace("</body>", BEACON + "\n</body>", 1)
 
 if '>English version<' not in _s:
     _s = _s.replace('        <a href="#kontakt">Kontakt</a>\n      </div>',

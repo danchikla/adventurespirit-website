@@ -1,5 +1,6 @@
-*.docx
-CV_*
-Ponuda/
-*.pdf
 .DS_Store
+**/.DS_Store
+
+# Podaci analitike - ostaju samo na posluzitelju
+analitika/podaci/*.csv
+analitika/podaci/.sol

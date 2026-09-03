@@ -35,3 +35,9 @@ ErrorDocument 404 /404.html
 <FilesMatch "^(_build\.py|BUILD\.md)$">
   Require all denied
 </FilesMatch>
+
+# ── Analitika ─────────────────────────────────────────────────
+# Prikupljeni podaci nikad nisu dostupni preko weba
+<FilesMatch "\.(csv|sol)$">
+  Require all denied
+</FilesMatch>

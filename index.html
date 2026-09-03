@@ -1774,7 +1774,7 @@
     <div style="flex:1;min-width:260px;">
       <p style="margin:0 0 3px;font-size:14px;font-weight:700;color:#fff;">Koristimo kolačiće</p>
       <p style="margin:0;font-size:13px;color:#94a3b8;line-height:1.5;">
-        Koristimo nužne kolačiće za rad stranice. Uz vašu suglasnost, koristimo i analitičke.
+        Koristimo samo nužne kolačiće za rad stranice. Statistiku posjeta vodimo bez kolačića i bez pohrane IP adrese, pa za nju privola nije potrebna.
         <button onclick="toggleCookieDetails()" style="background:none;border:none;color:#EF653F;font-size:13px;cursor:pointer;padding:0;text-decoration:underline;">Prikaži detalje</button> ·
         <a href="/privatnost/" style="color:#EF653F;text-decoration:none;">Politika privatnosti</a>
       </p>
@@ -2043,5 +2043,31 @@
 }
 </script>
 
+<script>
+(function () {
+  var Q = "/analitika/collect.php";
+  function send(body) {
+    try {
+      var s = JSON.stringify(body);
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(Q, new Blob([s], { type: "application/json" }));
+      } else {
+        fetch(Q, { method: "POST", headers: { "Content-Type": "application/json" },
+                   body: s, keepalive: true }).catch(function () {});
+      }
+    } catch (e) {}
+  }
+  window.asTrack = function (name, value) {
+    send({ p: location.pathname, e: name, v: value === undefined ? "" : value, w: window.innerWidth });
+  };
+  if (location.hostname === "localhost" || location.hostname === "127.0.0.1") { return; }
+  send({ p: location.pathname, r: document.referrer, l: (navigator.language || "").slice(0, 5),
+         w: window.innerWidth });
+  document.addEventListener("click", function (ev) {
+    var a = ev.target.closest && ev.target.closest("a[href]");
+    if (a && a.hostname === "app.adventurespirit.hr") { window.asTrack("portal_click"); }
+  }, true);
+})();
+</script>
 </body>
 </html>

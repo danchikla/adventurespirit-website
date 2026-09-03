@@ -1,0 +1,31 @@
+# Nadzorna ploča analitike - zaštita lozinkom
+# Nakon deploya na cPanelu:
+#   1. Terminal ili File Manager: htpasswd -c /home/KORISNIK/.htpasswd-analitika daniel
+#   2. Ispod ispravi punu putanju do te datoteke
+#   3. Odkomentiraj blok "Files index.php"
+#
+# Bez ovoga nadzorna ploča je javno dostupna - postavite zaštitu odmah nakon deploya.
+
+# <Files "index.php">
+#   AuthType Basic
+#   AuthName "Analitika"
+#   AuthUserFile /home/KORISNIK/.htpasswd-analitika
+#   Require valid-user
+# </Files>
+
+# Podaci nikad nisu dostupni preko weba
+<IfModule mod_authz_core.c>
+  <FilesMatch "\.(csv|sol)$">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+  <FilesMatch "\.(csv|sol)$">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Robots-Tag "noindex, nofollow"
+</IfModule>

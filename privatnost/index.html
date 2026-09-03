@@ -133,7 +133,7 @@
           <td><code>as_cookie_consent_date</code></td>
           <td><span class="badge badge-green">Nužni</span></td>
           <td>Trajni (localStorage)</td>
-          <td>Datum kada ste dali ili odbili pristanak — čuva se radi dokumentiranja suglasnosti (QDPR čl. 7).</td>
+          <td>Datum kada ste dali ili odbili pristanak — čuva se radi dokumentiranja suglasnosti (GDPR čl. 7).</td>
         </tr>
         <tr>
           <td><code>grc_cookie_consent</code></td>
@@ -178,7 +178,31 @@
   </div>
 
   <div class="section">
-    <h2><span class="num">4</span> Primatelji podataka i prijenos izvan EU</h2>
+    <h2><span class="num">4</span> Statistika posjeta bez kolačića</h2>
+    <p>Statistiku posjeta vodimo vlastitim rješenjem na svom poslužitelju. <strong>Ne koristimo Google Analytics ni bilo koji drugi vanjski alat za mjerenje posjećenosti</strong>, pa vaši podaci ne izlaze iz naše infrastrukture.</p>
+    <p>Za tu obradu <strong>ne postavljamo nikakve kolačiće</strong> i ne pohranjujemo ništa na vaš uređaj. Zbog toga se ne primjenjuje obveza pribavljanja privole iz propisa o elektroničkim komunikacijama, a pravna osnova obrade je naš legitimni interes za razumijevanje korištenja stranice (GDPR čl. 6. st. 1. t. f).</p>
+
+    <h3 style="font-size:17px;margin:24px 0 10px">Što bilježimo</h3>
+    <table class="cookie-table">
+      <thead><tr><th>Podatak</th><th>Sadržaj</th></tr></thead>
+      <tbody>
+        <tr><td>Vrijeme</td><td>Datum i vrijeme posjeta u UTC-u</td></tr>
+        <tr><td>Putanja</td><td>Adresa posjećene stranice, bez upitnih parametara</td></tr>
+        <tr><td>Izvor</td><td>Samo domena s koje ste došli (primjerice <code>google.com</code>), nikad puna adresa</td></tr>
+        <tr><td>Uređaj</td><td>Oznaka <code>desktop</code>, <code>tablet</code> ili <code>mobile</code>, izvedena iz širine prozora</td></tr>
+        <tr><td>Jezik</td><td>Jezična verzija stranice i jezik preglednika</td></tr>
+        <tr><td>Događaj</td><td>Korištenje besplatnih alata, primjerice dovršena samoprocjena i njezin ukupni postotak</td></tr>
+        <tr><td>Otisak posjeta</td><td>Niz od 16 znakova opisan u nastavku</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:17px;margin:24px 0 10px">Zašto se ne može pratiti pojedinca</h3>
+    <p><strong>Vašu IP adresu ne pohranjujemo.</strong> Koristi se isključivo u trenutku posjeta, kao ulaz u kriptografsku funkciju sažetka zajedno s tajnom vrijednošću i podacima o pregledniku. Rezultat je niz od 16 znakova iz kojeg se IP adresa ne može rekonstruirati.</p>
+    <p>Tajna vrijednost <strong>mijenja se svaki dan u ponoć po UTC-u</strong> i stara se briše. Zbog toga isti posjetitelj sutradan dobiva potpuno drukčiji otisak, pa se posjeti ne mogu povezati kroz dane niti pripisati određenoj osobi. Rezultat je agregirana statistika, a ne profil.</p>
+    <p>Poštujemo postavke <code>Do Not Track</code> i <code>Global Privacy Control</code> u vašem pregledniku. Ako je bilo koja od njih uključena, <strong>ne bilježimo ništa</strong>. Statistika se ne prikuplja ni ako u pregledniku onemogućite JavaScript.</p>
+    <p>Zapisi se čuvaju u mjesečnim datotekama na našem poslužitelju, nisu javno dostupni i ne dijele se s trećim stranama.</p>
+
+    <h2><span class="num">5</span> Primatelji podataka i prijenos izvan EU</h2>
     <p>Vaše osobne podatke ne prodajemo niti ustupamo trećim stranama u marketinške svrhe.</p>
     <p>Za tehničku infrastrukturu koristimo sljedeće izvršitelje obrade:</p>
     <ul>
@@ -189,7 +213,7 @@
   </div>
 
   <div class="section">
-    <h2><span class="num">5</span> Rokovi čuvanja</h2>
+    <h2><span class="num">6</span> Rokovi čuvanja</h2>
     <ul>
       <li><strong>Kontaktne upite</strong> čuvamo 3 godine od posljednje komunikacije</li>
       <li><strong>Korisničke račune na platformi</strong> čuvamo dok je račun aktivan; po zahtjevu za brisanje brišemo sve osobne podatke u roku 30 dana</li>
@@ -199,7 +223,7 @@
   </div>
 
   <div class="section">
-    <h2><span class="num">6</span> Vaša prava kao ispitanika</h2>
+    <h2><span class="num">7</span> Vaša prava kao ispitanika</h2>
     <p>Prema QDPR-u (Uredba EU 2016/679) imate sljedeća prava:</p>
     <ul>
       <li><strong>Pravo na pristup</strong> (čl. 15) — možete zatražiti kopiju svojih osobnih podataka koje obrađujemo</li>
@@ -220,7 +244,7 @@
   </div>
 
   <div class="section">
-    <h2><span class="num">7</span> Sigurnost podataka</h2>
+    <h2><span class="num">8</span> Sigurnost podataka</h2>
     <p>Primjenjujemo tehničke i organizacijske mjere zaštite osobnih podataka sukladne stanju tehnike:</p>
     <ul>
       <li>HTTPS enkripcija svih komunikacija (TLS 1.2+)</li>
@@ -233,13 +257,13 @@
   </div>
 
   <div class="section">
-    <h2><span class="num">8</span> Izmjene politike</h2>
+    <h2><span class="num">9</span> Izmjene politike</h2>
     <p>Ovu Politiku privatnosti možemo povremeno ažurirati. Svaku bitnu promjenu objavit ćemo na ovoj stranici s novim datumom "Zadnja izmjena". Za korisnike GRC platforme, o bitnim promjenama obavijestit ćemo i putem e-pošte.</p>
     <p>Preporučujemo da povremeno pregledate ovu stranicu.</p>
   </div>
 
   <div class="section">
-    <h2><span class="num">9</span> Kontakt za pitanja o privatnosti</h2>
+    <h2><span class="num">10</span> Kontakt za pitanja o privatnosti</h2>
     <ul>
       <li><strong>Adventure Spirit d.o.o. za usluge</strong> (tržišni naziv: Adventure Spirit Consulting)<br>Antuna Šoljana 22, 10000 Zagreb &middot; OIB: 72169598754 &middot; MBS: 4845552 &middot; Trgovački sud u Zagrebu</li>
       <li>E-pošta: <a href="mailto:info@adventurespirit.hr" style="color:var(--orange)">info@adventurespirit.hr</a></li>
