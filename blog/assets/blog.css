@@ -434,3 +434,13 @@ input[type="datetime-local"]:focus, input[type="date"]:focus { outline: none; bo
   .summary-box { display: none !important; }
   a[href]::after { content: ""; }
 }
+.authority a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(239,101,63,.45); transition: color .2s; }
+.authority a:hover { color: var(--orange); }
+
+/* Kartice sektora kao poveznice */
+a.sector-card { text-decoration: none; display: flex; flex-direction: column; }
+.sector-more { font-size: 12px; font-weight: 700; color: var(--orange); margin-top: 14px; letter-spacing: .3px; }
+.chip-row { display: flex; flex-wrap: wrap; gap: 9px; }
+.chip-link { font-size: 13px; font-weight: 600; color: var(--text-muted); text-decoration: none;
+  background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 8px; padding: 9px 15px; transition: .2s; }
+.chip-link:hover { color: #fff; border-color: rgba(239,101,63,.45); }

@@ -61,7 +61,7 @@ def strip_html(x):
 L = {
  "hr": dict(
    lang="hr", base="", blog="/blog/", other="/en/", other_label="EN", self_label="HR",
-   nav=[("/#onama","O nama"),("/#sigurnost","Usluge"),("/#sektori","Sektori"),
+   nav=[("/#onama","O nama"),("/#sigurnost","Usluge"),("/sektori/","Sektori"),
         ("/blog/","Baza znanja"),("/alati/","Alati"),("/#reference","Reference"),
         ("/#faq","FAQ"),("/#kontakt","Kontakt")],
    legal_line="Adventure Spirit d.o.o. &middot; Zagreb",
@@ -70,7 +70,7 @@ L = {
    tagline="Kibernetička sigurnost, GRC compliance i upravljanje rizicima - preko 20 godina iskustva u službi vašeg poslovanja.",
    f_kb="Baza znanja", f_all="Svi članci", f_svc="Usluge", f_co="Tvrtka",
    f_links=[("/#sigurnost","ZKS / NIS2"),("/#sigurnost","GDPR"),("/#sigurnost","ISO 27001"),
-            ("/#sigurnost","DORA"),("/#sektori","Sektori")],
+            ("/#sigurnost","DORA"),("/sektori/","Sektori")],
    f_co_links=[("/#onama","O konzultantu"),("/alati/","Alati"),("/#faq","Česta pitanja"),
                ("/#kontakt","Kontakt"),("/en/","English version")],
    rights="Sva prava pridržana", terms="Uvjeti korištenja", privacy="Privatnost",
@@ -94,7 +94,7 @@ L = {
  ),
  "en": dict(
    lang="en", base="/en", blog="/en/blog/", other="/", other_label="HR", self_label="EN",
-   nav=[("/en/#about","About"),("/en/#services","Services"),("/en/#sectors","Sectors"),
+   nav=[("/en/#about","About"),("/en/#services","Services"),("/en/sectors/","Sectors"),
         ("/en/blog/","Insights"),("/en/tools/","Tools"),("/en/#clients","Clients"),
         ("/en/#faq","FAQ"),("/en/#contact","Contact")],
    legal_line="Adventure Spirit d.o.o. &middot; Zagreb, Croatia",
@@ -103,7 +103,7 @@ L = {
    tagline="Cyber security, GRC compliance and risk management - over 20 years of experience in the service of your business.",
    f_kb="Insights", f_all="All articles", f_svc="Services", f_co="Company",
    f_links=[("/en/#services","CSA / NIS2"),("/en/#services","GDPR"),("/en/#services","ISO 27001"),
-            ("/en/#services","DORA"),("/en/#sectors","Sectors")],
+            ("/en/#services","DORA"),("/en/sectors/","Sectors")],
    f_co_links=[("/en/#about","About the consultant"),("/en/tools/","Tools"),("/en/#faq","FAQ"),
                ("/en/#contact","Contact"),("/","Hrvatska verzija")],
    rights="All rights reserved", terms="Terms (HR)", privacy="Privacy (HR)",
@@ -481,7 +481,7 @@ __TABLICA__
  sources=[
    ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
    ('ZSIS - Prilog B, Okvir za evaluaciju mjera upravljanja kibernetičkim sigurnosnim rizicima, v1.0', 'https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20B%20-%20Okvir%20za%20evaluaciju.pdf'),
-   ('Direktiva (EU) 2022/2555 (NIS2), čl. 21.', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32022L2555'),
+   ('Direktiva (EU) 2022/2555 (NIS2), čl. 21.', 'https://eur-lex.europa.eu/eli/dir/2022/2555/oj/hrv'),
  ]))
 
 # ─── 3 ────────────────────────────────────────────────────────────
@@ -597,7 +597,7 @@ ARTICLES.append(dict(
  sources=[
    ('Zakon o kibernetičkoj sigurnosti, NN 14/2024', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html'),
    ('Uredba o kibernetičkoj sigurnosti, NN 135/2024', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
-   ('Uredba (EU) 2016/679 (Opća uredba o zaštiti podataka), čl. 33.', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32016R0679'),
+   ('Uredba (EU) 2016/679 (Opća uredba o zaštiti podataka), čl. 33.', 'https://eur-lex.europa.eu/eli/reg/2016/679/oj/hrv'),
  ]))
 
 # ─── 5 ────────────────────────────────────────────────────────────
@@ -659,7 +659,7 @@ ARTICLES.append(dict(
  sources=[
    ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
    ('ZSIS - Prilog B, Okvir za evaluaciju, v1.0', 'https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20B%20-%20Okvir%20za%20evaluaciju.pdf'),
-   ('HRN EN ISO/IEC 27001:2022 - Sustavi upravljanja informacijskom sigurnošću', None),
+   ('HRN EN ISO/IEC 27001:2022 - Sustavi upravljanja informacijskom sigurnošću', '/blog/iso-27001-i-zks/'),
  ]))
 
 # ─── 6 ────────────────────────────────────────────────────────────
@@ -791,9 +791,9 @@ ARTICLES.append(dict(
   <p>ISO/IEC 27001:2022 je norma prema kojoj se certificirate, a 27002 je zbirka smjernica za provedbu kontrola iz Priloga A. Certifikat se ne dobiva prema 27002, ali se dokazi pišu uz njezinu pomoć.</p>
 </div>
 ''',
- sources=[('HRN EN ISO/IEC 27001:2022, Prilog A', None),
-          ('HRN EN ISO/IEC 27002:2022 - Kontrole informacijske sigurnosti', None),
-          ('ISO/IEC 27001:2022/Amd 1:2024 - climate action changes', None)]))
+ sources=[('HRN EN ISO/IEC 27001:2022, Prilog A', '/blog/iso-27002-2022-atributi-kontrola/'),
+          ('HRN EN ISO/IEC 27002:2022 - Kontrole informacijske sigurnosti', '/blog/iso-27002-2022-atributi-kontrola/'),
+          ('ISO/IEC 27001:2022/Amd 1:2024 - climate action changes', '/blog/iso-27002-2022-atributi-kontrola/')]))
 
 ARTICLES.append(dict(
  slug="bia-koja-daje-upotrebljiv-rto", cat="Kontinuitet poslovanja", catkey="bcm",
@@ -846,8 +846,8 @@ ARTICLES.append(dict(
   <p>Plan koji nije isproban dokumentira namjeru, ne sposobnost. Vježba na stolu u trajanju od dva sata, sa scenarijem i stvarnim mjerenjem vremena, otkriva više nego još jedan krug uređivanja dokumenta - i ujedno proizvodi zapis koji mjera 12 traži.</p>
 </div>
 ''',
- sources=[('HRN EN ISO 22301:2019 - Sustavi upravljanja kontinuitetom poslovanja', None),
-          ('ISO/TS 22317 - Smjernice za analizu poslovnog utjecaja', None),
+ sources=[('HRN EN ISO 22301:2019 - Sustavi upravljanja kontinuitetom poslovanja', '/blog/bia-koja-daje-upotrebljiv-rto/'),
+          ('ISO/TS 22317 - Smjernice za analizu poslovnog utjecaja', '/blog/bia-koja-daje-upotrebljiv-rto/'),
           ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjera 12', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html')]))
 
 ARTICLES.append(dict(
@@ -907,7 +907,7 @@ ARTICLES.append(dict(
   <p>DORA je za financijski sektor poseban propis, ali ne isključuje ostale obveze. Dokazna baza se preklapa s Uredbom o kibernetičkoj sigurnosti gotovo u cijelosti: isti registar imovine, isti registar rizika, isti zapisi o incidentima. Posao se radi jednom, izvještava na više strana.</p>
 </div>
 ''',
- sources=[('Uredba (EU) 2022/2554 (DORA)', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32022R2554'),
+ sources=[('Uredba (EU) 2022/2554 (DORA)', 'https://eur-lex.europa.eu/eli/reg/2022/2554/oj/hrv'),
           ('Provedbeni tehnički standardi za registar informacija (ESA)', 'https://www.eba.europa.eu/'),
           ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjera 8', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html')]))
 
@@ -979,7 +979,7 @@ ARTICLES.append(dict(
 ''',
  sources=[('NIST Cybersecurity Framework 2.0', 'https://www.nist.gov/cyberframework'),
           ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
-          ('HRN EN ISO/IEC 27001:2022, Prilog A', None)]))
+          ('HRN EN ISO/IEC 27001:2022, Prilog A', '/blog/iso-27002-2022-atributi-kontrola/')]))
 
 ARTICLES.append(dict(
  slug="nist-csf-2-funkcija-govern", cat="Okviri", catkey="frameworks",
@@ -1041,7 +1041,7 @@ ARTICLES.append(dict(
 ''',
  sources=[('NIST Cybersecurity Framework 2.0', 'https://www.nist.gov/cyberframework'),
           ('NIST CSF 2.0 Implementation Examples', 'https://www.nist.gov/cyberframework'),
-          ('HRN EN ISO/IEC 27002:2022 - atributi kontrola', None)]))
+          ('HRN EN ISO/IEC 27002:2022 - atributi kontrola', '/blog/iso-27002-2022-atributi-kontrola/')]))
 
 ARTICLES.append(dict(
  slug="active-directory-putovi-napada", cat="Ofenzivna sigurnost", catkey="offensive",
@@ -1093,7 +1093,7 @@ ARTICLES.append(dict(
 </div>
 ''',
  sources=[('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjere 4, 6, 7 i 12', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
-          ('HRN EN ISO/IEC 27002:2022 - kontrole tehnoloških mjera', None),
+          ('HRN EN ISO/IEC 27002:2022 - kontrole tehnoloških mjera', '/blog/iso-27002-2022-atributi-kontrola/'),
           ('NIST Cybersecurity Framework 2.0 - funkcije Protect i Detect', 'https://www.nist.gov/cyberframework')]))
 
 # ══════════════════════════════════════════════════════════════════
@@ -1339,7 +1339,7 @@ ARTICLES.append(dict(
 ''',
  sources=[('Opće smjernice za provedbu obveze obavještavanja o značajnim incidentima, NCSC-HR i Nacionalni CERT', 'https://www.ncsc.hr/'),
           ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, čl. 59.-72.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
-          ('Provedbena uredba Komisije (EU) 2024/2690', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32024R2690'),
+          ('Provedbena uredba Komisije (EU) 2024/2690', 'https://eur-lex.europa.eu/eli/reg_impl/2024/2690/oj/hrv'),
           ('Platforma PiXi', 'https://pixi.carnet.hr/')]))
 
 ARTICLES.append(dict(
@@ -1394,7 +1394,7 @@ ARTICLES.append(dict(
 ''',
  sources=[('Nacionalna taksonomija kibernetičkih incidenata, Sigurnosno-obavještajna agencija', 'https://www.ncsc.hr/'),
           ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, čl. 62.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
-          ('Uredba (EU) 2019/881 - definicije kibernetičke sigurnosti i prijetnje', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32019R0881')]))
+          ('Uredba (EU) 2019/881 - definicije kibernetičke sigurnosti i prijetnje', 'https://eur-lex.europa.eu/eli/reg/2019/881/oj/hrv')]))
 
 # ══════════════════════════════════════════════════════════════════
 # Serija: umjetna inteligencija i OT
@@ -1452,8 +1452,8 @@ ARTICLES.append(dict(
   <p>Akt o umjetnoj inteligenciji primjenjuje se postupno, s odredbama koje stupaju na snagu u različitim rokovima. Zabranjene prakse i obveza osposobljenosti primjenjuju se prvi, obveze za visokorizične sustave kasnije. Provjerite koji se rok odnosi na vašu situaciju prije nego što se planira dinamika projekta.</p>
 </div>
 ''',
- sources=[('Uredba (EU) 2024/1689 (Akt o umjetnoj inteligenciji)', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32024R1689'),
-          ('Uredba (EU) 2016/679 (Opća uredba o zaštiti podataka)', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32016R0679')]))
+ sources=[('Uredba (EU) 2024/1689 (Akt o umjetnoj inteligenciji)', 'https://eur-lex.europa.eu/eli/reg/2024/1689/oj/hrv'),
+          ('Uredba (EU) 2016/679 (Opća uredba o zaštiti podataka)', 'https://eur-lex.europa.eu/eli/reg/2016/679/oj/hrv')]))
 
 ARTICLES.append(dict(
  slug="zabranjene-prakse-i-ai-pismenost", cat="Umjetna inteligencija", catkey="ai",
@@ -1501,7 +1501,7 @@ ARTICLES.append(dict(
   <p>Ovaj tekst je informativan pregled, ne pravni savjet. Točan doseg zabranjenih praksi i način primjene obveze osposobljenosti ovise o konkretnim okolnostima i o smjernicama koje se objavljuju na razini Unije.</p>
 </div>
 ''',
- sources=[('Uredba (EU) 2024/1689 (Akt o umjetnoj inteligenciji), čl. 4. i 5.', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32024R1689'),
+ sources=[('Uredba (EU) 2024/1689 (Akt o umjetnoj inteligenciji), čl. 4. i 5.', 'https://eur-lex.europa.eu/eli/reg/2024/1689/oj/hrv'),
           ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjera 5', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html')]))
 
 ARTICLES.append(dict(
@@ -1563,9 +1563,9 @@ ARTICLES.append(dict(
   <p>Isto načelo vrijedi i za DORA registar informacija i za evidenciju obrada prema Općoj uredbi. Svaki od njih traži pogled na istu imovinu iz drugog kuta. Organizacije koje ih vode kao poglede na jedan izvor izvještavaju; one koje ih vode odvojeno prepisuju.</p>
 </div>
 ''',
- sources=[('Uredba (EU) 2024/1689 (Akt o umjetnoj inteligenciji)', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32024R1689'),
+ sources=[('Uredba (EU) 2024/1689 (Akt o umjetnoj inteligenciji)', 'https://eur-lex.europa.eu/eli/reg/2024/1689/oj/hrv'),
           ('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjere 2 i 8', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
-          ('HRN EN ISO/IEC 27001:2022, Prilog A - upravljanje imovinom', None)]))
+          ('HRN EN ISO/IEC 27001:2022, Prilog A - upravljanje imovinom', '/blog/iso-27001-i-zks/')]))
 
 ARTICLES.append(dict(
  slug="ai-u-obrani-gdje-pomaze-gdje-odmaze", cat="Umjetna inteligencija", catkey="ai",
@@ -1618,7 +1618,7 @@ ARTICLES.append(dict(
   <p>Akt o umjetnoj inteligenciji na sigurnosne alate primjenjuje istu logiku kao i na ostale: obveze ovise o primjeni. Alat koji rangira upozorenja u pravilu je niske razine rizika, ali alat koji automatski blokira korisnika donosi odluku o osobi - i to mijenja procjenu.</p>
 </div>
 ''',
- sources=[('Uredba (EU) 2024/1689 (Akt o umjetnoj inteligenciji)', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32024R1689'),
+ sources=[('Uredba (EU) 2024/1689 (Akt o umjetnoj inteligenciji)', 'https://eur-lex.europa.eu/eli/reg/2024/1689/oj/hrv'),
           ('NIST Cybersecurity Framework 2.0 - funkcije Detect i Respond', 'https://www.nist.gov/cyberframework'),
           ('Preporuke za uspostavu sustavnog prikupljanja dnevničkih zapisa, NCSC-HR', 'https://www.ncsc.hr/')]))
 
@@ -1676,7 +1676,7 @@ ARTICLES.append(dict(
 </div>
 ''',
  sources=[('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
-          ('Direktiva (EU) 2022/2555 (NIS2) - sektori energetike, vodoopskrbe i prometa', 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32022L2555'),
+          ('Direktiva (EU) 2022/2555 (NIS2) - sektori energetike, vodoopskrbe i prometa', 'https://eur-lex.europa.eu/eli/dir/2022/2555/oj/hrv'),
           ('Prioritetne preporuke za zaštitu od kibernetičkih napada, NCSC-HR', 'https://www.ncsc.hr/')]))
 
 # ══════════════════════════════════════════════════════════════════
@@ -1851,12 +1851,12 @@ LANG_CSS = '''
 EN_LEGAL = [
  ("Cybersecurity Act", "OG 14/2024", "Croatian implementation of NIS2. Entity categorisation, risk management measures, incident reporting, audit and self-assessment.", "https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html"),
  ("Cybersecurity Regulation", "OG 135/2024", "Breaks the statutory duties down into 13 measures with sub-measures and controls, across three levels of implementation.", "https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html"),
- ("NIS2", "EU 2022/2555", "Directive on measures for a high common level of cybersecurity across the Union.", "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022L2555"),
- ("DORA", "EU 2022/2554", "Digital operational resilience for the financial sector - ICT risk, resilience testing, third-party providers.", "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554"),
- ("GDPR", "EU 2016/679", "Personal data protection - records of processing, DPIA, DPO, breach notification to the supervisory authority.", "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679"),
- ("AI Act", "EU 2024/1689", "Risk-based classification of AI systems, obligations for providers and deployers, governance and oversight.", "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689"),
- ("ISO/IEC 27001", "2022", "Information security management system - 93 Annex A controls and the Statement of Applicability.", None),
- ("ISO 22301", "2019", "Business continuity management system - BIA, RTO/RPO, plans and exercising.", None),
+ ("NIS2", "EU 2022/2555", "Directive on measures for a high common level of cybersecurity across the Union.", "https://eur-lex.europa.eu/eli/dir/2022/2555/oj/eng"),
+ ("DORA", "EU 2022/2554", "Digital operational resilience for the financial sector - ICT risk, resilience testing, third-party providers.", "https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng"),
+ ("GDPR", "EU 2016/679", "Personal data protection - records of processing, DPIA, DPO, breach notification to the supervisory authority.", "https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng"),
+ ("AI Act", "EU 2024/1689", "Risk-based classification of AI systems, obligations for providers and deployers, governance and oversight.", "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng"),
+ ("ISO/IEC 27001", "2022", "Information security management system - 93 Annex A controls and the Statement of Applicability. Read our guide.", "/en/blog/iso-27001-and-the-cybersecurity-act/"),
+ ("ISO 22301", "2019", "Business continuity management system - BIA, RTO/RPO, plans and exercising. Read our guide.", "/en/blog/bia-that-produces-a-usable-rto/"),
 ]
 
 EN_SECTORS = [
@@ -1937,12 +1937,12 @@ EN_FAQ = [
 ]
 
 EN_AUTHORITIES = [
- ("SOA", "central cybersecurity authority"),
- ("NCSC-HR", "incident reporting"),
- ("ZSIS / UVNS", "state administration bodies"),
- ("AZOP", "personal data breaches"),
- ("CNB / HANFA", "DORA, financial sector"),
- ("HAKOM", "digital infrastructure sector"),
+ ('SOA', 'https://www.soa.hr/', 'central cybersecurity authority', None, None),
+ ('NCSC-HR', 'https://www.ncsc.hr/', 'incident reporting', None, None),
+ ('ZSIS', 'https://www.zsis.hr/', 'state administration bodies', 'UVNS', 'https://www.uvns.hr/'),
+ ('AZOP', 'https://azop.hr/', 'personal data breaches', None, None),
+ ('HNB', 'https://www.hnb.hr/', 'DORA, financial sector', 'HANFA', 'https://www.hanfa.hr/'),
+ ('HAKOM', 'https://www.hakom.hr/', 'digital infrastructure sector', None, None),
 ]
 
 EN_CLIENTS = [
@@ -2064,7 +2064,7 @@ ARTICLES_EN.append(dict(
 ''',
  sources=[('Cybersecurity Act, OG 14/2024 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html'),
           ('Cybersecurity Regulation, OG 135/2024 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
-          ('Directive (EU) 2022/2555 (NIS2)', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022L2555')]))
+          ('Directive (EU) 2022/2555 (NIS2)', 'https://eur-lex.europa.eu/eli/dir/2022/2555/oj/eng')]))
 
 ARTICLES_EN.append(dict(
  slug="thirteen-measures-annex-ii", cat="CSA / NIS2", catkey="csa",
@@ -2110,7 +2110,7 @@ __TABLICA__
  sources=[('Cybersecurity Regulation, OG 135/2024, Annex II (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
           ('ZSIS - Annex B, Framework for the evaluation of cyber risk management measures', 'https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20B%20-%20Okvir%20za%20evaluaciju.pdf'),
           ('ZSIS - Annex C, Control catalogue', 'https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20C%20-%20Katalog%20kontrola.pdf'),
-          ('Directive (EU) 2022/2555 (NIS2), Art. 21', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022L2555')]))
+          ('Directive (EU) 2022/2555 (NIS2), Art. 21', 'https://eur-lex.europa.eu/eli/dir/2022/2555/oj/eng')]))
 
 ARTICLES_EN.append(dict(
  slug="how-self-assessment-is-scored", cat="Self-assessment", catkey="selfassessment",
@@ -2212,7 +2212,7 @@ ARTICLES_EN.append(dict(
 ''',
  sources=[('Cybersecurity Act, OG 14/2024 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html'),
           ('Cybersecurity Regulation, OG 135/2024 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
-          ('Regulation (EU) 2016/679 (GDPR), Art. 33', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679')]))
+          ('Regulation (EU) 2016/679 (GDPR), Art. 33', 'https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng')]))
 
 ARTICLES_EN.append(dict(
  slug="iso-27001-and-the-cybersecurity-act", cat="ISO standards", catkey="iso",
@@ -2267,7 +2267,7 @@ ARTICLES_EN.append(dict(
 ''',
  sources=[('Cybersecurity Regulation, OG 135/2024, Annex II (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
           ('ZSIS - Annex B, Framework for the evaluation of measures', 'https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20B%20-%20Okvir%20za%20evaluaciju.pdf'),
-          ('ISO/IEC 27001:2022 - Information security management systems', None)]))
+          ('ISO/IEC 27001:2022 - Information security management systems', '/en/blog/iso-27001-and-the-cybersecurity-act/')]))
 
 ARTICLES_EN.append(dict(
  slug="risk-register-that-passes-review", cat="Risk management", catkey="risk",
@@ -2390,9 +2390,9 @@ ARTICLES_EN.append(dict(
   <p>ISO/IEC 27001:2022 is the standard you certify against; 27002 is the implementation guidance for the Annex A controls. You do not get certified against 27002, but you write your evidence with its help.</p>
 </div>
 ''',
- sources=[('ISO/IEC 27001:2022, Annex A', None),
-          ('ISO/IEC 27002:2022 - Information security controls', None),
-          ('ISO/IEC 27001:2022/Amd 1:2024 - climate action changes', None)]))
+ sources=[('ISO/IEC 27001:2022, Annex A', '/en/blog/iso-27002-2022-control-attributes/'),
+          ('ISO/IEC 27002:2022 - Information security controls', '/en/blog/iso-27002-2022-control-attributes/'),
+          ('ISO/IEC 27001:2022/Amd 1:2024 - climate action changes', '/en/blog/iso-27002-2022-control-attributes/')]))
 
 ARTICLES_EN.append(dict(
  slug="bia-that-produces-a-usable-rto", cat="Business continuity", catkey="bcm",
@@ -2445,8 +2445,8 @@ ARTICLES_EN.append(dict(
   <p>A plan that has never been exercised documents intent, not capability. A two-hour tabletop with a scenario and real time measurement reveals more than another round of editing the document - and produces exactly the record measure 12 asks for.</p>
 </div>
 ''',
- sources=[('ISO 22301:2019 - Business continuity management systems', None),
-          ('ISO/TS 22317 - Guidelines for business impact analysis', None),
+ sources=[('ISO 22301:2019 - Business continuity management systems', '/en/blog/bia-that-produces-a-usable-rto/'),
+          ('ISO/TS 22317 - Guidelines for business impact analysis', '/en/blog/bia-that-produces-a-usable-rto/'),
           ('Cybersecurity Regulation, OG 135/2024, Annex II, measure 12 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html')]))
 
 ARTICLES_EN.append(dict(
@@ -2506,7 +2506,7 @@ ARTICLES_EN.append(dict(
   <p>DORA is the more specific regime for the financial sector, but it does not displace other obligations. The evidence base overlaps almost entirely with the Croatian Cybersecurity Regulation: the same asset register, the same risk register, the same incident records. Do the work once, report it in several directions.</p>
 </div>
 ''',
- sources=[('Regulation (EU) 2022/2554 (DORA)', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554'),
+ sources=[('Regulation (EU) 2022/2554 (DORA)', 'https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng'),
           ('Implementing technical standards on the register of information (ESAs)', 'https://www.eba.europa.eu/'),
           ('Cybersecurity Regulation, OG 135/2024, Annex II, measure 8 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html')]))
 
@@ -2578,7 +2578,7 @@ ARTICLES_EN.append(dict(
 ''',
  sources=[('NIST Cybersecurity Framework 2.0', 'https://www.nist.gov/cyberframework'),
           ('Cybersecurity Regulation, OG 135/2024, Annex II (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
-          ('ISO/IEC 27001:2022, Annex A', None)]))
+          ('ISO/IEC 27001:2022, Annex A', '/en/blog/iso-27002-2022-control-attributes/')]))
 
 ARTICLES_EN.append(dict(
  slug="nist-csf-2-govern-function", cat="Frameworks", catkey="frameworks",
@@ -2640,7 +2640,7 @@ ARTICLES_EN.append(dict(
 ''',
  sources=[('NIST Cybersecurity Framework 2.0', 'https://www.nist.gov/cyberframework'),
           ('NIST CSF 2.0 Implementation Examples', 'https://www.nist.gov/cyberframework'),
-          ('ISO/IEC 27002:2022 - control attributes', None)]))
+          ('ISO/IEC 27002:2022 - control attributes', '/en/blog/iso-27002-2022-control-attributes/')]))
 
 ARTICLES_EN.append(dict(
  slug="active-directory-attack-paths", cat="Offensive security", catkey="offensive",
@@ -2692,7 +2692,7 @@ ARTICLES_EN.append(dict(
 </div>
 ''',
  sources=[('Cybersecurity Regulation, OG 135/2024, Annex II, measures 4, 6, 7 and 12 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
-          ('ISO/IEC 27002:2022 - technological controls', None),
+          ('ISO/IEC 27002:2022 - technological controls', '/en/blog/iso-27002-2022-control-attributes/'),
           ('NIST Cybersecurity Framework 2.0 - Protect and Detect functions', 'https://www.nist.gov/cyberframework')]))
 
 # ══════════════════════════════════════════════════════════════════
@@ -2751,8 +2751,8 @@ ARTICLES_EN.append(dict(
   <p>The AI Act applies in stages, with provisions taking effect at different dates. Prohibited practices and the AI literacy obligation apply first, obligations for high-risk systems later. Check which date applies to your situation before planning a project timeline.</p>
 </div>
 ''',
- sources=[('Regulation (EU) 2024/1689 (AI Act)', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689'),
-          ('Regulation (EU) 2016/679 (GDPR)', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679')]))
+ sources=[('Regulation (EU) 2024/1689 (AI Act)', 'https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng'),
+          ('Regulation (EU) 2016/679 (GDPR)', 'https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng')]))
 
 ARTICLES_EN.append(dict(
  slug="prohibited-practices-and-ai-literacy", cat="Artificial intelligence", catkey="ai",
@@ -2800,7 +2800,7 @@ ARTICLES_EN.append(dict(
   <p>This text is an informative overview, not legal advice. The precise scope of prohibited practices and the way the literacy obligation applies depend on the specific circumstances and on guidance issued at Union level.</p>
 </div>
 ''',
- sources=[('Regulation (EU) 2024/1689 (AI Act), Art. 4 and 5', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689'),
+ sources=[('Regulation (EU) 2024/1689 (AI Act), Art. 4 and 5', 'https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng'),
           ('Cybersecurity Regulation, OG 135/2024, Annex II, measure 5 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html')]))
 
 ARTICLES_EN.append(dict(
@@ -2860,9 +2860,9 @@ ARTICLES_EN.append(dict(
   <p>The same principle applies to the DORA register of information and to the GDPR record of processing activities. Each asks for a view of the same assets from a different angle. Organisations that maintain them as views on one source report; those that maintain them separately transcribe.</p>
 </div>
 ''',
- sources=[('Regulation (EU) 2024/1689 (AI Act)', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689'),
+ sources=[('Regulation (EU) 2024/1689 (AI Act)', 'https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng'),
           ('Cybersecurity Regulation, OG 135/2024, Annex II, measures 2 and 8 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
-          ('ISO/IEC 27001:2022, Annex A - asset management', None)]))
+          ('ISO/IEC 27001:2022, Annex A - asset management', '/en/blog/iso-27001-and-the-cybersecurity-act/')]))
 
 ARTICLES_EN.append(dict(
  slug="ai-in-defence-where-it-helps", cat="Artificial intelligence", catkey="ai",
@@ -2915,31 +2915,468 @@ ARTICLES_EN.append(dict(
   <p>The AI Act applies the same logic to security tools as to everything else: obligations follow the application. A tool that ranks alerts is generally low risk, but a tool that automatically blocks a user is making a decision about a person - and that changes the assessment.</p>
 </div>
 ''',
- sources=[('Regulation (EU) 2024/1689 (AI Act)', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689'),
+ sources=[('Regulation (EU) 2024/1689 (AI Act)', 'https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng'),
           ('NIST Cybersecurity Framework 2.0 - Detect and Respond functions', 'https://www.nist.gov/cyberframework'),
           ('Recommendations for systematic log collection, NCSC-HR (Croatian)', 'https://www.ncsc.hr/')]))
+
+# ══════════════════════════════════════════════════════════════════
+# STRANICE SEKTORA
+# ══════════════════════════════════════════════════════════════════
+# kljuc, slug HR, slug EN, ime HR, ime EN, prilog, csirt, tijelo HR, tijelo EN
+SEKTORI = [
+ dict(k="bankarstvo", hr="bankarstvo-i-financije", en="banking-and-finance",
+   nHR="Bankarstvo i financije", nEN="Banking and finance", prilog=1, csirt="cert",
+   tHR="Hrvatska narodna banka i HANFA", tEN="Croatian National Bank and HANFA",
+   qHR="ZKS I DORA, USPOREDNE OBVEZE", qEN="CSA AND DORA, PARALLEL OBLIGATIONS",
+   leadHR="Financijski sektor je jedini koji istovremeno nosi dva režima. DORA detaljnije uređuje IKT rizik, ali ne ukida obveze iz Zakona o kibernetičkoj sigurnosti. Posao se radi jednom, izvještava na dvije strane.",
+   leadEN="Financial services is the only sector carrying two regimes at once. DORA governs ICT risk in more detail but does not displace the obligations under the Cybersecurity Act. The work is done once and reported in two directions.",
+   mjHR=[("03","Upravljanje rizicima","DORA i Uredba traže isti registar rizika. Dvije metodologije znače dva registra koja se raziđu."),
+         ("08","Sigurnost lanca opskrbe","DORA registar informacija o ugovorima s pružateljima IKT usluga je najzahtjevniji dio, i pada na kvaliteti podataka, ne na propisu."),
+         ("11","Postupanje s incidentima","Prijava nadležnom CSIRT-u i prijava prema DORA-i teku usporedno, uz vlastite obrasce i rokove."),
+         ("12","Kontinuitet poslovanja","DORA traži testiranje otpornosti, što je više od klasičnog plana oporavka.")],
+   mjEN=[("03","Risk management","DORA and the Regulation require the same risk register. Two methodologies mean two registers that diverge."),
+         ("08","Supply chain security","The DORA register of information on ICT provider contracts is the hardest part, and it fails on data quality, not on the rules."),
+         ("11","Incident handling","Notification to the competent CSIRT and DORA reporting run in parallel, with their own forms and deadlines."),
+         ("12","Business continuity","DORA requires resilience testing, which goes beyond a classical recovery plan.")],
+   nalHR=["Registar informacija popunjen ručno iz tri nepovezana izvora - nabave, informatike i financija",
+          "Ugovori s pružateljima usluga u oblaku bez obveze prijave podugovaratelja",
+          "Registar rizika koji ne pokriva rizike trećih strana",
+          "Testiranje oporavka koje se dokumentira, ali se ne mjeri vrijeme"],
+   nalEN=["A register of information populated by hand from three unconnected sources - procurement, IT and finance",
+          "Cloud provider contracts with no obligation to disclose subcontractors",
+          "A risk register that does not cover third-party risk",
+          "Recovery testing that is documented but never timed"],
+   clHR=["dora-registar-informacija","registar-rizika-koji-prolazi-provjeru","znacajan-incident-pet-obavijesti-pixi"],
+   clEN=["dora-register-of-information","risk-register-that-passes-review","incident-reporting-deadlines"]),
+
+ dict(k="osiguranje", hr="osiguranje", en="insurance",
+   nHR="Osiguranje", nEN="Insurance", prilog=1, csirt="cert",
+   tHR="HANFA", tEN="HANFA",
+   qHR="DORA ZA IKT RIZIK &middot; ISO 27001 I KONTINUITET", qEN="DORA FOR ICT RISK &middot; ISO 27001 AND CONTINUITY",
+   leadHR="Osiguravatelji podliježu DORA-i kao i ostali financijski subjekti, uz dodatnu složenost: velik broj vanjskih posrednika i agenata koji obrađuju osobne podatke ugovaratelja.",
+   leadEN="Insurers fall under DORA like other financial entities, with added complexity: a large network of external intermediaries and agents processing policyholder data.",
+   mjHR=[("02","Upravljanje imovinom","Podaci ugovaratelja i podaci o štetama su kritična imovina, često raspršena po naslijeđenim sustavima."),
+         ("04","Digitalni identiteti","Vanjski posrednici imaju pristup sustavima, a oduzimanje prava pri prestanku suradnje rijetko je automatizirano."),
+         ("08","Lanac opskrbe","Posrednici, procjenitelji šteta i pružatelji usluga u oblaku ulaze u istu procjenu rizika."),
+         ("10","Kriptografija","Zdravstveni podaci u policama i prijavama šteta traže zaštitu u prijenosu i mirovanju.")],
+   mjEN=[("02","Asset management","Policyholder and claims data are critical assets, often scattered across legacy systems."),
+         ("04","Digital identities","External intermediaries have system access, and revoking it when the relationship ends is rarely automated."),
+         ("08","Supply chain","Intermediaries, loss adjusters and cloud providers enter the same risk assessment."),
+         ("10","Cryptography","Health data in policies and claims requires protection in transit and at rest.")],
+   nalHR=["Aktivni računi posrednika s kojima je suradnja prestala prije više godina",
+          "Naslijeđeni sustavi za obradu šteta bez podrške proizvođača, bez odluke uprave o riziku",
+          "Zdravstveni podaci u testnim okruženjima, bez maskiranja",
+          "Procjena rizika koja ne obuhvaća posrednike"],
+   nalEN=["Active intermediary accounts from relationships that ended years ago",
+          "Legacy claims systems past vendor support, with no board decision on the risk",
+          "Health data in test environments, unmasked",
+          "A risk assessment that does not cover intermediaries"],
+   clHR=["dora-registar-informacija","iso-27001-i-zks","bia-koja-daje-upotrebljiv-rto"],
+   clEN=["dora-register-of-information","iso-27001-and-the-cybersecurity-act","bia-that-produces-a-usable-rto"]),
+
+ dict(k="energetika", hr="energetika", en="energy",
+   nHR="Energetika", nEN="Energy", prilog=1, csirt="ncsc", tHR="", tEN="",
+   qHR="PROIZVODNJA, PRIJENOS, DISTRIBUCIJA, PLIN I NAFTA", qEN="GENERATION, TRANSMISSION, DISTRIBUTION, GAS AND OIL",
+   leadHR="Energetika je sektor u kojem se najjasnije vidi razlika između informacijskih i operativnih sustava. Kontrola koja je u uredskoj mreži rutinska u pogonu može zaustaviti proizvodnju.",
+   leadEN="Energy is where the difference between information and operational systems shows most clearly. A control that is routine on the office network can halt production in the plant.",
+   mjHR=[("06","Sigurnost mreže","Segmentacija je najisplativija kontrola jer ne dira same uređaje - odvaja proizvodnu od uredske mreže."),
+         ("05","Kibernetička higijena","Zakrpe se ne mogu primijeniti izvan planiranog zastoja, pa rizik traži nadoknadne kontrole i pisanu odluku."),
+         ("07","Kontrola pristupa","Trajni udaljeni pristup dobavljača opreme s dijeljenim računom najčešći je stvarni rizik."),
+         ("12","Kontinuitet poslovanja","Oporavak znači i sigurno pokretanje procesa, što je operativni postupak, a ne informatički.")],
+   mjEN=[("06","Network security","Segmentation is the highest-return control because it does not touch the devices - it separates production from the office network."),
+         ("05","Cyber hygiene","Patches cannot be applied outside a planned outage, so the risk needs compensating controls and a written decision."),
+         ("07","Access control","Permanent vendor remote access on a shared account is the most common real risk."),
+         ("12","Business continuity","Recovery also means safely restarting the process, which is an operational procedure, not an IT one.")],
+   nalHR=["Proizvodna i uredska mreža bez stvarne segmentacije",
+          "Udaljeni pristup dobavljača opreme bez odobravanja po zahtjevu i bez zapisa",
+          "Sustavi bez podrške proizvođača, bez procjene rizika i odluke uprave",
+          "Popis OT uređaja u dokumentaciji stariji od stvarnog stanja"],
+   nalEN=["Production and office networks with no real segmentation",
+          "Vendor remote access without per-request approval and without records",
+          "Systems past vendor support, with no risk assessment or board decision",
+          "An OT device list in the documentation older than reality"],
+   clHR=["ot-sustavi-i-zks","prioritetne-preporuke-ncsc","bia-koja-daje-upotrebljiv-rto"],
+   clEN=["active-directory-attack-paths","bia-that-produces-a-usable-rto","iso-27001-and-the-cybersecurity-act"]),
+
+ dict(k="zdravstvo", hr="zdravstvo-i-farmacija", en="healthcare-and-pharma",
+   nHR="Zdravstvo i farmacija", nEN="Healthcare and pharma", prilog=1, csirt="ncsc", tHR="", tEN="",
+   qHR="PRILOG I. &middot; SEKTOR VISOKE KRITIČNOSTI", qEN="ANNEX I &middot; HIGH-CRITICALITY SECTOR",
+   leadHR="Zdravstvo je u Prilogu I., pa se primjenjuje kriterij veličine. Ali članak 11. dopušta razvrstavanje neovisno o veličini svakoj ustanovi čiji bi ispad znatno utjecao na javno zdravlje - a to u zdravstvu nije rijedak slučaj.",
+   leadEN="Health is in Annex I, so the size criterion applies. But Article 11 allows categorisation regardless of size for any institution whose disruption would significantly affect public health - which in healthcare is not unusual.",
+   mjHR=[("02","Upravljanje imovinom","Medicinski uređaji povezani na mrežu dio su imovine, a rijetko su u inventaru informatike."),
+         ("10","Kriptografija","Podaci o zdravlju su posebna kategorija prema Općoj uredbi i traže zaštitu u prijenosu i mirovanju."),
+         ("11","Postupanje s incidentima","Incident sa zdravstvenim podacima gotovo uvijek pokreće i usporednu prijavu AZOP-u u 72 sata."),
+         ("12","Kontinuitet poslovanja","Nedostupnost bolničkog sustava nije poslovna šteta nego rizik za pacijente.")],
+   mjEN=[("02","Asset management","Networked medical devices are assets, and are rarely in the IT inventory."),
+         ("10","Cryptography","Health data is a special category under the GDPR and requires protection in transit and at rest."),
+         ("11","Incident handling","An incident involving health data almost always triggers a parallel 72-hour notification to the data protection authority."),
+         ("12","Business continuity","Unavailability of a hospital system is not commercial damage but a risk to patients.")],
+   nalHR=["Medicinski uređaji na mreži koji nisu u inventaru imovine",
+          "Zajednički računi na odjelima, bez veze s osobom",
+          "Sigurnosne kopije dostupne iz iste mreže iz koje se šire ucjenjivački programi",
+          "Plan kontinuiteta bez postupka za rad bez informacijskog sustava"],
+   nalEN=["Networked medical devices absent from the asset inventory",
+          "Shared ward accounts with no link to a person",
+          "Backups reachable from the same network ransomware spreads through",
+          "A continuity plan with no procedure for working without the information system"],
+   clHR=["kategorizacija-prema-zks-u","rokovi-prijave-incidenta","bia-koja-daje-upotrebljiv-rto"],
+   clEN=["entity-categorisation-croatian-cybersecurity-act","incident-reporting-deadlines","bia-that-produces-a-usable-rto"]),
+
+ dict(k="hrana", hr="prehrambena-industrija", en="food-industry",
+   nHR="Prehrambena industrija", nEN="Food industry", prilog=2, csirt="ncsc", tHR="", tEN="",
+   qHR="PRILOG II. &middot; PROIZVODNJA, PRERADA I DISTRIBUCIJA", qEN="ANNEX II &middot; PRODUCTION, PROCESSING AND DISTRIBUTION",
+   leadHR="Prehrambena industrija je u Prilogu II., pa srednji i veliki subjekti postaju važni subjekti. Proizvodne linije, skladišni sustavi i logistika čine je sektorom s izraženom operativnom tehnologijom.",
+   leadEN="Food is in Annex II, so medium and large entities become important entities. Production lines, warehouse systems and logistics make it a sector with substantial operational technology.",
+   mjHR=[("06","Sigurnost mreže","Proizvodne linije i sustavi upravljanja skladištem u pravilu dijele mrežu s uredskim sustavima."),
+         ("05","Kibernetička higijena","Sigurnosne kopije sustava planiranja resursa i njihovo testirano vraćanje odlučuju koliko dugo stoji proizvodnja."),
+         ("08","Lanac opskrbe","Dobavljači opreme i pružatelji logističkih usluga imaju pristup sustavima."),
+         ("12","Kontinuitet poslovanja","Zastoj u proizvodnji hrane ima rok trajanja - sirovina se kvari dok sustav stoji.")],
+   mjEN=[("06","Network security","Production lines and warehouse management systems usually share a network with office systems."),
+         ("05","Cyber hygiene","Backups of the ERP system and a tested restore decide how long production stands still."),
+         ("08","Supply chain","Equipment suppliers and logistics providers have system access."),
+         ("12","Business continuity","A stoppage in food production has a shelf life - raw material spoils while the system is down.")],
+   nalHR=["Sustav planiranja resursa i proizvodne linije u istoj mrežnoj zoni",
+          "Vraćanje podataka iz sigurnosne kopije nikad testirano do kraja",
+          "Udaljeni pristup dobavljača linija bez vremenskog ograničenja",
+          "Analiza poslovnog utjecaja u kojoj svi procesi imaju isti RTO"],
+   nalEN=["The ERP system and production lines in the same network zone",
+          "A restore from backup never tested end to end",
+          "Vendor remote access to lines with no time limit",
+          "A business impact analysis in which every process carries the same RTO"],
+   clHR=["ot-sustavi-i-zks","bia-koja-daje-upotrebljiv-rto","prioritetne-preporuke-ncsc"],
+   clEN=["bia-that-produces-a-usable-rto","risk-register-that-passes-review","what-cyber-insurers-actually-ask"]),
+
+ dict(k="ikt", hr="digitalna-infrastruktura-i-ikt", en="digital-infrastructure-and-ict",
+   nHR="Digitalna infrastruktura i IKT", nEN="Digital infrastructure and ICT", prilog=1, csirt="ncsc",
+   tHR="HAKOM za elektroničke komunikacije", tEN="HAKOM for electronic communications",
+   qHR="PODATKOVNI CENTRI, OBLAK, MREŽE, UPRAVLJANE USLUGE", qEN="DATA CENTRES, CLOUD, NETWORKS, MANAGED SERVICES",
+   leadHR="Ovdje kriterij veličine često ne vrijedi. Pružatelji usluga DNS-a i registar vršne nacionalne domene ključni su neovisno o veličini, a pružatelji elektroničkih komunikacija i usluga povjerenja kategoriziraju se neovisno o veličini.",
+   leadEN="Here the size criterion often does not apply. DNS service providers and the national top-level domain registry are essential regardless of size, and providers of electronic communications and trust services are categorised regardless of size.",
+   mjHR=[("07","Kontrola pristupa","Pružatelj upravljanih usluga ima pristup sustavima svojih klijenata - kompromitacija se množi."),
+         ("08","Lanac opskrbe","Vi ste nečiji lanac opskrbe. Mjera 8 vaših klijenata postavlja zahtjeve vama, ugovorom."),
+         ("09","Razvoj i održavanje","Odvojena okruženja i upravljanje promjenama presudni su kad jedna promjena pogađa više klijenata."),
+         ("11","Postupanje s incidentima","Za dio digitalnih pružatelja vrijede posebna pravila značajnosti iz Provedbene uredbe (EU) 2024/2690.")],
+   mjEN=[("07","Access control","A managed service provider has access to its clients' systems - a compromise multiplies."),
+         ("08","Supply chain","You are somebody's supply chain. Your clients' measure 8 imposes requirements on you, contractually."),
+         ("09","Development and maintenance","Separated environments and change management are decisive when one change affects several clients."),
+         ("11","Incident handling","For some digital providers special significance rules apply under Implementing Regulation (EU) 2024/2690.")],
+   nalHR=["Zajednički administratorski računi za više klijenata",
+          "Alati za udaljeno upravljanje bez višefaktorske autentifikacije",
+          "Nema razdvajanja klijentskih okruženja na razini mreže",
+          "Ugovori bez definiranog roka prijave incidenta prema klijentu"],
+   nalEN=["Shared administrator accounts across several clients",
+          "Remote management tools without multi-factor authentication",
+          "No network-level separation of client environments",
+          "Contracts with no defined incident notification deadline towards the client"],
+   clHR=["kategorizacija-prema-zks-u","active-directory-putovi-napada","dnevnicki-zapisi-sto-prikupljati"],
+   clEN=["entity-categorisation-croatian-cybersecurity-act","active-directory-attack-paths","iso-27002-2022-control-attributes"]),
+
+ dict(k="javna", hr="javna-uprava", en="public-administration",
+   nHR="Javna uprava", nEN="Public administration", prilog=1, csirt="ncsc", tHR="", tEN="",
+   qHR="TIJELA DRŽAVNE UPRAVE KLJUČNA NEOVISNO O VELIČINI", qEN="STATE ADMINISTRATION BODIES ESSENTIAL REGARDLESS OF SIZE",
+   leadHR="Ovdje veličina ne igra ulogu. Tijela državne uprave razvrstavaju se u ključne subjekte neovisno o veličini, kao i subjekti koji upravljaju državnom informacijskom infrastrukturom. Jedinice lokalne i područne samouprave razvrstavaju se u važne subjekte.",
+   leadEN="Size plays no role here. State administration bodies are classified as essential entities regardless of size, as are operators of the state information infrastructure. Local and regional self-government units are classified as important entities.",
+   mjHR=[("01","Predanost i odgovornost","Kontakt osoba mora biti iz reda dužnosnika odnosno izvršnog tijela, ne iz informatike."),
+         ("02","Upravljanje imovinom","Dostava podataka NCSC-u traži i IP adresne raspone koje subjekt koristi."),
+         ("04","Digitalni identiteti","Velik broj korisnika, česte promjene radnih mjesta i dugotrajni pristupi."),
+         ("11","Postupanje s incidentima","Pristup platformi PiXi ide preko sustava NIAS i mora biti riješen prije incidenta.")],
+   mjEN=[("01","Commitment and accountability","The contact person must be an official or executive body member, not from IT."),
+         ("02","Asset management","Data delivery to NCSC-HR also requires the IP address ranges the entity uses."),
+         ("04","Digital identities","Large user numbers, frequent role changes and long-lived access rights."),
+         ("11","Incident handling","Access to the PiXi platform runs through the national identification system and must be sorted before an incident.")],
+   nalHR=["Kontakt osoba imenovana iz informatike umjesto iz upravljačkog tijela",
+          "Nepotpun popis IP adresnih raspona koje tijelo koristi",
+          "Prava pristupa koja ostaju nakon premještaja na drugo radno mjesto",
+          "Nitko nema pristup platformi za prijavu incidenata"],
+   nalEN=["A contact person appointed from IT instead of the management body",
+          "An incomplete list of the IP ranges the body uses",
+          "Access rights that persist after an internal transfer",
+          "Nobody has access to the incident reporting platform"],
+   clHR=["kategorizacija-prema-zks-u","znacajan-incident-pet-obavijesti-pixi","korelacijski-pregled-mjera"],
+   clEN=["entity-categorisation-croatian-cybersecurity-act","incident-reporting-deadlines","how-self-assessment-is-scored"]),
+
+ dict(k="promet", hr="promet-i-logistika", en="transport-and-logistics",
+   nHR="Promet i logistika", nEN="Transport and logistics", prilog=1, csirt="ncsc",
+   tHR="Hrvatska agencija za civilno zrakoplovstvo za zračni promet", tEN="Croatian Civil Aviation Agency for air transport",
+   qHR="ZRAČNI, ŽELJEZNIČKI, VODNI I CESTOVNI", qEN="AIR, RAIL, WATER AND ROAD",
+   leadHR="Promet je u Prilogu I. i podijeljen na četiri podsektora. Zračni promet ima vlastito sektorsko nadležno tijelo, dok za ostale nadležnost ostaje kod središnjeg tijela za kibernetičku sigurnost.",
+   leadEN="Transport is in Annex I and split into four subsectors. Air transport has its own sectoral competent authority, while for the others competence stays with the central cybersecurity authority.",
+   mjHR=[("06","Sigurnost mreže","Sustavi upravljanja prometom i signalizacija odvojeni su od poslovnih sustava - u dokumentaciji češće nego u stvarnosti."),
+         ("08","Lanac opskrbe","Logistika ovisi o velikom broju partnera s pristupom sustavima za praćenje pošiljaka."),
+         ("11","Postupanje s incidentima","Incident koji zaustavi prijevoz ima prekogranični učinak, što mijenja sadržaj prijave."),
+         ("12","Kontinuitet poslovanja","Oporavak mora obuhvatiti i ručni način rada dok sustav ne proradi.")],
+   mjEN=[("06","Network security","Traffic management and signalling systems are separated from business systems - more often in documentation than in reality."),
+         ("08","Supply chain","Logistics depends on many partners with access to shipment tracking systems."),
+         ("11","Incident handling","An incident that halts transport has cross-border effect, which changes the content of the notification."),
+         ("12","Business continuity","Recovery must also cover manual operation until the system is back.")],
+   nalHR=["Sustavi za praćenje pošiljaka dostupni partnerima bez ograničenja opsega",
+          "Nema postupka za ručni rad pri ispadu sustava",
+          "Naslijeđeni sustavi signalizacije bez segmentacije",
+          "Kriterij značajnosti incidenta ne uzima u obzir prekogranični učinak"],
+   nalEN=["Shipment tracking systems available to partners with no scope limitation",
+          "No procedure for manual operation during a system outage",
+          "Legacy signalling systems without segmentation",
+          "A significance criterion that ignores cross-border effect"],
+   clHR=["ot-sustavi-i-zks","znacajan-incident-pet-obavijesti-pixi","registar-rizika-koji-prolazi-provjeru"],
+   clEN=["incident-reporting-deadlines","risk-register-that-passes-review","bia-that-produces-a-usable-rto"]),
+]
+
+SEK_T = {
+ "hr": dict(hub="/sektori/", name="Sektori",
+   h1="Sektori koje pokrivamo",
+   intro="Kategoriju subjekta određuju sektor iz priloga Zakona i veličina, uz niz iznimaka. Za svaki sektor navodimo koje mjere u praksi nose najviše posla, tko je nadležan i što najčešće nalazimo.",
+   desc="Sektorski pregled obveza iz Zakona o kibernetičkoj sigurnosti: bankarstvo, osiguranje, energetika, zdravstvo, prehrambena industrija, IKT, javna uprava i promet.",
+   crumb_home="Početna",
+   cat_h="Kategorizacija", prilog_h="Prilog Zakona", auth_h="Nadležnost",
+   csirt_l="Nadležni CSIRT", body_l="Sektorsko tijelo",
+   p1="Prilog I. - sektor visoke kritičnosti", p2="Prilog II. - drugi kritični sektor",
+   mj_h="Mjere koje u ovom sektoru nose najviše posla",
+   nal_h="Što najčešće nalazimo",
+   cl_h="Iz baze znanja",
+   tools_h="Provjerite sami",
+   tool1="Provjera kategorizacije subjekta", tool2="Kalkulator rokova prijave incidenta",
+   tool3="Mini samoprocjena po 13 mjera",
+   ncsc="Nacionalni centar za kibernetičku sigurnost (NCSC-HR)", cert="Nacionalni CERT",
+   all_l="Svi sektori",
+ ),
+ "en": dict(hub="/en/sectors/", name="Sectors",
+   h1="Sectors we cover",
+   intro="Entity category is determined by the sector listed in the annexes to the Act and by size, subject to a number of exceptions. For each sector we set out which measures carry the most work in practice, who is competent, and what we most often find.",
+   desc="Sector overview of obligations under the Croatian Cybersecurity Act: banking, insurance, energy, healthcare, food, ICT, public administration and transport.",
+   crumb_home="Home",
+   cat_h="Categorisation", prilog_h="Annex to the Act", auth_h="Competence",
+   csirt_l="Competent CSIRT", body_l="Sectoral authority",
+   p1="Annex I - high-criticality sector", p2="Annex II - other critical sector",
+   mj_h="The measures that carry most of the work in this sector",
+   nal_h="What we most often find",
+   cl_h="From the knowledge base",
+   tools_h="Check for yourself",
+   tool1="Entity categorisation check", tool2="Incident reporting deadline calculator",
+   tool3="Readiness check against the 13 measures",
+   ncsc="National Cyber Security Centre (NCSC-HR)", cert="National CERT",
+   all_l="All sectors",
+ ),
+}
+
+def build_sectors(lang, articles):
+    t = L[lang]
+    st = SEK_T[lang]
+    FOOT = footer(lang, articles)
+    out_dir = os.path.join(ROOT, "en", "sectors") if lang == "en" else os.path.join(ROOT, "sektori")
+    os.makedirs(out_dir, exist_ok=True)
+    blog = t["blog"]
+    tools = TOOLS_T[lang]["hub"]
+    arts = {a["slug"]: a for a in articles}
+
+    def slug(s): return s["en"] if lang == "en" else s["hr"]
+    def name(s): return s["nEN"] if lang == "en" else s["nHR"]
+    def qual(s): return s["qEN"] if lang == "en" else s["qHR"]
+
+    # ── Hub ───────────────────────────────────────────────────────
+    cards = "\n".join('''      <a class="sector-card" href="%s%s/">
+        <div class="sector-name">%s</div>
+        <div class="sector-note">%s</div>
+        <span class="sector-more">%s &rarr;</span>
+      </a>''' % (st["hub"], slug(s), name(s), qual(s),
+                 "Pogledajte sektor" if lang == "hr" else "View sector") for s in SEKTORI)
+
+    hub_body = header(lang, active_blog=False) + '''
+<main>
+  <section class="kb-hero">
+    <div class="container">
+      <div class="eyebrow">%s</div>
+      <h1>%s</h1>
+      <p>%s</p>
+    </div>
+  </section>
+  <div class="container">
+    <div class="sector-grid" style="padding:44px 0 72px">
+%s
+    </div>
+  </div>
+</main>
+''' % (st["name"], st["h1"], st["intro"], cards) + FOOT
+
+    io.open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8").write(
+      page(st["name"] + " | Adventure Spirit Consulting", st["desc"], hub_body,
+           SITE + st["hub"], lang=lang,
+           extra_head=hreflang(SITE + "/sektori/", SITE + "/en/sectors/")))
+
+    # ── Stranice sektora ──────────────────────────────────────────
+    for s in SEKTORI:
+        sl, nm = slug(s), name(s)
+        url = SITE + st["hub"] + sl + "/"
+        lead = s["leadEN"] if lang == "en" else s["leadHR"]
+        mj = s["mjEN"] if lang == "en" else s["mjHR"]
+        nal = s["nalEN"] if lang == "en" else s["nalHR"]
+        cl = s["clEN"] if lang == "en" else s["clHR"]
+
+        mjere = "\n".join('''      <div class="gap-item crit">
+        <div class="gap-h"><span class="gap-n">%s</span><span class="gap-t">%s</span></div>
+        <div class="gap-d">%s</div>
+      </div>''' % (n, t2, d) for n, t2, d in mj)
+
+        nalazi = "\n".join("        <li>%s</li>" % x for x in nal)
+
+        rel = [arts[c] for c in cl if c in arts]
+        clanci = "\n".join(card(a, lang) for a in rel)
+
+        auth = '<div><span class="auth-k">%s</span>%s</div>' % (
+            st["csirt_l"], st["cert"] if s["csirt"] == "cert" else st["ncsc"])
+        body_t = s["tEN"] if lang == "en" else s["tHR"]
+        if body_t:
+            auth += '<div><span class="auth-k">%s</span>%s</div>' % (st["body_l"], body_t)
+
+        others = [x for x in SEKTORI if x["k"] != s["k"]][:4]
+        drugi = "\n".join('<a class="chip-link" href="%s%s/">%s</a>' % (st["hub"], slug(x), name(x))
+                          for x in others)
+
+        body = header(lang, active_blog=False) + '''
+<main>
+  <div class="container narrow">
+    <div class="crumbs">
+      <a href="%s">%s</a><span>&rsaquo;</span><a href="%s">%s</a><span>&rsaquo;</span>%s
+    </div>
+    <header class="art-head">
+      <div class="eyebrow">%s</div>
+      <h1>%s</h1>
+      <p class="art-lead">%s</p>
+    </header>
+
+    <article>
+      <div class="auth-box" style="margin-top:36px">
+        <div><span class="auth-k">%s</span>%s</div>
+        %s
+      </div>
+
+      <h2>%s</h2>
+%s
+
+      <h2>%s</h2>
+      <ul>
+%s
+      </ul>
+
+      <h2>%s</h2>
+      <p>Tri alata koja rade u pregledniku, bez registracije:</p>
+      <div class="nf-nav" style="border:none;padding-top:0;margin-top:0">
+        <a href="%s%s/">%s</a>
+        <a href="%s%s/">%s</a>
+        <a href="%s%s/">%s</a>
+      </div>
+
+      %s
+    </article>
+
+    <div class="related">
+      <h3>%s</h3>
+      <div class="related-grid">
+%s
+      </div>
+    </div>
+
+    <div class="related" style="margin-top:0;padding-top:32px">
+      <h3>%s</h3>
+      <div class="chip-row">
+%s
+        <a class="chip-link" href="%s">%s</a>
+      </div>
+    </div>
+  </div>
+</main>
+''' % (t["base"] or "/", st["crumb_home"], st["hub"], st["name"], nm,
+       st["name"], nm, lead,
+       st["prilog_h"], st["p1"] if s["prilog"] == 1 else st["p2"], auth,
+       st["mj_h"], mjere,
+       st["nal_h"], nalazi,
+       st["tools_h"],
+       tools, CAT_T[lang]["slug"], st["tool1"],
+       tools, TOOLS_T[lang]["slug"], st["tool2"],
+       tools, SA_T[lang]["slug"], st["tool3"],
+       cta_block(lang),
+       st["cl_h"], clanci,
+       st["all_l"], drugi, st["hub"], st["all_l"]) + FOOT
+
+        ld = [{
+          "@context": "https://schema.org", "@type": "WebPage",
+          "name": nm, "url": url,
+          "description": lead[:300],
+          "inLanguage": "hr-HR" if lang == "hr" else "en-GB",
+          "isPartOf": {"@type": "WebSite", "url": SITE + "/"},
+          "publisher": {"@type": "Organization", "name": "Adventure Spirit Consulting",
+                        "legalName": "Adventure Spirit d.o.o.", "url": SITE + "/"},
+        }, {
+          "@context": "https://schema.org", "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": st["crumb_home"], "item": SITE + (t["base"] or "/")},
+            {"@type": "ListItem", "position": 2, "name": st["name"], "item": SITE + st["hub"]},
+            {"@type": "ListItem", "position": 3, "name": nm, "item": url}]}]
+
+        d = os.path.join(out_dir, sl)
+        os.makedirs(d, exist_ok=True)
+        io.open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(
+          page(nm + " | Adventure Spirit Consulting",
+               (lead[:150] + "...") if len(lead) > 150 else lead, body, url, lang=lang,
+               extra_head=hreflang(SITE + "/sektori/" + s["hr"] + "/",
+                                   SITE + "/en/sectors/" + s["en"] + "/"), ld=ld))
 
 # ══════════════════════════════════════════════════════════════════
 # Sklapanje engleske naslovnice
 # ══════════════════════════════════════════════════════════════════
 def en_index():
     legal = "\n".join(
-      ('        <a class="legal-item" href="%s" target="_blank" rel="noopener">%s</a>' % (u, inner)) if u
+      ('        <a class="legal-item" href="%s"%s>%s</a>'
+       % (u, '' if u.startswith('/') else ' target="_blank" rel="noopener"', inner)) if u
       else ('        <div class="legal-item">%s</div>' % inner)
       for code, ref, desc, u in EN_LEGAL
       for inner in ['<div class="legal-code">%s</div><div class="legal-ref">%s</div><div class="legal-desc">%s</div>' % (code, ref, desc)])
 
+    EN_SUB = {
+     "CSA / NIS2 compliance": [("The 13 measures of Annex II", "/en/blog/thirteen-measures-annex-ii/"),
+                               ("Entity categorisation", "/en/blog/entity-categorisation-croatian-cybersecurity-act/"),
+                               ("How scoring works", "/en/blog/how-self-assessment-is-scored/")],
+     "GDPR compliance": [("Incident reporting deadlines", "/en/blog/incident-reporting-deadlines/"),
+                         ("AI inventory and asset register", "/en/blog/ai-inventory-and-asset-register/")],
+     "ISO/IEC 27001 - Information security": [("ISO 27001 and the Act", "/en/blog/iso-27001-and-the-cybersecurity-act/"),
+                                              ("ISO 27002:2022 attributes", "/en/blog/iso-27002-2022-control-attributes/")],
+     "ISO 9001 - Quality management": [("Risk register that passes", "/en/blog/risk-register-that-passes-review/")],
+     "ISO 14001 - Environmental management": [("Risk register that passes", "/en/blog/risk-register-that-passes-review/")],
+     "ISO 22301 - Business continuity": [("A BIA that produces a usable RTO", "/en/blog/bia-that-produces-a-usable-rto/"),
+                                         ("ISO 27001 and the Act", "/en/blog/iso-27001-and-the-cybersecurity-act/")],
+     "DORA - Digital operational resilience": [("The DORA register of information", "/en/blog/dora-register-of-information/"),
+                                               ("Banking and finance", "/en/sectors/banking-and-finance/")],
+     "Vendor risk management": [("The DORA register of information", "/en/blog/dora-register-of-information/"),
+                                ("Risk register that passes", "/en/blog/risk-register-that-passes-review/")],
+     "Security audits and testing": [("Active Directory: five findings", "/en/blog/active-directory-attack-paths/"),
+                                     ("What cyber insurers ask", "/en/blog/what-cyber-insurers-actually-ask/")],
+    }
+    def _sub(nm):
+        ls = EN_SUB.get(nm, [])
+        if not ls:
+            return ""
+        return '\n        <div class="card-sub">' + "".join(
+          '<a href="%s">%s</a>' % (u, t2) for t2, u in ls) + '</div>'
     services = "\n".join('''      <div class="service-card">
         <div class="card-icon">%s</div>
         <div class="card-title">%s</div>
-        <div class="card-desc">%s</div>
+        <div class="card-desc">%s</div>%s
         <div class="card-footer"><span class="card-badge">%s</span><a class="card-more" href="#contact">Ask about this &rarr;</a></div>
-      </div>''' % (svg(ic), name, desc, badge) for ic, name, badge, desc in EN_SERVICES)
+      </div>''' % (svg(ic), name, desc, _sub(name), badge) for ic, name, badge, desc in EN_SERVICES)
 
-    sectors = "\n".join('        <div class="sector-card"><div class="sector-name">%s</div><div class="sector-note">%s</div></div>'
-                        % (a, b) for a, b in EN_SECTORS)
-    authorities = "\n".join('      <span class="authority"><strong>%s</strong> &middot; %s</span>' % (a, b)
-                            for a, b in EN_AUTHORITIES)
+    _smap = {x["nEN"]: x["en"] for x in SEKTORI}
+    def _sc(a, b):
+        sl = _smap.get(a)
+        if not sl:
+            return '        <div class="sector-card"><div class="sector-name">%s</div><div class="sector-note">%s</div></div>' % (a, b)
+        return ('        <a class="sector-card" href="/en/sectors/%s/"><div class="sector-name">%s</div>'
+                '<div class="sector-note">%s</div><span class="sector-more">View sector &rarr;</span></a>' % (sl, a, b))
+    sectors = "\n".join(_sc(a, b) for a, b in EN_SECTORS)
+    def _chip(a, url, desc, b, burl):
+        left = '<a href="%s" target="_blank" rel="noopener">%s</a>' % (url, a)
+        if b:
+            left += ' / <a href="%s" target="_blank" rel="noopener">%s</a>' % (burl, b)
+        return '      <span class="authority"><strong>%s</strong> &middot; %s</span>' % (left, desc)
+    authorities = "\n".join(_chip(*x) for x in EN_AUTHORITIES)
     steps = "\n".join('      <div class="step"><div class="step-num">%s</div><div class="step-title">%s</div><div class="step-desc">%s</div><span class="step-dur">%s</span></div>'
                       % s for s in EN_PROCESS)
     CHK = '<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>'
@@ -3098,6 +3535,7 @@ def en_index():
     <div class="sector-grid">
 ''' + sectors + '''
     </div>
+    <div class="kb-all" style="margin-top:26px"><a href="/en/sectors/" class="btn-outline">All sectors in detail &rarr;</a></div>
     <div class="authority-row">
 ''' + authorities + '''
     </div>
@@ -3286,7 +3724,11 @@ window.addEventListener('scroll', function () {
 document.querySelectorAll('a[href^="#"]').forEach(function (a) {
   a.addEventListener('click', function (e) {
     var t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 104, behavior: 'smooth' }); }
+    if (t) {
+      e.preventDefault();
+      var y = t.getBoundingClientRect().top + window.pageYOffset - 104;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   });
 });
 function toggleFaq(btn) {
@@ -3440,8 +3882,9 @@ def build_blog(lang, articles, table_fn):
     for a in articles:
         body_html = a["body"].replace("__TABLICA__", table_fn())
         srcs = "\n".join('    <li>%s</li>'
-          % (('<a href="%s" target="_blank" rel="noopener">%s</a>' % (u, html.escape(s)))
-             if u else html.escape(s)) for s, u in a["sources"])
+          % (('<a href="%s"%s>%s</a>' % (u, '' if u.startswith('/') else ' target="_blank" rel="noopener"',
+                                         html.escape(src)))
+             if u else html.escape(src)) for src, u in a["sources"])
         rel = [x for x in articles if x["slug"] != a["slug"]][:3]
         url = SITE + t["blog"] + a["slug"] + "/"
 
@@ -4878,12 +5321,15 @@ def build_tool3(lang, articles):
            lang=lang, extra_head=hreflang(SITE + "/alati/" + SA_T["hr"]["slug"] + "/",
                                           SITE + "/en/tools/" + SA_T["en"]["slug"] + "/"), ld=ld))
 
+
 build_tools("hr", ARTICLES)
 build_tools("en", ARTICLES_EN)
 build_tool2("hr", ARTICLES)
 build_tool2("en", ARTICLES_EN)
 build_tool3("hr", ARTICLES)
 build_tool3("en", ARTICLES_EN)
+build_sectors("hr", ARTICLES)
+build_sectors("en", ARTICLES_EN)
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -4936,7 +5382,10 @@ urls = [(SITE + "/", "1.0", "weekly"), (SITE + "/en/", "0.9", "weekly"),
         (SITE + "/alati/" + CAT_T["hr"]["slug"] + "/", "0.9", "monthly"),
         (SITE + "/en/tools/" + CAT_T["en"]["slug"] + "/", "0.8", "monthly"),
         (SITE + "/alati/" + SA_T["hr"]["slug"] + "/", "0.9", "monthly"),
-        (SITE + "/en/tools/" + SA_T["en"]["slug"] + "/", "0.8", "monthly")]
+        (SITE + "/en/tools/" + SA_T["en"]["slug"] + "/", "0.8", "monthly"),
+        (SITE + "/sektori/", "0.9", "monthly"), (SITE + "/en/sectors/", "0.8", "monthly")]
+urls += [("%s/sektori/%s/" % (SITE, x["hr"]), "0.8", "monthly") for x in SEKTORI]
+urls += [("%s/en/sectors/%s/" % (SITE, x["en"]), "0.7", "monthly") for x in SEKTORI]
 urls += [("%s/blog/%s/" % (SITE, a["slug"]), "0.8", "monthly") for a in ARTICLES]
 urls += [("%s/en/blog/%s/" % (SITE, a["slug"]), "0.7", "monthly") for a in ARTICLES_EN]
 urls += [(SITE + "/uvjeti/", "0.3", "yearly"), (SITE + "/privatnost/", "0.3", "yearly"),

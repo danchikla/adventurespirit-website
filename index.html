@@ -187,6 +187,9 @@
     .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; background: rgba(239,101,63,.1); flex-shrink: 0; }
     .card-title { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
     .card-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; flex: 1; }
+    .card-sub { display: flex; flex-direction: column; gap: 5px; margin: 14px 0 4px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.07); }
+    .card-sub a { font-size: 12.5px; font-weight: 600; color: var(--orange); text-decoration: none; transition: opacity .2s; }
+    .card-sub a:hover { opacity: .75; text-decoration: underline; }
     .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.06); }
     .card-badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: rgba(239,101,63,.12); color: var(--orange); }
     .card-more { font-size: 12px; font-weight: 600; color: var(--orange); opacity: .7; }
@@ -521,6 +524,8 @@
     .authority-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; justify-content: center; }
     .authority { font-size: 11.5px; color: var(--text-muted); background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 8px 14px; }
     .authority strong { color: var(--white); font-weight: 700; }
+    .authority a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(239,101,63,.45); transition: color .2s; }
+    .authority a:hover { color: var(--orange); }
 
     /* ── Isporučevine ───────────────────────────────────────── */
     .deliver-wrap { margin-top: 52px; padding-top: 44px; border-top: 1px solid rgba(255,255,255,.07); }
@@ -645,7 +650,7 @@
   <ul class="nav-links" id="nav-links">
     <li><a href="#onama">O nama</a></li>
     <li><a href="#sigurnost">Usluge</a></li>
-    <li><a href="#sektori">Sektori</a></li>
+    <li><a href="/sektori/">Sektori</a></li>
     <li><a href="/blog/">Baza znanja</a></li>
     <li><a href="/alati/">Alati</a></li>
     <li><a href="#platforma">Platforma</a></li>
@@ -743,12 +748,12 @@
     <div class="legal-grid">
         <a class="legal-item" href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html" target="_blank" rel="noopener"><div class="legal-code">ZKS</div><div class="legal-ref">NN 14/2024</div><div class="legal-desc">Zakon o kibernetičkoj sigurnosti - kategorizacija subjekata, mjere, prijava incidenata, revizija i samoprocjena.</div></a>
         <a class="legal-item" href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener"><div class="legal-code">Uredba o kib. sigurnosti</div><div class="legal-ref">NN 135/2024</div><div class="legal-desc">Razrađuje 13 mjera upravljanja rizicima kroz podmjere i kontrole na tri razine provedbe.</div></a>
-        <a class="legal-item" href="https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32022L2555" target="_blank" rel="noopener"><div class="legal-code">NIS2</div><div class="legal-ref">EU 2022/2555</div><div class="legal-desc">Direktiva o mjerama za visoku zajedničku razinu kibernetičke sigurnosti u Uniji.</div></a>
-        <a class="legal-item" href="https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32022R2554" target="_blank" rel="noopener"><div class="legal-code">DORA</div><div class="legal-ref">EU 2022/2554</div><div class="legal-desc">Digitalna operativna otpornost financijskog sektora - IKT rizik, testiranje, treće strane.</div></a>
-        <a class="legal-item" href="https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32016R0679" target="_blank" rel="noopener"><div class="legal-code">Opća uredba (GDPR)</div><div class="legal-ref">EU 2016/679</div><div class="legal-desc">Zaštita osobnih podataka - evidencija obrada, DPIA, DPO, prijava povreda AZOP-u.</div></a>
-        <a class="legal-item" href="https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32024R1689" target="_blank" rel="noopener"><div class="legal-code">Akt o umjetnoj inteligenciji</div><div class="legal-ref">EU 2024/1689</div><div class="legal-desc">Klasifikacija AI sustava po riziku, obveze dobavljača i korisnika, upravljanje i nadzor.</div></a>
-        <div class="legal-item"><div class="legal-code">ISO/IEC 27001</div><div class="legal-ref">2022</div><div class="legal-desc">Sustav upravljanja informacijskom sigurnošću - 93 kontrole Priloga A i Izjava o primjenjivosti.</div></div>
-        <div class="legal-item"><div class="legal-code">ISO 22301</div><div class="legal-ref">2019</div><div class="legal-desc">Sustav upravljanja kontinuitetom poslovanja - BIA, RTO/RPO, planovi i testiranje.</div></div>
+        <a class="legal-item" href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj/hrv" target="_blank" rel="noopener"><div class="legal-code">NIS2</div><div class="legal-ref">EU 2022/2555</div><div class="legal-desc">Direktiva o mjerama za visoku zajedničku razinu kibernetičke sigurnosti u Uniji.</div></a>
+        <a class="legal-item" href="https://eur-lex.europa.eu/eli/reg/2022/2554/oj/hrv" target="_blank" rel="noopener"><div class="legal-code">DORA</div><div class="legal-ref">EU 2022/2554</div><div class="legal-desc">Digitalna operativna otpornost financijskog sektora - IKT rizik, testiranje, treće strane.</div></a>
+        <a class="legal-item" href="https://eur-lex.europa.eu/eli/reg/2016/679/oj/hrv" target="_blank" rel="noopener"><div class="legal-code">Opća uredba (GDPR)</div><div class="legal-ref">EU 2016/679</div><div class="legal-desc">Zaštita osobnih podataka - evidencija obrada, DPIA, DPO, prijava povreda AZOP-u.</div></a>
+        <a class="legal-item" href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/hrv" target="_blank" rel="noopener"><div class="legal-code">Akt o umjetnoj inteligenciji</div><div class="legal-ref">EU 2024/1689</div><div class="legal-desc">Klasifikacija AI sustava po riziku, obveze dobavljača i korisnika, upravljanje i nadzor.</div></a>
+        <a class="legal-item" href="/blog/iso-27001-i-zks/"><div class="legal-code">ISO/IEC 27001</div><div class="legal-ref">2022</div><div class="legal-desc">Sustav upravljanja informacijskom sigurnošću - 93 kontrole Priloga A i Izjava o primjenjivosti. Pročitajte naš vodič.</div></a>
+        <a class="legal-item" href="/blog/bia-koja-daje-upotrebljiv-rto/"><div class="legal-code">ISO 22301</div><div class="legal-ref">2019</div><div class="legal-desc">Sustav upravljanja kontinuitetom poslovanja - BIA, RTO/RPO, planovi i testiranje. Pročitajte naš vodič.</div></a>
     </div>
   </div>
 </section>
@@ -889,6 +894,7 @@
         <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div class="card-title">ZKS / NIS2 Usklađenost</div>
         <div class="card-desc">Implementacija svih 13 mjera upravljanja rizicima iz Uredbe o kibernetičkoj sigurnosti (NN 135/2024), na razini provedbe koja je propisana za vašu kategoriju subjekta - od gap analize do dokazne baze.</div>
+        <div class="card-sub"><a onclick="event.stopPropagation()" href="/blog/trinaest-mjera-priloga-ii/">13 mjera Priloga II.</a><a onclick="event.stopPropagation()" href="/blog/korelacijski-pregled-mjera/">Korelacijski pregled mjera</a><a onclick="event.stopPropagation()" href="/blog/kategorizacija-prema-zks-u/">Kategorizacija subjekta</a></div>
         <div class="card-footer"><span class="card-badge">Zakonska obveza</span><span class="card-more">Detalji →</span></div>
       </div>
 
@@ -896,6 +902,7 @@
         <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         <div class="card-title">GDPR Compliance</div>
         <div class="card-desc">Uspostava svih procesa zaštite osobnih podataka - od RoPA evidencije i DPIA procjena do DPO podrške i upravljanja incidentima prema AZOP-u.</div>
+        <div class="card-sub"><a onclick="event.stopPropagation()" href="/blog/rokovi-prijave-incidenta/">Rokovi prijave incidenta</a><a onclick="event.stopPropagation()" href="/blog/registar-ai-sustava-i-registar-imovine/">Registar AI sustava i imovine</a></div>
         <div class="card-footer"><span class="card-badge">EU Regulativa</span><span class="card-more">Detalji →</span></div>
       </div>
 
@@ -903,6 +910,7 @@
         <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.9 7 23l5-3 5 3-1.2-9.1"/></svg></div>
         <div class="card-title">ISO 27001 - Informacijska sigurnost</div>
         <div class="card-desc">Gap analiza, implementacija ISMS sustava, procjena rizika, Statement of Applicability i kompletna priprema za certifikacijski audit prema ISO 27001:2022.</div>
+        <div class="card-sub"><a onclick="event.stopPropagation()" href="/blog/iso-27001-i-zks/">ISO 27001 i ZKS</a><a onclick="event.stopPropagation()" href="/blog/iso-27002-2022-atributi-kontrola/">ISO 27002:2022 i atributi</a></div>
         <div class="card-footer"><span class="card-badge">Međunarodni standard</span><span class="card-more">Detalji →</span></div>
       </div>
 
@@ -910,6 +918,7 @@
         <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg></div>
         <div class="card-title">ISO 9001 - Upravljanje kvalitetom</div>
         <div class="card-desc">Uspostava QMS sustava upravljanja kvalitetom, procesna dokumentacija, definicija KPI-eva i ciljeva kvalitete te priprema za certifikacijski audit.</div>
+        <div class="card-sub"><a onclick="event.stopPropagation()" href="/blog/korelacijski-pregled-mjera/">Korelacijski pregled mjera</a></div>
         <div class="card-footer"><span class="card-badge">Upravljanje kvalitetom</span><span class="card-more">Detalji →</span></div>
       </div>
 
@@ -917,6 +926,7 @@
         <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/></svg></div>
         <div class="card-title">ISO 14001 - Okolišni management</div>
         <div class="card-desc">Implementacija EMS sustava upravljanja okolišem - identifikacija aspekata i utjecaja, zakonska usklađenost, smanjenje ugljikovog otiska i certifikacija.</div>
+        <div class="card-sub"><a onclick="event.stopPropagation()" href="/blog/registar-rizika-koji-prolazi-provjeru/">Registar rizika koji prolazi</a></div>
         <div class="card-footer"><span class="card-badge">Okolišni standard</span><span class="card-more">Detalji →</span></div>
       </div>
 
@@ -924,6 +934,7 @@
         <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M20.5 9A9 9 0 0 0 5.6 5.6L1 10m22 4-4.6 4.4A9 9 0 0 1 3.5 15"/></svg></div>
         <div class="card-title">ISO 22301 - Kontinuitet poslovanja</div>
         <div class="card-desc">Analiza poslovnog utjecaja (BIA), definicija RTO/RPO parametara, izrada BCP/DRP planova, testiranje i priprema za certifikacijski audit prema ISO 22301:2019.</div>
+        <div class="card-sub"><a onclick="event.stopPropagation()" href="/blog/bia-koja-daje-upotrebljiv-rto/">BIA koja daje upotrebljiv RTO</a><a onclick="event.stopPropagation()" href="/blog/iso-27001-i-zks/">ISO 27001 i ZKS</a></div>
         <div class="card-footer"><span class="card-badge">Business Continuity</span><span class="card-more">Detalji →</span></div>
       </div>
 
@@ -931,6 +942,7 @@
         <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-4 7 4M6 10v11M18 10v11M10 14v3M14 14v3"/></svg></div>
         <div class="card-title">DORA - Digitalna operativna otpornost</div>
         <div class="card-desc">Usklađenost s EU DORA regulativom za financijski sektor - ICT risk management, TPICM upravljanje, testiranje otpornosti i regulatorno izvještavanje.</div>
+        <div class="card-sub"><a onclick="event.stopPropagation()" href="/blog/dora-registar-informacija/">DORA registar informacija</a><a onclick="event.stopPropagation()" href="/sektori/bankarstvo-i-financije/">Bankarstvo i financije</a></div>
         <div class="card-footer"><span class="card-badge">Financijski sektor</span><span class="card-more">Detalji →</span></div>
       </div>
 
@@ -938,6 +950,7 @@
         <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
         <div class="card-title">Vendor Risk Management</div>
         <div class="card-desc">Procjena rizika trećih strana, due diligence upitnici, automatski risk scoring, TPICM monitoring i ugovorne klauzule za lanac opskrbe.</div>
+        <div class="card-sub"><a onclick="event.stopPropagation()" href="/blog/dora-registar-informacija/">DORA registar informacija</a><a onclick="event.stopPropagation()" href="/blog/registar-rizika-koji-prolazi-provjeru/">Registar rizika koji prolazi</a></div>
         <div class="card-footer"><span class="card-badge">Lanac opskrbe</span><span class="card-more">Detalji →</span></div>
       </div>
 
@@ -945,6 +958,7 @@
         <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.4-4.4M11 8v6M8 11h6"/></svg></div>
         <div class="card-title">Sigurnosni auditi & Testiranje</div>
         <div class="card-desc">Penetracijski testovi, vulnerability assessment, pregled konfiguracija, social engineering simulacije i izvještaji prilagođeni tehničkoj i upravljačkoj razini.</div>
+        <div class="card-sub"><a onclick="event.stopPropagation()" href="/blog/active-directory-putovi-napada/">Active Directory: pet nalaza</a><a onclick="event.stopPropagation()" href="/blog/prioritetne-preporuke-ncsc/">Prioritetne preporuke NCSC-HR</a></div>
         <div class="card-footer"><span class="card-badge">Ofenzivna sigurnost</span><span class="card-more">Detalji →</span></div>
       </div>
     </div>
@@ -965,22 +979,23 @@
       <p class="section-desc">Kategoriju subjekta određuju sektor iz priloga Zakona i veličina, uz niz iznimaka u kojima veličina uopće nije mjerilo.</p>
     </div>
     <div class="sector-grid">
-        <div class="sector-card"><div class="sector-name">Bankarstvo i financije</div><div class="sector-note">ZKS I DORA, USPOREDNE OBVEZE &middot; HNB I HANFA</div></div>
-        <div class="sector-card"><div class="sector-name">Osiguranje</div><div class="sector-note">DORA ZA IKT RIZIK &middot; ISO 27001 I KONTINUITET POSLOVANJA</div></div>
-        <div class="sector-card"><div class="sector-name">Energetika</div><div class="sector-note">PROIZVODNJA, PRIJENOS, DISTRIBUCIJA, PLIN I NAFTA</div></div>
-        <div class="sector-card"><div class="sector-name">Zdravstvo i farmacija</div><div class="sector-note">PRILOG I. &middot; SEKTOR VISOKE KRITIČNOSTI &middot; NCSC-HR</div></div>
-        <div class="sector-card"><div class="sector-name">Prehrambena industrija</div><div class="sector-note">PROIZVODNJA, PRERADA I DISTRIBUCIJA HRANE &middot; VAŽNI SUBJEKTI</div></div>
-        <div class="sector-card"><div class="sector-name">Digitalna infrastruktura i IKT</div><div class="sector-note">PODATKOVNI CENTRI, OBLAK, MREŽE, UPRAVLJANE IKT USLUGE</div></div>
-        <div class="sector-card"><div class="sector-name">Javna uprava</div><div class="sector-note">TIJELA DRŽAVNE UPRAVE KLJUČNA NEOVISNO O VELIČINI</div></div>
-        <div class="sector-card"><div class="sector-name">Promet i logistika</div><div class="sector-note">ZRAČNI, ŽELJEZNIČKI, VODNI I CESTOVNI PROMET &middot; LOGISTIKA</div></div>
+        <a class="sector-card" href="/sektori/bankarstvo-i-financije/"><div class="sector-name">Bankarstvo i financije</div><div class="sector-note">ZKS I DORA, USPOREDNE OBVEZE &middot; HNB I HANFA</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
+        <a class="sector-card" href="/sektori/osiguranje/"><div class="sector-name">Osiguranje</div><div class="sector-note">DORA ZA IKT RIZIK &middot; ISO 27001 I KONTINUITET POSLOVANJA</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
+        <a class="sector-card" href="/sektori/energetika/"><div class="sector-name">Energetika</div><div class="sector-note">PROIZVODNJA, PRIJENOS, DISTRIBUCIJA, PLIN I NAFTA</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
+        <a class="sector-card" href="/sektori/zdravstvo-i-farmacija/"><div class="sector-name">Zdravstvo i farmacija</div><div class="sector-note">PRILOG I. &middot; SEKTOR VISOKE KRITIČNOSTI &middot; NCSC-HR</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
+        <a class="sector-card" href="/sektori/prehrambena-industrija/"><div class="sector-name">Prehrambena industrija</div><div class="sector-note">PROIZVODNJA, PRERADA I DISTRIBUCIJA HRANE &middot; VAŽNI SUBJEKTI</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
+        <a class="sector-card" href="/sektori/digitalna-infrastruktura-i-ikt/"><div class="sector-name">Digitalna infrastruktura i IKT</div><div class="sector-note">PODATKOVNI CENTRI, OBLAK, MREŽE, UPRAVLJANE IKT USLUGE</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
+        <a class="sector-card" href="/sektori/javna-uprava/"><div class="sector-name">Javna uprava</div><div class="sector-note">TIJELA DRŽAVNE UPRAVE KLJUČNA NEOVISNO O VELIČINI</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
+        <a class="sector-card" href="/sektori/promet-i-logistika/"><div class="sector-name">Promet i logistika</div><div class="sector-note">ZRAČNI, ŽELJEZNIČKI, VODNI I CESTOVNI PROMET &middot; LOGISTIKA</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
     </div>
+    <div class="kb-all" style="margin-top:26px"><a href="/sektori/" class="btn-outline">Svi sektori s detaljima &rarr;</a></div>
     <div class="authority-row">
-      <span class="authority"><strong>SOA</strong> &middot; središnje tijelo za kibernetičku sigurnost</span>
-      <span class="authority"><strong>NCSC-HR</strong> &middot; prijava incidenata</span>
-      <span class="authority"><strong>ZSIS / UVNS</strong> &middot; tijela državne uprave</span>
-      <span class="authority"><strong>AZOP</strong> &middot; povrede osobnih podataka</span>
-      <span class="authority"><strong>HNB / HANFA</strong> &middot; DORA, financijski sektor</span>
-      <span class="authority"><strong>HAKOM</strong> &middot; sektor digitalne infrastrukture</span>
+      <span class="authority"><strong><a href="https://www.soa.hr/" target="_blank" rel="noopener">SOA</a></strong> &middot; središnje tijelo za kibernetičku sigurnost</span>
+      <span class="authority"><strong><a href="https://www.ncsc.hr/" target="_blank" rel="noopener">NCSC-HR</a></strong> &middot; prijava incidenata</span>
+      <span class="authority"><strong><a href="https://www.zsis.hr/" target="_blank" rel="noopener">ZSIS</a> / <a href="https://www.uvns.hr/" target="_blank" rel="noopener">UVNS</a></strong> &middot; tijela državne uprave</span>
+      <span class="authority"><strong><a href="https://azop.hr/" target="_blank" rel="noopener">AZOP</a></strong> &middot; povrede osobnih podataka</span>
+      <span class="authority"><strong><a href="https://www.hnb.hr/" target="_blank" rel="noopener">HNB</a> / <a href="https://www.hanfa.hr/" target="_blank" rel="noopener">HANFA</a></strong> &middot; DORA, financijski sektor</span>
+      <span class="authority"><strong><a href="https://www.hakom.hr/" target="_blank" rel="noopener">HAKOM</a></strong> &middot; sektor digitalne infrastrukture</span>
     </div>
   </div>
 </section>
@@ -1626,7 +1641,7 @@
         <a href="/blog/">Baza znanja</a>
         <a href="/alati/">Alati</a>
         <a href="#okvir">Pravni okvir</a>
-        <a href="#sektori">Sektori</a>
+        <a href="/sektori/">Sektori</a>
         <a href="#faq">Česta pitanja</a>
         <a href="#proces">Kako radimo</a>
       </div>
@@ -1696,7 +1711,11 @@
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const t = document.querySelector(a.getAttribute('href'));
-      if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 104, behavior: 'smooth' }); }
+      if (t) {
+        e.preventDefault();
+        var y = t.getBoundingClientRect().top + window.pageYOffset - 104;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
     });
   });
 
