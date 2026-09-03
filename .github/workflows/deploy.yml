@@ -34,3 +34,4 @@ jobs:
             analitika/podaci/*.csv
             analitika/podaci/.sol
             analitika/README.md
+            analitika/config.php

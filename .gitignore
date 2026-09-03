@@ -4,3 +4,4 @@
 # Podaci analitike - ostaju samo na posluzitelju
 analitika/podaci/*.csv
 analitika/podaci/.sol
+analitika/config.php

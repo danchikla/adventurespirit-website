@@ -4,21 +4,26 @@ Prvostrana analitika bez kolačića. Radi na cPanelu, treba samo PHP 7.0 ili nov
 
 ## Postavljanje nakon deploya
 
-1. **Zaštitite nadzornu ploču lozinkom.** Bez toga je `/analitika/` javno dostupna.
+1. **Postavite lozinku.** Otvorite `https://adventurespirit.hr/analitika/` - pri prvom
+   otvaranju stranica traži da postavite lozinku (najmanje 12 znakova). Nakon toga
+   nitko bez nje ne može do ploče.
 
-   U cPanel terminalu:
-   ```
-   htpasswd -c ~/.htpasswd-analitika daniel
-   ```
-   Zatim u `analitika/.htaccess` upišite punu putanju do te datoteke i odkomentirajte
-   blok `<Files "index.php">`.
+   Sprema se samo kriptografski sažetak, u `analitika/config.php`. Ta datoteka nije
+   u gitu, ne šalje se deployem i blokirana je u `.htaccess`.
 
-   Alternativa bez terminala: cPanel > Directory Privacy > zaštitite mapu `analitika`.
+   **Napravite to odmah nakon prvog deploya** - dok lozinka nije postavljena, ploču
+   može otvoriti svatko tko zna adresu i sam postaviti lozinku.
 
-2. **Provjerite prava na mapu `podaci/`.** PHP mora imati pravo pisanja. Ako mapa ne
-   postoji, skripta je stvara sama. Ako zapisa nema, postavite prava na 755.
+   Promjena lozinke: obrišite `analitika/config.php` preko cPanel File Managera i
+   ponovno otvorite stranicu.
+
+2. **Provjerite prava na mapu `analitika/`.** PHP mora imati pravo pisanja da bi mogao
+   stvoriti `config.php` i mapu `podaci/`. Ako se pri postavljanju lozinke pojavi
+   poruka o zapisivanju, postavite prava na 755.
 
 3. **Otvorite `/analitika/`** i provjerite pojavljuju li se pregledi.
+
+Zaštita preko cPanel Directory Privacy nije potrebna, ali je ne škodi dodati kao drugi sloj.
 
 ## Što se prikuplja
 

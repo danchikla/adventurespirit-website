@@ -6,6 +6,9 @@
 // Ne prikazuj PHP poruke posjetitelju; greske idu u zapisnik posluzitelja
 @ini_set('display_errors', '0');
 
+// Zastita lozinkom - prekida izvodenje i prikazuje obrazac ako nije prijavljen
+require __DIR__ . '/auth.php';
+
 $dataDir = __DIR__ . '/podaci';
 $months = array();
 foreach (glob($dataDir . '/*.csv') as $f) { $months[] = basename($f, '.csv'); }
@@ -97,7 +100,7 @@ td.p{color:var(--mu);word-break:break-all}
   <div class="top">
     <div>
       <h1>Analitika &middot; adventurespirit.hr</h1>
-      <p class="sub">Prvostrana, bez kolačića i bez pohrane IP adrese</p>
+      <p class="sub">Prvostrana, bez kolačića i bez pohrane IP adrese &middot; <a href="?odjava=1" style="color:#94a3b8">odjava</a></p>
     </div>
     <form method="get">
       <select name="m" onchange="this.form.submit()">

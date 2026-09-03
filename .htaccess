@@ -37,7 +37,10 @@ ErrorDocument 404 /404.html
 </FilesMatch>
 
 # ── Analitika ─────────────────────────────────────────────────
-# Prikupljeni podaci nikad nisu dostupni preko weba
+# Prikupljeni podaci i konfiguracija nikad nisu dostupni preko weba
 <FilesMatch "\.(csv|sol)$">
   Require all denied
 </FilesMatch>
+<Files "config.php">
+  Require all denied
+</Files>
