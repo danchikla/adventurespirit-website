@@ -273,6 +273,8 @@
     .ref-cat-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
     .ref-cat-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,.07); }
     .ref-logos { display: flex; flex-wrap: wrap; gap: 10px; }
+    a.ref-chip { text-decoration: none; }
+    a.ref-chip:hover { border-color: rgba(239,101,63,.45); color: var(--white); }
     .ref-chip {
       display: inline-flex; align-items: center;
       background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
@@ -963,10 +965,121 @@
         <div class="card-sub"><a onclick="event.stopPropagation()" href="/blog/active-directory-putovi-napada/">Active Directory: pet nalaza</a><a onclick="event.stopPropagation()" href="/blog/prioritetne-preporuke-ncsc/">Prioritetne preporuke NCSC-HR</a></div>
         <div class="card-footer"><span class="card-badge">Ofenzivna sigurnost</span><span class="card-more">Detalji →</span></div>
       </div>
+
+      <div class="service-card" onclick="openDetail('revizije')">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M9 11l2 2 4-4"/><path d="M21 12c0 5-3.6 7.4-8.1 8.9a2 2 0 0 1-1.3 0C7.1 19.4 3.5 17 3.5 12V6.3a1 1 0 0 1 .7-1l7.5-2.6a2 2 0 0 1 1.3 0l7.5 2.6a1 1 0 0 1 .7 1z"/></svg></div>
+        <div class="card-title">Revizije i interne provjere</div>
+        <div class="card-desc">Interne revizije sustava upravljanja, provjere usklađenosti sa ZKS-om i GDPR-om te provjera dokumentacije prije dolaska vanjskog revizora ili certifikacijskog tijela.</div>
+        <div class="card-sub"><a onclick="event.stopPropagation()" href="/blog/kako-se-boduje-samoprocjena/">Kako se boduje samoprocjena</a><a onclick="event.stopPropagation()" href="/blog/registar-rizika-koji-prolazi-provjeru/">Registar rizika koji prolazi</a></div>
+        <div class="card-footer"><span class="card-badge">Neovisna provjera</span><span class="card-more">Detalji &rarr;</span></div>
+      </div>
+
+      <div class="service-card" onclick="openDetail('dpo')">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M17.5 3.5a3 3 0 0 1 0 5"/></svg></div>
+        <div class="card-title">Eksterni službenik za zaštitu podataka</div>
+        <div class="card-desc">Preuzimamo funkciju DPO-a prema člancima 37. do 39. Opće uredbe: nadzor usklađenosti, savjetovanje uprave, kontakt prema AZOP-u i ispitanicima, edukacija i godišnje izvješće.</div>
+        <div class="card-sub"><a onclick="event.stopPropagation()" href="/blog/rokovi-prijave-incidenta/">Rokovi prijave incidenta</a><a onclick="event.stopPropagation()" href="/blog/registar-ai-sustava-i-registar-imovine/">Registar AI sustava i imovine</a></div>
+        <div class="card-footer"><span class="card-badge">GDPR čl. 37-39</span><span class="card-more">Detalji &rarr;</span></div>
+      </div>
+
+      <div class="service-card" onclick="openDetail('ciso')">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2l7 3v6c0 5-3 8.5-7 11-4-2.5-7-6-7-11V5z"/><path d="M12 8v4M12 15h.01"/></svg></div>
+        <div class="card-title">Eksterni CISO</div>
+        <div class="card-desc">Netko tko postavlja smjer, izvještava upravu i pazi da rokovi ne prođu. Vodimo program kibernetičke sigurnosti bez troška stalnog zaposlenja na toj razini.</div>
+        <div class="card-sub"><a onclick="event.stopPropagation()" href="/blog/trinaest-mjera-priloga-ii/">13 mjera Priloga II.</a><a onclick="event.stopPropagation()" href="/blog/nist-csf-2-funkcija-govern/">NIST CSF 2.0 i funkcija Govern</a></div>
+        <div class="card-footer"><span class="card-badge">Vodstvo i nadzor</span><span class="card-more">Detalji &rarr;</span></div>
+      </div>
     </div>
   </div>
 </section>
 
+
+<!-- Revizije -->
+<div class="modal-overlay" id="modal-revizije" onclick="closeDetailOut(event,'modal-revizije')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetail('modal-revizije')">&#10005;</button>
+    <div class="modal-icon"><svg viewBox="0 0 24 24"><path d="M9 11l2 2 4-4"/><path d="M21 12c0 5-3.6 7.4-8.1 8.9a2 2 0 0 1-1.3 0C7.1 19.4 3.5 17 3.5 12V6.3a1 1 0 0 1 .7-1l7.5-2.6a2 2 0 0 1 1.3 0l7.5 2.6a1 1 0 0 1 .7 1z"/></svg></div>
+    <div class="modal-title">Revizije i interne provjere</div>
+    <div class="modal-sub">Interna revizija &middot; provjera usklađenosti &middot; priprema za vanjsku provjeru</div>
+    <div class="modal-lead">Provodimo interne revizije sustava upravljanja i provjere usklađenosti, te prolazimo dokumentaciju onako kako će je proći vanjski revizor ili certifikacijsko tijelo - prije nego što oni dođu.</div>
+    <div class="modal-section-title">Što radimo</div>
+    <ul class="modal-steps">
+      <li><span class="modal-step-num">01</span><div><strong>Interna revizija sustava upravljanja</strong>Prema ISO 19011, za ISMS, QMS, EMS i BCMS - program revizije, provedba, nalazi i praćenje popravnih radnji.</div></li>
+      <li><span class="modal-step-num">02</span><div><strong>Provjera usklađenosti sa ZKS-om</strong>Bodovanje po 13 mjera i 99 podmjera, prema katalogu kontrola, uz popis dokaza kojih nema.</div></li>
+      <li><span class="modal-step-num">03</span><div><strong>Provjera zaštite podataka</strong>Evidencija obrada, pravne osnove, ugovori s izvršiteljima, prijenosi izvan EU i postupanje sa zahtjevima ispitanika.</div></li>
+      <li><span class="modal-step-num">04</span><div><strong>Provjera prije vanjske revizije</strong>Simulacija revizijskog postupka, s izvještajem o nalazima i prioritetima.</div></li>
+      <li><span class="modal-step-num">05</span><div><strong>Praćenje popravnih radnji</strong>Vlasnik, rok i dokaz zatvaranja za svaki nalaz, u GRC platformi.</div></li>
+    </ul>
+    <div class="modal-section-title">Što dobivate</div>
+    <div class="modal-deliverables">
+      <span class="modal-del-tag">Program revizije</span><span class="modal-del-tag">Izvještaj s nalazima</span>
+      <span class="modal-del-tag">Plan popravnih radnji</span><span class="modal-del-tag">Dokazna baza</span>
+      <span class="modal-del-tag">Upravljački pregled</span>
+    </div>
+    <div class="modal-cta">
+      <a href="#kontakt" onclick="closeDetail('modal-revizije')" class="btn-primary">Zatražite ponudu</a>
+      <a href="/alati/samoprocjena-13-mjera/" class="btn-outline">Napravite samoprocjenu</a>
+    </div>
+  </div>
+</div>
+
+<!-- Eksterni DPO -->
+<div class="modal-overlay" id="modal-dpo" onclick="closeDetailOut(event,'modal-dpo')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetail('modal-dpo')">&#10005;</button>
+    <div class="modal-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M17.5 3.5a3 3 0 0 1 0 5"/></svg></div>
+    <div class="modal-title">Eksterni službenik za zaštitu podataka</div>
+    <div class="modal-sub">Opća uredba o zaštiti podataka, članci 37. do 39.</div>
+    <div class="modal-lead">Preuzimamo funkciju službenika za zaštitu podataka. Vanjski DPO izričito je predviđen Općom uredbom i za većinu je organizacija jeftiniji i neovisniji od internog imenovanja.</div>
+    <div class="modal-section-title">Što obuhvaća</div>
+    <ul class="modal-steps">
+      <li><span class="modal-step-num">01</span><div><strong>Nadzor usklađenosti</strong>Praćenje primjene Opće uredbe i internih pravila, uz redovito izvještavanje najvišoj upravi.</div></li>
+      <li><span class="modal-step-num">02</span><div><strong>Savjetovanje</strong>Mišljenja o procjeni učinka, novim obradama, ugovorima s izvršiteljima i prijenosima izvan EU.</div></li>
+      <li><span class="modal-step-num">03</span><div><strong>Kontaktna točka</strong>Prema AZOP-u i prema ispitanicima, uključujući zahtjeve za pristup, ispravak i brisanje.</div></li>
+      <li><span class="modal-step-num">04</span><div><strong>Povrede osobnih podataka</strong>Procjena rizika i prijava AZOP-u u roku od 72 sata, uz obavještavanje ispitanika kad je potrebno.</div></li>
+      <li><span class="modal-step-num">05</span><div><strong>Edukacija</strong>Osposobljavanje zaposlenika koji sudjeluju u obradama, uz evidenciju koja se može pokazati.</div></li>
+    </ul>
+    <div class="modal-section-title">Što dobivate</div>
+    <div class="modal-deliverables">
+      <span class="modal-del-tag">Imenovani DPO i kontakt</span><span class="modal-del-tag">Evidencija obrada</span>
+      <span class="modal-del-tag">Procjene učinka</span><span class="modal-del-tag">Registar zahtjeva ispitanika</span>
+      <span class="modal-del-tag">Godišnje izvješće upravi</span>
+    </div>
+    <div class="modal-cta">
+      <a href="#kontakt" onclick="closeDetail('modal-dpo')" class="btn-primary">Zatražite ponudu</a>
+      <a href="/blog/rokovi-prijave-incidenta/" class="btn-outline">Rokovi prijave incidenta</a>
+    </div>
+  </div>
+</div>
+
+<!-- Eksterni CISO -->
+<div class="modal-overlay" id="modal-ciso" onclick="closeDetailOut(event,'modal-ciso')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetail('modal-ciso')">&#10005;</button>
+    <div class="modal-icon"><svg viewBox="0 0 24 24"><path d="M12 2l7 3v6c0 5-3 8.5-7 11-4-2.5-7-6-7-11V5z"/><path d="M12 8v4M12 15h.01"/></svg></div>
+    <div class="modal-title">Eksterni CISO</div>
+    <div class="modal-sub">Vodstvo i nadzor nad programom kibernetičke sigurnosti</div>
+    <div class="modal-lead">Mjera 1 iz Priloga II. traži imenovanu odgovornu osobu koja postavlja smjer, izvještava upravu i osigurava resurse. Za većinu organizacija stalno zaposlenje na toj razini nije opravdano, a obveza ostaje.</div>
+    <div class="modal-section-title">Što obuhvaća</div>
+    <ul class="modal-steps">
+      <li><span class="modal-step-num">01</span><div><strong>Strategija i politika</strong>Postavljanje smjera, izrada politike kibernetičke sigurnosti i njezino usvajanje na upravi.</div></li>
+      <li><span class="modal-step-num">02</span><div><strong>Upravljanje rizicima</strong>Održavanje registra rizika, prihvatljiva razina rizika i prioriteti ulaganja.</div></li>
+      <li><span class="modal-step-num">03</span><div><strong>Izvještavanje upravi</strong>Redoviti pregled stanja, trend i otvorena pitanja, jezikom koji uprava razumije.</div></li>
+      <li><span class="modal-step-num">04</span><div><strong>Vođenje programa usklađivanja</strong>Praćenje rokova, vlasnika i dokaza po svakoj mjeri, do provjere usklađenosti.</div></li>
+      <li><span class="modal-step-num">05</span><div><strong>Odgovor na incidente</strong>Vodstvo tijekom incidenta te odluka o značajnosti i o prijavi nadležnom CSIRT-u.</div></li>
+    </ul>
+    <div class="modal-section-title">Što dobivate</div>
+    <div class="modal-deliverables">
+      <span class="modal-del-tag">Imenovana odgovorna osoba</span><span class="modal-del-tag">Politika i strategija</span>
+      <span class="modal-del-tag">Registar rizika</span><span class="modal-del-tag">Izvještaji upravi</span>
+      <span class="modal-del-tag">Plan usklađivanja</span>
+    </div>
+    <div class="modal-cta">
+      <a href="#kontakt" onclick="closeDetail('modal-ciso')" class="btn-primary">Zatražite ponudu</a>
+      <a href="/blog/nist-csf-2-funkcija-govern/" class="btn-outline">Zašto Govern postoji</a>
+    </div>
+  </div>
+</div>
 
 <div class="section-divider"></div>
 
@@ -984,7 +1097,7 @@
         <a class="sector-card" href="/sektori/bankarstvo-i-financije/"><div class="sector-name">Bankarstvo i financije</div><div class="sector-note">ZKS I DORA, USPOREDNE OBVEZE &middot; HNB I HANFA</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
         <a class="sector-card" href="/sektori/osiguranje/"><div class="sector-name">Osiguranje</div><div class="sector-note">DORA ZA IKT RIZIK &middot; ISO 27001 I KONTINUITET POSLOVANJA</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
         <a class="sector-card" href="/sektori/energetika/"><div class="sector-name">Energetika</div><div class="sector-note">PROIZVODNJA, PRIJENOS, DISTRIBUCIJA, PLIN I NAFTA</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
-        <a class="sector-card" href="/sektori/zdravstvo-i-farmacija/"><div class="sector-name">Zdravstvo i farmacija</div><div class="sector-note">PRILOG I. &middot; SEKTOR VISOKE KRITIČNOSTI &middot; NCSC-HR</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
+        <a class="sector-card" href="/sektori/zdravstvo-i-farmacija/"><div class="sector-name">Zdravstvo i farmacija</div><div class="sector-note">BOLNICE, DOMOVI ZDRAVLJA, LJEKARNE, PROIZVODNJA LIJEKOVA</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
         <a class="sector-card" href="/sektori/prehrambena-industrija/"><div class="sector-name">Prehrambena industrija</div><div class="sector-note">PROIZVODNJA, PRERADA I DISTRIBUCIJA HRANE &middot; VAŽNI SUBJEKTI</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
         <a class="sector-card" href="/sektori/digitalna-infrastruktura-i-ikt/"><div class="sector-name">Digitalna infrastruktura i IKT</div><div class="sector-note">PODATKOVNI CENTRI, OBLAK, MREŽE, UPRAVLJANE IKT USLUGE</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
         <a class="sector-card" href="/sektori/javna-uprava/"><div class="sector-name">Javna uprava</div><div class="sector-note">TIJELA DRŽAVNE UPRAVE KLJUČNA NEOVISNO O VELIČINI</div><span class="sector-more">Pogledajte sektor &rarr;</span></a>
@@ -1351,11 +1464,11 @@
       <div class="ref-category">
         <div class="ref-cat-label">Bankarstvo & Financije</div>
         <div class="ref-logos">
-          <span class="ref-chip">Zagrebačka burza</span>
+          <a class="ref-chip" href="https://www.zse.hr/" target="_blank" rel="noopener">Zagrebačka burza</a>
           <span class="ref-chip">Šted banka</span>
-          <span class="ref-chip">Partner banka</span>
-          <span class="ref-chip">Euroleasing</span>
-          <span class="ref-chip">Fintastic</span>
+          <a class="ref-chip" href="https://www.paba.hr/" target="_blank" rel="noopener">Partner banka</a>
+          <a class="ref-chip" href="https://www.euroleasing.hr/" target="_blank" rel="noopener">Euroleasing</a>
+          <a class="ref-chip" href="https://www.fintastic.hr/" target="_blank" rel="noopener">Fintastic</a>
           <span class="ref-chip">Krypto Investment Partners</span>
         </div>
       </div>
@@ -1363,10 +1476,10 @@
       <div class="ref-category">
         <div class="ref-cat-label">Osiguranje</div>
         <div class="ref-logos">
-          <span class="ref-chip">Croatia osiguranje</span>
-          <span class="ref-chip">Adriatic osiguranje</span>
+          <a class="ref-chip" href="https://www.crosig.hr/" target="_blank" rel="noopener">Croatia osiguranje</a>
+          <a class="ref-chip" href="https://www.adriatic.hr/" target="_blank" rel="noopener">Adriatic osiguranje</a>
           <span class="ref-chip">Sunce osiguranje</span>
-          <span class="ref-chip">UNIQA osiguranje</span>
+          <a class="ref-chip" href="https://www.uniqa.hr/" target="_blank" rel="noopener">UNIQA osiguranje</a>
           <span class="ref-chip">ANO Insurance Solutions</span>
         </div>
       </div>
@@ -1374,11 +1487,11 @@
       <div class="ref-category">
         <div class="ref-cat-label">Energetika & Industrija</div>
         <div class="ref-logos">
-          <span class="ref-chip">HROTE</span>
-          <span class="ref-chip">E.ON</span>
-          <span class="ref-chip">INA</span>
+          <a class="ref-chip" href="https://www.hrote.hr/" target="_blank" rel="noopener">HROTE</a>
+          <a class="ref-chip" href="https://www.eon.hr/" target="_blank" rel="noopener">E.ON</a>
+          <a class="ref-chip" href="https://www.ina.hr/" target="_blank" rel="noopener">INA</a>
           <span class="ref-chip">IHC Engineering Croatia</span>
-          <span class="ref-chip">TEHMA</span>
+          <a class="ref-chip" href="https://www.tehma.hr/" target="_blank" rel="noopener">TEHMA</a>
           <span class="ref-chip">MCZ</span>
         </div>
       </div>
@@ -1386,34 +1499,34 @@
       <div class="ref-category">
         <div class="ref-cat-label">IT & Digitalne usluge</div>
         <div class="ref-logos">
-          <span class="ref-chip">APIS-IT</span>
-          <span class="ref-chip">Rocket DBS</span>
-          <span class="ref-chip">SmartGroup HR Solutions</span>
-          <span class="ref-chip">SmartGroup Recruitment</span>
+          <a class="ref-chip" href="https://www.apis-it.hr/" target="_blank" rel="noopener">APIS-IT</a>
+          <a class="ref-chip" href="https://www.rocketdbs.com/" target="_blank" rel="noopener">Rocket DBS</a>
+          <a class="ref-chip" href="https://www.smartgroup.hr/" target="_blank" rel="noopener">SmartGroup HR Solutions</a>
+          <a class="ref-chip" href="https://www.smartgroup.hr/" target="_blank" rel="noopener">SmartGroup Recruitment</a>
           <span class="ref-chip">BCC Services</span>
           <span class="ref-chip">Digital Assembly</span>
-          <span class="ref-chip">AMODO</span>
-          <span class="ref-chip">Cooperante</span>
-          <span class="ref-chip">TPA Hrvatska</span>
+          <a class="ref-chip" href="https://amodo.eu/" target="_blank" rel="noopener">AMODO</a>
+          <a class="ref-chip" href="https://www.cooperante.hr/" target="_blank" rel="noopener">Cooperante</a>
+          <a class="ref-chip" href="https://www.tpa-group.hr/" target="_blank" rel="noopener">TPA Hrvatska</a>
         </div>
       </div>
 
       <div class="ref-category">
         <div class="ref-cat-label">Prehrambena industrija</div>
         <div class="ref-logos">
-          <span class="ref-chip">Franck d.d.</span>
-          <span class="ref-chip">Pan-pek</span>
-          <span class="ref-chip">Mlinar</span>
+          <a class="ref-chip" href="https://www.franck.eu/" target="_blank" rel="noopener">Franck d.d.</a>
+          <a class="ref-chip" href="https://www.panpek.hr/" target="_blank" rel="noopener">Pan-pek</a>
+          <a class="ref-chip" href="https://www.mlinar.hr/" target="_blank" rel="noopener">Mlinar</a>
           <span class="ref-chip">Adria Snack Company</span>
-          <span class="ref-chip">Offertissima</span>
+          <a class="ref-chip" href="https://www.offertissima.hr/" target="_blank" rel="noopener">Offertissima</a>
         </div>
       </div>
 
       <div class="ref-category">
         <div class="ref-cat-label">Zdravlje & Farmacija</div>
         <div class="ref-logos">
-          <span class="ref-chip">Medika d.d.</span>
-          <span class="ref-chip">Biovega</span>
+          <a class="ref-chip" href="https://www.medika.hr/" target="_blank" rel="noopener">Medika d.d.</a>
+          <a class="ref-chip" href="https://www.biovega.hr/" target="_blank" rel="noopener">Biovega</a>
           <span class="ref-chip">Delmerion Natural Beauty</span>
         </div>
       </div>
@@ -1421,12 +1534,12 @@
       <div class="ref-category">
         <div class="ref-cat-label">Poslovne usluge & Financije</div>
         <div class="ref-logos">
-          <span class="ref-chip">EOS Matrix - naplata potraživanja</span>
+          <a class="ref-chip" href="https://hr.eos-solutions.com/" target="_blank" rel="noopener">EOS Matrix - naplata potraživanja</a>
           <span class="ref-chip">Log Adria - logistika</span>
-          <span class="ref-chip">Kompas</span>
+          <a class="ref-chip" href="https://www.kompas.hr/" target="_blank" rel="noopener">Kompas</a>
           <span class="ref-chip">Travel Experience Museum</span>
-          <span class="ref-chip">Hrvatski Telekom</span>
-          <span class="ref-chip">Hajduk Split</span>
+          <a class="ref-chip" href="https://www.hrvatskitelekom.hr/" target="_blank" rel="noopener">Hrvatski Telekom</a>
+          <a class="ref-chip" href="https://hajduk.hr/" target="_blank" rel="noopener">Hajduk Split</a>
         </div>
       </div>
 
@@ -1518,14 +1631,15 @@
         <div class="faq-a"><p>Za organizaciju srednje veličine dva do tri tjedna. Rezultat je bodovana analiza po svakoj mjeri i kontroli, popis dokaza kojih nema, registar rizika i plan usklađivanja s prioritetima, vlasnicima i procjenom resursa. Sve se odmah upisuje u našu GRC platformu, pa napredak pratite kontinuirano i s revizijskim tragom, a ne jednom godišnje u tablici.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">Provodite li i reviziju ili certifikaciju?</button>
-        <div class="faq-a"><p>Ne. Pripremamo vas za nju. Neovisnu reviziju kibernetičke sigurnosti ključnih subjekata provodi ovlašteni pružatelj, a kod tijela državne uprave nadležno tijelo. ISO certifikaciju provodi akreditirano certifikacijsko tijelo. Tko je gradio sustav upravljanja ne smije ga i ocjenjivati - ta razdvojenost nije formalnost nego zaštita za vas.</p></div>
+        <button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">Provodite li revizije i certifikaciju?</button>
+        <div class="faq-a"><p>Provodimo interne revizije sustava upravljanja, provjere usklađenosti i provjeru dokumentacije koja simulira revizijski postupak. Ne provodimo ISO certifikaciju - nju po definiciji provodi akreditirano certifikacijsko tijelo, i tko je sustav gradio ne smije ga i certificirati. Neovisnu reviziju kibernetičke sigurnosti ključnih subjekata prema ZKS-u provodi pružatelj s propisanim ovlaštenjem, a kod tijela državne uprave nadležno tijelo.</p></div>
       </div>
     </div>
 
     <div class="boundary">
-      <h3>Pripremamo za reviziju i certifikaciju, ne provodimo ih.</h3>
-      <p>Formalnu reviziju kibernetičke sigurnosti provodi ovlašteni pružatelj, a ISO certifikaciju akreditirano certifikacijsko tijelo. Adventure Spirit Consulting ta ovlaštenja nema i ne traži ih. Tijelo koje je gradilo sustav upravljanja ne bi ga smjelo i ocjenjivati, pa vas ta razdvojenost štiti: ono što vam mi kažemo da je spremno, spremno je i za nekoga tko nema interes da tako bude.</p>
+      <h3>Što provodimo sami, a što ne</h3>
+      <p><strong>Provodimo</strong> interne revizije sustava upravljanja, provjere usklađenosti sa ZKS-om i zaštitom podataka, te provjeru dokumentacije koja simulira revizijski postupak prije nego što vanjski revizor dođe. Preuzimamo i funkcije eksternog DPO-a i eksternog CISO-a.</p>
+      <p><strong>Ne provodimo</strong> certifikaciju prema ISO normama - nju po definiciji provodi akreditirano certifikacijsko tijelo, i nitko tko je sustav gradio ne smije ga i certificirati. Ta razdvojenost nije formalnost nego zaštita za vas: ono što vam mi kažemo da je spremno, spremno je i za nekoga tko nema interes da tako bude.</p>
     </div>
   </div>
 </section>
@@ -1685,7 +1799,8 @@
   const modalMap = {
     zks:'modal-zks', gdpr:'modal-gdpr', iso27001:'modal-iso27001',
     iso9001:'modal-iso9001', iso14001:'modal-iso14001', iso22301:'modal-iso22301',
-    dora:'modal-dora', vendor:'modal-vendor', audit:'modal-audit'
+    dora:'modal-dora', vendor:'modal-vendor', audit:'modal-audit',
+    revizije:'modal-revizije', dpo:'modal-dpo', ciso:'modal-ciso'
   };
   function openDetail(key) {
     const id = modalMap[key];
@@ -2054,10 +2169,10 @@
     },
     {
       "@type": "Question",
-      "name": "Provodite li i reviziju ili certifikaciju?",
+      "name": "Provodite li revizije i certifikaciju?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ne. Pripremamo vas za nju. Neovisnu reviziju kibernetičke sigurnosti ključnih subjekata provodi ovlašteni pružatelj, a kod tijela državne uprave nadležno tijelo. ISO certifikaciju provodi akreditirano certifikacijsko tijelo. Tko je gradio sustav upravljanja ne smije ga i ocjenjivati - ta razdvojenost nije formalnost nego zaštita za vas."
+        "text": "Provodimo interne revizije sustava upravljanja, provjere usklađenosti i provjeru dokumentacije koja simulira revizijski postupak. Ne provodimo ISO certifikaciju - nju po definiciji provodi akreditirano certifikacijsko tijelo, i tko je sustav gradio ne smije ga i certificirati. Neovisnu reviziju kibernetičke sigurnosti ključnih subjekata prema ZKS-u provodi pružatelj s propisanim ovlaštenjem, a kod tijela državne uprave nadležno tijelo."
       }
     }
   ]

@@ -1931,8 +1931,8 @@ EN_FAQ = [
  ("How long does a gap assessment take and what do we get?",
   "Two to three weeks for a mid-sized organisation. The result is a scored assessment against every measure and control, a list of the evidence that is missing, a risk register and a compliance roadmap with priorities, owners and resource estimates. Everything is recorded in our GRC platform straight away, so you track progress continuously and with an audit trail rather than once a year in a spreadsheet.",
   None),
- ("Do you also perform the audit or the certification?",
-  "No. We prepare you for it. The independent cybersecurity audit of essential entities is carried out by an authorised provider, and for state administration bodies by the competent authority. ISO certification is carried out by an accredited certification body. Whoever built the management system should not also assess it - that separation is not a formality, it protects you.",
+ ("Do you perform audits and certification?",
+  "We perform internal audits of management systems, compliance reviews and a documentation review that simulates the audit process. We do not perform ISO certification - by definition that is carried out by an accredited certification body, and whoever built a system may not certify it. The independent cybersecurity audit of essential entities under the Act is carried out by a provider holding the prescribed authorisation, and for state administration bodies by the competent authority.",
   None),
 ]
 
@@ -2926,7 +2926,7 @@ ARTICLES_EN.append(dict(
 SEKTORI = [
  dict(k="bankarstvo", hr="bankarstvo-i-financije", en="banking-and-finance",
    nHR="Bankarstvo i financije", nEN="Banking and finance", prilog=1, csirt="cert",
-   tHR="Hrvatska narodna banka i HANFA", tEN="Croatian National Bank and HANFA",
+   tHR='<a href="https://www.hnb.hr/" target="_blank" rel="noopener">Hrvatska narodna banka</a> i <a href="https://www.hanfa.hr/" target="_blank" rel="noopener">HANFA</a>', tEN='<a href="https://www.hnb.hr/" target="_blank" rel="noopener">Croatian National Bank</a> and <a href="https://www.hanfa.hr/" target="_blank" rel="noopener">HANFA</a>',
    qHR="ZKS I DORA, USPOREDNE OBVEZE", qEN="CSA AND DORA, PARALLEL OBLIGATIONS",
    leadHR="Financijski sektor je jedini koji istovremeno nosi dva režima. DORA detaljnije uređuje IKT rizik, ali ne ukida obveze iz Zakona o kibernetičkoj sigurnosti. Posao se radi jednom, izvještava na dvije strane.",
    leadEN="Financial services is the only sector carrying two regimes at once. DORA governs ICT risk in more detail but does not displace the obligations under the Cybersecurity Act. The work is done once and reported in two directions.",
@@ -2951,7 +2951,7 @@ SEKTORI = [
 
  dict(k="osiguranje", hr="osiguranje", en="insurance",
    nHR="Osiguranje", nEN="Insurance", prilog=1, csirt="cert",
-   tHR="HANFA", tEN="HANFA",
+   tHR='<a href="https://www.hanfa.hr/" target="_blank" rel="noopener">HANFA</a>', tEN='<a href="https://www.hanfa.hr/" target="_blank" rel="noopener">HANFA</a>',
    qHR="DORA ZA IKT RIZIK &middot; ISO 27001 I KONTINUITET", qEN="DORA FOR ICT RISK &middot; ISO 27001 AND CONTINUITY",
    leadHR="Osiguravatelji podliježu DORA-i kao i ostali financijski subjekti, uz dodatnu složenost: velik broj vanjskih posrednika i agenata koji obrađuju osobne podatke ugovaratelja.",
    leadEN="Insurers fall under DORA like other financial entities, with added complexity: a large network of external intermediaries and agents processing policyholder data.",
@@ -3000,7 +3000,7 @@ SEKTORI = [
 
  dict(k="zdravstvo", hr="zdravstvo-i-farmacija", en="healthcare-and-pharma",
    nHR="Zdravstvo i farmacija", nEN="Healthcare and pharma", prilog=1, csirt="ncsc", tHR="", tEN="",
-   qHR="PRILOG I. &middot; SEKTOR VISOKE KRITIČNOSTI", qEN="ANNEX I &middot; HIGH-CRITICALITY SECTOR",
+   qHR="BOLNICE, DOMOVI ZDRAVLJA, LJEKARNE, PROIZVODNJA LIJEKOVA", qEN="HOSPITALS, CLINICS, PHARMACIES, MEDICINAL PRODUCTS",
    leadHR="Zdravstvo je u Prilogu I., pa se primjenjuje kriterij veličine. Ali članak 11. dopušta razvrstavanje neovisno o veličini svakoj ustanovi čiji bi ispad znatno utjecao na javno zdravlje - a to u zdravstvu nije rijedak slučaj.",
    leadEN="Health is in Annex I, so the size criterion applies. But Article 11 allows categorisation regardless of size for any institution whose disruption would significantly affect public health - which in healthcare is not unusual.",
    mjHR=[("02","Upravljanje imovinom","Medicinski uređaji povezani na mrežu dio su imovine, a rijetko su u inventaru informatike."),
@@ -3024,7 +3024,7 @@ SEKTORI = [
 
  dict(k="hrana", hr="prehrambena-industrija", en="food-industry",
    nHR="Prehrambena industrija", nEN="Food industry", prilog=2, csirt="ncsc", tHR="", tEN="",
-   qHR="PRILOG II. &middot; PROIZVODNJA, PRERADA I DISTRIBUCIJA", qEN="ANNEX II &middot; PRODUCTION, PROCESSING AND DISTRIBUTION",
+   qHR="PROIZVODNJA, PRERADA, DISTRIBUCIJA I VELEPRODAJA HRANE", qEN="PRODUCTION, PROCESSING, DISTRIBUTION AND WHOLESALE",
    leadHR="Prehrambena industrija je u Prilogu II., pa srednji i veliki subjekti postaju važni subjekti. Proizvodne linije, skladišni sustavi i logistika čine je sektorom s izraženom operativnom tehnologijom.",
    leadEN="Food is in Annex II, so medium and large entities become important entities. Production lines, warehouse systems and logistics make it a sector with substantial operational technology.",
    mjHR=[("06","Sigurnost mreže","Proizvodne linije i sustavi upravljanja skladištem u pravilu dijele mrežu s uredskim sustavima."),
@@ -3048,7 +3048,7 @@ SEKTORI = [
 
  dict(k="ikt", hr="digitalna-infrastruktura-i-ikt", en="digital-infrastructure-and-ict",
    nHR="Digitalna infrastruktura i IKT", nEN="Digital infrastructure and ICT", prilog=1, csirt="ncsc",
-   tHR="HAKOM za elektroničke komunikacije", tEN="HAKOM for electronic communications",
+   tHR='<a href="https://www.hakom.hr/" target="_blank" rel="noopener">HAKOM</a> za elektroničke komunikacije', tEN='<a href="https://www.hakom.hr/" target="_blank" rel="noopener">HAKOM</a> for electronic communications',
    qHR="PODATKOVNI CENTRI, OBLAK, MREŽE, UPRAVLJANE USLUGE", qEN="DATA CENTRES, CLOUD, NETWORKS, MANAGED SERVICES",
    leadHR="Ovdje kriterij veličine često ne vrijedi. Pružatelji usluga DNS-a i registar vršne nacionalne domene ključni su neovisno o veličini, a pružatelji elektroničkih komunikacija i usluga povjerenja kategoriziraju se neovisno o veličini.",
    leadEN="Here the size criterion often does not apply. DNS service providers and the national top-level domain registry are essential regardless of size, and providers of electronic communications and trust services are categorised regardless of size.",
@@ -3097,7 +3097,7 @@ SEKTORI = [
 
  dict(k="promet", hr="promet-i-logistika", en="transport-and-logistics",
    nHR="Promet i logistika", nEN="Transport and logistics", prilog=1, csirt="ncsc",
-   tHR="Hrvatska agencija za civilno zrakoplovstvo za zračni promet", tEN="Croatian Civil Aviation Agency for air transport",
+   tHR='<a href="https://www.ccaa.hr/" target="_blank" rel="noopener">Hrvatska agencija za civilno zrakoplovstvo</a> za zračni promet', tEN='<a href="https://www.ccaa.hr/" target="_blank" rel="noopener">Croatian Civil Aviation Agency</a> for air transport',
    qHR="ZRAČNI, ŽELJEZNIČKI, VODNI I CESTOVNI", qEN="AIR, RAIL, WATER AND ROAD",
    leadHR="Promet je u Prilogu I. i podijeljen na četiri podsektora. Zračni promet ima vlastito sektorsko nadležno tijelo, dok za ostale nadležnost ostaje kod središnjeg tijela za kibernetičku sigurnost.",
    leadEN="Transport is in Annex I and split into four subsectors. Air transport has its own sectoral competent authority, while for the others competence stays with the central cybersecurity authority.",
@@ -3136,8 +3136,10 @@ SEK_T = {
    tools_h="Provjerite sami",
    tool1="Provjera kategorizacije subjekta", tool2="Kalkulator rokova prijave incidenta",
    tool3="Mini samoprocjena po 13 mjera",
-   ncsc="Nacionalni centar za kibernetičku sigurnost (NCSC-HR)", cert="Nacionalni CERT",
+   ncsc='<a href="https://www.ncsc.hr/" target="_blank" rel="noopener">Nacionalni centar za kibernetičku sigurnost (NCSC-HR)</a>',
+   cert='<a href="https://www.cert.hr/" target="_blank" rel="noopener">Nacionalni CERT</a>',
    all_l="Svi sektori",
+   zks_url="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html",
  ),
  "en": dict(hub="/en/sectors/", name="Sectors",
    h1="Sectors we cover",
@@ -3153,8 +3155,10 @@ SEK_T = {
    tools_h="Check for yourself",
    tool1="Entity categorisation check", tool2="Incident reporting deadline calculator",
    tool3="Readiness check against the 13 measures",
-   ncsc="National Cyber Security Centre (NCSC-HR)", cert="National CERT",
+   ncsc='<a href="https://www.ncsc.hr/" target="_blank" rel="noopener">National Cyber Security Centre (NCSC-HR)</a>',
+   cert='<a href="https://www.cert.hr/" target="_blank" rel="noopener">National CERT</a>',
    all_l="All sectors",
+   zks_url="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html",
  ),
 }
 
@@ -3173,12 +3177,44 @@ def build_sectors(lang, articles):
     def qual(s): return s["qEN"] if lang == "en" else s["qHR"]
 
     # ── Hub ───────────────────────────────────────────────────────
-    cards = "\n".join('''      <a class="sector-card" href="%s%s/">
-        <div class="sector-name">%s</div>
-        <div class="sector-note">%s</div>
-        <span class="sector-more">%s &rarr;</span>
-      </a>''' % (st["hub"], slug(s), name(s), qual(s),
-                 "Pogledajte sektor" if lang == "hr" else "View sector") for s in SEKTORI)
+    def _big(s):
+        csirt = "Nacionalni CERT" if s["csirt"] == "cert" else "NCSC-HR"
+        if lang == "en" and s["csirt"] == "cert":
+            csirt = "National CERT"
+        nmj = len(s["mjEN"] if lang == "en" else s["mjHR"])
+        return '''      <a class="sx-card" href="%s%s/">
+        <div class="sx-top">
+          <span class="sx-badge p%d">%s</span>
+          <span class="sx-csirt">%s</span>
+        </div>
+        <div class="sx-name">%s</div>
+        <div class="sx-note">%s</div>
+        <div class="sx-foot">
+          <span>%s</span>
+          <span class="sx-go">%s &rarr;</span>
+        </div>
+      </a>''' % (st["hub"], slug(s), s["prilog"],
+                 ("Prilog I." if s["prilog"] == 1 else "Prilog II.") if lang == "hr"
+                 else ("Annex I" if s["prilog"] == 1 else "Annex II"),
+                 csirt, name(s), qual(s),
+                 ("%d prioritetne mjere" % nmj) if lang == "hr" else ("%d priority measures" % nmj),
+                 "Otvorite" if lang == "hr" else "Open")
+
+    p1 = [x for x in SEKTORI if x["prilog"] == 1]
+    p2 = [x for x in SEKTORI if x["prilog"] == 2]
+    cards = ('    <h2 class="sx-h">%s</h2>\n    <p class="sx-sub">%s</p>\n    <div class="sx-grid">\n%s\n    </div>\n'
+             % (("Sektori visoke kritičnosti" if lang == "hr" else "High-criticality sectors"),
+                ("Prilog I. Zakona. Veliki subjekti su ključni, srednji su važni - uz iznimke u kojima veličina nije mjerilo."
+                 if lang == "hr" else
+                 "Annex I of the Act. Large entities are essential, medium ones important - subject to exceptions where size is not the criterion."),
+                "\n".join(_big(x) for x in p1)))
+    if p2:
+        cards += ('\n    <h2 class="sx-h">%s</h2>\n    <p class="sx-sub">%s</p>\n    <div class="sx-grid">\n%s\n    </div>\n'
+                  % (("Drugi kritični sektori" if lang == "hr" else "Other critical sectors"),
+                     ("Prilog II. Zakona. Srednji i veliki subjekti razvrstavaju se u važne subjekte."
+                      if lang == "hr" else
+                      "Annex II of the Act. Medium and large entities are classified as important entities."),
+                     "\n".join(_big(x) for x in p2)))
 
     hub_body = header(lang, active_blog=False) + '''
 <main>
@@ -3190,7 +3226,7 @@ def build_sectors(lang, articles):
     </div>
   </section>
   <div class="container">
-    <div class="sector-grid" style="padding:44px 0 72px">
+    <div class="sx-wrap">
 %s
     </div>
   </div>
@@ -3286,7 +3322,9 @@ def build_sectors(lang, articles):
 </main>
 ''' % (t["base"] or "/", st["crumb_home"], st["hub"], st["name"], nm,
        st["name"], nm, lead,
-       st["prilog_h"], st["p1"] if s["prilog"] == 1 else st["p2"], auth,
+       st["prilog_h"],
+       '<a href="%s" target="_blank" rel="noopener">%s</a>' % (st["zks_url"], st["p1"] if s["prilog"] == 1 else st["p2"]),
+       auth,
        st["mj_h"], mjere,
        st["nal_h"], nalazi,
        st["tools_h"],
@@ -3382,10 +3420,16 @@ def en_index():
     CHK = '<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>'
     deliverables = "\n".join('        <div class="deliver-item">%s<span>%s</span></div>' % (CHK, d)
                              for d in EN_DELIVERABLES)
+    REF_URLS = {'Zagreb Stock Exchange': 'https://www.zse.hr/', 'Partner banka': 'https://www.paba.hr/', 'Euroleasing': 'https://www.euroleasing.hr/', 'Fintastic': 'https://www.fintastic.hr/', 'Croatia osiguranje': 'https://www.crosig.hr/', 'Adriatic osiguranje': 'https://www.adriatic.hr/', 'UNIQA osiguranje': 'https://www.uniqa.hr/', 'HROTE': 'https://www.hrote.hr/', 'E.ON': 'https://www.eon.hr/', 'INA': 'https://www.ina.hr/', 'TEHMA': 'https://www.tehma.hr/', 'APIS-IT': 'https://www.apis-it.hr/', 'Rocket DBS': 'https://www.rocketdbs.com/', 'SmartGroup HR Solutions': 'https://www.smartgroup.hr/', 'SmartGroup Recruitment': 'https://www.smartgroup.hr/', 'AMODO': 'https://amodo.eu/', 'Cooperante': 'https://www.cooperante.hr/', 'TPA Hrvatska': 'https://www.tpa-group.hr/', 'Franck d.d.': 'https://www.franck.eu/', 'Pan-pek': 'https://www.panpek.hr/', 'Mlinar': 'https://www.mlinar.hr/', 'Offertissima': 'https://www.offertissima.hr/', 'Medika d.d.': 'https://www.medika.hr/', 'Biovega': 'https://www.biovega.hr/', 'EOS Matrix': 'https://hr.eos-solutions.com/', 'Kompas': 'https://www.kompas.hr/', 'Hrvatski Telekom': 'https://www.hrvatskitelekom.hr/', 'Hajduk Split': 'https://hajduk.hr/'}
+    def _ref(c):
+        u = REF_URLS.get(c)
+        if not u:
+            return '<span class="ref-chip">%s</span>' % c
+        return '<a class="ref-chip" href="%s" target="_blank" rel="noopener">%s</a>' % (u, c)
     clients = "\n".join('''      <div class="ref-category">
         <div class="ref-cat-label">%s</div>
         <div class="ref-logos">%s</div>
-      </div>''' % (cat, "".join('<span class="ref-chip">%s</span>' % c for c in items))
+      </div>''' % (cat, "".join(_ref(c) for c in items))
       for cat, items in EN_CLIENTS)
     faq = "\n".join('''      <div class="faq-item">
         <button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">%s</button>
@@ -3655,8 +3699,9 @@ def en_index():
     </div>
 
     <div class="boundary">
-      <h3>We prepare you for the audit and the certification. We do not perform them.</h3>
-      <p>The formal cybersecurity audit is carried out by an authorised provider, and ISO certification by an accredited certification body. Adventure Spirit Consulting holds neither authorisation and does not seek them. A body that has built a management system should not also assess it, so that separation protects you: what we tell you is ready is ready for someone who has no interest in it being so.</p>
+      <h3>What we perform ourselves, and what we do not</h3>
+      <p><strong>We do perform</strong> internal audits of management systems, compliance reviews against the Croatian Cybersecurity Act and data protection law, and a documentation review that simulates the audit process before an external auditor arrives. We also act as external DPO and external CISO.</p>
+      <p><strong>We do not perform</strong> ISO certification - by definition that is carried out by an accredited certification body, and nobody who built a system may also certify it. That separation is not a formality but protection for you: what we tell you is ready is ready for someone who has no interest in it being so.</p>
     </div>
   </div>
 </section>
