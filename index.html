@@ -75,12 +75,14 @@
       background: linear-gradient(135deg, var(--dark2) 0%, #0a0d18 60%, #0e1220 100%);
       position: relative; overflow: hidden; padding-top: 64px;
     }
+    /* Ukrasni sloj ne smije presretati klikove - bez pointer-events:none
+       prekriva sadrzaj heroja jer je pozicioniran, a .hero-inner nije. */
     .hero::before {
-      content: ''; position: absolute; inset: 0; opacity: .04;
+      content: ''; position: absolute; inset: 0; opacity: .04; pointer-events: none;
       background-image: radial-gradient(circle, rgba(239,101,63,.6) 1px, transparent 1px);
       background-size: 28px 28px;
     }
-    .hero-inner { max-width: 1200px; margin: 0 auto; padding: 80px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; width: 100%; }
+    .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 80px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; width: 100%; }
     .hero-left {}
     .hero-tag {
       display: inline-flex; align-items: center; gap: 6px;
@@ -1973,17 +1975,28 @@
 <script>
   (function() {
     if (!localStorage.getItem('as_cookie_consent')) {
-      document.getElementById('cookie-banner').style.display = 'block';
+      var cb = document.getElementById('cookie-banner');
+      cb.style.display = 'block';
+      // Banner je fiksiran uz dno pa bi prekrio sadrzaj ispod sebe.
+      // Dodaj razmak na dnu stranice dok je prikazan.
+      var pad = function () { document.body.style.paddingBottom = cb.offsetHeight + 'px'; };
+      pad();
+      window.addEventListener('resize', pad);
     }
   })();
   function cookieConsent(level) {
     localStorage.setItem('as_cookie_consent', level);
     localStorage.setItem('as_cookie_consent_date', new Date().toISOString());
     document.getElementById('cookie-banner').style.display = 'none';
+    document.body.style.paddingBottom = '';
   }
   function toggleCookieDetails() {
     var d = document.getElementById('cookie-details');
     d.style.display = d.style.display === 'none' ? 'block' : 'none';
+    var cb = document.getElementById('cookie-banner');
+    if (cb && cb.style.display !== 'none') {
+      document.body.style.paddingBottom = cb.offsetHeight + 'px';
+    }
   }
 </script>
 <!-- ═══ Strukturirani podaci (schema.org) ═══ -->
