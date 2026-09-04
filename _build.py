@@ -3734,6 +3734,7 @@ def en_index():
           <li><span>&#9656;</span>MBA - Zagreb School of Economics and Management</li>
           <li><span>&#9656;</span>MSc in Transport Engineering</li>
           <li><span>&#9656;</span>PMP - Project Management Professional</li>
+          <li><span>&#9656;</span>CIPP/E - Certified Information Privacy Professional/Europe</li>
           <li><span>&#9656;</span>Lecturer at RIT Croatia since 2017 (IST, Strategic Management, PM)</li>
           <li><span>&#9656;</span>Guest lectures: ZSEM, VERN, Libertas</li>
           <li><span>&#9656;</span>PMI Croatia - active member</li>
@@ -3744,13 +3745,13 @@ def en_index():
         <h2>Over 20 years in <em>information security and GRC</em></h2>
         <p class="onama-lead">Adventure Spirit Consulting grew out of a simple proposition: organisations deserve cybersecurity and risk management expertise fitted to real operations, not to generic templates. We work with clients who know what they want, and we know what they need.<br><br>
         We run projects one at a time, without unnecessary exposure. What shows are the results: information security management systems in operation, business continuity plans that have actually been exercised, data protection processes that hold, and organisations that walk into certification audits with confidence. Our experience spans banking, insurance, energy, healthcare, the food industry and the public sector - everywhere data and operational resilience are a question of survival.<br><br>
-        Principal consultant Daniel Bara, PhD, brings more than 20 years of work in information security, a doctorate in business intelligence, an MBA, the PMP certification and experience as an external evaluator on more than 300 EU-funded projects. He has lectured at RIT Croatia since 2017, with guest lectures at ZSEM, VERN and Libertas.</p>
+        Principal consultant Daniel Bara, PhD, brings more than 20 years of work in information security, a doctorate in business intelligence, an MBA, the PMP and CIPP/E certifications and experience as an external evaluator on more than 300 EU-funded projects. He has lectured at RIT Croatia since 2017, with guest lectures at ZSEM, VERN and Libertas.</p>
         <div class="onama-expertise">
           <h3>Areas of expertise</h3>
           <div class="expertise-tags">
             <span class="expertise-tag">ISO 27001:2022</span><span class="expertise-tag">ISO 9001:2015</span>
             <span class="expertise-tag">ISO 14001:2015</span><span class="expertise-tag">ISO 22301:2019</span>
-            <span class="expertise-tag">GDPR / DPO</span><span class="expertise-tag">NIS2 / CSA</span>
+            <span class="expertise-tag">GDPR / DPO</span><span class="expertise-tag">CIPP/E</span><span class="expertise-tag">NIS2 / CSA</span>
             <span class="expertise-tag">DORA</span><span class="expertise-tag">Vendor Risk</span>
             <span class="expertise-tag">Penetration testing</span><span class="expertise-tag">BIA / BCP / DRP</span>
             <span class="expertise-tag">Business Intelligence</span><span class="expertise-tag">Data Architecture</span>
@@ -4066,7 +4067,8 @@ async function handleContact(e) {
       "areaServed": {"@type": "Country", "name": "Croatia"},
       "knowsLanguage": ["hr", "en"],
       "founder": {"@type": "Person", "name": "Daniel Bara", "honorificSuffix": "PhD",
-                  "jobTitle": "Founder and Principal Consultant"},
+                  "jobTitle": "Founder and Principal Consultant",
+                  "hasCredential": ["PhD", "MBA", "PMP", "CIPP/E"]},
       "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Advisory services",
         "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": n}}
                             for _, n, _, _ in EN_SERVICES]},
@@ -5756,7 +5758,7 @@ USLUGE_META = [
  dict(key="dpo", hr="eksterni-dpo", en="external-dpo", icon="dpo",
       nEN="External data protection officer", subEN="GDPR, Articles 37 to 39",
       badgeHR="GDPR čl. 37-39", badgeEN="GDPR Art. 37-39",
-      leadEN="We take on the data protection officer function. An external DPO is expressly provided for by the GDPR and for most organisations is cheaper and more independent than an internal appointment.",
+      leadEN="We take on the data protection officer function. An external DPO is expressly provided for by the GDPR and for most organisations is cheaper and more independent than an internal appointment. The role is held by a CIPP/E certified practitioner.",
       stepsEN=[("01","Monitoring compliance","Tracking application of the GDPR and internal rules, with regular reporting to the highest management level."),
                ("02","Advice","Opinions on impact assessments, new processing, processor contracts and transfers outside the EU."),
                ("03","Contact point","Towards the supervisory authority and data subjects, including access, rectification and erasure requests."),
@@ -6236,6 +6238,7 @@ PRED_T = {
    cred=[("Doktorat iz Business Intelligencea", "Ekonomski fakultet u Osijeku"),
          ("MBA", "Zagreb School of Economics and Management"),
          ("PMP - Project Management Professional", "Project Management Institute"),
+         ("CIPP/E - Certified Information Privacy Professional/Europe", "International Association of Privacy Professionals"),
          ("Aktivan član", "PMI Croatia"),
          ("Vanjski evaluator", "HAMAG-BICRO, više od 300 EU projekata")],
    tema_h="Teme za radionice i nastupe",
@@ -6264,6 +6267,7 @@ PRED_T = {
    cred=[("PhD in business intelligence", "Faculty of Economics, Osijek"),
          ("MBA", "Zagreb School of Economics and Management"),
          ("PMP - Project Management Professional", "Project Management Institute"),
+         ("CIPP/E - Certified Information Privacy Professional/Europe", "International Association of Privacy Professionals"),
          ("Active member", "PMI Croatia"),
          ("External evaluator", "HAMAG-BICRO, more than 300 EU-funded projects")],
    tema_h="Topics for workshops and talks",
