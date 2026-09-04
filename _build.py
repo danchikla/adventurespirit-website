@@ -73,6 +73,15 @@ L = {
             ("/usluge/iso-27001/","ISO 27001"),("/usluge/dora/","DORA"),("/usluge/","Sve usluge")],
    f_co_links=[("/#onama","O konzultantu"),("/predavanja/","Predavanja"),("/#faq","Česta pitanja"),
                ("/#kontakt","Kontakt"),("/en/","English version")],
+   nl_h="Novi tekst otprilike svaka dva tjedna",
+   nl_p="Kad izađe nov članak u bazi znanja ili se promijeni nešto u propisu, javimo se kratkom porukom. Bez ponuda i bez podsjetnika.",
+   nl_ph="Vaša e-mail adresa", nl_btn="Prijavi me",
+   nl_consent='Pristajem primati obavijesti o novim tekstovima od Adventure Spirit d.o.o. Privolu mogu povući u svakom trenutku, porukom na info@adventurespirit.hr ili poveznicom u svakoj obavijesti. Više u <a href="/privatnost/">politici privatnosti</a>.',
+   nl_ok="Hvala, prijava je zabilježena. Javljamo se kad izađe novi tekst.",
+   nl_err="Prijava nije uspjela. Pišite nam na info@adventurespirit.hr.",
+   nl_need="Upišite ispravnu adresu i potvrdite privolu.",
+   nl_send="Šaljem...",
+   nl_fine="Adresu koristimo isključivo za slanje ovih obavijesti. Ne prosljeđujemo je nikome i ne koristimo za druge svrhe.",
    rights="Sva prava pridržana", terms="Uvjeti korištenja", privacy="Privatnost",
    terms_url="/uvjeti/", privacy_url="/privatnost/",
    kb_title="Baza znanja", kb_h1="Što propis traži i čime se to dokazuje",
@@ -111,6 +120,15 @@ L = {
             ("/en/services/iso-27001/","ISO 27001"),("/en/services/dora/","DORA"),("/en/services/","All services")],
    f_co_links=[("/en/#about","About the consultant"),("/en/speaking/","Speaking"),("/en/#faq","FAQ"),
                ("/en/#contact","Contact"),("/","Hrvatska verzija")],
+   nl_h="A new article roughly every two weeks",
+   nl_p="When a new article appears in the knowledge base, or something changes in the rules, we send a short note. No offers and no reminders.",
+   nl_ph="Your email address", nl_btn="Sign me up",
+   nl_consent='I agree to receive notifications about new articles from Adventure Spirit d.o.o. I can withdraw this consent at any time, by writing to info@adventurespirit.hr or via the link in every message. See the <a href="/privatnost/">privacy policy</a>.',
+   nl_ok="Thank you, you are signed up. We will write when a new article appears.",
+   nl_err="Sign-up failed. Please write to info@adventurespirit.hr.",
+   nl_need="Enter a valid address and confirm consent.",
+   nl_send="Sending...",
+   nl_fine="We use the address solely to send these notifications. We do not pass it on and do not use it for anything else.",
    rights="All rights reserved", terms="Terms (HR)", privacy="Privacy (HR)",
    terms_url="/uvjeti/", privacy_url="/privatnost/",
    kb_title="Knowledge base", kb_h1="What the rules ask for and what proves it",
@@ -191,8 +209,53 @@ def footer(lang, articles):
     kb = "\n".join(_kb) + '\n        <a href="%s">%s</a>' % (t["blog"], t["f_all"])
     svc = "\n".join('        <a href="%s">%s</a>' % (u, n) for u, n in t["f_links"])
     co = "\n".join('        <a href="%s">%s</a>' % (u, n) for u, n in t["f_co_links"])
+    nl = '''<div class="nl">
+      <h4>%s</h4>
+      <p>%s</p>
+      <div class="nl-row">
+        <input type="email" id="nl-mail" placeholder="%s" autocomplete="email">
+        <button type="button" id="nl-btn">%s</button>
+      </div>
+      <label class="nl-consent"><input type="checkbox" id="nl-ok"><span>%s</span></label>
+      <p class="nl-msg" id="nl-msg" hidden></p>
+      <p class="nl-fine">%s</p>
+    </div>''' % (t["nl_h"], t["nl_p"], t["nl_ph"], t["nl_btn"], t["nl_consent"], t["nl_fine"])
+
+    nl_js = '''<script>
+(function () {
+  var T = %s, $ = function (i) { return document.getElementById(i); };
+  var b = $("nl-btn"); if (!b) { return; }
+  b.addEventListener("click", function () {
+    var m = $("nl-mail").value.trim(), msg = $("nl-msg");
+    if (!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(m) || !$("nl-ok").checked) {
+      msg.textContent = T.need; msg.className = "nl-msg bad"; msg.hidden = false; return;
+    }
+    var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
+    fetch("https://formspree.io/f/mojpkknr", {
+      method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ email: m, _subject: T.subj,
+        message: T.subj + "\\n" + location.href + "\\n\\n" + T.log })
+    }).then(function (r) {
+      if (!r.ok) { throw new Error(); }
+      msg.textContent = T.ok; msg.className = "nl-msg ok"; msg.hidden = false;
+      $("nl-mail").value = ""; $("nl-ok").checked = false;
+      if (window.asTrack) { window.asTrack("newsletter_signup"); }
+    }).catch(function () {
+      msg.textContent = T.err; msg.className = "nl-msg bad"; msg.hidden = false;
+    }).finally(function () { b.disabled = false; b.textContent = lab; });
+  });
+})();
+</script>''' % json.dumps({
+      "need": t["nl_need"], "send": t["nl_send"], "ok": t["nl_ok"], "err": t["nl_err"],
+      "subj": ("Prijava na obavijesti o novim tekstovima" if lang == "hr"
+               else "Sign-up for new article notifications"),
+      "log": ("Privola dana kroz obrazac u podnozju stranice." if lang == "hr"
+              else "Consent given via the form in the page footer."),
+    }, ensure_ascii=False)
+
     return '''<footer>
   <div class="container">
+    ''' + nl + '''
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="''' + (t["base"] or "/") + '''" style="display:flex;align-items:center;gap:10px;text-decoration:none">
@@ -237,7 +300,7 @@ def footer(lang, articles):
       </span>
     </div>
   </div>
-</footer>'''
+</footer>''' + nl_js
 
 
 def hreflang(hr_url, en_url):
@@ -1997,65 +2060,9 @@ def en_header():
 
 </div><!-- /#topwrap -->'''
 
-EN_FOOTER = '''<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="/en/" style="display:flex;align-items:center;gap:10px;text-decoration:none">
-          <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
-            <circle cx="50" cy="50" r="44" stroke="#EF653F" stroke-width="1.5" opacity=".2"/>
-            <path d="M50 12 L41 46 L50 41 L59 46 Z" fill="#EF653F"/>
-            <line x1="44" y1="37" x2="56" y2="37" stroke="#c14b28" stroke-width="3"/>
-            <path d="M50 88 L45 70 L55 70 Z" fill="#EF653F" opacity=".7"/>
-            <circle cx="50" cy="50" r="5" fill="#EF653F"/>
-          </svg>
-          <span style="font-size:16px;font-weight:800;color:#fff">Adventure <span style="color:#EF653F">Spirit</span></span>
-        </a>
-        <p>Cyber security, GRC compliance and risk management - over 20 years of experience in the service of your business.</p>
-        <p class="footer-legal">
-          Adventure Spirit d.o.o.<br>
-          Trading as: Adventure Spirit Consulting<br>
-          Zagreb, Republic of Croatia<br>
-          Company ID (OIB): available on request<br>
-          <a href="tel:+385955041496" style="color:var(--orange);text-decoration:none">+385 95 504 1496</a><br>
-          <a href="mailto:info@adventurespirit.hr" style="color:var(--orange);text-decoration:none">info@adventurespirit.hr</a>
-        </p>
-      </div>
-      <div class="footer-col">
-        <h4>Insights</h4>
-        <a href="/en/blog/">Knowledge base</a>
-        <a href="#framework">Legal framework</a>
-        <a href="#sectors">Sectors</a>
-        <a href="#faq">FAQ</a>
-        <a href="#process">How we work</a>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="#services">CSA / NIS2</a>
-        <a href="#services">GDPR</a>
-        <a href="#services">ISO 27001</a>
-        <a href="#services">DORA</a>
-        <a href="#services">Vendor risk</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="#about">About the consultant</a>
-        <a href="#clients">Clients</a>
-        <a href="#contact">Contact</a>
-        <a href="/">Hrvatska verzija</a>
-        <a href="https://app.adventurespirit.hr" target="_blank" rel="noopener">GRC Portal</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Adventure Spirit d.o.o. - All rights reserved</span>
-      <span style="display:flex;gap:16px">
-        <a href="/en/blog/feed.xml" style="color:var(--text-muted);text-decoration:none">RSS</a>
-        <a href="/uvjeti/" style="color:var(--text-muted);text-decoration:none">Terms (HR)</a>
-        <a href="/privatnost/" style="color:var(--text-muted);text-decoration:none">Privacy (HR)</a>
-      </span>
-    </div>
-  </div>
-</footer>'''
+# EN_FOOTER uklonjen - engleska naslovnica koristi footer("en"), da se
+# podnozje ne odrzava na dva mjesta.
+
 
 # Dodatni CSS koji postoji samo na engleskoj strani
 LANG_CSS = '''
@@ -4250,7 +4257,7 @@ def en_index():
     </div>
   </div>
 </section>
-''' + EN_FOOTER + '''
+''' + footer("en", ARTICLES_EN) + '''
 
 <script>
 function toggleNav() { document.getElementById('nav-links').classList.toggle('open'); }

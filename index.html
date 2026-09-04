@@ -585,6 +585,25 @@
     }
     .legal-note { font-size: 12.5px; color: #6b7488; line-height: 1.7; margin-top: 18px; text-align: center; }
 
+    .nl { background: linear-gradient(135deg, rgba(239,101,63,.07), rgba(255,255,255,.02)); border: 1px solid rgba(239,101,63,.22); border-radius: 16px; padding: 26px 28px; margin-bottom: 40px; }
+    .nl h4 { font-size: 16.5px; font-weight: 800; color: var(--white); margin-bottom: 6px; letter-spacing: -.2px; }
+    .nl > p { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; margin-bottom: 18px; max-width: 560px; }
+    .nl-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .nl-row input[type="email"] { flex: 1 1 240px; font-family: inherit; font-size: 14.5px; color: var(--white); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: 9px; padding: 11px 14px; }
+    .nl-row input:focus { outline: none; border-color: var(--orange); }
+    .nl-row input::placeholder { color: #6b7488; }
+    .nl-row button { font-family: inherit; font-size: 14px; font-weight: 700; color: #fff; background: var(--orange); border: none; border-radius: 9px; padding: 11px 22px; cursor: pointer; white-space: nowrap; }
+    .nl-row button:hover { background: var(--orange-d); }
+    .nl-row button:disabled { opacity: .6; cursor: default; }
+    .nl-consent { display: flex; align-items: flex-start; gap: 10px; margin-top: 14px; cursor: pointer; }
+    .nl-consent input { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--orange); flex-shrink: 0; cursor: pointer; }
+    .nl-consent span { font-size: 12.5px; color: var(--text-muted); line-height: 1.65; }
+    .nl-consent a { color: var(--orange); text-decoration: none; }
+    .nl-msg { font-size: 13.5px; font-weight: 600; margin-top: 12px; }
+    .nl-msg.ok { color: #6ec47a; }
+    .nl-msg.bad { color: #f87171; }
+    .nl-fine { font-size: 11.5px; color: #626b7f; line-height: 1.7; margin-top: 12px; }
+    @media (max-width: 600px) { .nl { padding: 22px 18px; } .nl-row button { width: 100%; } }
     /* ── Footer pravni podaci ───────────────────────────────── */
     .footer-legal { font-size: 11.5px; color: #626b7f; line-height: 1.8; margin-top: 14px; }
 
@@ -1737,6 +1756,17 @@
 ════════════════════════════════════════════════ -->
 <footer>
   <div class="container">
+      <div class="nl">
+        <h4>Novi tekst otprilike svaka dva tjedna</h4>
+        <p>Kad izađe nov članak u bazi znanja ili se promijeni nešto u propisu, javimo se kratkom porukom. Bez ponuda i bez podsjetnika.</p>
+        <div class="nl-row">
+          <input type="email" id="nl-mail" placeholder="Vaša e-mail adresa" autocomplete="email">
+          <button type="button" id="nl-btn">Prijavi me</button>
+        </div>
+        <label class="nl-consent"><input type="checkbox" id="nl-ok"><span>Pristajem primati obavijesti o novim tekstovima od Adventure Spirit d.o.o. Privolu mogu povući u svakom trenutku, porukom na info@adventurespirit.hr ili poveznicom u svakoj obavijesti. Više u <a href="/privatnost/">politici privatnosti</a>.</span></label>
+        <p class="nl-msg" id="nl-msg" hidden></p>
+        <p class="nl-fine">Adresu koristimo isključivo za slanje ovih obavijesti. Ne prosljeđujemo je nikome i ne koristimo za druge svrhe.</p>
+      </div>
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none">
@@ -1908,6 +1938,32 @@
     io.observe(chart);
   })();
 
+
+  // ── Prijava na obavijesti ──────────────────────────────
+  (function () {
+    var T = {"need": "Upišite ispravnu adresu i potvrdite privolu.", "send": "Šaljem...", "ok": "Hvala, prijava je zabilježena. Javljamo se kad izađe novi tekst.", "err": "Prijava nije uspjela. Pišite nam na info@adventurespirit.hr.", "subj": "Prijava na obavijesti o novim tekstovima", "log": "Privola dana kroz obrazac u podnozju stranice."};
+    var g = function (i) { return document.getElementById(i); };
+    var b = g("nl-btn"); if (!b) return;
+    b.addEventListener("click", function () {
+      var m = g("nl-mail").value.trim(), msg = g("nl-msg");
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m) || !g("nl-ok").checked) {
+        msg.textContent = T.need; msg.className = "nl-msg bad"; msg.hidden = false; return;
+      }
+      var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
+      fetch("https://formspree.io/f/mojpkknr", {
+        method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ email: m, _subject: T.subj,
+          message: T.subj + "\n" + location.href + "\n\n" + T.log })
+      }).then(function (r) {
+        if (!r.ok) throw new Error();
+        msg.textContent = T.ok; msg.className = "nl-msg ok"; msg.hidden = false;
+        g("nl-mail").value = ""; g("nl-ok").checked = false;
+        if (window.asTrack) window.asTrack("newsletter_signup");
+      }).catch(function () {
+        msg.textContent = T.err; msg.className = "nl-msg bad"; msg.hidden = false;
+      }).finally(function () { b.disabled = false; b.textContent = lab; });
+    });
+  })();
   // ── Contact form ───────────────────────────────────────
   async function handleContact(e) {
     e.preventDefault();

@@ -180,6 +180,17 @@
 </main>
 <footer>
   <div class="container">
+    <div class="nl">
+      <h4>Novi tekst otprilike svaka dva tjedna</h4>
+      <p>Kad izađe nov članak u bazi znanja ili se promijeni nešto u propisu, javimo se kratkom porukom. Bez ponuda i bez podsjetnika.</p>
+      <div class="nl-row">
+        <input type="email" id="nl-mail" placeholder="Vaša e-mail adresa" autocomplete="email">
+        <button type="button" id="nl-btn">Prijavi me</button>
+      </div>
+      <label class="nl-consent"><input type="checkbox" id="nl-ok"><span>Pristajem primati obavijesti o novim tekstovima od Adventure Spirit d.o.o. Privolu mogu povući u svakom trenutku, porukom na info@adventurespirit.hr ili poveznicom u svakoj obavijesti. Više u <a href="/privatnost/">politici privatnosti</a>.</span></label>
+      <p class="nl-msg" id="nl-msg" hidden></p>
+      <p class="nl-fine">Adresu koristimo isključivo za slanje ovih obavijesti. Ne prosljeđujemo je nikome i ne koristimo za druge svrhe.</p>
+    </div>
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none">
@@ -237,6 +248,30 @@
     </div>
   </div>
 </footer><script>
+(function () {
+  var T = {"need": "Upišite ispravnu adresu i potvrdite privolu.", "send": "Šaljem...", "ok": "Hvala, prijava je zabilježena. Javljamo se kad izađe novi tekst.", "err": "Prijava nije uspjela. Pišite nam na info@adventurespirit.hr.", "subj": "Prijava na obavijesti o novim tekstovima", "log": "Privola dana kroz obrazac u podnozju stranice."}, $ = function (i) { return document.getElementById(i); };
+  var b = $("nl-btn"); if (!b) { return; }
+  b.addEventListener("click", function () {
+    var m = $("nl-mail").value.trim(), msg = $("nl-msg");
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m) || !$("nl-ok").checked) {
+      msg.textContent = T.need; msg.className = "nl-msg bad"; msg.hidden = false; return;
+    }
+    var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
+    fetch("https://formspree.io/f/mojpkknr", {
+      method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ email: m, _subject: T.subj,
+        message: T.subj + "\n" + location.href + "\n\n" + T.log })
+    }).then(function (r) {
+      if (!r.ok) { throw new Error(); }
+      msg.textContent = T.ok; msg.className = "nl-msg ok"; msg.hidden = false;
+      $("nl-mail").value = ""; $("nl-ok").checked = false;
+      if (window.asTrack) { window.asTrack("newsletter_signup"); }
+    }).catch(function () {
+      msg.textContent = T.err; msg.className = "nl-msg bad"; msg.hidden = false;
+    }).finally(function () { b.disabled = false; b.textContent = lab; });
+  });
+})();
+</script><script>
 (function () {
   var S = {"energetika": {"p": 1, "csirt": "ncsc", "body": "", "name": "Energetika"}, "promet-zracni": {"p": 1, "csirt": "ncsc", "body": "Hrvatska agencija za civilno zrakoplovstvo", "name": "Promet - zračni"}, "promet-ostalo": {"p": 1, "csirt": "ncsc", "body": "", "name": "Promet - željeznički, vodni, cestovni"}, "bankarstvo": {"p": 1, "csirt": "cert", "body": "Hrvatska narodna banka", "name": "Bankarstvo"}, "financijsko-trziste": {"p": 1, "csirt": "cert", "body": "HANFA", "name": "Infrastruktura financijskog tržišta"}, "zdravstvo": {"p": 1, "csirt": "ncsc", "body": "", "name": "Zdravstvo"}, "voda": {"p": 1, "csirt": "ncsc", "body": "", "name": "Voda za ljudsku potrošnju"}, "otpadne-vode": {"p": 1, "csirt": "ncsc", "body": "", "name": "Otpadne vode"}, "di-povjerenje": {"p": 1, "csirt": "ncsc", "body": "", "name": "Digitalna infrastruktura - pružatelj usluga povjerenja"}, "di-komunikacije": {"p": 1, "csirt": "ncsc", "body": "HAKOM", "name": "Digitalna infrastruktura - javne elektroničke komunikacije"}, "di-dns": {"p": 1, "csirt": "cert", "body": "", "name": "Digitalna infrastruktura - DNS, registar .hr, razmjena prometa"}, "di-oblak": {"p": 1, "csirt": "ncsc", "body": "", "name": "Digitalna infrastruktura - oblak, podatkovni centri, CDN"}, "ikt-b2b": {"p": 1, "csirt": "ncsc", "body": "", "name": "Upravljanje uslugama IKT-a (B2B)"}, "javni-sektor": {"p": 1, "csirt": "ncsc", "body": "", "name": "Javni sektor"}, "svemir": {"p": 1, "csirt": "ncsc", "body": "", "name": "Svemir"}, "posta": {"p": 2, "csirt": "ncsc", "body": "", "name": "Poštanske i kurirske usluge"}, "otpad": {"p": 2, "csirt": "ncsc", "body": "", "name": "Gospodarenje otpadom"}, "kemikalije": {"p": 2, "csirt": "ncsc", "body": "", "name": "Izrada, proizvodnja i distribucija kemikalija"}, "hrana": {"p": 2, "csirt": "ncsc", "body": "", "name": "Proizvodnja, prerada i distribucija hrane"}, "proizvodnja": {"p": 2, "csirt": "ncsc", "body": "", "name": "Proizvodnja (medicinski proizvodi, elektronika, strojevi, vozila)"}, "digitalne-usluge": {"p": 2, "csirt": "ncsc", "body": "", "name": "Pružatelji digitalnih usluga (tržišta, tražilice, društvene mreže)"}, "istrazivanje": {"p": 2, "csirt": "cert", "body": "", "name": "Istraživanje"}, "obrazovanje": {"p": 2, "csirt": "cert", "body": "", "name": "Sustav obrazovanja"}, "izvan": {"p": 0, "csirt": "", "body": "", "name": "Nijedan od navedenih"}}, T = {"err": "Odaberite sektor i veličinu subjekta.", "kljucni": "Ključni subjekt", "vazni": "Važni subjekt", "izvan": "Vjerojatno izvan opsega Zakona", "why": "Zašto", "nextH": "Što iz toga slijedi", "csirtH": "Nadležni CSIRT za prijavu incidenata", "sectorBody": "Sektorsko nadležno tijelo", "ncsc": "Nacionalni centar za kibernetičku sigurnost (NCSC-HR)", "cert": "Nacionalni CERT", "nextK": ["Rok za usklađivanje: godinu dana od dostave obavijesti o kategorizaciji (čl. 26. st. 5.)", "Provjera usklađenosti: neovisna revizija kibernetičke sigurnosti", "Provedba 13 mjera iz Priloga II. Uredbe, na propisanoj razini", "Imenovanje kontakt osobe iz upravljačkog tijela i najmanje dvije osobe za operacionalizaciju dostave podataka", "Dostava podataka NCSC-u: naziv, OIB, veličina, adresa, kontakti, IP adresni rasponi, sektor i vrsta subjekta", "Prijava značajnih incidenata u rokovima 24 h, 72 h i 30 dana"], "nextV": ["Rok za usklađivanje: godinu dana od dostave obavijesti o kategorizaciji (čl. 26. st. 5.)", "Provjera usklađenosti: samoprocjena prema bodovnom okviru ZSIS-a", "Provedba 13 mjera iz Priloga II. Uredbe, na propisanoj razini", "Imenovanje kontakt osobe iz upravljačkog tijela i najmanje dvije osobe za operacionalizaciju dostave podataka", "Dostava podataka NCSC-u: naziv, OIB, veličina, adresa, kontakti, IP adresni rasponi, sektor i vrsta subjekta", "Prijava značajnih incidenata u rokovima 24 h, 72 h i 30 dana"], "nextI": ["Prema odabranim kriterijima ne ispunjavate opće uvjete za kategorizaciju.", "To ne isključuje članak 11.: nadležno tijelo može vas razvrstati neovisno o veličini ako ste jedini pružatelj ključne usluge ili bi vaš ispad imao znatan učinak.", "Ako ste dobavljač kategoriziranim subjektima, njihova mjera 8 (sigurnost lanca opskrbe) ionako će vam postaviti sigurnosne zahtjeve ugovorom.", "Mjere iz Priloga II. korisne su i bez obveze - one su ono što osiguravatelji i veliki kupci ionako traže."], "w1v": "Sektor je u Prilogu I., a subjekt prelazi gornje granice za srednje - članak 9. podstavak 1.", "w1s": "Sektor je u Prilogu I., a subjekt je srednji - članak 10. podstavak 2.", "w2": "Sektor je u Prilogu II., a subjekt je srednji ili veći - članak 10. podstavak 1.", "wm": "Sektor je u prilozima, ali je subjekt mikro ili mali, pa opći kriteriji veličine nisu ispunjeni.", "wi": "Odabrani sektor nije u Prilogu I. ni u Prilogu II. Zakona.", "wd": "Subjekt ispunjava uvjete i za ključne i za važne subjekte; prema članku 16. primjenjuju se odredbe za ključne subjekte.", "wkom": "Pružatelji javnih elektroničkih komunikacijskih mreža i usluga kategoriziraju se neovisno o veličini - članak 9. podstavak 3. odnosno članak 10. podstavak 4.", "wpov": "Pružatelji usluga povjerenja kategoriziraju se neovisno o veličini - članak 10. podstavak 3.", "wdns": "Registar naziva vršne nacionalne domene i pružatelji usluga DNS-a su ključni neovisno o veličini - članak 9. podstavak 2.", "wobr": "Subjekti iz sustava obrazovanja razvrstavaju se u važne neovisno o veličini, ovisno o procjeni važnosti - članak 13.", "sumH": "PROVJERA KATEGORIZACIJE PREMA ZKS-u", "lSector": "Sektor:", "lSize": "Veličina:", "lCat": "Vjerojatna kategorija:", "lWhy": "Osnova:", "disclaimer": "Ovo je informativna procjena, ne pravni savjet i ne službena kategorizacija. Kategorizaciju provodi nadležno tijelo i o njoj vas pisano obavještava. Mjerodavna je isključivo ta obavijest. Alat ne obuhvaća sve iznimke, posebno procjenu važnosti iz članka 12. stavaka 1. i 3. te članka 13.", "specials": {"drzavna": "Članak 12. stavak 1.", "dii": "Članak 12. stavak 2.", "jlprs": "Članak 12. stavak 3.", "kvalpovjerenje": "Članak 9. podstavak 2.", "eracun": "Članak 9. podstavak 4.", "kriticni": "Članak 9. podstavak 5.", "cl11": "Članak 11."}, "sizeNames": {"mikro": "Mikro ili mali", "srednji": "Srednji", "veliki": "Veliki"}};
   var $ = function (id) { return document.getElementById(id); };

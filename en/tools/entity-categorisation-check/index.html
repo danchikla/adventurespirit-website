@@ -180,6 +180,17 @@
 </main>
 <footer>
   <div class="container">
+    <div class="nl">
+      <h4>A new article roughly every two weeks</h4>
+      <p>When a new article appears in the knowledge base, or something changes in the rules, we send a short note. No offers and no reminders.</p>
+      <div class="nl-row">
+        <input type="email" id="nl-mail" placeholder="Your email address" autocomplete="email">
+        <button type="button" id="nl-btn">Sign me up</button>
+      </div>
+      <label class="nl-consent"><input type="checkbox" id="nl-ok"><span>I agree to receive notifications about new articles from Adventure Spirit d.o.o. I can withdraw this consent at any time, by writing to info@adventurespirit.hr or via the link in every message. See the <a href="/privatnost/">privacy policy</a>.</span></label>
+      <p class="nl-msg" id="nl-msg" hidden></p>
+      <p class="nl-fine">We use the address solely to send these notifications. We do not pass it on and do not use it for anything else.</p>
+    </div>
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="/en" style="display:flex;align-items:center;gap:10px;text-decoration:none">
@@ -237,6 +248,30 @@
     </div>
   </div>
 </footer><script>
+(function () {
+  var T = {"need": "Enter a valid address and confirm consent.", "send": "Sending...", "ok": "Thank you, you are signed up. We will write when a new article appears.", "err": "Sign-up failed. Please write to info@adventurespirit.hr.", "subj": "Sign-up for new article notifications", "log": "Consent given via the form in the page footer."}, $ = function (i) { return document.getElementById(i); };
+  var b = $("nl-btn"); if (!b) { return; }
+  b.addEventListener("click", function () {
+    var m = $("nl-mail").value.trim(), msg = $("nl-msg");
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m) || !$("nl-ok").checked) {
+      msg.textContent = T.need; msg.className = "nl-msg bad"; msg.hidden = false; return;
+    }
+    var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
+    fetch("https://formspree.io/f/mojpkknr", {
+      method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ email: m, _subject: T.subj,
+        message: T.subj + "\n" + location.href + "\n\n" + T.log })
+    }).then(function (r) {
+      if (!r.ok) { throw new Error(); }
+      msg.textContent = T.ok; msg.className = "nl-msg ok"; msg.hidden = false;
+      $("nl-mail").value = ""; $("nl-ok").checked = false;
+      if (window.asTrack) { window.asTrack("newsletter_signup"); }
+    }).catch(function () {
+      msg.textContent = T.err; msg.className = "nl-msg bad"; msg.hidden = false;
+    }).finally(function () { b.disabled = false; b.textContent = lab; });
+  });
+})();
+</script><script>
 (function () {
   var S = {"energetika": {"p": 1, "csirt": "ncsc", "body": "", "name": "Energy"}, "promet-zracni": {"p": 1, "csirt": "ncsc", "body": "Croatian Civil Aviation Agency", "name": "Transport - air"}, "promet-ostalo": {"p": 1, "csirt": "ncsc", "body": "", "name": "Transport - rail, water, road"}, "bankarstvo": {"p": 1, "csirt": "cert", "body": "Croatian National Bank", "name": "Banking"}, "financijsko-trziste": {"p": 1, "csirt": "cert", "body": "HANFA", "name": "Financial market infrastructure"}, "zdravstvo": {"p": 1, "csirt": "ncsc", "body": "", "name": "Health"}, "voda": {"p": 1, "csirt": "ncsc", "body": "", "name": "Drinking water"}, "otpadne-vode": {"p": 1, "csirt": "ncsc", "body": "", "name": "Waste water"}, "di-povjerenje": {"p": 1, "csirt": "ncsc", "body": "", "name": "Digital infrastructure - trust service provider"}, "di-komunikacije": {"p": 1, "csirt": "ncsc", "body": "HAKOM", "name": "Digital infrastructure - public electronic communications"}, "di-dns": {"p": 1, "csirt": "cert", "body": "", "name": "Digital infrastructure - DNS, .hr registry, internet exchange"}, "di-oblak": {"p": 1, "csirt": "ncsc", "body": "", "name": "Digital infrastructure - cloud, data centres, CDN"}, "ikt-b2b": {"p": 1, "csirt": "ncsc", "body": "", "name": "ICT service management (B2B)"}, "javni-sektor": {"p": 1, "csirt": "ncsc", "body": "", "name": "Public administration"}, "svemir": {"p": 1, "csirt": "ncsc", "body": "", "name": "Space"}, "posta": {"p": 2, "csirt": "ncsc", "body": "", "name": "Postal and courier services"}, "otpad": {"p": 2, "csirt": "ncsc", "body": "", "name": "Waste management"}, "kemikalije": {"p": 2, "csirt": "ncsc", "body": "", "name": "Manufacture and distribution of chemicals"}, "hrana": {"p": 2, "csirt": "ncsc", "body": "", "name": "Production, processing and distribution of food"}, "proizvodnja": {"p": 2, "csirt": "ncsc", "body": "", "name": "Manufacturing (medical devices, electronics, machinery, vehicles)"}, "digitalne-usluge": {"p": 2, "csirt": "ncsc", "body": "", "name": "Digital service providers (marketplaces, search engines, social networks)"}, "istrazivanje": {"p": 2, "csirt": "cert", "body": "", "name": "Research"}, "obrazovanje": {"p": 2, "csirt": "cert", "body": "", "name": "Education system"}, "izvan": {"p": 0, "csirt": "", "body": "", "name": "None of the above"}}, T = {"err": "Select a sector and an entity size.", "kljucni": "Essential entity", "vazni": "Important entity", "izvan": "Likely outside the scope of the Act", "why": "Why", "nextH": "What follows from this", "csirtH": "Competent CSIRT for incident reporting", "sectorBody": "Sectoral competent authority", "ncsc": "National Cyber Security Centre (NCSC-HR)", "cert": "National CERT", "nextK": ["Compliance deadline: one year from delivery of the categorisation notice (Art. 26(5))", "Verification: independent cybersecurity audit", "Implementation of the 13 measures of Annex II at the prescribed level", "Appointment of a contact person from the management body and at least two people to operationalise data delivery", "Data delivery to NCSC-HR: name, company ID, size, address, contacts, IP address ranges, sector and entity type", "Reporting of significant incidents within 24 h, 72 h and 30 days"], "nextV": ["Compliance deadline: one year from delivery of the categorisation notice (Art. 26(5))", "Verification: self-assessment against the ZSIS scoring framework", "Implementation of the 13 measures of Annex II at the prescribed level", "Appointment of a contact person from the management body and at least two people to operationalise data delivery", "Data delivery to NCSC-HR: name, company ID, size, address, contacts, IP address ranges, sector and entity type", "Reporting of significant incidents within 24 h, 72 h and 30 days"], "nextI": ["On the criteria selected you do not meet the general conditions for categorisation.", "That does not rule out Article 11: the competent authority may categorise you regardless of size if you are the sole provider of an essential service or your disruption would have significant effect.", "If you supply categorised entities, their measure 8 (supply chain security) will impose security requirements on you contractually anyway.", "The Annex II measures are useful without an obligation - they are what insurers and large customers ask for regardless."], "w1v": "The sector is in Annex I and the entity exceeds the ceilings for medium-sized entities - Article 9, indent 1.", "w1s": "The sector is in Annex I and the entity is medium-sized - Article 10, indent 2.", "w2": "The sector is in Annex II and the entity is medium-sized or larger - Article 10, indent 1.", "wm": "The sector is in the annexes, but the entity is micro or small, so the general size criteria are not met.", "wi": "The selected sector is in neither Annex I nor Annex II of the Act.", "wd": "The entity meets the conditions for both essential and important; under Article 16 the provisions for essential entities apply.", "wkom": "Providers of public electronic communications networks and services are categorised regardless of size - Article 9, indent 3 and Article 10, indent 4.", "wpov": "Trust service providers are categorised regardless of size - Article 10, indent 3.", "wdns": "The national top-level domain registry and DNS service providers are essential regardless of size - Article 9, indent 2.", "wobr": "Entities in the education system are classified as important regardless of size, subject to an importance assessment - Article 13.", "sumH": "ENTITY CATEGORISATION CHECK", "lSector": "Sector:", "lSize": "Size:", "lCat": "Likely category:", "lWhy": "Basis:", "disclaimer": "This is an informative assessment, not legal advice and not an official categorisation. Categorisation is carried out by the competent authority, which notifies you in writing. Only that notice governs. The tool does not cover every exception, in particular the importance assessments under Article 12(1) and (3) and Article 13.", "specials": {"drzavna": "Article 12(1)", "dii": "Article 12(2)", "jlprs": "Article 12(3)", "kvalpovjerenje": "Article 9, indent 2", "eracun": "Article 9, indent 4", "kriticni": "Article 9, indent 5", "cl11": "Article 11"}, "sizeNames": {"mikro": "Micro or small", "srednji": "Medium", "veliki": "Large"}};
   var $ = function (id) { return document.getElementById(id); };

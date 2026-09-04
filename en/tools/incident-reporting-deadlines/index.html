@@ -147,6 +147,17 @@
 </main>
 <footer>
   <div class="container">
+    <div class="nl">
+      <h4>A new article roughly every two weeks</h4>
+      <p>When a new article appears in the knowledge base, or something changes in the rules, we send a short note. No offers and no reminders.</p>
+      <div class="nl-row">
+        <input type="email" id="nl-mail" placeholder="Your email address" autocomplete="email">
+        <button type="button" id="nl-btn">Sign me up</button>
+      </div>
+      <label class="nl-consent"><input type="checkbox" id="nl-ok"><span>I agree to receive notifications about new articles from Adventure Spirit d.o.o. I can withdraw this consent at any time, by writing to info@adventurespirit.hr or via the link in every message. See the <a href="/privatnost/">privacy policy</a>.</span></label>
+      <p class="nl-msg" id="nl-msg" hidden></p>
+      <p class="nl-fine">We use the address solely to send these notifications. We do not pass it on and do not use it for anything else.</p>
+    </div>
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="/en" style="display:flex;align-items:center;gap:10px;text-decoration:none">
@@ -204,6 +215,30 @@
     </div>
   </div>
 </footer><script>
+(function () {
+  var T = {"need": "Enter a valid address and confirm consent.", "send": "Sending...", "ok": "Thank you, you are signed up. We will write when a new article appears.", "err": "Sign-up failed. Please write to info@adventurespirit.hr.", "subj": "Sign-up for new article notifications", "log": "Consent given via the form in the page footer."}, $ = function (i) { return document.getElementById(i); };
+  var b = $("nl-btn"); if (!b) { return; }
+  b.addEventListener("click", function () {
+    var m = $("nl-mail").value.trim(), msg = $("nl-msg");
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m) || !$("nl-ok").checked) {
+      msg.textContent = T.need; msg.className = "nl-msg bad"; msg.hidden = false; return;
+    }
+    var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
+    fetch("https://formspree.io/f/mojpkknr", {
+      method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ email: m, _subject: T.subj,
+        message: T.subj + "\n" + location.href + "\n\n" + T.log })
+    }).then(function (r) {
+      if (!r.ok) { throw new Error(); }
+      msg.textContent = T.ok; msg.className = "nl-msg ok"; msg.hidden = false;
+      $("nl-mail").value = ""; $("nl-ok").checked = false;
+      if (window.asTrack) { window.asTrack("newsletter_signup"); }
+    }).catch(function () {
+      msg.textContent = T.err; msg.className = "nl-msg bad"; msg.hidden = false;
+    }).finally(function () { b.disabled = false; b.textContent = lab; });
+  });
+})();
+</script><script>
 (function () {
   var T = {"errDate": "Enter the moment you became aware of the incident.", "over": "deadline passed", "leftH": "%1 h %2 min left", "leftD": "%1 days %2 h left", "d1": "Early warning", "d1d": "To the competent CSIRT, without delay. It does not explain the incident, it reports that one occurred.", "d2": "Incident notification", "d2d": "Updated assessment, indicators of compromise, severity and impact.", "d3": "Intermediate report", "d3d": "Only on request of the competent CSIRT, within the period it sets.", "d3when": "48 hours to 7 days from the request", "d4": "Final report", "d4d": "Detailed description, threat type and root cause, measures applied and planned.", "d5": "Progress report", "d5d": "If the incident is still ongoing when the final report falls due, a progress report is submitted instead, and every 30 days thereafter.", "d6": "Data protection notification", "d6d": "Runs in parallel with the deadlines under the Act, under Art. 33 GDPR.", "tspNote": "Not applicable - trust service providers do not submit an early warning.", "days": "days", "leftFrom": "from delivery of the incident notification", "leftFromCalc": "from the 72-hour deadline", "d5extra": "and every 30 days thereafter", "summaryH": "SIGNIFICANT INCIDENT REPORTING DEADLINES", "summaryFrom": "Awareness:", "disclaimer": "This tool is an informative aid and does not replace legal advice or official guidance. Deadlines follow Art. 65 to 71 of the Cybersecurity Regulation. Check the significance criteria in Art. 59 to 62 before reporting.", "lang": "en", "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]};
   var $ = function (id) { return document.getElementById(id); };

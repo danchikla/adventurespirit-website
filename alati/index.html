@@ -117,6 +117,17 @@
 </main>
 <footer>
   <div class="container">
+    <div class="nl">
+      <h4>Novi tekst otprilike svaka dva tjedna</h4>
+      <p>Kad izađe nov članak u bazi znanja ili se promijeni nešto u propisu, javimo se kratkom porukom. Bez ponuda i bez podsjetnika.</p>
+      <div class="nl-row">
+        <input type="email" id="nl-mail" placeholder="Vaša e-mail adresa" autocomplete="email">
+        <button type="button" id="nl-btn">Prijavi me</button>
+      </div>
+      <label class="nl-consent"><input type="checkbox" id="nl-ok"><span>Pristajem primati obavijesti o novim tekstovima od Adventure Spirit d.o.o. Privolu mogu povući u svakom trenutku, porukom na info@adventurespirit.hr ili poveznicom u svakoj obavijesti. Više u <a href="/privatnost/">politici privatnosti</a>.</span></label>
+      <p class="nl-msg" id="nl-msg" hidden></p>
+      <p class="nl-fine">Adresu koristimo isključivo za slanje ovih obavijesti. Ne prosljeđujemo je nikome i ne koristimo za druge svrhe.</p>
+    </div>
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none">
@@ -173,7 +184,31 @@
       </span>
     </div>
   </div>
-</footer>
+</footer><script>
+(function () {
+  var T = {"need": "Upišite ispravnu adresu i potvrdite privolu.", "send": "Šaljem...", "ok": "Hvala, prijava je zabilježena. Javljamo se kad izađe novi tekst.", "err": "Prijava nije uspjela. Pišite nam na info@adventurespirit.hr.", "subj": "Prijava na obavijesti o novim tekstovima", "log": "Privola dana kroz obrazac u podnozju stranice."}, $ = function (i) { return document.getElementById(i); };
+  var b = $("nl-btn"); if (!b) { return; }
+  b.addEventListener("click", function () {
+    var m = $("nl-mail").value.trim(), msg = $("nl-msg");
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m) || !$("nl-ok").checked) {
+      msg.textContent = T.need; msg.className = "nl-msg bad"; msg.hidden = false; return;
+    }
+    var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
+    fetch("https://formspree.io/f/mojpkknr", {
+      method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ email: m, _subject: T.subj,
+        message: T.subj + "\n" + location.href + "\n\n" + T.log })
+    }).then(function (r) {
+      if (!r.ok) { throw new Error(); }
+      msg.textContent = T.ok; msg.className = "nl-msg ok"; msg.hidden = false;
+      $("nl-mail").value = ""; $("nl-ok").checked = false;
+      if (window.asTrack) { window.asTrack("newsletter_signup"); }
+    }).catch(function () {
+      msg.textContent = T.err; msg.className = "nl-msg bad"; msg.hidden = false;
+    }).finally(function () { b.disabled = false; b.textContent = lab; });
+  });
+})();
+</script>
 
 <script>
 function toggleNav() { document.getElementById('nav-links').classList.toggle('open'); }

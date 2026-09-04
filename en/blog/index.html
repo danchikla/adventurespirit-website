@@ -308,6 +308,17 @@
 </script>
 <footer>
   <div class="container">
+    <div class="nl">
+      <h4>A new article roughly every two weeks</h4>
+      <p>When a new article appears in the knowledge base, or something changes in the rules, we send a short note. No offers and no reminders.</p>
+      <div class="nl-row">
+        <input type="email" id="nl-mail" placeholder="Your email address" autocomplete="email">
+        <button type="button" id="nl-btn">Sign me up</button>
+      </div>
+      <label class="nl-consent"><input type="checkbox" id="nl-ok"><span>I agree to receive notifications about new articles from Adventure Spirit d.o.o. I can withdraw this consent at any time, by writing to info@adventurespirit.hr or via the link in every message. See the <a href="/privatnost/">privacy policy</a>.</span></label>
+      <p class="nl-msg" id="nl-msg" hidden></p>
+      <p class="nl-fine">We use the address solely to send these notifications. We do not pass it on and do not use it for anything else.</p>
+    </div>
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="/en" style="display:flex;align-items:center;gap:10px;text-decoration:none">
@@ -364,7 +375,31 @@
       </span>
     </div>
   </div>
-</footer>
+</footer><script>
+(function () {
+  var T = {"need": "Enter a valid address and confirm consent.", "send": "Sending...", "ok": "Thank you, you are signed up. We will write when a new article appears.", "err": "Sign-up failed. Please write to info@adventurespirit.hr.", "subj": "Sign-up for new article notifications", "log": "Consent given via the form in the page footer."}, $ = function (i) { return document.getElementById(i); };
+  var b = $("nl-btn"); if (!b) { return; }
+  b.addEventListener("click", function () {
+    var m = $("nl-mail").value.trim(), msg = $("nl-msg");
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m) || !$("nl-ok").checked) {
+      msg.textContent = T.need; msg.className = "nl-msg bad"; msg.hidden = false; return;
+    }
+    var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
+    fetch("https://formspree.io/f/mojpkknr", {
+      method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ email: m, _subject: T.subj,
+        message: T.subj + "\n" + location.href + "\n\n" + T.log })
+    }).then(function (r) {
+      if (!r.ok) { throw new Error(); }
+      msg.textContent = T.ok; msg.className = "nl-msg ok"; msg.hidden = false;
+      $("nl-mail").value = ""; $("nl-ok").checked = false;
+      if (window.asTrack) { window.asTrack("newsletter_signup"); }
+    }).catch(function () {
+      msg.textContent = T.err; msg.className = "nl-msg bad"; msg.hidden = false;
+    }).finally(function () { b.disabled = false; b.textContent = lab; });
+  });
+})();
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
