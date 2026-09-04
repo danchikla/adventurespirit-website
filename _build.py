@@ -7045,7 +7045,7 @@ urls += [("%s/en/sectors/%s/" % (SITE, x["en"]), "0.7", "monthly") for x in SEKT
 urls += [("%s/blog/%s/" % (SITE, a["slug"]), "0.8", "monthly") for a in ARTICLES]
 urls += [("%s/en/blog/%s/" % (SITE, a["slug"]), "0.7", "monthly") for a in ARTICLES_EN]
 urls += [(SITE + "/uvjeti/", "0.3", "yearly"), (SITE + "/privatnost/", "0.3", "yearly"),
-         (SITE + "/mmew/", "0.5", "monthly")]
+         (SITE + "/mmew/", "0.5", "monthly"), (SITE + "/izleti/", "0.4", "monthly")]
 io.open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write(
 '''<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

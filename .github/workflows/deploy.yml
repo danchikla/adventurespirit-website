@@ -31,6 +31,7 @@ jobs:
             Ponuda/**
             _build.py
             BUILD.md
+            SEO.md
             analitika/podaci/*.csv
             analitika/podaci/.sol
             analitika/README.md
