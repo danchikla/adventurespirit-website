@@ -3146,6 +3146,270 @@ ARTICLES_EN.append(dict(
           ('Recommendations for systematic log collection, NCSC-HR (Croatian)', 'https://www.ncsc.hr/')]))
 
 # ══════════════════════════════════════════════════════════════════
+# Engleski: kazne, revizija, sigurnosna kultura, korelacija
+# ══════════════════════════════════════════════════════════════════
+ARTICLES_EN.append(dict(
+ slug="penalties-under-the-cybersecurity-act", cat="CSA / NIS2", catkey="csa",
+ date="2026-06-23", read=8,
+ title="Penalties under the Croatian Cybersecurity Act: who pays, how much, and why it is personal",
+ lead="Up to EUR 10 million or 2 per cent of global turnover for essential entities. But the figure that changes the conversation with a board is the other one: members of the management body are liable personally, out of their own pocket.",
+ desc="The penalty provisions of the Croatian Cybersecurity Act: ranges for essential and important entities, personal liability of management body members, the circumstances affecting the amount, and the rule against double punishment with the data protection authority.",
+ body='''
+<p>In conversations about compliance with the Croatian Cybersecurity Act the figure most often quoted is ten million euro. It is accurate but incomplete, and on its own it rarely moves anything.</p>
+<p>What moves things is the provision alongside it: <strong>the individuals responsible for managing the measures are liable personally</strong>.</p>
+
+<h2>The ranges</h2>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Who</th><th>Range</th><th>Alternative</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Essential entity</strong></td><td>EUR 10,000 - 10,000,000</td><td>0.5 % to 2 % of total annual worldwide turnover</td></tr>
+      <tr><td><strong>Important entity</strong></td><td>EUR 5,000 - 7,000,000</td><td>0.2 % to 1.4 % of total annual worldwide turnover</td></tr>
+      <tr><td><strong>Responsible individual, essential entity</strong></td><td class="num">EUR 1,000 - 6,000</td><td>-</td></tr>
+      <tr><td><strong>Responsible individual, important entity</strong></td><td class="num">EUR 500 - 3,000</td><td>-</td></tr>
+      <tr><td><strong>Failure to deliver data to NCSC-HR</strong></td><td>EUR 2,000 - 20,000</td><td>responsible individual EUR 200 - 1,000</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>For legal persons <strong>the higher of the two figures applies</strong> - the fixed amount or the percentage of turnover. For an entity with EUR 400 million turnover the ceiling is not 10 million but 8 million by percentage, so the fixed amount governs. Above roughly half a billion, the percentage overtakes it.</p>
+
+<h2>Who counts as a "responsible individual"</h2>
+<p>Article 29 is precise, and broader than expected. Responsible for implementing the measures are:</p>
+<ul>
+  <li><strong>members of the management bodies</strong> of essential and important entities</li>
+  <li><strong>heads of state administration bodies</strong> and other state bodies</li>
+  <li><strong>executive bodies</strong> of local and regional self-government units</li>
+</ul>
+<p>Paragraph 4 extends the circle to other individuals who, on the basis of authority to supervise the conduct of business, a power of attorney or another authority to represent, <strong>take part in decisions about the measures or in their implementation</strong>.</p>
+<div class="callout">
+  <div class="c-label">What this means in practice</div>
+  <p>A procurator, a supervisory board member deciding on security investment, or an IT director holding a power of attorney can all fall within the circle of personal liability. That liability cannot be transferred by contract to a supplier or a consultant.</p>
+</div>
+
+<h2>Two duties a board cannot delegate</h2>
+<p>Article 29(2) requires responsible individuals to <strong>approve</strong> the measures and to <strong>verify their implementation</strong>. Paragraph 3 adds a duty that is routinely overlooked:</p>
+<ul>
+  <li>responsible individuals must <strong>themselves attend appropriate training</strong></li>
+  <li>and must enable staff to attend training</li>
+</ul>
+<p>A board that has not been trained does not meet a statutory duty, however good the system beneath it. It is one of the few requirements where the evidence has to carry a board member's name.</p>
+
+<h2>What affects the amount</h2>
+<p>Article 85 lists the circumstances the competent authority takes into account:</p>
+<ul>
+  <li>the seriousness of the breach and the importance of the provision breached</li>
+  <li>its duration</li>
+  <li>previous breaches by the same entity</li>
+  <li>the damage caused, including financial loss, effects on other services and the number of affected users</li>
+  <li>whether the entity acted <strong>with intent or through negligence</strong></li>
+  <li>measures taken to prevent or mitigate the damage</li>
+  <li>adherence to codes of conduct and certification conditions</li>
+  <li><strong>the level of cooperation of the responsible individuals with the authorities</strong></li>
+</ul>
+<div class="callout">
+  <div class="c-label">What counts expressly as a serious breach</div>
+  <p>Paragraph 2 of the same article lists: repeated breaches, <strong>failure to report or to resolve significant incidents</strong>, failure to remedy deficiencies when ordered to, and <strong>obstructing or impeding an audit</strong>.</p>
+  <p>In other words: a missed incident notification and obstruction of an audit are not technical oversights but aggravating circumstances that raise the penalty in themselves.</p>
+</div>
+
+<h2>You will not be punished twice for the same conduct</h2>
+<p>A provision rarely mentioned and worth knowing: where the data protection authority has already imposed an administrative fine under the GDPR for a personal data breach arising from <strong>the same conduct</strong>, no misdemeanour charge or order may be issued under the Act for that same conduct.</p>
+<p>This does not merge the obligations - it prevents double punishment for one act. Notification to the competent CSIRT and notification to the data protection authority remain two separate duties with their own deadlines.</p>
+
+<h2>How to raise this with a board</h2>
+<ol>
+  <li><strong>Personal liability.</strong> A range of EUR 1,000 to 6,000 is not much money for a company, but it is very concrete for the individual paying it.</li>
+  <li><strong>Cooperation is scored.</strong> The level of cooperation with the authority expressly affects the penalty. An organisation that reports its own failure with a remediation plan is not in the same position as one that waits for an inspection.</li>
+  <li><strong>Board training is a statutory duty</strong>, not a recommendation. It is the easiest item to close and the most commonly left open.</li>
+</ol>
+
+<div class="note">
+  <p>This is an informative overview of the penalty provisions, not legal advice. The amount in any given case depends on the circumstances in Article 85 and on the decision of the authority or court. To assess your own exposure, start with the <a href="/en/tools/entity-categorisation-check/">categorisation check</a> - the category determines which range applies.</p>
+</div>
+''',
+ sources=[('Cybersecurity Act, OG 14/2024, Art. 29, 85 and the penalty provisions (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html'),
+          ('Regulation (EU) 2016/679 (GDPR)', 'https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng'),
+          ('Directive (EU) 2022/2555 (NIS2)', 'https://eur-lex.europa.eu/eli/dir/2022/2555/oj/eng')]))
+
+ARTICLES_EN.append(dict(
+ slug="cybersecurity-audit-how-it-works", cat="Self-assessment", catkey="selfassessment",
+ date="2026-07-21", read=7,
+ title="The cybersecurity audit: who may perform it and how it runs",
+ lead="Essential entities do not self-assess - they undergo an independent audit. It is carried out by a provider holding the prescribed authorisation, and for state administration bodies by the competent authority. Here is how it runs and what usually is not accepted.",
+ desc="How the independent cybersecurity audit of essential entities runs: who may perform it, the steps of the process, how the auditor scores documentation and implementation, and which evidence is most often rejected.",
+ body='''
+<p>The difference between an essential and an important entity comes down to one sentence: important entities self-assess, essential entities undergo an <strong>independent cybersecurity audit</strong>. That is a difference in cost, in time, and in who holds the pen.</p>
+
+<h2>Who may perform it</h2>
+<p>The audit cannot be run by any consultant. It is performed by a service provider holding the prescribed authorisation, and for state administration bodies by the competent information security authority.</p>
+<div class="callout">
+  <div class="c-label">Why that separation protects you</div>
+  <p>Whoever built the system may not also assess it. If someone offers you both the implementation and the formal audit, that is not a saving but a conflict of interest - and the findings of such an audit carry no weight with the authority.</p>
+</div>
+
+<h2>How the process runs</h2>
+<ol>
+  <li><strong>Notice and scoping.</strong> Which systems, processes and locations are covered, and which level of implementation applies to your category.</li>
+  <li><strong>Audit plan.</strong> Schedule, interviewees, and the documentation to be submitted in advance.</li>
+  <li><strong>Documentation review.</strong> Policies, procedures, registers and records - before the interviews, not instead of them.</li>
+  <li><strong>Interviews.</strong> With the board, with process owners and with the people who actually perform the measures. This is where the gap between what is written and what is done shows fastest.</li>
+  <li><strong>Evidence sampling.</strong> The auditor picks a sample and asks for evidence for each selected control. Not everything is checked; the sample supports a conclusion about the whole.</li>
+  <li><strong>Findings and deadlines.</strong> A report setting out findings, their seriousness and the time allowed to remedy them.</li>
+</ol>
+
+<h2>How the auditor scores</h2>
+<p>Scoring uses the same framework as the self-assessment: a score per control, with a threshold each control must reach and an additional average threshold per sub-measure.</p>
+<p>Practically important: <strong>documentation and implementation are scored separately</strong>. A perfect policy that is not applied does not produce a high score, and good practice without records produces no score at all - because it cannot be evidenced.</p>
+
+<h2>What usually is not accepted</h2>
+<ul>
+  <li><strong>A document with no date and no approval.</strong> A policy nobody adopted is a draft, not a policy.</li>
+  <li><strong>A record created after the audit was announced.</strong> It shows in the dates, and in what is missing for the period before.</li>
+  <li><strong>A screenshot instead of a record.</strong> An image of the current state does not evidence that the control operated throughout the period.</li>
+  <li><strong>A risk register with no owners and no changes.</strong> If it has not changed in a year, it is not used in decision-making.</li>
+  <li><strong>A continuity plan that has never been exercised.</strong> Without an exercise record, the plan documents intent, not capability.</li>
+  <li><strong>Training without records.</strong> "Everyone attended" is not evidence; a list with names and dates is.</li>
+  <li><strong>Supplier measures with no contractual basis.</strong> A provider's verbal assurance does not replace a clause.</li>
+</ul>
+<div class="callout">
+  <div class="c-label">The common denominator</div>
+  <p>Nearly all of these have the same cause: the evidence is being manufactured at the moment of the audit. Most measures are evidenced by records that arise during the cycle, so they cannot be produced retrospectively. That is why twelve months is not generous.</p>
+</div>
+
+<h2>How to prepare</h2>
+<ol>
+  <li><strong>Score yourself against the same framework.</strong> An internal review simulating the audit produces the same findings, without the consequences.</li>
+  <li><strong>Walk the documentation chronologically.</strong> Is there a record for every month of the period, or only for the last one?</li>
+  <li><strong>Check what cannot be fixed quickly.</strong> The annual board reporting cycle, the continuity exercise and training records all need calendar time.</li>
+  <li><strong>Prepare the interviewees.</strong> Not to learn answers, but to know where things are - an auditor can tell the difference.</li>
+</ol>
+
+<div class="note">
+  <p>We carry out internal audits and reviews that simulate the audit process. The formal independent audit of essential entities is performed by an authorised provider. More on what we do at <a href="/en/services/audits-and-internal-reviews/">Audits and internal reviews</a>, and the scoring framework is explained in <a href="/en/blog/how-self-assessment-is-scored/">How the self-assessment is actually scored</a>.</p>
+</div>
+''',
+ sources=[('Cybersecurity Act, OG 14/2024 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html'),
+          ('Cybersecurity Regulation, OG 135/2024 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('ZSIS - Annex B, Framework for the evaluation of measures', 'https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20B%20-%20Okvir%20za%20evaluaciju.pdf')]))
+
+ARTICLES_EN.append(dict(
+ slug="security-culture-and-the-human-factor", cat="Human factor", catkey="people",
+ date="2026-08-11", read=6,
+ title="Security culture: why training does not change behaviour, and what does",
+ lead="An annual presentation about phishing produces a record, not a change. Measure 5 requires awareness raising, but what actually gets measured is behaviour - and behaviour moves on different levers.",
+ desc="How to approach security awareness so it changes behaviour rather than just producing records: what to measure, building a reporting culture, and the link to measure 5 of Annex II.",
+ body='''
+<p>Measure 5 of Annex II requires basic cyber hygiene practices and staff awareness raising. Most organisations satisfy it with an annual presentation and a list of signatures.</p>
+<p>It formally passes. Behaviour does not change, and the next incident arrives through the same channel as the last one.</p>
+
+<h2>Why conventional training fails</h2>
+<h3>It teaches signals that have disappeared</h3>
+<p>Material that teaches people to spot phishing by poor language and a strange address is out of date. Language errors are no longer a signal - messages are grammatically flawless and tailored to the recipient. What remains as a signal is <strong>context</strong>: an unexpected request, time pressure, a change of channel, a request for an exception to a rule.</p>
+<h3>It measures attendance, not behaviour</h3>
+<p>Records answer who was present. They do not answer whether that person would act differently. Those are different things, and only the second one shows up in an incident.</p>
+<h3>It punishes reporting</h3>
+<p>This is the biggest problem and the least discussed. In an organisation where the person who clicks a phishing link faces ridicule or a conversation with their manager, nobody will report next time - they will stay quiet and hope. Time to detection is then measured in weeks rather than minutes.</p>
+
+<div class="callout">
+  <div class="c-label">One question that reveals the state of things</div>
+  <p>Ask a few staff: "If you had clicked a suspicious link yesterday, who would you tell and what do you think would happen?" The answer to the second half tells you more about your resilience than any training record.</p>
+</div>
+
+<h2>What actually changes behaviour</h2>
+<ol>
+  <li><strong>Short and frequent, instead of long and once.</strong> Fifteen minutes a quarter with one concrete scenario beats two hours once a year.</li>
+  <li><strong>Simulations with feedback, not consequences.</strong> Whoever clicks gets an explanation immediately, in place. Results are reported in aggregate, never per person.</li>
+  <li><strong>Reporting is rewarded.</strong> Anyone who reports a suspicious message, even one that turns out harmless, should be told they did the right thing. It is the only lever that shortens time to detection.</li>
+  <li><strong>Roles get their own content.</strong> Finance needs to know about bank detail change fraud, IT about attacks on privileged accounts, the board about fake executive instruction fraud.</li>
+  <li><strong>A procedure instead of vigilance.</strong> "Be careful with payments" does not work. "Any payment above X, or any change of bank details, is confirmed by telephone on the number in our register, never the number in the email" does work, because it does not depend on one person's judgement under pressure.</li>
+</ol>
+
+<h2>What to measure</h2>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Instead of</th><th>Measure</th></tr></thead>
+    <tbody>
+      <tr><td>Percentage of staff who completed training</td><td>Share of simulated messages reported</td></tr>
+      <tr><td>Quiz score</td><td>Average time to first report</td></tr>
+      <tr><td>Number of sessions held</td><td>Reports from teams that never reported before</td></tr>
+      <tr><td>Training satisfaction score</td><td>Share of payments verified through a second channel</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>The left column satisfies the record. The right column shows whether resilience is changing.</p>
+
+<h2>The link to your obligations</h2>
+<p>Awareness raising falls under measure 5, and Article 29(3) of the Act requires responsible individuals to attend appropriate training themselves. In addition, Article 4 of the AI Act requires a sufficient level of AI literacy for staff operating AI systems.</p>
+<p>All three require <strong>records</strong>. The good news is that a programme which genuinely changes behaviour produces richer records than one that does not, because it has more touchpoints across the year.</p>
+
+<div class="note">
+  <p>Role-based workshops - for the board, for IT and for all staff - are described on the <a href="/en/speaking/">Lectures and workshops</a> page. Each produces records that satisfy measure 5.</p>
+</div>
+''',
+ sources=[('Cybersecurity Regulation, OG 135/2024, Annex II, measure 5 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('Cybersecurity Act, OG 14/2024, Art. 29(3) (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html'),
+          ('Regulation (EU) 2024/1689 (AI Act), Art. 4', 'https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng')]))
+
+ARTICLES_EN.append(dict(
+ slug="correlation-of-measures-to-standards", cat="CSA / NIS2", catkey="csa",
+ date="2026-02-24", read=7,
+ title="The correlation overview: the document that halves your work",
+ lead="Article 49 of the Regulation requires a correlation overview mapping every sub-measure onto ISO 27001, ISO 27002, ISO 22301, NIST CSF 2.0, NIST SP 800-53 and CIS v8. Organisations that ignore it write documentation they already have.",
+ desc="What the correlation overview required by Article 49 of the Croatian Cybersecurity Regulation is, which standards it maps to, and how to use it so existing ISO or NIST documentation is not written twice.",
+ body='''
+<p>The most expensive mistake in a compliance project is not a missed control. It is documentation written a second time, because nobody checked what already existed.</p>
+<p>The Regulation anticipated this. Article 49 provides for a <strong>correlation overview of the measures</strong>, mapping every sub-measure of Annex II onto recognised standards and good practice.</p>
+
+<h2>What it maps to</h2>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Source</th><th>What it covers</th></tr></thead>
+    <tbody>
+      <tr><td><strong>ISO/IEC 27001:2022</strong></td><td>The information security management system framework</td></tr>
+      <tr><td><strong>ISO/IEC 27002:2022</strong></td><td>Implementation guidance for the controls, in four themes</td></tr>
+      <tr><td><strong>ISO/IEC 22301:2019</strong></td><td>Business continuity</td></tr>
+      <tr><td><strong>NIST CSF 2.0</strong></td><td>Six functions, including the new Govern</td></tr>
+      <tr><td><strong>NIST SP 800-53</strong></td><td>An extensive set of technical and organisational controls</td></tr>
+      <tr><td><strong>CIS v8</strong></td><td>Practical controls, including cloud and mobile</td></tr>
+      <tr><td><strong>ZSIS control catalogue</strong></td><td>The 132 controls used in the self-assessment</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout">
+  <div class="c-label">What this means in practice</div>
+  <p>If you hold ISO 27001, the correlation overview tells you, for every sub-measure, which of your existing controls are thematically related. That is not proof of compliance, but it is a list of the places where the evidence probably already exists. Instead of 99 empty fields you start with 99 fields that have a candidate.</p>
+</div>
+
+<h2>The trap the overview itself points out</h2>
+<p>The guidance notes something easy to miss: <strong>the scope of each control from the international standards exceeds the scope of the sub-measure being mapped</strong>. A control from ISO 27002 appearing next to sub-measure 3.2 also covers things that sub-measure does not require, and may not cover everything it does.</p>
+<p>The consequence: mapping is a starting point, not a conclusion. A tick in the correlation table is not evidence. Evidence is a record answering what the sub-measure requires, to the extent it requires it.</p>
+
+<h2>How to use it so it genuinely saves work</h2>
+<ol>
+  <li><strong>Start from your Statement of Applicability.</strong> For each applicable control, see which sub-measures it appears against in the correlation. That gives you the reverse mapping - from what you have towards what is required.</li>
+  <li><strong>Mark three states, not two.</strong> Covered, partly covered, not covered. Partly is the largest group and the most useful, because it is resolved by extending an existing document rather than writing a new one.</li>
+  <li><strong>Check the level.</strong> A control satisfying the basic level need not satisfy the medium one. The correlation does not distinguish levels - you must.</li>
+  <li><strong>Record the reasoning for every link.</strong> At verification you will have to explain why you considered an existing document to cover a sub-measure. A sentence written at the time of mapping is worth more than a reconstruction six months later.</li>
+</ol>
+
+<h2>Who benefits most</h2>
+<ul>
+  <li><strong>An organisation with ISO 27001 and 22301</strong> - the greatest benefit. Much of measures 2, 3, 7, 8 and 12 already has an evidential basis.</li>
+  <li><strong>An organisation working to CIS v8</strong> - technical measures 5, 6, 7 and 9 are largely covered; the organisational ones are not.</li>
+  <li><strong>An organisation reporting against NIST CSF</strong> - the correlation is also a bridge to board reporting, since the six functions remain as the presentation frame.</li>
+  <li><strong>An organisation with none of these</strong> - still useful as a guide to what to write, because it points to controls describing how a sub-measure is usually implemented.</li>
+</ul>
+
+<div class="note">
+  <p>The correlation overview is an aid, not law. The authority assesses compliance with the measures of Annex II and the controls of the catalogue, not with the standards the overview points to. An ISO 27001 certificate replaces neither the self-assessment nor the audit.</p>
+</div>
+''',
+ sources=[('Cybersecurity Regulation, OG 135/2024, Art. 49 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
+          ('Guidelines for the correlation overview of cybersecurity measures, NCSC-HR', 'https://www.ncsc.hr/'),
+          ('ZSIS - Annex C, Control catalogue', 'https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20C%20-%20Katalog%20kontrola.pdf')]))
+
+# ══════════════════════════════════════════════════════════════════
 # STRANICE SEKTORA
 # ══════════════════════════════════════════════════════════════════
 # kljuc, slug HR, slug EN, ime HR, ime EN, prilog, csirt, tijelo HR, tijelo EN

@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>You hold ISO 27001. How much is it worth under the Cybersecurity Act? | Adventure Spirit Consulting</title>
-<meta name="description" content="How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.">
-<link rel="canonical" href="https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/">
+<title>The cybersecurity audit: who may perform it and how it runs | Adventure Spirit Consulting</title>
+<meta name="description" content="How the independent cybersecurity audit of essential entities runs: who may perform it, the steps of the process, how the auditor scores documentation and implementation, and which evidence is most often rejected.">
+<link rel="canonical" href="https://adventurespirit.hr/en/blog/cybersecurity-audit-how-it-works/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#0f1117">
 <meta name="author" content="Daniel Bara, dr. sc.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Adventure Spirit Consulting">
 <meta property="og:locale" content="en_GB">
-<meta property="og:url" content="https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/">
-<meta property="og:title" content="You hold ISO 27001. How much is it worth under the Cybersecurity Act? | Adventure Spirit Consulting">
-<meta property="og:description" content="How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.">
+<meta property="og:url" content="https://adventurespirit.hr/en/blog/cybersecurity-audit-how-it-works/">
+<meta property="og:title" content="The cybersecurity audit: who may perform it and how it runs | Adventure Spirit Consulting">
+<meta property="og:description" content="How the independent cybersecurity audit of essential entities runs: who may perform it, the steps of the process, how the auditor scores documentation and implementation, and which evidence is most often rejected.">
 <meta property="og:image" content="https://adventurespirit.hr/mmew/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="You hold ISO 27001. How much is it worth under the Cybersecurity Act? | Adventure Spirit Consulting">
-<meta name="twitter:description" content="How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.">
+<meta name="twitter:title" content="The cybersecurity audit: who may perform it and how it runs | Adventure Spirit Consulting">
+<meta name="twitter:description" content="How the independent cybersecurity audit of essential entities runs: who may perform it, the steps of the process, how the auditor scores documentation and implementation, and which evidence is most often rejected.">
 <link rel="alternate" type="application/rss+xml" title="Insights - Adventure Spirit Consulting" href="/en/blog/feed.xml">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 6L44 42h12Z' fill='%23EF653F'/%3E%3Cline x1='44' y1='33' x2='56' y2='33' stroke='%23EF653F' stroke-width='3'/%3E%3Cpath d='M50 94L44 68h12Z' fill='%23EF653F'/%3E%3Cpath d='M94 50L68 44v12Z' fill='%23EF653F'/%3E%3Cpath d='M6 50L32 44v12Z' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='7' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='4' fill='%23c14b28'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,68 +85,74 @@
 <main>
   <div class="container narrow">
     <div class="crumbs">
-      <a href="/en">Home</a><span>&rsaquo;</span><a href="/en/blog/">Knowledge base</a><span>&rsaquo;</span>ISO standards
+      <a href="/en">Home</a><span>&rsaquo;</span><a href="/en/blog/">Knowledge base</a><span>&rsaquo;</span>Self-assessment
     </div>
     <header class="art-head">
-      <div class="eyebrow">ISO standards</div>
-      <h1>You hold ISO 27001. How much is it worth under the Cybersecurity Act?</h1>
-      <p class="art-lead">The certificate does not release you from the obligation, but it shortens the path considerably. The question is only which measures it covers, which it touches, and which it does not reach at all - and how to prove that without writing a second set of documentation in parallel.</p>
+      <div class="eyebrow">Self-assessment</div>
+      <h1>The cybersecurity audit: who may perform it and how it runs</h1>
+      <p class="art-lead">Essential entities do not self-assess - they undergo an independent audit. It is carried out by a provider holding the prescribed authorisation, and for state administration bodies by the competent authority. Here is how it runs and what usually is not accepted.</p>
       <div class="art-meta">
-        <span><strong>Daniel Bara, PhD</strong></span><span>3 March 2026</span><span>7 min read</span>
+        <span><strong>Daniel Bara, PhD</strong></span><span>21 July 2026</span><span>7 min read</span>
       </div>
     </header>
     <article>
 
-<p>First, to be clear: <strong>an ISO 27001 certificate does not substitute for compliance with the Croatian Cybersecurity Act</strong>. There is no provision exempting a certified entity from implementing the measures in Annex II. But the relationship is far from useless - on the contrary, an organisation with a working ISMS usually holds most of the required material, just in a different arrangement.</p>
+<p>The difference between an essential and an important entity comes down to one sentence: important entities self-assess, essential entities undergo an <strong>independent cybersecurity audit</strong>. That is a difference in cost, in time, and in who holds the pen.</p>
 
-<h2>Where the overlap is strong</h2>
-<p>The standard and the Regulation share the same management logic: know what you have, know what threatens it, decide what to do about it, record it and review it. That shows up in several measures where an ISO organisation typically has nearly everything:</p>
-<ul>
-  <li><strong>Measure 2, asset management.</strong> Inventory, ownership, classification - present.</li>
-  <li><strong>Measure 3, risk management.</strong> Methodology, risk register, treatment plan, owners - present, with one caveat below.</li>
-  <li><strong>Measure 7, access control.</strong> Access policy, least privilege, privileged access - present.</li>
-  <li><strong>Measure 8, supply chain security.</strong> Supplier relationship controls - present, usually at a higher level than in organisations without the standard.</li>
-  <li><strong>Measure 12, business continuity.</strong> If ISO 22301 is in place alongside 27001, effectively covered.</li>
-  <li><strong>Measure 1, management commitment.</strong> Leadership, policy, roles and responsibilities, management review - present as a structure, though the content needs extending.</li>
-</ul>
-
-<h2>Where the overlap is partial</h2>
-<p>This is where most of the misunderstanding arises, because it looks finished and is not.</p>
-<h3>All-hazards risk assessment</h3>
-<p>The Regulation requires an assessment covering all categories of hazard - including fire, flood, power loss, failure of communications infrastructure and unauthorised physical access. Many ISMS risk assessments stay within the bounds of information threats. The methodology is the same; the scope is not.</p>
-<h3>Physical security</h3>
-<p>Measure 13 is a standalone measure with its own sub-measures. In the standard it is a set of controls inside Annex A. The material exists, but it has to be pulled out and evidenced sub-measure by sub-measure, rather than shown as part of a wider set.</p>
-<h3>Cryptography</h3>
-<p>Measure 10 requires rules on use, protection of data in transit and at rest, key management and - proportionate to risk - preparation for quantum-resistant cryptography. The last of these is newer than most ISMS documentation we see.</p>
-
-<h2>Where the standard does not help</h2>
-<p>Three groups of obligations have no equivalent in the standard, because they come from legislation rather than management practice:</p>
-<ol>
-  <li><strong>Categorisation and everything that follows from it.</strong> Level of implementation, competent authority, deadlines.</li>
-  <li><strong>Incident reporting within prescribed deadlines.</strong> The standard requires an incident management process, but knows nothing of 24-hour, 72-hour and 30-day deadlines or notification to a competent CSIRT.</li>
-  <li><strong>The format and procedure of verification.</strong> A self-assessment against a scoring framework, or an independent audit, has nothing to do with a certification audit against the standard.</li>
-</ol>
-
+<h2>Who may perform it</h2>
+<p>The audit cannot be run by any consultant. It is performed by a service provider holding the prescribed authorisation, and for state administration bodies by the competent information security authority.</p>
 <div class="callout">
-  <div class="c-label">The practical conclusion</div>
-  <p>ISO 27001 shortens the path but does not change the destination. A realistic expectation: a working ISMS covers a substantial part of the evidence base, and the remainder is filled in. An ISMS that is not working - built for the certificate and unused since - helps almost not at all, because exactly the records that prove the system is alive are what is missing.</p>
+  <div class="c-label">Why that separation protects you</div>
+  <p>Whoever built the system may not also assess it. If someone offers you both the implementation and the formal audit, that is not a saving but a conflict of interest - and the findings of such an audit carry no weight with the authority.</p>
 </div>
 
-<h2>How to do this without duplication</h2>
+<h2>How the process runs</h2>
 <ol>
-  <li><strong>Map before you write.</strong> Every sub-measure gets a reference to an existing document, record or control from the Statement of Applicability. The gaps are whatever is left without a reference.</li>
-  <li><strong>Extend, do not copy.</strong> If the existing risk methodology does not cover all hazard categories, widen the scope in the existing document. A second methodology means two risk registers that will diverge.</li>
-  <li><strong>One asset register.</strong> If the ISMS information asset list and the inventory for the Act are maintained separately, one of them will go stale and you will not know which.</li>
-  <li><strong>Fill what is genuinely missing.</strong> Incident reporting, categorisation, self-assessment preparation.</li>
+  <li><strong>Notice and scoping.</strong> Which systems, processes and locations are covered, and which level of implementation applies to your category.</li>
+  <li><strong>Audit plan.</strong> Schedule, interviewees, and the documentation to be submitted in advance.</li>
+  <li><strong>Documentation review.</strong> Policies, procedures, registers and records - before the interviews, not instead of them.</li>
+  <li><strong>Interviews.</strong> With the board, with process owners and with the people who actually perform the measures. This is where the gap between what is written and what is done shows fastest.</li>
+  <li><strong>Evidence sampling.</strong> The auditor picks a sample and asks for evidence for each selected control. Not everything is checked; the sample supports a conclusion about the whole.</li>
+  <li><strong>Findings and deadlines.</strong> A report setting out findings, their seriousness and the time allowed to remedy them.</li>
 </ol>
-<p>The same approach applies to entities subject to DORA and to organisations with an established GDPR programme. The evidence base overlaps far more than the names of the instruments suggest.</p>
+
+<h2>How the auditor scores</h2>
+<p>Scoring uses the same framework as the self-assessment: a score per control, with a threshold each control must reach and an additional average threshold per sub-measure.</p>
+<p>Practically important: <strong>documentation and implementation are scored separately</strong>. A perfect policy that is not applied does not produce a high score, and good practice without records produces no score at all - because it cannot be evidenced.</p>
+
+<h2>What usually is not accepted</h2>
+<ul>
+  <li><strong>A document with no date and no approval.</strong> A policy nobody adopted is a draft, not a policy.</li>
+  <li><strong>A record created after the audit was announced.</strong> It shows in the dates, and in what is missing for the period before.</li>
+  <li><strong>A screenshot instead of a record.</strong> An image of the current state does not evidence that the control operated throughout the period.</li>
+  <li><strong>A risk register with no owners and no changes.</strong> If it has not changed in a year, it is not used in decision-making.</li>
+  <li><strong>A continuity plan that has never been exercised.</strong> Without an exercise record, the plan documents intent, not capability.</li>
+  <li><strong>Training without records.</strong> "Everyone attended" is not evidence; a list with names and dates is.</li>
+  <li><strong>Supplier measures with no contractual basis.</strong> A provider's verbal assurance does not replace a clause.</li>
+</ul>
+<div class="callout">
+  <div class="c-label">The common denominator</div>
+  <p>Nearly all of these have the same cause: the evidence is being manufactured at the moment of the audit. Most measures are evidenced by records that arise during the cycle, so they cannot be produced retrospectively. That is why twelve months is not generous.</p>
+</div>
+
+<h2>How to prepare</h2>
+<ol>
+  <li><strong>Score yourself against the same framework.</strong> An internal review simulating the audit produces the same findings, without the consequences.</li>
+  <li><strong>Walk the documentation chronologically.</strong> Is there a record for every month of the period, or only for the last one?</li>
+  <li><strong>Check what cannot be fixed quickly.</strong> The annual board reporting cycle, the continuity exercise and training records all need calendar time.</li>
+  <li><strong>Prepare the interviewees.</strong> Not to learn answers, but to know where things are - an auditor can tell the difference.</li>
+</ol>
+
+<div class="note">
+  <p>We carry out internal audits and reviews that simulate the audit process. The formal independent audit of essential entities is performed by an authorised provider. More on what we do at <a href="/en/services/audits-and-internal-reviews/">Audits and internal reviews</a>, and the scoring framework is explained in <a href="/en/blog/how-self-assessment-is-scored/">How the self-assessment is actually scored</a>.</p>
+</div>
 
       <div class="sources">
         <h4>Sources</h4>
         <ul>
-    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Cybersecurity Regulation, OG 135/2024, Annex II (Croatian)</a></li>
+    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html" target="_blank" rel="noopener">Cybersecurity Act, OG 14/2024 (Croatian)</a></li>
+    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Cybersecurity Regulation, OG 135/2024 (Croatian)</a></li>
     <li><a href="https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20B%20-%20Okvir%20za%20evaluaciju.pdf" target="_blank" rel="noopener">ZSIS - Annex B, Framework for the evaluation of measures</a></li>
-    <li><a href="/en/blog/iso-27001-and-the-cybersecurity-act/">ISO/IEC 27001:2022 - Information security management systems</a></li>
         </ul>
       </div>
       <div class="art-cta">
@@ -246,12 +252,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "You hold ISO 27001. How much is it worth under the Cybersecurity Act?",
-  "description": "How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.",
-  "datePublished": "2026-03-03",
-  "dateModified": "2026-03-03",
+  "headline": "The cybersecurity audit: who may perform it and how it runs",
+  "description": "How the independent cybersecurity audit of essential entities runs: who may perform it, the steps of the process, how the auditor scores documentation and implementation, and which evidence is most often rejected.",
+  "datePublished": "2026-07-21",
+  "dateModified": "2026-07-21",
   "inLanguage": "en-GB",
-  "articleSection": "ISO standards",
+  "articleSection": "Self-assessment",
   "author": {
     "@type": "Person",
     "name": "Daniel Bara",
@@ -266,9 +272,9 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/"
+    "@id": "https://adventurespirit.hr/en/blog/cybersecurity-audit-how-it-works/"
   },
-  "url": "https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/"
+  "url": "https://adventurespirit.hr/en/blog/cybersecurity-audit-how-it-works/"
 }
 </script>
 <script type="application/ld+json">
@@ -291,8 +297,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "You hold ISO 27001. How much is it worth under the Cybersecurity Act?",
-      "item": "https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/"
+      "name": "The cybersecurity audit: who may perform it and how it runs",
+      "item": "https://adventurespirit.hr/en/blog/cybersecurity-audit-how-it-works/"
     }
   ]
 }

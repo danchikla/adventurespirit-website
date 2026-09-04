@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>You hold ISO 27001. How much is it worth under the Cybersecurity Act? | Adventure Spirit Consulting</title>
-<meta name="description" content="How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.">
-<link rel="canonical" href="https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/">
+<title>Security culture: why training does not change behaviour, and what does | Adventure Spirit Consulting</title>
+<meta name="description" content="How to approach security awareness so it changes behaviour rather than just producing records: what to measure, building a reporting culture, and the link to measure 5 of Annex II.">
+<link rel="canonical" href="https://adventurespirit.hr/en/blog/security-culture-and-the-human-factor/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#0f1117">
 <meta name="author" content="Daniel Bara, dr. sc.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Adventure Spirit Consulting">
 <meta property="og:locale" content="en_GB">
-<meta property="og:url" content="https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/">
-<meta property="og:title" content="You hold ISO 27001. How much is it worth under the Cybersecurity Act? | Adventure Spirit Consulting">
-<meta property="og:description" content="How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.">
+<meta property="og:url" content="https://adventurespirit.hr/en/blog/security-culture-and-the-human-factor/">
+<meta property="og:title" content="Security culture: why training does not change behaviour, and what does | Adventure Spirit Consulting">
+<meta property="og:description" content="How to approach security awareness so it changes behaviour rather than just producing records: what to measure, building a reporting culture, and the link to measure 5 of Annex II.">
 <meta property="og:image" content="https://adventurespirit.hr/mmew/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="You hold ISO 27001. How much is it worth under the Cybersecurity Act? | Adventure Spirit Consulting">
-<meta name="twitter:description" content="How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.">
+<meta name="twitter:title" content="Security culture: why training does not change behaviour, and what does | Adventure Spirit Consulting">
+<meta name="twitter:description" content="How to approach security awareness so it changes behaviour rather than just producing records: what to measure, building a reporting culture, and the link to measure 5 of Annex II.">
 <link rel="alternate" type="application/rss+xml" title="Insights - Adventure Spirit Consulting" href="/en/blog/feed.xml">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 6L44 42h12Z' fill='%23EF653F'/%3E%3Cline x1='44' y1='33' x2='56' y2='33' stroke='%23EF653F' stroke-width='3'/%3E%3Cpath d='M50 94L44 68h12Z' fill='%23EF653F'/%3E%3Cpath d='M94 50L68 44v12Z' fill='%23EF653F'/%3E%3Cpath d='M6 50L32 44v12Z' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='7' fill='%23EF653F'/%3E%3Ccircle cx='50' cy='50' r='4' fill='%23c14b28'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,68 +85,71 @@
 <main>
   <div class="container narrow">
     <div class="crumbs">
-      <a href="/en">Home</a><span>&rsaquo;</span><a href="/en/blog/">Knowledge base</a><span>&rsaquo;</span>ISO standards
+      <a href="/en">Home</a><span>&rsaquo;</span><a href="/en/blog/">Knowledge base</a><span>&rsaquo;</span>Human factor
     </div>
     <header class="art-head">
-      <div class="eyebrow">ISO standards</div>
-      <h1>You hold ISO 27001. How much is it worth under the Cybersecurity Act?</h1>
-      <p class="art-lead">The certificate does not release you from the obligation, but it shortens the path considerably. The question is only which measures it covers, which it touches, and which it does not reach at all - and how to prove that without writing a second set of documentation in parallel.</p>
+      <div class="eyebrow">Human factor</div>
+      <h1>Security culture: why training does not change behaviour, and what does</h1>
+      <p class="art-lead">An annual presentation about phishing produces a record, not a change. Measure 5 requires awareness raising, but what actually gets measured is behaviour - and behaviour moves on different levers.</p>
       <div class="art-meta">
-        <span><strong>Daniel Bara, PhD</strong></span><span>3 March 2026</span><span>7 min read</span>
+        <span><strong>Daniel Bara, PhD</strong></span><span>11 August 2026</span><span>6 min read</span>
       </div>
     </header>
     <article>
 
-<p>First, to be clear: <strong>an ISO 27001 certificate does not substitute for compliance with the Croatian Cybersecurity Act</strong>. There is no provision exempting a certified entity from implementing the measures in Annex II. But the relationship is far from useless - on the contrary, an organisation with a working ISMS usually holds most of the required material, just in a different arrangement.</p>
+<p>Measure 5 of Annex II requires basic cyber hygiene practices and staff awareness raising. Most organisations satisfy it with an annual presentation and a list of signatures.</p>
+<p>It formally passes. Behaviour does not change, and the next incident arrives through the same channel as the last one.</p>
 
-<h2>Where the overlap is strong</h2>
-<p>The standard and the Regulation share the same management logic: know what you have, know what threatens it, decide what to do about it, record it and review it. That shows up in several measures where an ISO organisation typically has nearly everything:</p>
-<ul>
-  <li><strong>Measure 2, asset management.</strong> Inventory, ownership, classification - present.</li>
-  <li><strong>Measure 3, risk management.</strong> Methodology, risk register, treatment plan, owners - present, with one caveat below.</li>
-  <li><strong>Measure 7, access control.</strong> Access policy, least privilege, privileged access - present.</li>
-  <li><strong>Measure 8, supply chain security.</strong> Supplier relationship controls - present, usually at a higher level than in organisations without the standard.</li>
-  <li><strong>Measure 12, business continuity.</strong> If ISO 22301 is in place alongside 27001, effectively covered.</li>
-  <li><strong>Measure 1, management commitment.</strong> Leadership, policy, roles and responsibilities, management review - present as a structure, though the content needs extending.</li>
-</ul>
-
-<h2>Where the overlap is partial</h2>
-<p>This is where most of the misunderstanding arises, because it looks finished and is not.</p>
-<h3>All-hazards risk assessment</h3>
-<p>The Regulation requires an assessment covering all categories of hazard - including fire, flood, power loss, failure of communications infrastructure and unauthorised physical access. Many ISMS risk assessments stay within the bounds of information threats. The methodology is the same; the scope is not.</p>
-<h3>Physical security</h3>
-<p>Measure 13 is a standalone measure with its own sub-measures. In the standard it is a set of controls inside Annex A. The material exists, but it has to be pulled out and evidenced sub-measure by sub-measure, rather than shown as part of a wider set.</p>
-<h3>Cryptography</h3>
-<p>Measure 10 requires rules on use, protection of data in transit and at rest, key management and - proportionate to risk - preparation for quantum-resistant cryptography. The last of these is newer than most ISMS documentation we see.</p>
-
-<h2>Where the standard does not help</h2>
-<p>Three groups of obligations have no equivalent in the standard, because they come from legislation rather than management practice:</p>
-<ol>
-  <li><strong>Categorisation and everything that follows from it.</strong> Level of implementation, competent authority, deadlines.</li>
-  <li><strong>Incident reporting within prescribed deadlines.</strong> The standard requires an incident management process, but knows nothing of 24-hour, 72-hour and 30-day deadlines or notification to a competent CSIRT.</li>
-  <li><strong>The format and procedure of verification.</strong> A self-assessment against a scoring framework, or an independent audit, has nothing to do with a certification audit against the standard.</li>
-</ol>
+<h2>Why conventional training fails</h2>
+<h3>It teaches signals that have disappeared</h3>
+<p>Material that teaches people to spot phishing by poor language and a strange address is out of date. Language errors are no longer a signal - messages are grammatically flawless and tailored to the recipient. What remains as a signal is <strong>context</strong>: an unexpected request, time pressure, a change of channel, a request for an exception to a rule.</p>
+<h3>It measures attendance, not behaviour</h3>
+<p>Records answer who was present. They do not answer whether that person would act differently. Those are different things, and only the second one shows up in an incident.</p>
+<h3>It punishes reporting</h3>
+<p>This is the biggest problem and the least discussed. In an organisation where the person who clicks a phishing link faces ridicule or a conversation with their manager, nobody will report next time - they will stay quiet and hope. Time to detection is then measured in weeks rather than minutes.</p>
 
 <div class="callout">
-  <div class="c-label">The practical conclusion</div>
-  <p>ISO 27001 shortens the path but does not change the destination. A realistic expectation: a working ISMS covers a substantial part of the evidence base, and the remainder is filled in. An ISMS that is not working - built for the certificate and unused since - helps almost not at all, because exactly the records that prove the system is alive are what is missing.</p>
+  <div class="c-label">One question that reveals the state of things</div>
+  <p>Ask a few staff: "If you had clicked a suspicious link yesterday, who would you tell and what do you think would happen?" The answer to the second half tells you more about your resilience than any training record.</p>
 </div>
 
-<h2>How to do this without duplication</h2>
+<h2>What actually changes behaviour</h2>
 <ol>
-  <li><strong>Map before you write.</strong> Every sub-measure gets a reference to an existing document, record or control from the Statement of Applicability. The gaps are whatever is left without a reference.</li>
-  <li><strong>Extend, do not copy.</strong> If the existing risk methodology does not cover all hazard categories, widen the scope in the existing document. A second methodology means two risk registers that will diverge.</li>
-  <li><strong>One asset register.</strong> If the ISMS information asset list and the inventory for the Act are maintained separately, one of them will go stale and you will not know which.</li>
-  <li><strong>Fill what is genuinely missing.</strong> Incident reporting, categorisation, self-assessment preparation.</li>
+  <li><strong>Short and frequent, instead of long and once.</strong> Fifteen minutes a quarter with one concrete scenario beats two hours once a year.</li>
+  <li><strong>Simulations with feedback, not consequences.</strong> Whoever clicks gets an explanation immediately, in place. Results are reported in aggregate, never per person.</li>
+  <li><strong>Reporting is rewarded.</strong> Anyone who reports a suspicious message, even one that turns out harmless, should be told they did the right thing. It is the only lever that shortens time to detection.</li>
+  <li><strong>Roles get their own content.</strong> Finance needs to know about bank detail change fraud, IT about attacks on privileged accounts, the board about fake executive instruction fraud.</li>
+  <li><strong>A procedure instead of vigilance.</strong> "Be careful with payments" does not work. "Any payment above X, or any change of bank details, is confirmed by telephone on the number in our register, never the number in the email" does work, because it does not depend on one person's judgement under pressure.</li>
 </ol>
-<p>The same approach applies to entities subject to DORA and to organisations with an established GDPR programme. The evidence base overlaps far more than the names of the instruments suggest.</p>
+
+<h2>What to measure</h2>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Instead of</th><th>Measure</th></tr></thead>
+    <tbody>
+      <tr><td>Percentage of staff who completed training</td><td>Share of simulated messages reported</td></tr>
+      <tr><td>Quiz score</td><td>Average time to first report</td></tr>
+      <tr><td>Number of sessions held</td><td>Reports from teams that never reported before</td></tr>
+      <tr><td>Training satisfaction score</td><td>Share of payments verified through a second channel</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>The left column satisfies the record. The right column shows whether resilience is changing.</p>
+
+<h2>The link to your obligations</h2>
+<p>Awareness raising falls under measure 5, and Article 29(3) of the Act requires responsible individuals to attend appropriate training themselves. In addition, Article 4 of the AI Act requires a sufficient level of AI literacy for staff operating AI systems.</p>
+<p>All three require <strong>records</strong>. The good news is that a programme which genuinely changes behaviour produces richer records than one that does not, because it has more touchpoints across the year.</p>
+
+<div class="note">
+  <p>Role-based workshops - for the board, for IT and for all staff - are described on the <a href="/en/speaking/">Lectures and workshops</a> page. Each produces records that satisfy measure 5.</p>
+</div>
 
       <div class="sources">
         <h4>Sources</h4>
         <ul>
-    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Cybersecurity Regulation, OG 135/2024, Annex II (Croatian)</a></li>
-    <li><a href="https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20B%20-%20Okvir%20za%20evaluaciju.pdf" target="_blank" rel="noopener">ZSIS - Annex B, Framework for the evaluation of measures</a></li>
-    <li><a href="/en/blog/iso-27001-and-the-cybersecurity-act/">ISO/IEC 27001:2022 - Information security management systems</a></li>
+    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html" target="_blank" rel="noopener">Cybersecurity Regulation, OG 135/2024, Annex II, measure 5 (Croatian)</a></li>
+    <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html" target="_blank" rel="noopener">Cybersecurity Act, OG 14/2024, Art. 29(3) (Croatian)</a></li>
+    <li><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng" target="_blank" rel="noopener">Regulation (EU) 2024/1689 (AI Act), Art. 4</a></li>
         </ul>
       </div>
       <div class="art-cta">
@@ -173,11 +176,11 @@
       <div class="post-lead">Domain infrastructure rarely falls to an unpatched vulnerability. It falls to configuration that once made sense, was left behind, and that nobody looks at any more. These five findings show up in most environments.</div>
       <div class="post-meta"><span>18 August 2026</span><span class="read">7 min read</span></div>
     </a>
-<a class="post-card" href="/en/blog/security-culture-and-the-human-factor/" data-cat="people" data-q="security culture: why training does not change behaviour, and what does an annual presentation about phishing produces a record, not a change. measure 5 requires awareness raising, but what actually gets measured is behaviour - and behaviour moves on different levers. how to approach security awareness so it changes behaviour rather than just producing records: what to measure, building a reporting culture, and the link to measure 5 of annex ii. human factor">
-      <div class="post-cat">Human factor</div>
-      <div class="post-title">Security culture: why training does not change behaviour, and what does</div>
-      <div class="post-lead">An annual presentation about phishing produces a record, not a change. Measure 5 requires awareness raising, but what actually gets measured is behaviour - and behaviour moves on different levers.</div>
-      <div class="post-meta"><span>11 August 2026</span><span class="read">6 min read</span></div>
+<a class="post-card" href="/en/blog/ai-in-defence-where-it-helps/" data-cat="ai" data-q="ai in defence: where it genuinely helps and where it just moves the problem the promise is that a model will catch the attack a human missed. the reality is that models do well on tasks with many examples and a clear outcome, and badly where neither exists - which is exactly where the expensive failures live. a realistic assessment of applying ai in cyber defence: where it delivers measurable benefit, where it creates false confidence, and which controls to put in place before adopting it. artificial intelligence">
+      <div class="post-cat">Artificial intelligence</div>
+      <div class="post-title">AI in defence: where it genuinely helps and where it just moves the problem</div>
+      <div class="post-lead">The promise is that a model will catch the attack a human missed. The reality is that models do well on tasks with many examples and a clear outcome, and badly where neither exists - which is exactly where the expensive failures live.</div>
+      <div class="post-meta"><span>4 August 2026</span><span class="read">7 min read</span></div>
     </a>
       </div>
     </div>
@@ -246,12 +249,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "You hold ISO 27001. How much is it worth under the Cybersecurity Act?",
-  "description": "How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.",
-  "datePublished": "2026-03-03",
-  "dateModified": "2026-03-03",
+  "headline": "Security culture: why training does not change behaviour, and what does",
+  "description": "How to approach security awareness so it changes behaviour rather than just producing records: what to measure, building a reporting culture, and the link to measure 5 of Annex II.",
+  "datePublished": "2026-08-11",
+  "dateModified": "2026-08-11",
   "inLanguage": "en-GB",
-  "articleSection": "ISO standards",
+  "articleSection": "Human factor",
   "author": {
     "@type": "Person",
     "name": "Daniel Bara",
@@ -266,9 +269,9 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/"
+    "@id": "https://adventurespirit.hr/en/blog/security-culture-and-the-human-factor/"
   },
-  "url": "https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/"
+  "url": "https://adventurespirit.hr/en/blog/security-culture-and-the-human-factor/"
 }
 </script>
 <script type="application/ld+json">
@@ -291,8 +294,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "You hold ISO 27001. How much is it worth under the Cybersecurity Act?",
-      "item": "https://adventurespirit.hr/en/blog/iso-27001-and-the-cybersecurity-act/"
+      "name": "Security culture: why training does not change behaviour, and what does",
+      "item": "https://adventurespirit.hr/en/blog/security-culture-and-the-human-factor/"
     }
   ]
 }

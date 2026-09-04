@@ -23,6 +23,14 @@
     <description>The most common findings in Active Directory security assessments: legacy protocols, excessive delegation, passwords in attributes, stale privileged group membership, and access to domain backups.</description>
   </item>
   <item>
+    <title>Security culture: why training does not change behaviour, and what does</title>
+    <link>https://adventurespirit.hr/en/blog/security-culture-and-the-human-factor/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/security-culture-and-the-human-factor/</guid>
+    <category>Human factor</category>
+    <pubDate>Tue, 11 Aug 2026 09:00:00 +0200</pubDate>
+    <description>How to approach security awareness so it changes behaviour rather than just producing records: what to measure, building a reporting culture, and the link to measure 5 of Annex II.</description>
+  </item>
+  <item>
     <title>AI in defence: where it genuinely helps and where it just moves the problem</title>
     <link>https://adventurespirit.hr/en/blog/ai-in-defence-where-it-helps/</link>
     <guid isPermaLink="true">https://adventurespirit.hr/en/blog/ai-in-defence-where-it-helps/</guid>
@@ -37,6 +45,14 @@
     <category>Frameworks</category>
     <pubDate>Tue, 28 Jul 2026 09:00:00 +0200</pubDate>
     <description>What the Govern function brings to NIST Cybersecurity Framework 2.0, how the six functions map to the 13 measures of the Croatian Cybersecurity Regulation, and why the framework is worth using as a common language with the board.</description>
+  </item>
+  <item>
+    <title>The cybersecurity audit: who may perform it and how it runs</title>
+    <link>https://adventurespirit.hr/en/blog/cybersecurity-audit-how-it-works/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/cybersecurity-audit-how-it-works/</guid>
+    <category>Self-assessment</category>
+    <pubDate>Tue, 21 Jul 2026 09:00:00 +0200</pubDate>
+    <description>How the independent cybersecurity audit of essential entities runs: who may perform it, the steps of the process, how the auditor scores documentation and implementation, and which evidence is most often rejected.</description>
   </item>
   <item>
     <title>The AI system inventory and the asset register: why they are one list</title>
@@ -61,6 +77,14 @@
     <category>Artificial intelligence</category>
     <pubDate>Tue, 30 Jun 2026 09:00:00 +0200</pubDate>
     <description>Which practices the AI Act prohibits outright, what the AI literacy obligation in Article 4 means, and how to satisfy it without building a separate training programme.</description>
+  </item>
+  <item>
+    <title>Penalties under the Croatian Cybersecurity Act: who pays, how much, and why it is personal</title>
+    <link>https://adventurespirit.hr/en/blog/penalties-under-the-cybersecurity-act/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/penalties-under-the-cybersecurity-act/</guid>
+    <category>CSA / NIS2</category>
+    <pubDate>Tue, 23 Jun 2026 09:00:00 +0200</pubDate>
+    <description>The penalty provisions of the Croatian Cybersecurity Act: ranges for essential and important entities, personal liability of management body members, the circumstances affecting the amount, and the rule against double punishment with the data protection authority.</description>
   </item>
   <item>
     <title>The DORA register of information: it fails on data, not on the rules</title>
@@ -117,6 +141,14 @@
     <category>ISO standards</category>
     <pubDate>Tue, 03 Mar 2026 09:00:00 +0200</pubDate>
     <description>How much of the 13 measures of the Croatian Cybersecurity Regulation is covered by ISO/IEC 27001:2022, where the real gaps are, and how to map existing controls instead of writing new documentation.</description>
+  </item>
+  <item>
+    <title>The correlation overview: the document that halves your work</title>
+    <link>https://adventurespirit.hr/en/blog/correlation-of-measures-to-standards/</link>
+    <guid isPermaLink="true">https://adventurespirit.hr/en/blog/correlation-of-measures-to-standards/</guid>
+    <category>CSA / NIS2</category>
+    <pubDate>Tue, 24 Feb 2026 09:00:00 +0200</pubDate>
+    <description>What the correlation overview required by Article 49 of the Croatian Cybersecurity Regulation is, which standards it maps to, and how to use it so existing ISO or NIST documentation is not written twice.</description>
   </item>
   <item>
     <title>13 measures, 99 sub-measures, 132 controls: the anatomy of Annex II</title>
