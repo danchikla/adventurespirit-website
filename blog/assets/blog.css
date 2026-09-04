@@ -565,3 +565,25 @@ article .nf-nav a:hover { border-color: rgba(239,101,63,.45); }
 .prop-kazna b { color: var(--orange); font-weight: 700; }
 .prop-nadzor { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; margin: 0; }
 @media (max-width: 700px) { .prop-body { grid-template-columns: 1fr; gap: 22px; } .prop { padding: 22px 20px; } .prop-h h2 { font-size: 19px; } }
+
+/* ── Pretraga po bazi znanja ──────────────────────────────── */
+.kb-search { position: relative; margin-top: 26px; max-width: 520px; }
+.kb-search input {
+  width: 100%; font-family: inherit; font-size: 15px; color: var(--white);
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14);
+  border-radius: 10px; padding: 13px 44px 13px 44px; transition: border-color .2s;
+}
+.kb-search input:focus { outline: none; border-color: var(--orange); }
+.kb-search input::placeholder { color: #6b7488; }
+.kb-search .ic { position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+  width: 16px; height: 16px; stroke: #6b7488; fill: none; stroke-width: 2; pointer-events: none; }
+.kb-clear { position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; color: #6b7488; font-size: 20px; line-height: 1;
+  cursor: pointer; padding: 6px 10px; border-radius: 6px; }
+.kb-clear:hover { color: var(--white); }
+.kb-count { font-size: 12.5px; color: #6b7488; margin-top: 10px; min-height: 18px; }
+.kb-count b { color: var(--orange); font-weight: 700; }
+mark { background: rgba(239,101,63,.28); color: #fff; border-radius: 3px; padding: 0 2px; }
+.kb-none { text-align: center; padding: 56px 20px; }
+.kb-none p { font-size: 15px; color: var(--text-muted); line-height: 1.75; }
+.kb-none b { color: var(--white); }

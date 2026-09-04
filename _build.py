@@ -79,6 +79,11 @@ L = {
    kb_intro="Tekstovi o Zakonu o kibernetičkoj sigurnosti, ISO normama, zaštiti podataka i upravljanju rizicima. Bez uopćavanja: uz svaku tvrdnju stoji članak propisa ili norme ondje gdje ga ima.",
    kb_desc="Stručni tekstovi o Zakonu o kibernetičkoj sigurnosti, 13 mjera Uredbe, samoprocjeni, prijavi incidenata, ISO normama i upravljanju rizicima.",
    all_topics="Sve teme", read="min čitanja", home="Početna",
+   pretraga="Pretražite po pojmu, mjeri ili propisu",
+   pret_broj="Prikazano <b>%d</b> od %d članaka",
+   pret_nema="Nema članka koji odgovara pojmu <b>%s</b>.",
+   pret_savjet="Probajte kraći pojam, ili pogledajte sve teme.",
+   pret_ocisti="Očisti",
    sources="Izvori", related="Povezano iz baze znanja",
    nf_h1="Ova stranica nije pronađena",
    nf_p="Adresa je možda promijenjena ili u poveznici nedostaje dio. Ispod su najčešća odredišta, a ako ste tražili nešto konkretno, javite nam se i uputit ćemo vas.",
@@ -112,6 +117,11 @@ L = {
    kb_intro="Articles on the Croatian Cybersecurity Act, ISO standards, data protection and risk management. No generalities: every claim carries the article of the law or standard behind it, where one exists.",
    kb_desc="Expert articles on the Croatian Cybersecurity Act, the 13 measures of the Regulation, self-assessment scoring, incident reporting, ISO standards and risk management.",
    all_topics="All topics", read="min read", home="Home",
+   pretraga="Search by term, measure or regulation",
+   pret_broj="Showing <b>%d</b> of %d articles",
+   pret_nema="No article matches <b>%s</b>.",
+   pret_savjet="Try a shorter term, or browse all topics.",
+   pret_ocisti="Clear",
    sources="Sources", related="Related reading",
    nf_h1="This page could not be found",
    nf_p="The address may have changed, or part of the link is missing. The most common destinations are below - and if you were looking for something specific, get in touch and we will point you to it.",
@@ -169,8 +179,16 @@ def header(lang, active_blog=True):
 
 def footer(lang, articles):
     t = L[lang]
-    kb = "\n".join('        <a href="%s%s/">%s</a>' % (t["blog"], a["slug"], html.escape(a["cat"]))
-                   for a in articles[:4]) + '\n        <a href="%s">%s</a>' % (t["blog"], t["f_all"])
+    # Po jedna tema, najnoviji clanak iz nje - inace se ista tema ponavlja
+    _vid, _kb = set(), []
+    for a in sorted(articles, key=lambda x: x["date"], reverse=True):
+        if a["cat"] in _vid:
+            continue
+        _vid.add(a["cat"])
+        _kb.append('        <a href="%s%s/">%s</a>' % (t["blog"], a["slug"], html.escape(a["cat"])))
+        if len(_kb) == 4:
+            break
+    kb = "\n".join(_kb) + '\n        <a href="%s">%s</a>' % (t["blog"], t["f_all"])
     svc = "\n".join('        <a href="%s">%s</a>' % (u, n) for u, n in t["f_links"])
     co = "\n".join('        <a href="%s">%s</a>' % (u, n) for u, n in t["f_co_links"])
     return '''<footer>
@@ -427,7 +445,7 @@ ARTICLES.append(dict(
 <p>Kategorizacija se temelji na podacima o sektoru i veličini koje tijelo ima. Ako ti podaci nisu točni, ili se vaša djelatnost promijenila, to je pitanje za nadležno tijelo, a ne razlog da se rok ignorira. Do rješenja, rok teče prema zaprimljenoj obavijesti.</p>
 ''',
  sources=[
-   ('Zakon o kibernetičkoj sigurnosti, NN 14/2024', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html'),
+   ('Zakon o kibernetičkoj sigurnosti, NN 14/2024', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html'),
    ('Uredba o kibernetičkoj sigurnosti, NN 135/2024', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
    ('NCSC-HR - kategorizacija subjekata obveznika', 'https://ncsc.hr/hr/zapoceo-proces-kategorizacije-subjekata-obveznika-zakona-o-kibernetickoj-sigurnosti'),
  ]))
@@ -595,7 +613,7 @@ ARTICLES.append(dict(
 </div>
 ''',
  sources=[
-   ('Zakon o kibernetičkoj sigurnosti, NN 14/2024', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html'),
+   ('Zakon o kibernetičkoj sigurnosti, NN 14/2024', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html'),
    ('Uredba o kibernetičkoj sigurnosti, NN 135/2024', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
    ('Uredba (EU) 2016/679 (Opća uredba o zaštiti podataka), čl. 33.', 'https://eur-lex.europa.eu/eli/reg/2016/679/oj/hrv'),
  ]))
@@ -1762,7 +1780,7 @@ ARTICLES.append(dict(
   <p>Ovaj tekst je informativni pregled prekršajnih odredbi, ne pravni savjet. Visina kazne u konkretnom slučaju ovisi o okolnostima iz članka 85. i o odluci nadležnog tijela odnosno suda. Za procjenu izloženosti vaše organizacije pogledajte <a href="/alati/provjera-kategorizacije/">provjeru kategorizacije</a> - kategorija određuje koji se raspon primjenjuje.</p>
 </div>
 ''',
- sources=[('Zakon o kibernetičkoj sigurnosti, NN 14/2024, čl. 29., 85. i prekršajne odredbe', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html'),
+ sources=[('Zakon o kibernetičkoj sigurnosti, NN 14/2024, čl. 29., 85. i prekršajne odredbe', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html'),
           ('Uredba (EU) 2016/679 (Opća uredba o zaštiti podataka)', 'https://eur-lex.europa.eu/eli/reg/2016/679/oj/hrv'),
           ('Direktiva (EU) 2022/2555 (NIS2)', 'https://eur-lex.europa.eu/eli/dir/2022/2555/oj/hrv')]))
 
@@ -1825,7 +1843,7 @@ ARTICLES.append(dict(
   <p>Mi provodimo interne revizije i provjeru koja simulira revizijski postupak. Formalnu neovisnu reviziju ključnih subjekata provodi ovlašteni pružatelj. Više o tome što radimo na stranici <a href="/usluge/revizije-i-interne-provjere/">Revizije i interne provjere</a>, a bodovni okvir objašnjen je u tekstu <a href="/blog/kako-se-boduje-samoprocjena/">Kako se zapravo boduje samoprocjena</a>.</p>
 </div>
 ''',
- sources=[('Zakon o kibernetičkoj sigurnosti, NN 14/2024', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html'),
+ sources=[('Zakon o kibernetičkoj sigurnosti, NN 14/2024', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html'),
           ('Uredba o kibernetičkoj sigurnosti, NN 135/2024', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
           ('ZSIS - Prilog B, Okvir za evaluaciju mjera', 'https://www.zsis.hr/UserDocsImages/Samoprocjena/Prilog%20B%20-%20Okvir%20za%20evaluaciju.pdf')]))
 
@@ -1884,7 +1902,7 @@ ARTICLES.append(dict(
 </div>
 ''',
  sources=[('Uredba o kibernetičkoj sigurnosti, NN 135/2024, Prilog II., mjera 5', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
-          ('Zakon o kibernetičkoj sigurnosti, NN 14/2024, čl. 29. st. 3.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html'),
+          ('Zakon o kibernetičkoj sigurnosti, NN 14/2024, čl. 29. st. 3.', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html'),
           ('Uredba (EU) 2024/1689 (Akt o umjetnoj inteligenciji), čl. 4.', 'https://eur-lex.europa.eu/eli/reg/2024/1689/oj/hrv')]))
 
 # ══════════════════════════════════════════════════════════════════
@@ -2057,7 +2075,7 @@ LANG_CSS = '''
 # Sadrzaj engleske naslovnice
 # ══════════════════════════════════════════════════════════════════
 EN_LEGAL = [
- ("Cybersecurity Act", "OG 14/2024", "Croatian implementation of NIS2. Entity categorisation, risk management measures, incident reporting, audit and self-assessment.", "https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html"),
+ ("Cybersecurity Act", "OG 14/2024", "Croatian implementation of NIS2. Entity categorisation, risk management measures, incident reporting, audit and self-assessment.", "https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html"),
  ("Cybersecurity Regulation", "OG 135/2024", "Breaks the statutory duties down into 13 measures with sub-measures and controls, across three levels of implementation.", "https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html"),
  ("NIS2", "EU 2022/2555", "Directive on measures for a high common level of cybersecurity across the Union.", "https://eur-lex.europa.eu/eli/dir/2022/2555/oj/eng"),
  ("DORA", "EU 2022/2554", "Digital operational resilience for the financial sector - ICT risk, resilience testing, third-party providers.", "https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng"),
@@ -2270,7 +2288,7 @@ ARTICLES_EN.append(dict(
 <h2>If you believe you have been miscategorised</h2>
 <p>Categorisation is based on the sector and size data the authority holds. If that data is wrong, or your activity has changed, that is a matter to raise with the competent authority - it is not a reason to let the deadline run unattended. Until it is resolved, the clock runs on the notice you received.</p>
 ''',
- sources=[('Cybersecurity Act, OG 14/2024 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html'),
+ sources=[('Cybersecurity Act, OG 14/2024 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html'),
           ('Cybersecurity Regulation, OG 135/2024 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
           ('Directive (EU) 2022/2555 (NIS2)', 'https://eur-lex.europa.eu/eli/dir/2022/2555/oj/eng')]))
 
@@ -2418,7 +2436,7 @@ ARTICLES_EN.append(dict(
   <p>Incident reporting sits under measure 11 of Annex II, but the evidence base overlaps with measure 12 (business continuity and cyber crisis management). If the incident response plan and the continuity plan are written as two unconnected documents, the work is being done twice.</p>
 </div>
 ''',
- sources=[('Cybersecurity Act, OG 14/2024 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html'),
+ sources=[('Cybersecurity Act, OG 14/2024 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html'),
           ('Cybersecurity Regulation, OG 135/2024 (Croatian)', 'https://narodne-novine.nn.hr/clanci/sluzbeni/2024_11_135_2217.html'),
           ('Regulation (EU) 2016/679 (GDPR), Art. 33', 'https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng')]))
 
@@ -3347,7 +3365,7 @@ SEK_T = {
    ncsc='<a href="https://www.ncsc.hr/" target="_blank" rel="noopener">Nacionalni centar za kibernetičku sigurnost (NCSC-HR)</a>',
    cert='<a href="https://www.cert.hr/" target="_blank" rel="noopener">Nacionalni CERT</a>',
    all_l="Svi sektori",
-   zks_url="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html",
+   zks_url="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html",
  ),
  "en": dict(hub="/en/sectors/", name="Sectors",
    h1="Sectors we cover",
@@ -3366,7 +3384,7 @@ SEK_T = {
    ncsc='<a href="https://www.ncsc.hr/" target="_blank" rel="noopener">National Cyber Security Centre (NCSC-HR)</a>',
    cert='<a href="https://www.cert.hr/" target="_blank" rel="noopener">National CERT</a>',
    all_l="All sectors",
-   zks_url="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html",
+   zks_url="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html",
  ),
 }
 
@@ -4116,14 +4134,15 @@ def rfc_date(iso):
 
 def card(a, lang, featured=False):
     t = L[lang]
-    return '''<a class="post-card%s" href="%s%s/" data-cat="%s">
+    hay = " ".join([a["title"], a["lead"], a["desc"], a["cat"]]).lower()
+    return '''<a class="post-card%s" href="%s%s/" data-cat="%s" data-q="%s">
       <div class="post-cat">%s</div>
       <div class="post-title">%s</div>
       <div class="post-lead">%s</div>
       <div class="post-meta"><span>%s</span><span class="read">%d %s</span></div>
     </a>''' % (" featured" if featured else "", t["blog"], a["slug"], a["catkey"],
-               html.escape(a["cat"]), html.escape(a["title"]), html.escape(a["lead"]),
-               fmt_date(a["date"], lang), a["read"], t["read"])
+               html.escape(hay), html.escape(a["cat"]), html.escape(a["title"]),
+               html.escape(a["lead"]), fmt_date(a["date"], lang), a["read"], t["read"])
 
 
 def cta_block(lang):
@@ -4239,9 +4258,15 @@ def build_blog(lang, articles, table_fn):
       <div class="eyebrow">%s</div>
       <h1>%s</h1>
       <p>%s</p>
+      <div class="kb-search">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="search" id="kb-q" placeholder="%s" autocomplete="off" spellcheck="false">
+        <button type="button" class="kb-clear" id="kb-x" hidden aria-label="%s">&times;</button>
+      </div>
       <div class="cat-bar">
       %s
       </div>
+      <p class="kb-count" id="kb-count"></p>
     </div>
   </section>
   <div class="container">
@@ -4251,18 +4276,78 @@ def build_blog(lang, articles, table_fn):
   </div>
 </main>
 <script>
-document.querySelectorAll('.cat-btn').forEach(function (b) {
-  b.addEventListener('click', function () {
-    document.querySelectorAll('.cat-btn').forEach(function (x) { x.classList.remove('active'); });
-    b.classList.add('active');
-    var f = b.dataset.f;
-    document.querySelectorAll('.post-card').forEach(function (c) {
-      c.classList.toggle('hidden', f !== 'all' && c.dataset.cat !== f);
+(function () {
+  var T = __PRETXT__;
+  var q = document.getElementById('kb-q'), x = document.getElementById('kb-x'),
+      cnt = document.getElementById('kb-count'), grid = document.getElementById('posts');
+  var kartice = [].slice.call(document.querySelectorAll('.post-card'));
+  var tema = 'all';
+
+  // dijakritika se zanemaruje, pa "uskladenost" nade "usklađenost"
+  function norm(s) {
+    return (s || '').toLowerCase()
+      .replace(/[čć]/g, 'c').replace(/\\u0111/g, 'd').replace(/š/g, 's').replace(/ž/g, 'z')
+      .normalize ? (s || '').toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/\\u0111/g, 'd').replace(/\u0111/g, 'd')
+      : (s || '').toLowerCase();
+  }
+
+  var prazno = document.createElement('div');
+  prazno.className = 'kb-none';
+  prazno.hidden = true;
+  grid.parentNode.insertBefore(prazno, grid.nextSibling);
+
+  function filtriraj() {
+    var pojam = norm(q.value.trim());
+    var rijeci = pojam ? pojam.split(/\\s+/).filter(Boolean) : [];
+    var vidljivih = 0;
+    kartice.forEach(function (c) {
+      var okTema = (tema === 'all' || c.dataset.cat === tema);
+      var okPojam = !rijeci.length || rijeci.every(function (r) {
+        return norm(c.dataset.q).indexOf(r) !== -1;
+      });
+      var vidi = okTema && okPojam;
+      c.classList.toggle('hidden', !vidi);
+      if (vidi) vidljivih++;
+    });
+    x.hidden = !q.value;
+    if (rijeci.length || tema !== 'all') {
+      cnt.innerHTML = T.broj.replace('%%d', vidljivih).replace('%%d', kartice.length);
+    } else {
+      cnt.innerHTML = '';
+    }
+    if (vidljivih === 0) {
+      prazno.hidden = false;
+      prazno.innerHTML = '<p>' + T.nema.replace('%%s', q.value.replace(/[<>&]/g, '')) +
+                         '<br>' + T.savjet + '</p>';
+    } else {
+      prazno.hidden = true;
+    }
+  }
+
+  document.querySelectorAll('.cat-btn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.cat-btn').forEach(function (y) { y.classList.remove('active'); });
+      b.classList.add('active');
+      tema = b.dataset.f;
+      filtriraj();
     });
   });
-});
+  q.addEventListener('input', filtriraj);
+  x.addEventListener('click', function () { q.value = ''; q.focus(); filtriraj(); });
+  q.addEventListener('keydown', function (e) { if (e.key === 'Escape') { q.value = ''; filtriraj(); } });
+
+  // pojam iz adrese, npr. /blog/?q=kazne
+  var iz = new URLSearchParams(location.search).get('q');
+  if (iz) { q.value = iz; filtriraj(); }
+})();
 </script>
-''' % (t["kb_title"], t["kb_h1"], t["kb_intro"], catbtns, cards) + FOOT
+''' % (t["kb_title"], t["kb_h1"], t["kb_intro"], t["pretraga"], t["pret_ocisti"], catbtns, cards)
+    listing = listing.replace("__PRETXT__", json.dumps(
+        {"broj": t["pret_broj"], "nema": t["pret_nema"], "savjet": t["pret_savjet"]},
+        ensure_ascii=False))
+    listing = listing + FOOT
 
     ld_list = [{
       "@context": "https://schema.org", "@type": "Blog",
@@ -6394,7 +6479,7 @@ PROPISI = [
  dict(k="zks", oznHR="NN 14/2024", oznEN="OG 14/2024",
    nHR="Zakon o kibernetičkoj sigurnosti", nEN="Cybersecurity Act",
    sHR="Štiti sustave", sEN="Protects systems",
-   url="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_222.html",
+   url="https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_14_254.html",
    traziHR=["Kategorizacija subjekta na ključne i važne", "13 mjera iz Priloga II. Uredbe, na propisanoj razini",
             "Prijava značajnog incidenta u 24, 72 sata i 30 dana", "Neovisna revizija ili samoprocjena",
             "Dostava podataka NCSC-u, uključujući IP raspone"],

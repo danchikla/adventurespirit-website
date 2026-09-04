@@ -90,6 +90,11 @@
       <div class="eyebrow">Baza znanja</div>
       <h1>Što propis traži i čime se to dokazuje</h1>
       <p>Tekstovi o Zakonu o kibernetičkoj sigurnosti, ISO normama, zaštiti podataka i upravljanju rizicima. Bez uopćavanja: uz svaku tvrdnju stoji članak propisa ili norme ondje gdje ga ima.</p>
+      <div class="kb-search">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="search" id="kb-q" placeholder="Pretražite po pojmu, mjeri ili propisu" autocomplete="off" spellcheck="false">
+        <button type="button" class="kb-clear" id="kb-x" hidden aria-label="Očisti">&times;</button>
+      </div>
       <div class="cat-bar">
       <button class="cat-btn active" data-f="all">Sve teme</button>
       <button class="cat-btn" data-f="samoprocjena">Samoprocjena</button>
@@ -107,155 +112,156 @@
       <button class="cat-btn" data-f="logging">Nadzor i zapisi</button>
       <button class="cat-btn" data-f="rizici">Upravljanje rizicima</button>
       </div>
+      <p class="kb-count" id="kb-count"></p>
     </div>
   </section>
   <div class="container">
     <div class="post-grid" id="posts">
-<a class="post-card featured" href="/blog/trinaest-mjera-priloga-ii/" data-cat="zks">
+<a class="post-card featured" href="/blog/trinaest-mjera-priloga-ii/" data-cat="zks" data-q="13 mjera, 99 podmjera, 132 kontrole: anatomija priloga ii. uredbe uredba o kibernetičkoj sigurnosti ne govori o deset nis2 mjera nego o trinaest svojih. ispod njih je 99 podmjera, a iza njih katalog od 132 kontrole s bodovnim pragovima. ovo je karta cijele strukture, mjeru po mjeru. potpun pregled 13 mjera upravljanja kibernetičkim sigurnosnim rizicima iz priloga ii. uredbe nn 135/2024: broj podmjera po mjeri, što svaka traži u praksi i kako je povezana s katalogom kontrola. zks / nis2">
       <div class="post-cat">ZKS / NIS2</div>
       <div class="post-title">13 mjera, 99 podmjera, 132 kontrole: anatomija Priloga II. Uredbe</div>
       <div class="post-lead">Uredba o kibernetičkoj sigurnosti ne govori o deset NIS2 mjera nego o trinaest svojih. Ispod njih je 99 podmjera, a iza njih katalog od 132 kontrole s bodovnim pragovima. Ovo je karta cijele strukture, mjeru po mjeru.</div>
       <div class="post-meta"><span>10. veljače 2026.</span><span class="read">9 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/kako-se-boduje-samoprocjena/" data-cat="samoprocjena">
+<a class="post-card" href="/blog/kako-se-boduje-samoprocjena/" data-cat="samoprocjena" data-q="kako se zapravo boduje samoprocjena: pragovi pi i t možete zadovoljiti svaku pojedinačnu kontrolu i svejedno pasti na podmjeri. okvir za evaluaciju ima dva praga, a drugi je onaj koji iznenađuje. evo kako formula radi i što to znači za planiranje. objašnjenje bodovnog sustava iz zsis-ovog okvira za evaluaciju: minimalni prag po kontroli, dodatni prag prosjeka po podmjeri i zašto formalno ispunjavanje kriterija nije dovoljno. samoprocjena">
       <div class="post-cat">Samoprocjena</div>
       <div class="post-title">Kako se zapravo boduje samoprocjena: pragovi Pi i T</div>
       <div class="post-lead">Možete zadovoljiti svaku pojedinačnu kontrolu i svejedno pasti na podmjeri. Okvir za evaluaciju ima dva praga, a drugi je onaj koji iznenađuje. Evo kako formula radi i što to znači za planiranje.</div>
       <div class="post-meta"><span>1. rujna 2026.</span><span class="read">6 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/ot-sustavi-i-zks/" data-cat="ot">
+<a class="post-card" href="/blog/ot-sustavi-i-zks/" data-cat="ot" data-q="ot sustavi i zks: zašto industrijska mreža ne prolazi it kontrole mjere iz priloga ii. pisane su tako da vrijede i za informacijske i za operativne sustave. problem nastaje pri provedbi: kontrola koja je u uredskoj mreži rutinska, u proizvodnoj može zaustaviti liniju. kako primijeniti mjere upravljanja kibernetičkim sigurnosnim rizicima na operativne tehnologije: zakrpe, segmentacija, nadzor i kontinuitet u okruženjima gdje se sustavi ne smiju restartati. ot i industrija">
       <div class="post-cat">OT i industrija</div>
       <div class="post-title">OT sustavi i ZKS: zašto industrijska mreža ne prolazi IT kontrole</div>
       <div class="post-lead">Mjere iz Priloga II. pisane su tako da vrijede i za informacijske i za operativne sustave. Problem nastaje pri provedbi: kontrola koja je u uredskoj mreži rutinska, u proizvodnoj može zaustaviti liniju.</div>
       <div class="post-meta"><span>25. kolovoza 2026.</span><span class="read">7 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/active-directory-putovi-napada/" data-cat="offensive">
+<a class="post-card" href="/blog/active-directory-putovi-napada/" data-cat="offensive" data-q="active directory: pet nalaza koje pronađemo u gotovo svakom testu domenska infrastruktura rijetko pada zbog nezakrpane ranjivosti. pada zbog konfiguracije koja je nekad imala smisla, ostala je iza sebe i nitko je više ne gleda. ovih pet nalaza vide se u većini okruženja. najčešći nalazi u sigurnosnim procjenama active directoryja: naslijeđeni protokoli, prekomjerne delegacije, lozinke u atributima, nepotrebna članstva u povlaštenim grupama i pristup sigurnosnim kopijama. ofenzivna sigurnost">
       <div class="post-cat">Ofenzivna sigurnost</div>
       <div class="post-title">Active Directory: pet nalaza koje pronađemo u gotovo svakom testu</div>
       <div class="post-lead">Domenska infrastruktura rijetko pada zbog nezakrpane ranjivosti. Pada zbog konfiguracije koja je nekad imala smisla, ostala je iza sebe i nitko je više ne gleda. Ovih pet nalaza vide se u većini okruženja.</div>
       <div class="post-meta"><span>18. kolovoza 2026.</span><span class="read">7 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/sigurnosna-kultura-i-ljudski-faktor/" data-cat="ljudi">
+<a class="post-card" href="/blog/sigurnosna-kultura-i-ljudski-faktor/" data-cat="ljudi" data-q="sigurnosna kultura: zašto edukacija ne mijenja ponašanje, i što mijenja godišnja prezentacija o phishingu proizvodi evidenciju, a ne promjenu. mjera 5 traži podizanje svijesti, ali ono što se stvarno mjeri je ponašanje - a ono se mijenja drukčijim polugama. kako pristupiti podizanju svijesti o sigurnosti tako da mijenja ponašanje, a ne samo proizvodi evidenciju: mjerenje, kultura prijave, i veza s mjerom 5 iz priloga ii. uredbe. ljudski faktor">
       <div class="post-cat">Ljudski faktor</div>
       <div class="post-title">Sigurnosna kultura: zašto edukacija ne mijenja ponašanje, i što mijenja</div>
       <div class="post-lead">Godišnja prezentacija o phishingu proizvodi evidenciju, a ne promjenu. Mjera 5 traži podizanje svijesti, ali ono što se stvarno mjeri je ponašanje - a ono se mijenja drukčijim polugama.</div>
       <div class="post-meta"><span>11. kolovoza 2026.</span><span class="read">6 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/ai-u-obrani-gdje-pomaze-gdje-odmaze/" data-cat="ai">
+<a class="post-card" href="/blog/ai-u-obrani-gdje-pomaze-gdje-odmaze/" data-cat="ai" data-q="umjetna inteligencija u obrani: gdje stvarno pomaže, a gdje samo pomiče problem obećanje je da će model uočiti napad koji je čovjeku promakao. stvarnost je da model dobro radi na zadacima gdje postoji puno primjera i jasan ishod, a loše ondje gdje ih nema - a upravo su ondje najskuplji propusti. realna procjena primjene umjetne inteligencije u kibernetičkoj obrani: gdje daje mjerljivu korist, gdje stvara lažno povjerenje i koje kontrole treba postaviti prije uvođenja. umjetna inteligencija">
       <div class="post-cat">Umjetna inteligencija</div>
       <div class="post-title">Umjetna inteligencija u obrani: gdje stvarno pomaže, a gdje samo pomiče problem</div>
       <div class="post-lead">Obećanje je da će model uočiti napad koji je čovjeku promakao. Stvarnost je da model dobro radi na zadacima gdje postoji puno primjera i jasan ishod, a loše ondje gdje ih nema - a upravo su ondje najskuplji propusti.</div>
       <div class="post-meta"><span>4. kolovoza 2026.</span><span class="read">7 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/nist-csf-2-funkcija-govern/" data-cat="frameworks">
+<a class="post-card" href="/blog/nist-csf-2-funkcija-govern/" data-cat="frameworks" data-q="nist csf 2.0 i funkcija govern: okvir koji je konačno priznao upravu verzija 2.0 dodala je šestu funkciju iznad svih ostalih. nije riječ o kozmetici - govern je odgovor na nalaz koji se ponavljao godinama: tehničke kontrole ne popravljaju organizaciju koja nema vlasnika rizika. što donosi funkcija govern u nist cybersecurity framework 2.0, kako se šest funkcija odnosi prema 13 mjera uredbe o kibernetičkoj sigurnosti i zašto se okvir isplati koristiti kao zajednički jezik prema upravi. okviri">
       <div class="post-cat">Okviri</div>
       <div class="post-title">NIST CSF 2.0 i funkcija Govern: okvir koji je konačno priznao upravu</div>
       <div class="post-lead">Verzija 2.0 dodala je šestu funkciju iznad svih ostalih. Nije riječ o kozmetici - Govern je odgovor na nalaz koji se ponavljao godinama: tehničke kontrole ne popravljaju organizaciju koja nema vlasnika rizika.</div>
       <div class="post-meta"><span>28. srpnja 2026.</span><span class="read">6 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/revizija-kiberneticke-sigurnosti/" data-cat="samoprocjena">
+<a class="post-card" href="/blog/revizija-kiberneticke-sigurnosti/" data-cat="samoprocjena" data-q="revizija kibernetičke sigurnosti: tko je smije provoditi i kako teče ključni subjekti ne provode samoprocjenu nego neovisnu reviziju. provodi je pružatelj s propisanim ovlaštenjem, a kod tijela državne uprave nadležno tijelo. evo kako postupak izgleda i što se najčešće ne prizna. kako teče neovisna revizija kibernetičke sigurnosti ključnih subjekata: tko je smije provoditi, koraci postupka, kako revizor ocjenjuje dokumentaciju i provedbu, i koji se dokazi najčešće ne priznaju. samoprocjena">
       <div class="post-cat">Samoprocjena</div>
       <div class="post-title">Revizija kibernetičke sigurnosti: tko je smije provoditi i kako teče</div>
       <div class="post-lead">Ključni subjekti ne provode samoprocjenu nego neovisnu reviziju. Provodi je pružatelj s propisanim ovlaštenjem, a kod tijela državne uprave nadležno tijelo. Evo kako postupak izgleda i što se najčešće ne prizna.</div>
       <div class="post-meta"><span>21. srpnja 2026.</span><span class="read">7 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/registar-ai-sustava-i-registar-imovine/" data-cat="ai">
+<a class="post-card" href="/blog/registar-ai-sustava-i-registar-imovine/" data-cat="ai" data-q="registar ai sustava i registar imovine: zašto se vode kao jedan organizacije koje popis sustava umjetne inteligencije uvedu kao zaseban dokument otkriju za godinu dana da imaju dva registra koja se razilaze. preklapanje je veće nego razlika, a razlika staje u četiri stupca. kako proširiti postojeći registar informacijske imovine tako da pokrije i zahtjeve akta o umjetnoj inteligenciji, umjesto vođenja odvojenog registra ai sustava. umjetna inteligencija">
       <div class="post-cat">Umjetna inteligencija</div>
       <div class="post-title">Registar AI sustava i registar imovine: zašto se vode kao jedan</div>
       <div class="post-lead">Organizacije koje popis sustava umjetne inteligencije uvedu kao zaseban dokument otkriju za godinu dana da imaju dva registra koja se razilaze. Preklapanje je veće nego razlika, a razlika staje u četiri stupca.</div>
       <div class="post-meta"><span>14. srpnja 2026.</span><span class="read">6 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/sto-osiguravatelji-pitaju-kibernetickom-osiguranju/" data-cat="insurance">
+<a class="post-card" href="/blog/sto-osiguravatelji-pitaju-kibernetickom-osiguranju/" data-cat="insurance" data-q="što osiguravatelji stvarno pitaju prije nego što ponude policu upitnik za kibernetičko osiguranje nije formalnost nego procjena rizika koju netko drugi radi o vama. pitanja su svake godine sve konkretnija, a netočan odgovor može biti razlog za odbijanje štete. koja pitanja se pojavljuju u upitnicima za kibernetičko osiguranje, zašto se premija i pokriće vežu uz konkretne kontrole i kako se dokazna baza za zks i iso 27001 koristi u pregovorima o polici. cyber osiguranje">
       <div class="post-cat">Cyber osiguranje</div>
       <div class="post-title">Što osiguravatelji stvarno pitaju prije nego što ponude policu</div>
       <div class="post-lead">Upitnik za kibernetičko osiguranje nije formalnost nego procjena rizika koju netko drugi radi o vama. Pitanja su svake godine sve konkretnija, a netočan odgovor može biti razlog za odbijanje štete.</div>
       <div class="post-meta"><span>7. srpnja 2026.</span><span class="read">6 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/zabranjene-prakse-i-ai-pismenost/" data-cat="ai">
+<a class="post-card" href="/blog/zabranjene-prakse-i-ai-pismenost/" data-cat="ai" data-q="zabranjene prakse i obveza osposobljenosti: dvije odredbe koje su već na snazi dok se rasprava vodi o visokorizičnim sustavima, dvije odredbe akta o umjetnoj inteligenciji primjenjuju se prve. jedna zabranjuje određene prakse bez iznimke, druga traži da ljudi koji sustave koriste znaju što rade. koje prakse akt o umjetnoj inteligenciji zabranjuje bez iznimke, što znači obveza ai pismenosti iz članka 4. i kako je ispuniti bez posebnog programa edukacije. umjetna inteligencija">
       <div class="post-cat">Umjetna inteligencija</div>
       <div class="post-title">Zabranjene prakse i obveza osposobljenosti: dvije odredbe koje su već na snazi</div>
       <div class="post-lead">Dok se rasprava vodi o visokorizičnim sustavima, dvije odredbe Akta o umjetnoj inteligenciji primjenjuju se prve. Jedna zabranjuje određene prakse bez iznimke, druga traži da ljudi koji sustave koriste znaju što rade.</div>
       <div class="post-meta"><span>30. lipnja 2026.</span><span class="read">6 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/zks-kazne-tko-placa-i-koliko/" data-cat="zks">
+<a class="post-card" href="/blog/zks-kazne-tko-placa-i-koliko/" data-cat="zks" data-q="kazne prema zks-u: tko plaća, koliko, i zašto se to tiče uprave osobno do 10 milijuna eura ili 2 posto svjetskog prometa za ključne subjekte. ali brojka koja mijenja razgovor s upravom nije ta - nego ona uz nju: članovi upravljačkog tijela odgovaraju osobno, vlastitim novcem. pregled prekršajnih odredbi zakona o kibernetičkoj sigurnosti: rasponi kazni za ključne i važne subjekte, osobna odgovornost članova upravljačkih tijela, okolnosti koje utječu na visinu i pravilo o zabrani dvostrukog kažnjavanja s azop-om. zks / nis2">
       <div class="post-cat">ZKS / NIS2</div>
       <div class="post-title">Kazne prema ZKS-u: tko plaća, koliko, i zašto se to tiče uprave osobno</div>
       <div class="post-lead">Do 10 milijuna eura ili 2 posto svjetskog prometa za ključne subjekte. Ali brojka koja mijenja razgovor s upravom nije ta - nego ona uz nju: članovi upravljačkog tijela odgovaraju osobno, vlastitim novcem.</div>
       <div class="post-meta"><span>23. lipnja 2026.</span><span class="read">8 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/dora-registar-informacija/" data-cat="dora">
+<a class="post-card" href="/blog/dora-registar-informacija/" data-cat="dora" data-q="dora registar informacija: zašto pada na podacima, a ne na propisu registar informacija o ugovorima s pružateljima ikt usluga izgleda kao administrativna vježba dok se ne pokuša popuniti. tada se otkrije da tri odjela imaju tri različita popisa dobavljača, i da nijedan nije potpun. što dora traži u registru informacija o ugovorima s pružateljima ikt usluga, zašto se popunjavanje najčešće zaglavi na kvaliteti podataka i kako povezati registar s postojećim registrom imovine i rizika. dora">
       <div class="post-cat">DORA</div>
       <div class="post-title">DORA registar informacija: zašto pada na podacima, a ne na propisu</div>
       <div class="post-lead">Registar informacija o ugovorima s pružateljima IKT usluga izgleda kao administrativna vježba dok se ne pokuša popuniti. Tada se otkrije da tri odjela imaju tri različita popisa dobavljača, i da nijedan nije potpun.</div>
       <div class="post-meta"><span>16. lipnja 2026.</span><span class="read">7 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/akt-o-umjetnoj-inteligenciji-razine-rizika/" data-cat="ai">
+<a class="post-card" href="/blog/akt-o-umjetnoj-inteligenciji-razine-rizika/" data-cat="ai" data-q="akt o umjetnoj inteligenciji: četiri razine rizika i pitanje koje dolazi prvo uredba (eu) 2024/1689 ne uređuje tehnologiju nego njezinu primjenu. isti model može biti neregulatorno pomagalo i visokorizičan sustav, ovisno o tome za što ga koristite - a to znači da klasifikacija počinje popisom, ne pravnom analizom. kako akt o umjetnoj inteligenciji dijeli sustave u četiri razine rizika, po čemu se određuje visokorizični sustav i zašto klasifikacija mora početi od popisa ai sustava u organizaciji. umjetna inteligencija">
       <div class="post-cat">Umjetna inteligencija</div>
       <div class="post-title">Akt o umjetnoj inteligenciji: četiri razine rizika i pitanje koje dolazi prvo</div>
       <div class="post-lead">Uredba (EU) 2024/1689 ne uređuje tehnologiju nego njezinu primjenu. Isti model može biti neregulatorno pomagalo i visokorizičan sustav, ovisno o tome za što ga koristite - a to znači da klasifikacija počinje popisom, ne pravnom analizom.</div>
       <div class="post-meta"><span>2. lipnja 2026.</span><span class="read">7 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/bia-koja-daje-upotrebljiv-rto/" data-cat="bcm">
+<a class="post-card" href="/blog/bia-koja-daje-upotrebljiv-rto/" data-cat="bcm" data-q="bia koja daje upotrebljiv rto, a ne broj koji svi ignoriraju analiza poslovnog utjecaja najčešće završi kao tablica u kojoj svaki proces ima rto od četiri sata. ako je sve kritično, ništa nije - a plan oporavka koji iz toga nastane ne izdrži prvi pravi ispad. kako provesti analizu poslovnog utjecaja prema iso 22301 tako da rto i rpo budu upotrebljivi: tko daje podatke, kako se izbjegava da sve bude kritično, i kako se bia povezuje s mjerom 12 uredbe o kibernetičkoj sigurnosti. kontinuitet poslovanja">
       <div class="post-cat">Kontinuitet poslovanja</div>
       <div class="post-title">BIA koja daje upotrebljiv RTO, a ne broj koji svi ignoriraju</div>
       <div class="post-lead">Analiza poslovnog utjecaja najčešće završi kao tablica u kojoj svaki proces ima RTO od četiri sata. Ako je sve kritično, ništa nije - a plan oporavka koji iz toga nastane ne izdrži prvi pravi ispad.</div>
       <div class="post-meta"><span>26. svibnja 2026.</span><span class="read">7 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/nacionalna-taksonomija-incidenata/" data-cat="incidenti">
+<a class="post-card" href="/blog/nacionalna-taksonomija-incidenata/" data-cat="incidenti" data-q="nacionalna taksonomija incidenata: pet atributa koji zamjenjuju opisnu prijavu sigurnosno-obavještajna agencija objavila je taksonomiju koja incident opisuje s pet atributa umjesto slobodnim tekstom. model se zove vound i korisniji je nego što izgleda - ne samo za prijavu nego i za predviđanje sljedećeg poteza napadača. kako radi nacionalna taksonomija kibernetičkih incidenata: vektor napada, operativni učinak, učinak na informacije, objekt napada i dosegnuta faza. zašto strukturirani opis incidenta ubrzava prijavu i istragu. incidenti">
       <div class="post-cat">Incidenti</div>
       <div class="post-title">Nacionalna taksonomija incidenata: pet atributa koji zamjenjuju opisnu prijavu</div>
       <div class="post-lead">Sigurnosno-obavještajna agencija objavila je taksonomiju koja incident opisuje s pet atributa umjesto slobodnim tekstom. Model se zove VOUND i korisniji je nego što izgleda - ne samo za prijavu nego i za predviđanje sljedećeg poteza napadača.</div>
       <div class="post-meta"><span>19. svibnja 2026.</span><span class="read">6 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/iso-27002-2022-atributi-kontrola/" data-cat="iso">
+<a class="post-card" href="/blog/iso-27002-2022-atributi-kontrola/" data-cat="iso" data-q="iso 27002:2022: 93 kontrole i pet atributa koje većina preskoči revizija iz 2022. srezala je 114 kontrola na 93 i posložila ih u četiri teme umjesto četrnaest. veća promjena od preslagivanja su atributi - i oni su razlog zašto se stara izjava o primjenjivosti ne može samo prenumerirati. što se promijenilo u iso/iec 27002:2022 - četiri teme umjesto četrnaest poglavlja, 93 kontrole i pet atributa. kako prijeći sa stare izjave o primjenjivosti bez gubitka dokazne baze. iso norme">
       <div class="post-cat">ISO norme</div>
       <div class="post-title">ISO 27002:2022: 93 kontrole i pet atributa koje većina preskoči</div>
       <div class="post-lead">Revizija iz 2022. srezala je 114 kontrola na 93 i posložila ih u četiri teme umjesto četrnaest. Veća promjena od preslagivanja su atributi - i oni su razlog zašto se stara Izjava o primjenjivosti ne može samo prenumerirati.</div>
       <div class="post-meta"><span>5. svibnja 2026.</span><span class="read">6 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/znacajan-incident-pet-obavijesti-pixi/" data-cat="incidenti">
+<a class="post-card" href="/blog/znacajan-incident-pet-obavijesti-pixi/" data-cat="incidenti" data-q="značajan incident: pet vrsta obavijesti, platforma pixi i pravilo koje se previđa rokovi 24 i 72 sata su poznati. manje je poznato da vrsta obavijesti ima pet, da završno izvješće teče od početne obavijesti a ne od saznanja, i da se dva manja incidenta s istim uzrokom mogu zbrojiti u jedan značajan. detaljan pregled obveze obavještavanja o značajnim incidentima: pet vrsta obavijesti i njihovi rokovi, prijava preko platforme pixi, rezervni kanali i pravilo o incidentima s istim temeljnim uzrokom. incidenti">
       <div class="post-cat">Incidenti</div>
       <div class="post-title">Značajan incident: pet vrsta obavijesti, platforma PiXi i pravilo koje se previđa</div>
       <div class="post-lead">Rokovi 24 i 72 sata su poznati. Manje je poznato da vrsta obavijesti ima pet, da završno izvješće teče od početne obavijesti a ne od saznanja, i da se dva manja incidenta s istim uzrokom mogu zbrojiti u jedan značajan.</div>
       <div class="post-meta"><span>28. travnja 2026.</span><span class="read">8 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/rokovi-prijave-incidenta/" data-cat="incidenti">
+<a class="post-card" href="/blog/rokovi-prijave-incidenta/" data-cat="incidenti" data-q="24 sata, 72 sata, 30 dana: rokovi koji teku paralelno rokovi prijave značajnog incidenta ne zbrajaju se i ne čekaju jedan drugoga. a ako je incidentom zahvaćena i povreda osobnih podataka, uz njih usporedno teče i četvrti rok, prema drugom propisu i drugom tijelu. rokovi prijave značajnog kibernetičkog incidenta prema zks-u: rano upozorenje u 24 sata, obavijest u 72 sata, završno izvješće u 30 dana, te usporedna prijava azop-u prema članku 33. opće uredbe. incidenti">
       <div class="post-cat">Incidenti</div>
       <div class="post-title">24 sata, 72 sata, 30 dana: rokovi koji teku paralelno</div>
       <div class="post-lead">Rokovi prijave značajnog incidenta ne zbrajaju se i ne čekaju jedan drugoga. A ako je incidentom zahvaćena i povreda osobnih podataka, uz njih usporedno teče i četvrti rok, prema drugom propisu i drugom tijelu.</div>
       <div class="post-meta"><span>14. travnja 2026.</span><span class="read">6 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/dnevnicki-zapisi-sto-prikupljati/" data-cat="logging">
+<a class="post-card" href="/blog/dnevnicki-zapisi-sto-prikupljati/" data-cat="logging" data-q="dnevnički zapisi: jedanaest izvora bez kojih istraga incidenta ne postoji kad dođe do napada, već je kasno za postavljanje prikupljanja zapisa. ncsc-hr objavio je preporuke koje nabrajaju izvore po prioritetu - i one otkrivaju koliko toga većina organizacija uopće ne bilježi. koje izvore dnevničkih zapisa preporučuje ncsc-hr, zašto se prikupljanje mora postaviti prije incidenta i kako se to povezuje s mjerama nadzora iz uredbe o kibernetičkoj sigurnosti. nadzor i zapisi">
       <div class="post-cat">Nadzor i zapisi</div>
       <div class="post-title">Dnevnički zapisi: jedanaest izvora bez kojih istraga incidenta ne postoji</div>
       <div class="post-lead">Kad dođe do napada, već je kasno za postavljanje prikupljanja zapisa. NCSC-HR objavio je preporuke koje nabrajaju izvore po prioritetu - i one otkrivaju koliko toga većina organizacija uopće ne bilježi.</div>
       <div class="post-meta"><span>7. travnja 2026.</span><span class="read">7 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/registar-rizika-koji-prolazi-provjeru/" data-cat="rizici">
+<a class="post-card" href="/blog/registar-rizika-koji-prolazi-provjeru/" data-cat="rizici" data-q="registar rizika koji prolazi provjeru: pet grešaka koje se ponavljaju registar rizika je dokument koji svi imaju i rijetko tko koristi. pet obrazaca se ponavlja iz organizacije u organizaciju, i svih pet je vidljivo na prvo čitanje. najčešće greške u registru rizika koje se pojavljuju u provjerama usklađenosti: nepovezanost s imovinom, rizici bez vlasnika, ocjene bez obrazloženja, plan obrade bez rokova i registar koji se ne mijenja. upravljanje rizicima">
       <div class="post-cat">Upravljanje rizicima</div>
       <div class="post-title">Registar rizika koji prolazi provjeru: pet grešaka koje se ponavljaju</div>
       <div class="post-lead">Registar rizika je dokument koji svi imaju i rijetko tko koristi. Pet obrazaca se ponavlja iz organizacije u organizaciju, i svih pet je vidljivo na prvo čitanje.</div>
       <div class="post-meta"><span>24. ožujka 2026.</span><span class="read">6 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/prioritetne-preporuke-ncsc/" data-cat="zks">
+<a class="post-card" href="/blog/prioritetne-preporuke-ncsc/" data-cat="zks" data-q="prioritetne preporuke ncsc-hr: što napraviti prije nego što krenete s papirima nacionalni centar za kibernetičku sigurnost objavio je kratak popis mjera koje smanjuju najveći dio rizika. nijedna nije skupa, sve su izvedive u nekoliko tjedana, i većina organizacija ih nema provedene. pregled prioritetnih preporuka ncsc-hr za zaštitu od kibernetičkih napada: izloženi servisi, lozinke i dvofaktorska autentifikacija, sigurnosne zakrpe i smanjenje broja povlaštenih računa. zks / nis2">
       <div class="post-cat">ZKS / NIS2</div>
       <div class="post-title">Prioritetne preporuke NCSC-HR: što napraviti prije nego što krenete s papirima</div>
       <div class="post-lead">Nacionalni centar za kibernetičku sigurnost objavio je kratak popis mjera koje smanjuju najveći dio rizika. Nijedna nije skupa, sve su izvedive u nekoliko tjedana, i većina organizacija ih nema provedene.</div>
       <div class="post-meta"><span>17. ožujka 2026.</span><span class="read">6 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/iso-27001-i-zks/" data-cat="iso">
+<a class="post-card" href="/blog/iso-27001-i-zks/" data-cat="iso" data-q="imate iso 27001. koliko vam to vrijedi kod zks-a? certifikat vas ne oslobađa obveze, ali vas ozbiljno skraćuje put. pitanje je samo koje mjere pokriva, koje dodiruje, a koje ne dira uopće - i kako to dokazati bez pisanja druge dokumentacije paralelno. koliko iso/iec 27001:2022 pokriva od 13 mjera uredbe o kibernetičkoj sigurnosti, gdje su stvarne praznine i kako mapirati postojeće kontrole umjesto pisanja nove dokumentacije. iso norme">
       <div class="post-cat">ISO norme</div>
       <div class="post-title">Imate ISO 27001. Koliko vam to vrijedi kod ZKS-a?</div>
       <div class="post-lead">Certifikat vas ne oslobađa obveze, ali vas ozbiljno skraćuje put. Pitanje je samo koje mjere pokriva, koje dodiruje, a koje ne dira uopće - i kako to dokazati bez pisanja druge dokumentacije paralelno.</div>
       <div class="post-meta"><span>3. ožujka 2026.</span><span class="read">7 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/korelacijski-pregled-mjera/" data-cat="zks">
+<a class="post-card" href="/blog/korelacijski-pregled-mjera/" data-cat="zks" data-q="korelacijski pregled mjera: dokument koji vam štedi pola posla članak 49. uredbe obvezuje na izradu korelacijskog pregleda koji svaku podmjeru mapira na iso 27001, iso 27002, iso 22301, nist csf 2.0, nist sp 800-53 i cis v8. organizacije koje ga ne koriste pišu dokumentaciju koju već imaju. što je korelacijski pregled mjera iz članka 49. uredbe o kibernetičkoj sigurnosti, na koje se norme mapira i kako ga iskoristiti da se postojeća iso ili nist dokumentacija ne piše ponovno. zks / nis2">
       <div class="post-cat">ZKS / NIS2</div>
       <div class="post-title">Korelacijski pregled mjera: dokument koji vam štedi pola posla</div>
       <div class="post-lead">Članak 49. Uredbe obvezuje na izradu korelacijskog pregleda koji svaku podmjeru mapira na ISO 27001, ISO 27002, ISO 22301, NIST CSF 2.0, NIST SP 800-53 i CIS v8. Organizacije koje ga ne koriste pišu dokumentaciju koju već imaju.</div>
       <div class="post-meta"><span>24. veljače 2026.</span><span class="read">7 min čitanja</span></div>
     </a>
-<a class="post-card" href="/blog/kategorizacija-prema-zks-u/" data-cat="zks">
+<a class="post-card" href="/blog/kategorizacija-prema-zks-u/" data-cat="zks" data-q="kategorizacija prema zks-u: ključni ili važni subjekt, i što iz toga slijedi kategoriju ne birate i ne prijavljujete se za nju. dobit ćete je pismom, a od dana dostave teče rok. objašnjavamo tko odlučuje, po čemu, i što se konkretno mijenja ovisno o tome u koju ste skupinu svrstani. kako se određuje jeste li ključni ili važni subjekt prema zakonu o kibernetičkoj sigurnosti, koji rokovi teku od obavijesti o kategorizaciji i po čemu se obveze dviju skupina razlikuju. zks / nis2">
       <div class="post-cat">ZKS / NIS2</div>
       <div class="post-title">Kategorizacija prema ZKS-u: ključni ili važni subjekt, i što iz toga slijedi</div>
       <div class="post-lead">Kategoriju ne birate i ne prijavljujete se za nju. Dobit ćete je pismom, a od dana dostave teče rok. Objašnjavamo tko odlučuje, po čemu, i što se konkretno mijenja ovisno o tome u koju ste skupinu svrstani.</div>
@@ -265,16 +271,72 @@
   </div>
 </main>
 <script>
-document.querySelectorAll('.cat-btn').forEach(function (b) {
-  b.addEventListener('click', function () {
-    document.querySelectorAll('.cat-btn').forEach(function (x) { x.classList.remove('active'); });
-    b.classList.add('active');
-    var f = b.dataset.f;
-    document.querySelectorAll('.post-card').forEach(function (c) {
-      c.classList.toggle('hidden', f !== 'all' && c.dataset.cat !== f);
+(function () {
+  var T = {"broj": "Prikazano <b>%d</b> od %d članaka", "nema": "Nema članka koji odgovara pojmu <b>%s</b>.", "savjet": "Probajte kraći pojam, ili pogledajte sve teme."};
+  var q = document.getElementById('kb-q'), x = document.getElementById('kb-x'),
+      cnt = document.getElementById('kb-count'), grid = document.getElementById('posts');
+  var kartice = [].slice.call(document.querySelectorAll('.post-card'));
+  var tema = 'all';
+
+  // dijakritika se zanemaruje, pa "uskladenost" nade "usklađenost"
+  function norm(s) {
+    return (s || '').toLowerCase()
+      .replace(/[čć]/g, 'c').replace(/\u0111/g, 'd').replace(/š/g, 's').replace(/ž/g, 'z')
+      .normalize ? (s || '').toLowerCase()
+        .normalize('NFD').replace(/[̀-ͯ]/g, '')
+        .replace(/\u0111/g, 'd').replace(/đ/g, 'd')
+      : (s || '').toLowerCase();
+  }
+
+  var prazno = document.createElement('div');
+  prazno.className = 'kb-none';
+  prazno.hidden = true;
+  grid.parentNode.insertBefore(prazno, grid.nextSibling);
+
+  function filtriraj() {
+    var pojam = norm(q.value.trim());
+    var rijeci = pojam ? pojam.split(/\s+/).filter(Boolean) : [];
+    var vidljivih = 0;
+    kartice.forEach(function (c) {
+      var okTema = (tema === 'all' || c.dataset.cat === tema);
+      var okPojam = !rijeci.length || rijeci.every(function (r) {
+        return norm(c.dataset.q).indexOf(r) !== -1;
+      });
+      var vidi = okTema && okPojam;
+      c.classList.toggle('hidden', !vidi);
+      if (vidi) vidljivih++;
+    });
+    x.hidden = !q.value;
+    if (rijeci.length || tema !== 'all') {
+      cnt.innerHTML = T.broj.replace('%d', vidljivih).replace('%d', kartice.length);
+    } else {
+      cnt.innerHTML = '';
+    }
+    if (vidljivih === 0) {
+      prazno.hidden = false;
+      prazno.innerHTML = '<p>' + T.nema.replace('%s', q.value.replace(/[<>&]/g, '')) +
+                         '<br>' + T.savjet + '</p>';
+    } else {
+      prazno.hidden = true;
+    }
+  }
+
+  document.querySelectorAll('.cat-btn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.cat-btn').forEach(function (y) { y.classList.remove('active'); });
+      b.classList.add('active');
+      tema = b.dataset.f;
+      filtriraj();
     });
   });
-});
+  q.addEventListener('input', filtriraj);
+  x.addEventListener('click', function () { q.value = ''; q.focus(); filtriraj(); });
+  q.addEventListener('keydown', function (e) { if (e.key === 'Escape') { q.value = ''; filtriraj(); } });
+
+  // pojam iz adrese, npr. /blog/?q=kazne
+  var iz = new URLSearchParams(location.search).get('q');
+  if (iz) { q.value = iz; filtriraj(); }
+})();
 </script>
 <footer>
   <div class="container">
