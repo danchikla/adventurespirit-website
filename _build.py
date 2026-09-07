@@ -63,7 +63,7 @@ L = {
    lang="hr", base="", blog="/blog/", other="/en/", other_label="EN", self_label="HR",
    nav=[("/#onama","O nama"),("/usluge/","Usluge"),("/sektori/","Sektori"),
         ("/blog/","Baza znanja"),("/propisi/","Propisi"),("/mjere/","13 mjera"),("/alati/","Alati"),("/#reference","Reference"),
-        ("/#faq","FAQ"),("/#kontakt","Kontakt")],
+        ("/#faq","FAQ"),("/kontakt/","Kontakt")],
    legal_line="Adventure Spirit d.o.o. &middot; Zagreb",
    brand_line="Tržišni naziv: Adventure Spirit Consulting",
    addr="Antuna Šoljana 22, 10000 Zagreb, Hrvatska", oib="OIB / PDV ID: 72169598754 &middot; MBS: 4845552<br>Trgovački sud u Zagrebu",
@@ -72,7 +72,7 @@ L = {
    f_links=[("/usluge/zks-nis2-uskladenost/","ZKS / NIS2"),("/usluge/gdpr-uskladenost/","GDPR"),
             ("/usluge/iso-27001/","ISO 27001"),("/usluge/dora/","DORA"),("/usluge/","Sve usluge")],
    f_co_links=[("/#onama","O konzultantu"),("/predavanja/","Predavanja"),("/#faq","Česta pitanja"),
-               ("/#kontakt","Kontakt"),("/en/","English version")],
+               ("/kontakt/","Kontakt"),("/en/","English version")],
    nl_h="Novi tekst otprilike svaka dva tjedna",
    nl_p="Kad izađe nov članak u bazi znanja ili se promijeni nešto u propisu, javimo se kratkom porukom. Bez ponuda i bez podsjetnika.",
    nl_ph="Vaša e-mail adresa", nl_btn="Prijavi me",
@@ -110,7 +110,7 @@ L = {
    lang="en", base="/en", blog="/en/blog/", other="/", other_label="HR", self_label="EN",
    nav=[("/en/#about","About"),("/en/services/","Services"),("/en/sectors/","Sectors"),
         ("/en/blog/","Insights"),("/en/regulations/","Regulations"),("/en/measures/","13 measures"),("/en/tools/","Tools"),("/en/#clients","Clients"),
-        ("/en/#faq","FAQ"),("/en/#contact","Contact")],
+        ("/en/#faq","FAQ"),("/en/contact/","Contact")],
    legal_line="Adventure Spirit d.o.o. &middot; Zagreb, Croatia",
    brand_line="Trading as: Adventure Spirit Consulting",
    addr="Antuna Šoljana 22, 10000 Zagreb, Croatia", oib="OIB / VAT ID: 72169598754 &middot; Reg. no. (MBS): 4845552<br>Commercial Court in Zagreb",
@@ -119,7 +119,7 @@ L = {
    f_links=[("/en/services/csa-nis2-compliance/","CSA / NIS2"),("/en/services/gdpr-compliance/","GDPR"),
             ("/en/services/iso-27001/","ISO 27001"),("/en/services/dora/","DORA"),("/en/services/","All services")],
    f_co_links=[("/en/#about","About the consultant"),("/en/speaking/","Speaking"),("/en/#faq","FAQ"),
-               ("/en/#contact","Contact"),("/","Hrvatska verzija")],
+               ("/en/contact/","Contact"),("/","Hrvatska verzija")],
    nl_h="A new article roughly every two weeks",
    nl_p="When a new article appears in the knowledge base, or something changes in the rules, we send a short note. No offers and no reminders.",
    nl_ph="Your email address", nl_btn="Sign me up",
@@ -4422,10 +4422,10 @@ def cta_block(lang):
   <h3>%s</h3>
   <p>%s</p>
   <div class="cta-btns">
-    <a href="%s#%s" class="btn-primary">%s</a>
+    <a href="%s" class="btn-primary">%s</a>
     <a href="%s" class="btn-outline">%s</a>
   </div>
-</div>''' % (t["cta_h"], t["cta_p"], t["base"] or "/", "kontakt" if lang == "hr" else "contact",
+</div>''' % (t["cta_h"], t["cta_p"], "/kontakt/" if lang == "hr" else "/en/contact/",
               t["cta_b1"], t["cta_b2_url"], t["cta_b2"])
 
 
@@ -4673,7 +4673,7 @@ def build_blog(lang, articles, table_fn):
       <p>%s</p>
       <div class="nf-links">
         <a href="%s" class="btn-primary">%s</a>
-        <a href="%s#%s" class="btn-outline">%s</a>
+        <a href="%s" class="btn-outline">%s</a>
       </div>
       <div class="nf-nav">
 %s
@@ -4688,8 +4688,8 @@ def build_blog(lang, articles, table_fn):
     </div>
   </div>
 </main>
-''' % (t["nf_h1"], t["nf_p"], t["base"] or "/", t["nf_home"], t["base"] or "/",
-       "kontakt" if lang == "hr" else "contact", t["nf_contact"], nf_nav, t["nf_from_kb"],
+''' % (t["nf_h1"], t["nf_p"], t["base"] or "/", t["nf_home"],
+       "/kontakt/" if lang == "hr" else "/en/contact/", t["nf_contact"], nf_nav, t["nf_from_kb"],
        "\n".join(card(a, lang) for a in articles[:3])) + FOOT
 
     NF_CSS = '''<style>
@@ -5902,7 +5902,7 @@ def build_tool3(lang, articles):
         <p>%s</p>
         <div class="cta-btns">
           <a href="https://app.adventurespirit.hr" target="_blank" rel="noopener" class="btn-primary">%s</a>
-          <a href="%s#%s" class="btn-outline">%s</a>
+          <a href="%s" class="btn-outline">%s</a>
         </div>
       </div>
     </div>
@@ -5921,7 +5921,7 @@ def build_tool3(lang, articles):
        a["rep_h"], a["rep_p"], a["rep_email"], a["rep_org"], a["rep_consent"],
        a["rep_btn"], a["rep_legal"],
        a["cta_h"], a["cta_p"], a["cta_b1"],
-       t["base"] or "/", "kontakt" if lang == "hr" else "contact", a["cta_b2"],
+       "/kontakt/" if lang == "hr" else "/en/contact/", a["cta_b2"],
        a["disclaimer"], a["more_url"], a["more"]) + FOOT + JS
 
     ld = [{
@@ -6706,7 +6706,7 @@ def build_speaking(lang, articles):
       <h3>%s</h3>
       <p>%s</p>
       <div class="cta-btns">
-        <a href="%s#%s" class="btn-primary">%s</a>
+        <a href="%s" class="btn-primary">%s</a>
         <a href="%s" class="btn-outline">%s</a>
       </div>
     </div>
@@ -6718,7 +6718,7 @@ def build_speaking(lang, articles):
        pt["pub_h"], pub,
        pt["tema_h"], pt["tema_p"], teme, pt["napomena"],
        pt["cta_h"], pt["cta_p"],
-       t["base"] or "/", "kontakt" if lang == "hr" else "contact", pt["cta_b"],
+       "/kontakt/" if lang == "hr" else "/en/contact/", pt["cta_b"],
        L[lang]["blog"], L[lang]["kb_title"]) + FOOT
 
     ld = [{
@@ -6964,6 +6964,241 @@ def build_regulations(lang, articles):
       page(pt["h1"] + " | Adventure Spirit Consulting", pt["desc"], body, url, lang=lang,
            extra_head=hreflang(SITE + "/propisi/", SITE + "/en/regulations/"), ld=ld))
 
+
+# ══════════════════════════════════════════════════════════════════
+# KONTAKT STRANICA
+# ══════════════════════════════════════════════════════════════════
+KON_T = {
+ "hr": dict(url="/kontakt/", name="Kontakt",
+   h1="Stupite u kontakt",
+   intro="Trebate procjenu usklađenosti, implementaciju ISO norme, pripremu za ZKS ili DORA-u, ili demo GRC platforme? Javite se. Odgovaramo u roku 24 sata radnim danom.",
+   desc="Kontaktirajte Adventure Spirit Consulting - savjetovanje u kibernetičkoj sigurnosti, ZKS/NIS2, GDPR, DORA i ISO normama. Odgovaramo u roku 24 sata.",
+   home="Početna",
+   tel_l="Telefon", mail_l="E-pošta", portal_l="GRC Portal", sjed_l="Sjedište",
+   forma_h="Pošaljite upit",
+   f_ime="Ime i prezime *", f_mail="E-mail adresa *", f_tvrtka="Tvrtka ili organizacija",
+   f_tel="Telefon", f_poruka="Kratki opis projekta ili upita",
+   f_tema="Tema upita",
+   teme=["ZKS / NIS2 usklađenost","GDPR i zaštita podataka","ISO 27001",
+         "ISO 9001, 14001 ili 22301","DORA","Upravljanje rizicima trećih strana",
+         "Sigurnosni audit ili penetracijski test","Revizija i interna provjera",
+         "Eksterni DPO","Eksterni CISO","Predavanje ili radionica",
+         "Demo GRC platforme","Nešto drugo"],
+   f_salji="Pošaljite upit", f_saljem="Šaljem...",
+   f_ok="Hvala. Javit ćemo se u roku 24 sata radnim danom.",
+   f_err="Slanje nije uspjelo. Pišite nam izravno na info@adventurespirit.hr.",
+   f_need="Upišite ime i ispravnu e-mail adresu.",
+   privola="Slanjem upita pristajete da vaše podatke koristimo isključivo za odgovor na ovaj upit. Ne uvrštavamo vas na listu za obavijesti niti prosljeđujemo podatke trećim stranama. Više u <a href=\"/privatnost/\">politici privatnosti</a>.",
+   prije_h="Prije razgovora možete provjeriti sami",
+   prije_p="Tri alata rade u pregledniku, bez registracije. Ako ih prođete prije poziva, razgovor kreće od konkretnog stanja umjesto od nule.",
+   sto_h="Kako izgleda prvi razgovor",
+   sto=[("Pola sata, bez obveze", "Ništa vas ne obvezuje i ne šaljemo ponudu ako nema smisla."),
+        ("Pitamo, ne prezentiramo", "Zanima nas što već imate, koja ste obavijest dobili i koji vam rok teče."),
+        ("Na kraju znate što dalje", "Kažemo što bismo napravili prvo i koliko to otprilike traje, bez obzira radite li to s nama.")],
+   pravni_h="Podaci o društvu",
+ ),
+ "en": dict(url="/en/contact/", name="Contact",
+   h1="Get in touch",
+   intro="Need a compliance assessment, an ISO implementation, preparation for the Croatian Cybersecurity Act or DORA, or a demo of the GRC platform? Write to us. We reply within 24 hours on working days.",
+   desc="Contact Adventure Spirit Consulting - advisory in cyber security, CSA/NIS2, GDPR, DORA and ISO standards. We reply within 24 hours.",
+   home="Home",
+   tel_l="Phone", mail_l="Email", portal_l="GRC Portal", sjed_l="Registered office",
+   forma_h="Send an enquiry",
+   f_ime="Full name *", f_mail="Email address *", f_tvrtka="Company or organisation",
+   f_tel="Phone", f_poruka="A short description of the project or question",
+   f_tema="Subject",
+   teme=["CSA / NIS2 compliance","GDPR and data protection","ISO 27001",
+         "ISO 9001, 14001 or 22301","DORA","Vendor risk management",
+         "Security audit or penetration test","Audit and internal review",
+         "External DPO","External CISO","Lecture or workshop",
+         "GRC platform demo","Something else"],
+   f_salji="Send enquiry", f_saljem="Sending...",
+   f_ok="Thank you. We will reply within 24 hours on working days.",
+   f_err="Sending failed. Please write to us directly at info@adventurespirit.hr.",
+   f_need="Enter your name and a valid email address.",
+   privola="By sending this enquiry you agree that we use your details solely to reply to it. You are not added to a notification list and your details are not passed to third parties. See the <a href=\"/privatnost/\">privacy policy</a>.",
+   prije_h="You can check for yourself before we talk",
+   prije_p="Three tools run in your browser, with no sign-up. Running them before the call means the conversation starts from a concrete position rather than from nothing.",
+   sto_h="What the first conversation looks like",
+   sto=[("Half an hour, no obligation", "Nothing binds you, and we do not send a proposal if it makes no sense."),
+        ("We ask rather than present", "We want to know what you already have, which notice you received and what deadline is running."),
+        ("You leave knowing what comes next", "We say what we would do first and roughly how long it takes, whether or not you do it with us.")],
+   pravni_h="Company details",
+ ),
+}
+
+
+def build_contact(lang, articles):
+    t = L[lang]
+    k = KON_T[lang]
+    tools = TOOLS_T[lang]["hub"]
+    FOOT = footer(lang, articles)
+    url = SITE + k["url"]
+
+    IC = {
+     "tel": '<svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>',
+     "mail": '<svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 7l8 6 8-6"/></svg>',
+     "web": '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>',
+     "pin": '<svg viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    }
+    kontakti = '''      <a class="kon-item" href="tel:+385955041496">
+        <span class="kon-ic">%s</span>
+        <span><b>%s</b>+385 95 504 1496</span>
+      </a>
+      <a class="kon-item" href="mailto:info@adventurespirit.hr">
+        <span class="kon-ic">%s</span>
+        <span><b>%s</b>info@adventurespirit.hr</span>
+      </a>
+      <a class="kon-item" href="https://app.adventurespirit.hr" target="_blank" rel="noopener">
+        <span class="kon-ic">%s</span>
+        <span><b>%s</b>app.adventurespirit.hr</span>
+      </a>
+      <div class="kon-item static">
+        <span class="kon-ic">%s</span>
+        <span><b>%s</b>Antuna Šoljana 22, 10000 Zagreb</span>
+      </div>''' % (IC["tel"], k["tel_l"], IC["mail"], k["mail_l"],
+                   IC["web"], k["portal_l"], IC["pin"], k["sjed_l"])
+
+    opcije = "\n".join('          <option>%s</option>' % o for o in k["teme"])
+    kako = "\n".join('''      <div class="gap-item crit">
+        <div class="gap-h"><span class="gap-t">%s</span></div>
+        <div class="gap-d" style="margin-left:0">%s</div>
+      </div>''' % (a, b) for a, b in k["sto"])
+
+    JS = '''<script>
+(function () {
+  var T = %s, g = function (i) { return document.getElementById(i); };
+  var b = g("k-send"); if (!b) { return; }
+  b.addEventListener("click", function () {
+    var ime = g("k-ime").value.trim(), mail = g("k-mail").value.trim(), msg = g("k-msg");
+    if (!ime || !/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(mail)) {
+      msg.textContent = T.need; msg.className = "nl-msg bad"; msg.hidden = false; return;
+    }
+    var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
+    var tel = g("k-tel").value.trim();
+    fetch("https://formspree.io/f/mojpkknr", {
+      method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        name: ime, email: mail, _subject: "[" + g("k-tema").value + "] " + ime,
+        message: "[" + g("k-tema").value + "]\\n" +
+                 (g("k-tvrtka").value.trim() ? g("k-tvrtka").value.trim() + "\\n" : "") +
+                 (tel ? "Tel: " + tel + "\\n" : "") + "\\n" + g("k-poruka").value
+      })
+    }).then(function (r) {
+      if (!r.ok) { throw new Error(); }
+      msg.textContent = T.ok; msg.className = "nl-msg ok"; msg.hidden = false;
+      ["k-ime", "k-mail", "k-tvrtka", "k-tel", "k-poruka"].forEach(function (i) { g(i).value = ""; });
+      if (window.asTrack) { window.asTrack("contact_sent"); }
+    }).catch(function () {
+      msg.textContent = T.err; msg.className = "nl-msg bad"; msg.hidden = false;
+    }).finally(function () { b.disabled = false; b.textContent = lab; });
+  });
+})();
+</script>''' % json.dumps({"need": k["f_need"], "send": k["f_saljem"],
+                          "ok": k["f_ok"], "err": k["f_err"]}, ensure_ascii=False)
+
+    body = header(lang, active_blog=False) + '''
+<main>
+  <section class="kb-hero">
+    <div class="container">
+      <div class="crumbs" style="padding:0 0 14px"><a href="%s">%s</a><span>&rsaquo;</span>%s</div>
+      <div class="eyebrow">%s</div>
+      <h1>%s</h1>
+      <p>%s</p>
+    </div>
+  </section>
+
+  <div class="container narrow">
+    <div class="kon-grid">
+%s
+    </div>
+
+    <div class="tool-panel" style="margin-top:0">
+      <h2 style="font-size:19px;font-weight:800;color:var(--white);margin-bottom:20px">%s</h2>
+      <div class="report-row">
+        <input type="text" id="k-ime" placeholder="%s" autocomplete="name">
+        <input type="email" id="k-mail" placeholder="%s" autocomplete="email">
+      </div>
+      <div class="report-row" style="margin-top:12px">
+        <input type="text" id="k-tvrtka" placeholder="%s" autocomplete="organization">
+        <input type="text" id="k-tel" placeholder="%s" autocomplete="tel">
+      </div>
+      <div class="field" style="margin:16px 0 0">
+        <label for="k-tema">%s</label>
+        <select class="form-select-tool" id="k-tema">
+%s
+        </select>
+      </div>
+      <div class="field" style="margin:16px 0 0">
+        <textarea class="kon-textarea" id="k-poruka" placeholder="%s"></textarea>
+      </div>
+      <div class="tool-actions" style="border:none;padding-top:6px">
+        <button type="button" class="btn-primary" id="k-send">%s</button>
+      </div>
+      <p class="nl-msg" id="k-msg" hidden></p>
+      <p class="report-legal">%s</p>
+    </div>
+
+    <article style="padding-top:44px">
+      <h2>%s</h2>
+%s
+
+      <h2>%s</h2>
+      <p>%s</p>
+      <div class="nf-nav" style="border:none;padding-top:0;margin-top:0">
+        <a href="%s%s/">%s</a>
+        <a href="%s%s/">%s</a>
+        <a href="%s%s/">%s</a>
+      </div>
+
+      <h2>%s</h2>
+      <div class="auth-box">
+        <div><span class="auth-k">Adventure Spirit d.o.o.</span>%s</div>
+        <div><span class="auth-k">OIB / PDV ID</span>72169598754</div>
+        <div><span class="auth-k">MBS</span>4845552</div>
+      </div>
+    </article>
+  </div>
+</main>
+''' % (t["base"] or "/", k["home"], k["name"], k["name"], k["h1"], k["intro"],
+       kontakti, k["forma_h"], k["f_ime"], k["f_mail"], k["f_tvrtka"], k["f_tel"],
+       k["f_tema"], opcije, k["f_poruka"], k["f_salji"], k["privola"],
+       k["sto_h"], kako,
+       k["prije_h"], k["prije_p"],
+       tools, CAT_T[lang]["slug"], CAT_T[lang]["name"],
+       tools, SA_T[lang]["slug"], SA_T[lang]["name"],
+       tools, TOOLS_T[lang]["slug"], TOOLS_T[lang]["t_name"],
+       k["pravni_h"],
+       ("Antuna Šoljana 22, 10000 Zagreb, Trgovački sud u Zagrebu" if lang == "hr"
+        else "Antuna Šoljana 22, 10000 Zagreb, Commercial Court in Zagreb")) + FOOT + JS
+
+    ld = [{
+      "@context": "https://schema.org", "@type": "ContactPage",
+      "name": k["h1"], "description": k["desc"], "url": url,
+      "inLanguage": "hr-HR" if lang == "hr" else "en-GB",
+      "mainEntity": {
+        "@type": "Organization", "name": "Adventure Spirit Consulting",
+        "legalName": "Adventure Spirit d.o.o.", "url": SITE + "/",
+        "email": "info@adventurespirit.hr", "telephone": "+385 95 504 1496",
+        "vatID": "HR72169598754",
+        "address": {"@type": "PostalAddress", "streetAddress": "Antuna Šoljana 22",
+                    "postalCode": "10000", "addressLocality": "Zagreb", "addressCountry": "HR"},
+        "contactPoint": {"@type": "ContactPoint", "contactType": "sales",
+                         "telephone": "+385 95 504 1496", "email": "info@adventurespirit.hr",
+                         "availableLanguage": ["hr", "en"]},
+      }}, {
+      "@context": "https://schema.org", "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": k["home"], "item": SITE + (t["base"] or "/")},
+        {"@type": "ListItem", "position": 2, "name": k["name"], "item": url}]}]
+
+    d = os.path.join(ROOT, "en", "contact") if lang == "en" else os.path.join(ROOT, "kontakt")
+    os.makedirs(d, exist_ok=True)
+    io.open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(
+      page(k["h1"] + " | Adventure Spirit Consulting", k["desc"], body, url, lang=lang,
+           extra_head=hreflang(SITE + "/kontakt/", SITE + "/en/contact/"), ld=ld))
+
+
 build_tools("hr", ARTICLES)
 build_tools("en", ARTICLES_EN)
 build_tool2("hr", ARTICLES)
@@ -6980,6 +7215,8 @@ build_speaking("hr", ARTICLES)
 build_speaking("en", ARTICLES_EN)
 build_regulations("hr", ARTICLES)
 build_regulations("en", ARTICLES_EN)
+build_contact("hr", ARTICLES)
+build_contact("en", ARTICLES_EN)
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -7038,6 +7275,7 @@ urls += [(SITE + "/mjere/", "0.95", "monthly"), (SITE + "/en/measures/", "0.85",
 urls += [(SITE + "/predavanja/", "0.8", "monthly"), (SITE + "/en/speaking/", "0.7", "monthly")]
 urls += [(SITE + "/propisi/", "0.95", "monthly"), (SITE + "/en/regulations/", "0.85", "monthly")]
 urls += [(SITE + "/usluge/", "0.95", "monthly"), (SITE + "/en/services/", "0.85", "monthly")]
+urls += [(SITE + "/kontakt/", "0.9", "monthly"), (SITE + "/en/contact/", "0.8", "monthly")]
 urls += [("%s/usluge/%s/" % (SITE, x["hr"]), "0.9", "monthly") for x in USLUGE_META]
 urls += [("%s/en/services/%s/" % (SITE, x["en"]), "0.8", "monthly") for x in USLUGE_META]
 urls += [("%s/sektori/%s/" % (SITE, x["hr"]), "0.8", "monthly") for x in SEKTORI]
