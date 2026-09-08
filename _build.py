@@ -7148,10 +7148,8 @@ def build_contact(lang, articles):
     }
     var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
     var tel = g("k-tel").value.trim(), tvrtka = g("k-tvrtka").value.trim(), tema = g("k-tema").value;
-    var redci = [T.m_tema + ": " + tema];
-    if (tvrtka) { redci.push(T.m_tvrtka + ": " + tvrtka); }
-    if (tel) { redci.push(T.m_tel + ": " + tel); }
-    redci.push(T.m_str + ": " + location.href);
+    // Tvrtka i telefon idu kao zasebna polja, pa se u poruci ne ponavljaju.
+    var redci = [T.m_tema + ": " + tema, T.m_str + ": " + location.href];
     fetch("https://formspree.io/f/__FS_UPITI__", {
       method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({

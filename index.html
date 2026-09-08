@@ -1991,11 +1991,10 @@
                 + document.getElementById('c-name').value
                 + (document.getElementById('c-company').value
                    ? ' (' + document.getElementById('c-company').value + ')' : ''),
+      // Tvrtka i telefon salju se kao zasebna polja iznad, pa se ovdje
+      // ne ponavljaju. Tema i stranica nemaju svoje polje, pa idu u poruku.
       message: (function () {
         var r = ['Tema: ' + (document.getElementById('c-subject').value || '-')];
-        var tv = document.getElementById('c-company').value.trim();
-        if (tv) { r.push('Tvrtka: ' + tv); }
-        if (phone) { r.push('Telefon: ' + phone); }
         r.push('Stranica: ' + location.href);
         return r.join('\n') + '\n\nPoruka:\n' + document.getElementById('c-message').value;
       })()
