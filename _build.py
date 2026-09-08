@@ -7040,6 +7040,7 @@ KON_T = {
          "Eksterni DPO","Eksterni CISO","Predavanje ili radionica",
          "Demo GRC platforme","Nešto drugo"],
    f_salji="Pošaljite upit", f_saljem="Šaljem...",
+   m_tema="Tema", m_tvrtka="Tvrtka", m_tel="Telefon", m_str="Stranica", m_por="Poruka",
    f_ok="Hvala. Javit ćemo se u roku 24 sata radnim danom.",
    f_err="Slanje nije uspjelo. Pišite nam izravno na info@adventurespirit.hr.",
    f_need="Upišite ime i ispravnu e-mail adresu.",
@@ -7068,6 +7069,7 @@ KON_T = {
          "External DPO","External CISO","Lecture or workshop",
          "GRC platform demo","Something else"],
    f_salji="Send enquiry", f_saljem="Sending...",
+   m_tema="Subject", m_tvrtka="Company", m_tel="Phone", m_str="Page", m_por="Message",
    f_ok="Thank you. We will reply within 24 hours on working days.",
    f_err="Sending failed. Please write to us directly at info@adventurespirit.hr.",
    f_need="Enter your name and a valid email address.",
@@ -7130,14 +7132,17 @@ def build_contact(lang, articles):
       msg.textContent = T.need; msg.className = "nl-msg bad"; msg.hidden = false; return;
     }
     var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
-    var tel = g("k-tel").value.trim();
+    var tel = g("k-tel").value.trim(), tvrtka = g("k-tvrtka").value.trim(), tema = g("k-tema").value;
+    var redci = [T.m_tema + ": " + tema];
+    if (tvrtka) { redci.push(T.m_tvrtka + ": " + tvrtka); }
+    if (tel) { redci.push(T.m_tel + ": " + tel); }
+    redci.push(T.m_str + ": " + location.href);
     fetch("https://formspree.io/f/mojpkknr", {
       method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
-        name: ime, email: mail, _subject: "[" + g("k-tema").value + "] " + ime,
-        message: "[" + g("k-tema").value + "]\\n" +
-                 (g("k-tvrtka").value.trim() ? g("k-tvrtka").value.trim() + "\\n" : "") +
-                 (tel ? "Tel: " + tel + "\\n" : "") + "\\n" + g("k-poruka").value
+        name: ime, email: mail, phone: tel || "-", company: tvrtka || "-",
+        _subject: "[" + tema + "] " + ime + (tvrtka ? " (" + tvrtka + ")" : ""),
+        message: redci.join("\\n") + "\\n\\n" + T.m_por + ":\\n" + g("k-poruka").value
       })
     }).then(function (r) {
       if (!r.ok) { throw new Error(); }
@@ -7150,7 +7155,10 @@ def build_contact(lang, articles):
   });
 })();
 </script>''' % json.dumps({"need": k["f_need"], "send": k["f_saljem"],
-                          "ok": k["f_ok"], "err": k["f_err"]}, ensure_ascii=False)
+                          "ok": k["f_ok"], "err": k["f_err"],
+                          "m_tema": k["m_tema"], "m_tvrtka": k["m_tvrtka"],
+                          "m_tel": k["m_tel"], "m_str": k["m_str"],
+                          "m_por": k["m_por"]}, ensure_ascii=False)
 
     body = header(lang, active_blog=False) + '''
 <main>

@@ -1984,11 +1984,20 @@
     const body = {
       name: document.getElementById('c-name').value,
       email: document.getElementById('c-email').value,
-      phone: phone || ' - ',
-      message: '[' + document.getElementById('c-subject').value + '] ' +
-               document.getElementById('c-company').value +
-               (phone ? ' · Tel: ' + phone : '') + '\n\n' +
-               document.getElementById('c-message').value
+      phone: phone || '-',
+      company: document.getElementById('c-company').value || '-',
+      _subject: '[' + (document.getElementById('c-subject').value || 'Upit') + '] '
+                + document.getElementById('c-name').value
+                + (document.getElementById('c-company').value
+                   ? ' (' + document.getElementById('c-company').value + ')' : ''),
+      message: (function () {
+        var r = ['Tema: ' + (document.getElementById('c-subject').value || '-')];
+        var tv = document.getElementById('c-company').value.trim();
+        if (tv) { r.push('Tvrtka: ' + tv); }
+        if (phone) { r.push('Telefon: ' + phone); }
+        r.push('Stranica: ' + location.href);
+        return r.join('\n') + '\n\nPoruka:\n' + document.getElementById('c-message').value;
+      })()
     };
     try {
       // Zamijeni xvzvwwre s vašim Formspree ID-em (besplatno na formspree.io)

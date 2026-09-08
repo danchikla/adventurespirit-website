@@ -285,7 +285,7 @@
 })();
 </script><script>
 (function () {
-  var T = {"need": "Upišite ime i ispravnu e-mail adresu.", "send": "Šaljem...", "ok": "Hvala. Javit ćemo se u roku 24 sata radnim danom.", "err": "Slanje nije uspjelo. Pišite nam izravno na info@adventurespirit.hr."}, g = function (i) { return document.getElementById(i); };
+  var T = {"need": "Upišite ime i ispravnu e-mail adresu.", "send": "Šaljem...", "ok": "Hvala. Javit ćemo se u roku 24 sata radnim danom.", "err": "Slanje nije uspjelo. Pišite nam izravno na info@adventurespirit.hr.", "m_tema": "Tema", "m_tvrtka": "Tvrtka", "m_tel": "Telefon", "m_str": "Stranica", "m_por": "Poruka"}, g = function (i) { return document.getElementById(i); };
   var b = g("k-send"); if (!b) { return; }
   b.addEventListener("click", function () {
     var ime = g("k-ime").value.trim(), mail = g("k-mail").value.trim(), msg = g("k-msg");
@@ -293,14 +293,17 @@
       msg.textContent = T.need; msg.className = "nl-msg bad"; msg.hidden = false; return;
     }
     var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
-    var tel = g("k-tel").value.trim();
+    var tel = g("k-tel").value.trim(), tvrtka = g("k-tvrtka").value.trim(), tema = g("k-tema").value;
+    var redci = [T.m_tema + ": " + tema];
+    if (tvrtka) { redci.push(T.m_tvrtka + ": " + tvrtka); }
+    if (tel) { redci.push(T.m_tel + ": " + tel); }
+    redci.push(T.m_str + ": " + location.href);
     fetch("https://formspree.io/f/mojpkknr", {
       method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
-        name: ime, email: mail, _subject: "[" + g("k-tema").value + "] " + ime,
-        message: "[" + g("k-tema").value + "]\n" +
-                 (g("k-tvrtka").value.trim() ? g("k-tvrtka").value.trim() + "\n" : "") +
-                 (tel ? "Tel: " + tel + "\n" : "") + "\n" + g("k-poruka").value
+        name: ime, email: mail, phone: tel || "-", company: tvrtka || "-",
+        _subject: "[" + tema + "] " + ime + (tvrtka ? " (" + tvrtka + ")" : ""),
+        message: redci.join("\n") + "\n\n" + T.m_por + ":\n" + g("k-poruka").value
       })
     }).then(function (r) {
       if (!r.ok) { throw new Error(); }
