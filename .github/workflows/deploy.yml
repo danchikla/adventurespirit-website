@@ -4,7 +4,17 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
+# FTP posluzitelj kod hostinga zna biti nestabilan: u istom danu vraca
+# "552 Disk full" iako prostora ima, ili prekine vezu usred prijenosa.
+# Zato se prijenos pokusava do tri puta. Akcija pamti stanje na
+# posluzitelju, pa ponovni pokusaj salje samo ono sto nije proslo -
+# ako je prvi pokusaj uspio, druga dva se preskacu.
+#
+# Popis izuzetaka namjerno se ponavlja u sva tri koraka: GitHub Actions
+# ne podrzava pouzdano YAML sidra, pa bi skraceni zapis mogao tiho pasti.
+# Ako se popis mijenja, mijenja se na sva tri mjesta.
 jobs:
   deploy:
     name: Deploy via SFTP
@@ -12,7 +22,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy to cPanel via SFTP
+      - name: Prijenos, 1. pokusaj
+        id: try1
+        continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -20,6 +32,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
+          timeout: 120000
           local-dir: ./
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
           exclude: |
@@ -36,3 +49,75 @@ jobs:
             analitika/podaci/.sol
             analitika/README.md
             analitika/config.php
+
+      - name: Pauza prije 2. pokusaja
+        if: steps.try1.outcome == 'failure'
+        run: sleep 45
+
+      - name: Prijenos, 2. pokusaj
+        id: try2
+        if: steps.try1.outcome == 'failure'
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          timeout: 120000
+          local-dir: ./
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .DS_Store
+            **/.DS_Store
+            *.docx
+            Ponuda/**
+            _build.py
+            BUILD.md
+            SEO.md
+            analitika/podaci/*.csv
+            analitika/podaci/.sol
+            analitika/README.md
+            analitika/config.php
+
+      - name: Pauza prije 3. pokusaja
+        if: steps.try1.outcome == 'failure' && steps.try2.outcome == 'failure'
+        run: sleep 90
+
+      - name: Prijenos, 3. pokusaj
+        id: try3
+        if: steps.try1.outcome == 'failure' && steps.try2.outcome == 'failure'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          timeout: 120000
+          local-dir: ./
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .DS_Store
+            **/.DS_Store
+            *.docx
+            Ponuda/**
+            _build.py
+            BUILD.md
+            SEO.md
+            analitika/podaci/*.csv
+            analitika/podaci/.sol
+            analitika/README.md
+            analitika/config.php
+
+      - name: Sazetak
+        if: always()
+        run: |
+          echo "1. pokusaj: ${{ steps.try1.outcome }}"
+          echo "2. pokusaj: ${{ steps.try2.outcome || 'nije trebao' }}"
+          echo "3. pokusaj: ${{ steps.try3.outcome || 'nije trebao' }}"
