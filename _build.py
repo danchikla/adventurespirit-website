@@ -123,14 +123,14 @@ L = {
    nl_h="A new article roughly every two weeks",
    nl_p="When a new article appears in the knowledge base, or something changes in the rules, we send a short note. No offers and no reminders.",
    nl_ph="Your email address", nl_btn="Sign me up",
-   nl_consent='I agree to receive notifications about new articles from Adventure Spirit d.o.o. I can withdraw this consent at any time, by writing to info@adventurespirit.hr or via the link in every message. See the <a href="/privatnost/">privacy policy</a>.',
+   nl_consent='I agree to receive notifications about new articles from Adventure Spirit d.o.o. I can withdraw this consent at any time, by writing to info@adventurespirit.hr or via the link in every message. See the <a href="/en/privacy/">privacy policy</a>.',
    nl_ok="Thank you, you are signed up. We will write when a new article appears.",
    nl_err="Sign-up failed. Please write to info@adventurespirit.hr.",
    nl_need="Enter a valid address and confirm consent.",
    nl_send="Sending...",
    nl_fine="We use the address solely to send these notifications. We do not pass it on and do not use it for anything else.",
    rights="All rights reserved", terms="Terms (HR)", privacy="Privacy (HR)",
-   terms_url="/uvjeti/", privacy_url="/privatnost/",
+   terms_url="/en/terms/", privacy_url="/en/privacy/",
    kb_title="Knowledge base", kb_h1="What the rules ask for and what proves it",
    kb_intro="Articles on the Croatian Cybersecurity Act, ISO standards, data protection and risk management. No generalities: every claim carries the article of the law or standard behind it, where one exists.",
    kb_desc="Expert articles on the Croatian Cybersecurity Act, the 13 measures of the Regulation, self-assessment scoring, incident reporting, ISO standards and risk management.",
@@ -213,13 +213,14 @@ def footer(lang, articles):
       <h4>%s</h4>
       <p>%s</p>
       <div class="nl-row">
+        <label class="vh" for="nl-mail">%s</label>
         <input type="email" id="nl-mail" placeholder="%s" autocomplete="email">
         <button type="button" id="nl-btn">%s</button>
       </div>
       <label class="nl-consent"><input type="checkbox" id="nl-ok"><span>%s</span></label>
       <p class="nl-msg" id="nl-msg" hidden></p>
       <p class="nl-fine">%s</p>
-    </div>''' % (t["nl_h"], t["nl_p"], t["nl_ph"], t["nl_btn"], t["nl_consent"], t["nl_fine"])
+    </div>''' % (t["nl_h"], t["nl_p"], t["nl_ph"], t["nl_ph"], t["nl_btn"], t["nl_consent"], t["nl_fine"])
 
     nl_js = '''<script>
 (function () {
@@ -4230,13 +4231,18 @@ def en_index():
       </div>
       <form class="contact-form" onsubmit="handleContact(event)">
         <div class="form-row">
+          <label class="vh" for="c-name">Full name</label>
           <input class="form-input" type="text" placeholder="Full name *" required id="c-name">
+          <label class="vh" for="c-email">Email address</label>
           <input class="form-input" type="email" placeholder="Email address *" required id="c-email">
         </div>
         <div class="form-row">
+          <label class="vh" for="c-company">Company / organisation</label>
           <input class="form-input" type="text" placeholder="Company / organisation" id="c-company">
+          <label class="vh" for="c-phone">Phone</label>
           <input class="form-input" type="tel" placeholder="Phone" id="c-phone">
         </div>
+        <label class="vh" for="c-subject">Subject</label>
         <select class="form-select" id="c-subject">
           <option>CSA / NIS2 compliance</option>
           <option>GDPR compliance</option>
@@ -4248,6 +4254,7 @@ def en_index():
           <option>GRC platform demo</option>
           <option>Other</option>
         </select>
+        <label class="vh" for="c-message">A short description of the project or question</label>
         <textarea class="form-textarea" placeholder="A short description of the project or question" id="c-message"></textarea>
         <div id="c-success" style="display:none;color:#6ec47a;font-size:13px;padding:8px 0">&#10003; Thank you. We will be in touch shortly.</div>
         <div id="c-error" style="display:none;color:#f87171;font-size:13px;padding:8px 0"></div>
@@ -4429,6 +4436,50 @@ def cta_block(lang):
               t["cta_b1"], t["cta_b2_url"], t["cta_b2"])
 
 
+# ══════════════════════════════════════════════════════════════════
+# Jezicni parovi clanaka (HR slug -> EN slug)
+# Bez ovoga clanci nemaju hreflang pa ih Google tretira kao dvije
+# nepovezane stranice umjesto kao isti tekst na dva jezika.
+# Clanci kojih nema na popisu postoje samo na hrvatskom.
+# ══════════════════════════════════════════════════════════════════
+PAROVI = {
+ "kategorizacija-prema-zks-u":            "entity-categorisation-croatian-cybersecurity-act",
+ "trinaest-mjera-priloga-ii":             "thirteen-measures-annex-ii",
+ "kako-se-boduje-samoprocjena":           "how-self-assessment-is-scored",
+ "rokovi-prijave-incidenta":              "incident-reporting-deadlines",
+ "iso-27001-i-zks":                       "iso-27001-and-the-cybersecurity-act",
+ "registar-rizika-koji-prolazi-provjeru": "risk-register-that-passes-review",
+ "iso-27002-2022-atributi-kontrola":      "iso-27002-2022-control-attributes",
+ "bia-koja-daje-upotrebljiv-rto":         "bia-that-produces-a-usable-rto",
+ "dora-registar-informacija":             "dora-register-of-information",
+ "sto-osiguravatelji-pitaju-kibernetickom-osiguranju": "what-cyber-insurers-actually-ask",
+ "nist-csf-2-funkcija-govern":            "nist-csf-2-govern-function",
+ "active-directory-putovi-napada":        "active-directory-attack-paths",
+ "korelacijski-pregled-mjera":            "correlation-of-measures-to-standards",
+ "akt-o-umjetnoj-inteligenciji-razine-rizika": "ai-act-risk-levels",
+ "zabranjene-prakse-i-ai-pismenost":      "prohibited-practices-and-ai-literacy",
+ "registar-ai-sustava-i-registar-imovine": "ai-inventory-and-asset-register",
+ "ai-u-obrani-gdje-pomaze-gdje-odmaze":   "ai-in-defence-where-it-helps",
+ "zks-kazne-tko-placa-i-koliko":          "penalties-under-the-cybersecurity-act",
+ "revizija-kiberneticke-sigurnosti":      "cybersecurity-audit-how-it-works",
+ "sigurnosna-kultura-i-ljudski-faktor":   "security-culture-and-the-human-factor",
+}
+PAROVI_EN = {v: k for k, v in PAROVI.items()}
+
+
+def hreflang_clanak(lang, slug):
+    """Vraca hreflang oznake za clanak, ili prazno ako prijevoda nema."""
+    if lang == "hr":
+        en = PAROVI.get(slug)
+        if not en:
+            return ""
+        return hreflang(SITE + "/blog/%s/" % slug, SITE + "/en/blog/%s/" % en)
+    hr = PAROVI_EN.get(slug)
+    if not hr:
+        return ""
+    return hreflang(SITE + "/blog/%s/" % hr, SITE + "/en/blog/%s/" % slug)
+
+
 def build_blog(lang, articles, table_fn):
     t = L[lang]
     articles = sorted(articles, key=lambda a: a["date"], reverse=True)
@@ -4507,7 +4558,8 @@ def build_blog(lang, articles, table_fn):
         os.makedirs(d, exist_ok=True)
         io.open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(
           page(a["title"] + " | Adventure Spirit Consulting", a["desc"], body, url,
-               lang=lang, og_type="article", ld=ld))
+               lang=lang, og_type="article", ld=ld,
+               extra_head=hreflang_clanak(lang, a["slug"])))
 
     # ── Popisna stranica ──────────────────────────────────────────
     cats = []
@@ -4531,6 +4583,7 @@ def build_blog(lang, articles, table_fn):
       <p>%s</p>
       <div class="kb-search">
         <svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        <label class="vh" for="kb-q">%s</label>
         <input type="search" id="kb-q" placeholder="%s" autocomplete="off" spellcheck="false">
         <button type="button" class="kb-clear" id="kb-x" hidden aria-label="%s">&times;</button>
       </div>
@@ -4614,7 +4667,7 @@ def build_blog(lang, articles, table_fn):
   if (iz) { q.value = iz; filtriraj(); }
 })();
 </script>
-''' % (t["kb_title"], t["kb_h1"], t["kb_intro"], t["pretraga"], t["pret_ocisti"], catbtns, cards)
+''' % (t["kb_title"], t["kb_h1"], t["kb_intro"], t["pretraga"], t["pretraga"], t["pret_ocisti"], catbtns, cards)
     listing = listing.replace("__PRETXT__", json.dumps(
         {"broj": t["pret_broj"], "nema": t["pret_nema"], "savjet": t["pret_savjet"]},
         ensure_ascii=False))
@@ -5662,7 +5715,7 @@ SA_T = {
    rep_h="Detailed report by email",
    rep_p="We send you your result with per-measure recommendations, and a short note on what we would tackle first in your position. You can also print or save the report as PDF right now with the button above.",
    rep_email="Your email address", rep_org="Organisation (optional)",
-   rep_consent='I agree that Adventure Spirit d.o.o. may send this report to the address given and contact me about it. I can withdraw this consent at any time by writing to info@adventurespirit.hr. See the <a href="/privatnost/">privacy policy</a>.',
+   rep_consent='I agree that Adventure Spirit d.o.o. may send this report to the address given and contact me about it. I can withdraw this consent at any time by writing to info@adventurespirit.hr. See the <a href="/en/privacy/">privacy policy</a>.',
    rep_btn="Send me the report",
    rep_legal="We send only the result of this assessment and a response to it. You are not added to a mailing list and your address is not shared with third parties.",
    rep_ok="Thank you. We will send the report to the address given, usually the same working day.",
@@ -5886,7 +5939,9 @@ def build_tool3(lang, articles):
         <h3>%s</h3>
         <p>%s</p>
         <div class="report-row">
+          <label class="vh" for="rp-mail">%s</label>
           <input type="email" id="rp-mail" placeholder="%s" autocomplete="email">
+          <label class="vh" for="rp-org">%s</label>
           <input type="text" id="rp-org" placeholder="%s" autocomplete="organization">
         </div>
         <label class="consent"><input type="checkbox" id="rp-ok"><span>%s</span></label>
@@ -5918,7 +5973,7 @@ def build_tool3(lang, articles):
        a["scale_h"], "\n".join(qs), a["btn"], a["reset"], a["privacy"],
        a["res_h"], a["score_lbl"], a["chart_h"], a["thresh"], a["legend"],
        a["gaps_h"], a["copy"], a["print"], a["copied"],
-       a["rep_h"], a["rep_p"], a["rep_email"], a["rep_org"], a["rep_consent"],
+       a["rep_h"], a["rep_p"], a["rep_email"], a["rep_email"], a["rep_org"], a["rep_org"], a["rep_consent"],
        a["rep_btn"], a["rep_legal"],
        a["cta_h"], a["cta_p"], a["cta_b1"],
        "/kontakt/" if lang == "hr" else "/en/contact/", a["cta_b2"],
@@ -7016,7 +7071,7 @@ KON_T = {
    f_ok="Thank you. We will reply within 24 hours on working days.",
    f_err="Sending failed. Please write to us directly at info@adventurespirit.hr.",
    f_need="Enter your name and a valid email address.",
-   privola="By sending this enquiry you agree that we use your details solely to reply to it. You are not added to a notification list and your details are not passed to third parties. See the <a href=\"/privatnost/\">privacy policy</a>.",
+   privola="By sending this enquiry you agree that we use your details solely to reply to it. You are not added to a notification list and your details are not passed to third parties. See the <a href=\"/en/privacy/\">privacy policy</a>.",
    prije_h="You can check for yourself before we talk",
    prije_p="Three tools run in your browser, with no sign-up. Running them before the call means the conversation starts from a concrete position rather than from nothing.",
    sto_h="What the first conversation looks like",
@@ -7116,11 +7171,15 @@ def build_contact(lang, articles):
     <div class="tool-panel" style="margin-top:0">
       <h2 style="font-size:19px;font-weight:800;color:var(--white);margin-bottom:20px">%s</h2>
       <div class="report-row">
+        <label class="vh" for="k-ime">%s</label>
         <input type="text" id="k-ime" placeholder="%s" autocomplete="name">
+        <label class="vh" for="k-mail">%s</label>
         <input type="email" id="k-mail" placeholder="%s" autocomplete="email">
       </div>
       <div class="report-row" style="margin-top:12px">
+        <label class="vh" for="k-tvrtka">%s</label>
         <input type="text" id="k-tvrtka" placeholder="%s" autocomplete="organization">
+        <label class="vh" for="k-tel">%s</label>
         <input type="text" id="k-tel" placeholder="%s" autocomplete="tel">
       </div>
       <div class="field" style="margin:16px 0 0">
@@ -7130,6 +7189,7 @@ def build_contact(lang, articles):
         </select>
       </div>
       <div class="field" style="margin:16px 0 0">
+        <label class="vh" for="k-poruka">%s</label>
         <textarea class="kon-textarea" id="k-poruka" placeholder="%s"></textarea>
       </div>
       <div class="tool-actions" style="border:none;padding-top:6px">
@@ -7161,8 +7221,10 @@ def build_contact(lang, articles):
   </div>
 </main>
 ''' % (t["base"] or "/", k["home"], k["name"], k["name"], k["h1"], k["intro"],
-       kontakti, k["forma_h"], k["f_ime"], k["f_mail"], k["f_tvrtka"], k["f_tel"],
-       k["f_tema"], opcije, k["f_poruka"], k["f_salji"], k["privola"],
+       kontakti, k["forma_h"],
+       k["f_ime"], k["f_ime"], k["f_mail"], k["f_mail"],
+       k["f_tvrtka"], k["f_tvrtka"], k["f_tel"], k["f_tel"],
+       k["f_tema"], opcije, k["f_poruka"], k["f_poruka"], k["f_salji"], k["privola"],
        k["sto_h"], kako,
        k["prije_h"], k["prije_p"],
        tools, CAT_T[lang]["slug"], CAT_T[lang]["name"],
@@ -7282,6 +7344,7 @@ urls += [("%s/sektori/%s/" % (SITE, x["hr"]), "0.8", "monthly") for x in SEKTORI
 urls += [("%s/en/sectors/%s/" % (SITE, x["en"]), "0.7", "monthly") for x in SEKTORI]
 urls += [("%s/blog/%s/" % (SITE, a["slug"]), "0.8", "monthly") for a in ARTICLES]
 urls += [("%s/en/blog/%s/" % (SITE, a["slug"]), "0.7", "monthly") for a in ARTICLES_EN]
+urls += [(SITE + "/en/terms/", "0.3", "yearly"), (SITE + "/en/privacy/", "0.3", "yearly")]
 urls += [(SITE + "/uvjeti/", "0.3", "yearly"), (SITE + "/privatnost/", "0.3", "yearly"),
          (SITE + "/mmew/", "0.5", "monthly"), (SITE + "/izleti/", "0.4", "monthly")]
 io.open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write(

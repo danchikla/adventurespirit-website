@@ -14,6 +14,7 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10 80 L38 32 L50 55 L62 20 L90 80 Z' fill='%236ec47a'/%3E%3Cpath d='M38 32 L31 50 L45 50 Z' fill='white' opacity='.8'/%3E%3C/svg%3E">
 
   <style>
+    .vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; white-space: nowrap; clip: rect(0 0 0 0); clip-path: inset(50%); }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --green: #6ec47a; --green-d: #2d7d36; --green-dd: #1e5228;
@@ -652,9 +653,12 @@
       </div>
       <form class="contact-form" onsubmit="handleContact(event)">
         <div class="form-row">
+          <label class="vh" for="c-name">Ime</label>
           <input class="form-input" type="text" placeholder="Ime *" required id="c-name">
+          <label class="vh" for="c-email">Email</label>
           <input class="form-input" type="email" placeholder="Email *" required id="c-email">
         </div>
+        <label class="vh" for="c-subject">Tema upita</label>
         <select class="form-select" id="c-subject">
           <option value="">Što vas zanima?</option>
           <option>Jednodnevni izlet — početnička razina</option>
@@ -666,9 +670,12 @@
           <option>Imam pitanje, nisam siguran/na što tražim</option>
         </select>
         <div class="form-row">
+          <label class="vh" for="c-company">Broj sudionika i željeni termin</label>
           <input class="form-input" type="text" placeholder="Broj sudionika i željeni termin" id="c-company">
+          <label class="vh" for="c-phone">Telefon / mobitel</label>
           <input class="form-input" type="tel" placeholder="Telefon / mobitel" id="c-phone">
         </div>
+        <label class="vh" for="c-message">Opis onoga što tražite</label>
         <textarea class="form-textarea" placeholder="Opišite slobodnim riječima što tražite — razina kondicije, destinacije koje vas zanimaju, posebni zahtjevi, pitanja..." id="c-message"></textarea>
         <button type="submit" class="form-submit">Pošaljite →</button>
         <div id="c-success" style="display:none;color:#6ec47a;font-size:13px;padding:8px 0;font-weight:300">Primili smo vaš upit. Javljamo se s prijedlogom.</div>

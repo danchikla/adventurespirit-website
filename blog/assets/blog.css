@@ -675,3 +675,12 @@ mark { background: rgba(239,101,63,.28); color: #fff; border-radius: 3px; paddin
     padding: 10px 20px; font-size: 14px;
   }
 }
+
+/* Vizualno skrivena oznaka: nevidljiva na zaslonu, ali je citaci
+   zaslona izgovaraju. Placeholder sam po sebi nije oznaka - nestaje
+   cim korisnik pocne tipkati i ne izgovara se pouzdano. */
+.vh {
+  position: absolute; width: 1px; height: 1px; margin: -1px;
+  padding: 0; border: 0; overflow: hidden; white-space: nowrap;
+  clip: rect(0 0 0 0); clip-path: inset(50%);
+}

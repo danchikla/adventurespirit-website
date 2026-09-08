@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy policy | Adventure Spirit Consulting</title>
+  <meta name="description" content="Privacy policy and cookie management for Adventure Spirit d.o.o., including our cookieless first-party visit statistics.">
+  <link rel="canonical" href="https://adventurespirit.hr/en/privacy/">
+  <link rel="alternate" hreflang="hr" href="https://adventurespirit.hr/privatnost/">
+  <link rel="alternate" hreflang="en" href="https://adventurespirit.hr/en/privacy/">
+  <link rel="alternate" hreflang="x-default" href="https://adventurespirit.hr/privatnost/">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23EF653F'/%3E%3Cpath d='M30 65 L50 30 L70 65 Z' fill='white'/%3E%3C/svg%3E">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange: #EF653F; --orange-d: #c14b28;
+      --dark: #0f1117; --dark2: #1a1e2e; --mid: #2d3348;
+      --text: #e2e8f0; --text-muted: #94a3b8; --white: #ffffff;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--dark); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(15,17,23,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 0 32px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 32px; height: 32px; background: var(--orange); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-name { font-size: 15px; font-weight: 700; color: var(--white); }
+    .nav-logo-name span { color: var(--orange); }
+    .nav-back { color: var(--text-muted); text-decoration: none; font-size: 13.5px; font-weight: 500; padding: 6px 12px; border-radius: 6px; transition: color .2s, background .2s; }
+    .nav-back:hover { color: var(--white); background: rgba(255,255,255,.06); }
+    .page-hero { padding: 80px 32px 60px; max-width: 800px; margin: 0 auto; }
+    .page-hero-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .page-hero h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; color: var(--white); line-height: 1.2; margin-bottom: 16px; }
+    .page-hero-meta { font-size: 13px; color: var(--text-muted); }
+    .content { max-width: 800px; margin: 0 auto; padding: 0 32px 100px; }
+    .section { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .section:last-child { border-bottom: none; }
+    .section h2 { font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .section h2 .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--orange); border-radius: 6px; font-size: 12px; font-weight: 700; color: white; flex-shrink: 0; }
+    .section p { font-size: 14.5px; color: var(--text-muted); line-height: 1.8; margin-bottom: 12px; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul { list-style: none; margin: 12px 0; }
+    .section ul li { font-size: 14.5px; color: var(--text-muted); line-height: 1.7; padding: 6px 0 6px 20px; position: relative; }
+    .section ul li::before { content: '—'; position: absolute; left: 0; color: var(--orange); font-weight: 600; }
+    .highlight { background: rgba(239,101,63,.08); border: 1px solid rgba(239,101,63,.2); border-radius: 10px; padding: 16px 20px; margin: 16px 0; }
+    .highlight p { color: var(--text); font-size: 14px; margin: 0; }
+    /* Cookie table */
+    .cookie-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+    .cookie-table th { text-align: left; padding: 10px 14px; background: rgba(255,255,255,.05); color: var(--white); font-weight: 600; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .cookie-table td { padding: 10px 14px; color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,.04); vertical-align: top; }
+    .cookie-table tr:last-child td { border-bottom: none; }
+    .badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+    .badge-green { background: rgba(22,163,74,.15); color: #4ade80; }
+    .badge-amber { background: rgba(217,119,6,.15); color: #fbbf24; }
+    .badge-blue  { background: rgba(37,99,235,.15); color: #60a5fa; }
+    /* Consent widget */
+    .consent-widget { background: var(--dark2); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 20px 24px; margin: 24px 0; }
+    .consent-widget p { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
+    .consent-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+    .consent-btns button { padding: 9px 18px; border-radius: 7px; font-size: 13px; font-weight: 600; cursor: pointer; transition: .15s; }
+    .btn-accept { background: var(--orange); color: white; border: none; }
+    .btn-accept:hover { background: var(--orange-d); }
+    .btn-reject { background: transparent; color: var(--text-muted); border: 1.5px solid rgba(255,255,255,.15); }
+    .btn-reject:hover { border-color: var(--orange); color: var(--white); }
+    .consent-status { font-size: 12px; color: var(--text-muted); margin-top: 12px; padding: 8px 12px; background: rgba(255,255,255,.04); border-radius: 6px; }
+    footer { border-top: 1px solid rgba(255,255,255,.06); padding: 32px; text-align: center; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    footer a { color: var(--orange); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://adventurespirit.hr/en/" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M2 15 L9 3 L16 15 Z" fill="white" stroke="white" stroke-width="1" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div><div class="nav-logo-name">Adventure<span>Spirit</span></div></div>
+  </a>
+  <a href="https://adventurespirit.hr/en/" class="nav-back">&larr; Back to the site</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-label">Legal</div>
+  <h1>Privacy policy</h1>
+  <p class="page-hero-meta">Last updated: September 2026 &nbsp;&middot;&nbsp; Adventure Spirit d.o.o.</p>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <h2><span class="num">1</span> Controller and contact</h2>
+    <p>The controller of personal data is:</p>
+    <ul>
+      <li><strong>Adventure Spirit d.o.o. za usluge</strong> (trading as Adventure Spirit Consulting)<br>Antuna &Scaron;oljana 22, 10000 Zagreb, Croatia &middot; VAT ID: HR72169598754 &middot; Company number: 4845552 &middot; Commercial Court in Zagreb</li>
+      <li>Registered office: Zagreb, Republic of Croatia</li>
+      <li>Email: <a href="mailto:info@adventurespirit.hr" style="color:var(--orange)">info@adventurespirit.hr</a></li>
+    </ul>
+    <p>For any question about data protection, or to exercise your rights as a data subject, write to the address above.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">2</span> What we collect and why</h2>
+    <p>We collect only what is necessary to provide our services and to communicate with users:</p>
+    <ul>
+      <li><strong>Contact details</strong> (name, email) - when you send an enquiry through a form on the site; legal basis: performance of a contract and legitimate interest (Art. 6(1)(b) and (f) GDPR)</li>
+      <li><strong>Platform usage data</strong> (for users of app.adventurespirit.hr) - email, name, role, activity within the platform; legal basis: performance of a contract (Art. 6(1)(b) GDPR)</li>
+      <li><strong>Technical data</strong> - browser type and the pages you visited; legal basis: legitimate interest in security and statistics (Art. 6(1)(f) GDPR)</li>
+    </ul>
+    <p>We do not collect special categories of personal data (Art. 9 GDPR) and we do not knowingly collect data from anyone under 16.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">3</span> Cookies</h2>
+    <p>This website and the GRC platform use cookies to function correctly and to improve the user experience. Below is the complete list of what we set:</p>
+
+    <table class="cookie-table">
+      <thead>
+        <tr><th>Name</th><th>Type</th><th>Duration</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>as_cookie_consent</code></td>
+          <td><span class="badge badge-green">Necessary</span></td>
+          <td>Persistent (localStorage)</td>
+          <td>Records your cookie decision so the banner does not reappear on every visit.</td>
+        </tr>
+        <tr>
+          <td><code>as_cookie_consent_date</code></td>
+          <td><span class="badge badge-green">Necessary</span></td>
+          <td>Persistent (localStorage)</td>
+          <td>The date you gave or refused consent, kept as a record of consent (Art. 7 GDPR).</td>
+        </tr>
+        <tr>
+          <td><code>grc_cookie_consent</code></td>
+          <td><span class="badge badge-green">Necessary</span></td>
+          <td>Persistent (localStorage)</td>
+          <td>The same mechanism for the GRC platform (app.adventurespirit.hr).</td>
+        </tr>
+        <tr>
+          <td><code>grc_cookie_consent_date</code></td>
+          <td><span class="badge badge-green">Necessary</span></td>
+          <td>Persistent (localStorage)</td>
+          <td>The date consent was given on the platform.</td>
+        </tr>
+        <tr>
+          <td><code>grc_token</code> / <code>grc_refresh</code></td>
+          <td><span class="badge badge-green">Necessary</span></td>
+          <td>Session / 30 days</td>
+          <td>JWT authentication token for the GRC platform. Sign-in is not possible without it.</td>
+        </tr>
+        <tr>
+          <td>Analytics cookies (future)</td>
+          <td><span class="badge badge-amber">Analytics</span></td>
+          <td>Up to 13 months</td>
+          <td>We currently use no third-party analytics tools. If we introduce any, it will be only with your explicit consent, and this page will be updated.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Note: for consent data we use <strong>localStorage</strong> (browser storage) rather than classic HTTP cookies, which means the data stays locally on your device and is never sent to the server.</p>
+
+    <h3 style="font-size:15px;font-weight:700;color:var(--white);margin:24px 0 12px;">Managing your consent</h3>
+    <p>You can change or withdraw your consent at any time:</p>
+    <div class="consent-widget">
+      <p>Your current choice: <strong id="consent-current-text" style="color:var(--white)">checking...</strong></p>
+      <div class="consent-btns">
+        <button class="btn-accept" onclick="updateConsent('all')">&#10003; Accept all cookies</button>
+        <button class="btn-reject" onclick="updateConsent('necessary')">Necessary only</button>
+        <button class="btn-reject" onclick="updateConsent('withdraw')" style="border-color:rgba(220,38,38,.4);color:#f87171;">Withdraw consent</button>
+      </div>
+      <p class="consent-status" id="consent-status" style="display:none"></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">4</span> Notifications about new articles</h2>
+    <p>The site offers a form for subscribing to notifications about new articles in the knowledge base. Subscribing is voluntary and the site can be used in full without it.</p>
+    <table class="cookie-table">
+      <thead><tr><th>Data</th><th>Purpose</th><th>Legal basis</th><th>Retention</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Email address</td>
+          <td>Sending notices about new articles, roughly every two weeks</td>
+          <td>Consent (Art. 6(1)(a) GDPR)</td>
+          <td>Until consent is withdrawn</td>
+        </tr>
+        <tr>
+          <td>Record of consent</td>
+          <td>Demonstrating that consent was given, as required by Art. 7(1) GDPR</td>
+          <td>Legitimate interest in demonstrating compliance</td>
+          <td>Until withdrawal plus one year</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>You may withdraw consent at any time, either by writing to info@adventurespirit.hr or through the unsubscribe link in every notice. Withdrawal does not affect the lawfulness of processing carried out before it.</p>
+    <p>We use the address for that purpose only. We do not pass it to third parties, do not use it for profiling, and do not combine it with the visit statistics described in the next section.</p>
+    <p>Forms on the site - contact, the report request from the self-assessment tool, and the notification sign-up - are delivered through a form-processing service, which acts as a processor for that purpose.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">5</span> Cookieless visit statistics</h2>
+    <p>We keep visit statistics using our own solution on our own server. We do not use Google Analytics or any other external measurement tool, so your data never leaves our infrastructure.</p>
+    <p>For this processing we set no cookies and store nothing on your device. The consent requirement under the electronic communications rules therefore does not apply, and the legal basis is our legitimate interest in understanding how the site is used (Art. 6(1)(f) GDPR).</p>
+
+    <h3 style="font-size:15px;font-weight:700;color:var(--white);margin:24px 0 12px;">What we record</h3>
+    <table class="cookie-table">
+      <thead><tr><th>Data</th><th>Content</th></tr></thead>
+      <tbody>
+        <tr><td>Time</td><td>Date and time of the visit in UTC</td></tr>
+        <tr><td>Path</td><td>The address of the page visited, without query parameters</td></tr>
+        <tr><td>Source</td><td>Only the domain you came from (for example google.com), never the full address</td></tr>
+        <tr><td>Device</td><td>A desktop, tablet or mobile label derived from window width</td></tr>
+        <tr><td>Language</td><td>The language version of the page and the browser language</td></tr>
+        <tr><td>Event</td><td>Use of the free tools, for example a completed self-assessment and its overall percentage</td></tr>
+        <tr><td>Visit fingerprint</td><td>A 16-character string described below</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:15px;font-weight:700;color:var(--white);margin:24px 0 12px;">Why an individual cannot be tracked</h3>
+    <p>We do not store your IP address. It is used only at the moment of the visit, as input to a cryptographic hash function together with a secret value and browser data. The result is a 16-character string from which the IP address cannot be reconstructed.</p>
+    <p>The secret value changes every day at midnight UTC and the old one is deleted. The same visitor therefore receives a completely different fingerprint the next day, so visits cannot be linked across days or attributed to a particular person. The result is aggregate statistics, not a profile.</p>
+    <p>We respect the Do Not Track and Global Privacy Control settings in your browser. If either is enabled, we record nothing. No statistics are collected if you disable JavaScript either.</p>
+    <p>Records are kept in monthly files on our server, are not publicly accessible and are not shared with third parties.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">6</span> Recipients and transfers outside the EU</h2>
+    <p>We do not sell your personal data and do not pass it to third parties for marketing purposes.</p>
+    <p>For technical infrastructure we use the following processors:</p>
+    <ul>
+      <li><strong>Cloudflare, Inc.</strong> (USA) - platform hosting, CDN, DDoS protection; safeguards: EU standard contractual clauses and the Cloudflare Data Processing Addendum</li>
+      <li><strong>Google Fonts</strong> - font loading; no personal data stored</li>
+    </ul>
+    <p>Every processor we work with handles data solely on our instructions and in accordance with the GDPR.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">7</span> Retention periods</h2>
+    <ul>
+      <li><strong>Contact enquiries</strong> are kept for 3 years from the last communication</li>
+      <li><strong>Platform accounts</strong> are kept while the account is active; on a deletion request we erase all personal data within 30 days</li>
+      <li><strong>Technical logs</strong> are kept for up to 90 days for system security</li>
+      <li><strong>Consent records</strong> are kept for 3 years to demonstrate compliance (Art. 7(1) GDPR)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">8</span> Your rights as a data subject</h2>
+    <p>Under the GDPR (Regulation (EU) 2016/679) you have the following rights:</p>
+    <ul>
+      <li><strong>Access</strong> (Art. 15) - you may request a copy of the personal data we process about you</li>
+      <li><strong>Rectification</strong> (Art. 16) - you may request correction of inaccurate data</li>
+      <li><strong>Erasure</strong> (Art. 17) - you may request deletion of your data, the so-called right to be forgotten</li>
+      <li><strong>Portability</strong> (Art. 20) - you may request your data in a machine-readable format (JSON or CSV)</li>
+      <li><strong>Objection</strong> (Art. 21) - you may object to processing based on legitimate interest</li>
+      <li><strong>Restriction</strong> (Art. 18) - in certain cases you may request that processing be suspended</li>
+      <li><strong>Withdrawal of consent</strong> - at any time, without affecting the lawfulness of processing carried out beforehand</li>
+    </ul>
+    <p>Send requests to <a href="mailto:info@adventurespirit.hr" style="color:var(--orange);font-weight:600">info@adventurespirit.hr</a> marked "GDPR request". We reply within 30 days of receipt (Art. 12(3) GDPR).</p>
+    <p>If you believe we process your data unlawfully, you have the right to lodge a complaint with the supervisory authority:</p>
+    <ul>
+      <li><strong>AZOP</strong> - Croatian Personal Data Protection Agency, <a href="https://azop.hr/" target="_blank" rel="noopener" style="color:var(--orange)">azop.hr</a></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">9</span> Data security</h2>
+    <p>We apply technical and organisational measures appropriate to the state of the art:</p>
+    <ul>
+      <li>HTTPS encryption of all communication (TLS 1.2 and above)</li>
+      <li>Password hashing (bcrypt or PBKDF2)</li>
+      <li>Role-based access control</li>
+      <li>Regular backups and monitoring</li>
+      <li>Tenant data isolation in the multi-tenant architecture</li>
+    </ul>
+    <p>In the event of a breach presenting a high risk to data subjects, we will notify you without undue delay in accordance with Art. 34 GDPR.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">10</span> Changes to this policy</h2>
+    <p>We may update this privacy policy from time to time. Any material change will be published on this page with a new "Last updated" date. Users of the GRC platform will also be notified by email of material changes.</p>
+    <p>We recommend reviewing this page periodically.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">11</span> Privacy contact</h2>
+    <ul>
+      <li><strong>Adventure Spirit d.o.o. za usluge</strong> (trading as Adventure Spirit Consulting)<br>Antuna &Scaron;oljana 22, 10000 Zagreb, Croatia &middot; VAT ID: HR72169598754 &middot; Company number: 4845552 &middot; Commercial Court in Zagreb</li>
+      <li>Email: <a href="mailto:info@adventurespirit.hr" style="color:var(--orange)">info@adventurespirit.hr</a></li>
+      <li>Web: <a href="https://adventurespirit.hr/en/" style="color:var(--orange)">adventurespirit.hr</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Adventure Spirit d.o.o. &middot; <a href="https://adventurespirit.hr/en/">adventurespirit.hr</a> &middot; <a href="/en/terms/">Terms of use</a> &middot; <a href="mailto:info@adventurespirit.hr">info@adventurespirit.hr</a></p>
+</footer>
+<script>
+  function showConsentStatus() {
+    const level = localStorage.getItem('as_cookie_consent');
+    const date = localStorage.getItem('as_cookie_consent_date');
+    const el = document.getElementById('consent-current-text');
+    if (!level) { el.textContent = 'not set'; return; }
+    const labels = { all: 'All cookies accepted', necessary: 'Necessary cookies only', withdraw: 'Consent withdrawn' };
+    const d = date ? ' ('+new Date(date).toLocaleDateString('en-GB')+')' : '';
+    el.textContent = (labels[level] || level) + d;
+  }
+  function updateConsent(level) {
+    if (level === 'withdraw') {
+      localStorage.removeItem('as_cookie_consent');
+      localStorage.removeItem('as_cookie_consent_date');
+    } else {
+      localStorage.setItem('as_cookie_consent', level);
+      localStorage.setItem('as_cookie_consent_date', new Date().toISOString());
+    }
+    showConsentStatus();
+    const status = document.getElementById('consent-status');
+    status.style.display = 'block';
+    status.textContent = level === 'withdraw'
+      ? '\u2713 Consent withdrawn. Necessary cookies remain active.'
+      : level === 'all'
+        ? '\u2713 All cookies accepted.'
+        : '\u2713 Necessary cookies only.';
+  }
+  showConsentStatus();
+</script>
+</body>
+</html>

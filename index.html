@@ -574,6 +574,7 @@
     .kb-all { text-align: center; margin-top: 34px; }
 
 
+    .vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; white-space: nowrap; clip: rect(0 0 0 0); clip-path: inset(50%); }
     .lang-switch { display: flex; align-items: center; gap: 2px; margin-left: 6px; padding-left: 10px; border-left: 1px solid rgba(255,255,255,.12); }
     .lang-switch a, .lang-switch span { font-size: 12px; font-weight: 700; letter-spacing: .5px; padding: 5px 8px; border-radius: 6px; }
     .lang-switch span { color: var(--white); background: rgba(255,255,255,.08); }
@@ -1721,13 +1722,18 @@
       </div>
       <form class="contact-form" onsubmit="handleContact(event)">
         <div class="form-row">
+          <label class="vh" for="c-name">Ime i prezime</label>
           <input class="form-input" type="text" placeholder="Ime i prezime *" required id="c-name">
+          <label class="vh" for="c-email">Email adresa</label>
           <input class="form-input" type="email" placeholder="Email adresa *" required id="c-email">
         </div>
         <div class="form-row">
+          <label class="vh" for="c-company">Tvrtka / organizacija</label>
           <input class="form-input" type="text" placeholder="Tvrtka / organizacija" id="c-company">
+          <label class="vh" for="c-phone">Telefon / mobitel</label>
           <input class="form-input" type="tel" placeholder="Telefon / mobitel" id="c-phone">
         </div>
+        <label class="vh" for="c-subject">Tema upita</label>
         <select class="form-select" id="c-subject">
           <option value="">Odaberite temu upita</option>
           <option>ZKS / NIS2 implementacija</option>
@@ -1742,6 +1748,7 @@
           <option>Sigurnosni audit / pen test</option>
           <option>Ostalo</option>
         </select>
+        <label class="vh" for="c-message">Kratki opis projekta ili upita</label>
         <textarea class="form-textarea" placeholder="Kratki opis projekta ili upita" id="c-message"></textarea>
         <button type="submit" class="form-submit">Pošaljite upit →</button>
         <div id="c-success" style="display:none;color:#6ec47a;font-size:13px;padding:8px 0">✓ Hvala! Javit ćemo se uskoro.</div>
@@ -1760,6 +1767,7 @@
         <h4>Novi tekst otprilike svaka dva tjedna</h4>
         <p>Kad izađe nov članak u bazi znanja ili se promijeni nešto u propisu, javimo se kratkom porukom. Bez ponuda i bez podsjetnika.</p>
         <div class="nl-row">
+          <label class="vh" for="nl-mail">Vaša e-mail adresa</label>
           <input type="email" id="nl-mail" placeholder="Vaša e-mail adresa" autocomplete="email">
           <button type="button" id="nl-btn">Prijavi me</button>
         </div>
