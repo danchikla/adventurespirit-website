@@ -1959,7 +1959,7 @@
       }
       var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
       // Formspree: OBAVIJESTI (prijava na obavijesti o novim tekstovima)
-      fetch("https://formspree.io/f/mojpkknr", {
+      fetch("https://formspree.io/f/xjyvpyqq", {
         method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({ email: m, _subject: T.subj,
           message: T.subj + "\n" + location.href + "\n\n" + T.log })
@@ -2002,7 +2002,7 @@
     };
     try {
       // Formspree: UPITI (prodajni upit s naslovnice, odgovor u 24 sata)
-      const res = await fetch('https://formspree.io/f/mojpkknr', {
+      const res = await fetch('https://formspree.io/f/xbgjpgvb', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(body)

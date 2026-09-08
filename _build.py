@@ -16,8 +16,8 @@ SITE = "https://adventurespirit.hr"
 #   OBAVIJESTI - prijave na obavijesti i zahtjevi za izvjestajem
 #   IZLETI     - izleti, odvojena djelatnost (u izleti/index.html)
 # ══════════════════════════════════════════════════════════════════
-FS_UPITI = "mojpkknr"
-FS_OBAVIJESTI = "mojpkknr"
+FS_UPITI = "xbgjpgvb"
+FS_OBAVIJESTI = "xjyvpyqq"
 
 AUTHOR = "Daniel Bara, dr. sc."
 

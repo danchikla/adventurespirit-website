@@ -269,7 +269,7 @@
       msg.textContent = T.need; msg.className = "nl-msg bad"; msg.hidden = false; return;
     }
     var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
-    fetch("https://formspree.io/f/mojpkknr", {
+    fetch("https://formspree.io/f/xjyvpyqq", {
       method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({ email: m, _subject: T.subj,
         message: T.subj + "\n" + location.href + "\n\n" + T.log })
@@ -298,7 +298,7 @@
     if (tvrtka) { redci.push(T.m_tvrtka + ": " + tvrtka); }
     if (tel) { redci.push(T.m_tel + ": " + tel); }
     redci.push(T.m_str + ": " + location.href);
-    fetch("https://formspree.io/f/mojpkknr", {
+    fetch("https://formspree.io/f/xbgjpgvb", {
       method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
         name: ime, email: mail, phone: tel || "-", company: tvrtka || "-",
