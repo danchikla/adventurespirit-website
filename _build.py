@@ -6,6 +6,19 @@ import io, os, re, html, json
 ROOT = "/Users/dbara/adventurespirit-website"
 BLOG = os.path.join(ROOT, "blog")
 SITE = "https://adventurespirit.hr"
+
+# ══════════════════════════════════════════════════════════════════
+# Formspree odredista
+# Tri odvojena obrasca umjesto jednoga, jer se razlikuju po hitnosti i
+# po djelatnosti. Dok se zasebni obrasci ne otvore, sva tri pokazuju na
+# postojeci, pa promjena ovdje nista ne lomi.
+#   UPITI      - prodajni upiti, traze odgovor u 24 sata
+#   OBAVIJESTI - prijave na obavijesti i zahtjevi za izvjestajem
+#   IZLETI     - izleti, odvojena djelatnost (u izleti/index.html)
+# ══════════════════════════════════════════════════════════════════
+FS_UPITI = "mojpkknr"
+FS_OBAVIJESTI = "mojpkknr"
+
 AUTHOR = "Daniel Bara, dr. sc."
 
 # ══════════════════════════════════════════════════════════════════
@@ -232,7 +245,7 @@ def footer(lang, articles):
       msg.textContent = T.need; msg.className = "nl-msg bad"; msg.hidden = false; return;
     }
     var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
-    fetch("https://formspree.io/f/mojpkknr", {
+    fetch("https://formspree.io/f/__FS_OBAVIJESTI__", {
       method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({ email: m, _subject: T.subj,
         message: T.subj + "\\n" + location.href + "\\n\\n" + T.log })
@@ -347,6 +360,8 @@ def page(title, desc, body, canonical, lang="hr", extra_head="", og_type="websit
                          % json.dumps(o, ensure_ascii=False, indent=2) for o in ld)
     feed = feed or L[lang]["blog"] + "feed.xml"
     css = '<link rel="stylesheet" href="/blog/assets/blog.css">\n' if css_link else ''
+    body = (body.replace("__FS_UPITI__", FS_UPITI)
+                .replace("__FS_OBAVIJESTI__", FS_OBAVIJESTI))
     return '''<!DOCTYPE html>
 <html lang="%s">
 <head>
@@ -4334,7 +4349,7 @@ async function handleContact(e) {
              document.getElementById('c-message').value
   };
   try {
-    var res = await fetch('https://formspree.io/f/mojpkknr', {
+    var res = await fetch('https://formspree.io/f/__FS_UPITI__', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify(body)
@@ -5836,7 +5851,7 @@ def build_tool3(lang, articles):
     }
     var btn = $("rp-send"), label = btn.textContent;
     btn.disabled = true; btn.textContent = T.repSending; msg.hidden = true;
-    fetch("https://formspree.io/f/mojpkknr", {
+    fetch("https://formspree.io/f/__FS_OBAVIJESTI__", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
@@ -7137,7 +7152,7 @@ def build_contact(lang, articles):
     if (tvrtka) { redci.push(T.m_tvrtka + ": " + tvrtka); }
     if (tel) { redci.push(T.m_tel + ": " + tel); }
     redci.push(T.m_str + ": " + location.href);
-    fetch("https://formspree.io/f/mojpkknr", {
+    fetch("https://formspree.io/f/__FS_UPITI__", {
       method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
         name: ime, email: mail, phone: tel || "-", company: tvrtka || "-",

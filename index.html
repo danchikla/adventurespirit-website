@@ -1958,6 +1958,7 @@
         msg.textContent = T.need; msg.className = "nl-msg bad"; msg.hidden = false; return;
       }
       var lab = b.textContent; b.disabled = true; b.textContent = T.send; msg.hidden = true;
+      // Formspree: OBAVIJESTI (prijava na obavijesti o novim tekstovima)
       fetch("https://formspree.io/f/mojpkknr", {
         method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({ email: m, _subject: T.subj,
@@ -2000,7 +2001,7 @@
       })()
     };
     try {
-      // Zamijeni xvzvwwre s vašim Formspree ID-em (besplatno na formspree.io)
+      // Formspree: UPITI (prodajni upit s naslovnice, odgovor u 24 sata)
       const res = await fetch('https://formspree.io/f/mojpkknr', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },

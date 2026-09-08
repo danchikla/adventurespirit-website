@@ -80,3 +80,25 @@ u funkciji `en_index()`.
 Push na `main` pokreće GitHub Actions koji FTPS-om šalje repozitorij na cPanel.
 `_build.py` i `BUILD.md` su isključeni iz deploya i dodatno blokirani u `.htaccess`.
 **Pokrenite `python3 _build.py` prije commita** ako ste mijenjali nešto što skripta generira.
+
+## Formspree obrasci
+
+Obrasci na stranici dijele se na tri Formspree odredišta, jer se razlikuju
+po hitnosti i po djelatnosti:
+
+| Oznaka | Što prima | Gdje se postavlja |
+|---|---|---|
+| `FS_UPITI` | prodajni upiti, traže odgovor u 24 sata | `_build.py` (konstanta) + `index.html` |
+| `FS_OBAVIJESTI` | prijave na obavijesti, zahtjevi za izvještajem | `_build.py` (konstanta) + `index.html` |
+| izleti | upiti za izlete, odvojena djelatnost | `izleti/index.html` |
+
+U generatoru se ne piše ID izravno nego oznaka `__FS_UPITI__` odnosno
+`__FS_OBAVIJESTI__`, koju `page()` zamijeni vrijednošću konstante pri
+pisanju svake stranice. Za promjenu odredišta dovoljno je izmijeniti
+konstantu na vrhu `_build.py`.
+
+U `index.html` i `izleti/index.html` ID stoji izravno u kodu jer se te
+datoteke ne generiraju. Svako mjesto ima komentar koje je odredište.
+
+Dok se zasebni obrasci ne otvore, sva tri pokazuju na isti postojeći ID,
+pa promjena ničega ne lomi.
