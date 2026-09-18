@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Medvednica Mountain Experience Weekend, 12. do 14. rujna 2026. | Adventure Spirit</title>
-  <meta name="description" content="Tri dana planinarenja, vještina i odgovornog boravka u prirodi na Medvednici, 12. do 14. rujna 2026. Vođene ture, orijentacija, sigurno kretanje, prva pomoć u planini i program za obitelji. Besplatno, uz prijavu, 50 mjesta po danu.">
+  <meta name="description" content="Medvednica Mountain Experience Weekend održan je 12. do 14. rujna 2026. u Parku prirode Medvednica. Izvještaj i fotografije s tri dana vođenih tura, radionica orijentacije i sigurnog kretanja, prve pomoći u planini i programa za obitelji.">
   <link rel="canonical" href="https://adventurespirit.hr/mmew/">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://adventurespirit.hr/mmew/">
   <meta property="og:title" content="Medvednica Mountain Experience Weekend, 12. do 14. rujna 2026.">
-  <meta property="og:description" content="Tri dana planinarenja, vještina i odgovornog boravka u prirodi. Besplatno, uz prijavu, 50 mjesta po danu. Park prirode Medvednica.">
+  <meta property="og:description" content="Izvještaj i fotografije s tri dana planinarenja, vještina i odgovornog boravka u prirodi. Park prirode Medvednica, 12. do 14. rujna 2026.">
   <meta property="og:image" content="https://adventurespirit.hr/mmew/img/og.jpg">
   <meta property="og:locale" content="hr_HR">
   <meta name="twitter:card" content="summary_large_image">
@@ -224,6 +224,28 @@
       .day, .green-card, .signup-box, .support-note { break-inside: avoid; page-break-inside: avoid; }
       .hero-btns, .signup-btns { display: none; }
     }
+
+    /* ─── KAKO JE BILO, IZVJEŠTAJ I GALERIJA ──────────────── */
+    .report-section { background: var(--dark2); }
+    .report-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(239,101,63,.12); border: 1px solid rgba(239,101,63,.35); color: var(--orange); font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; margin-bottom: 18px; }
+    .report-lead p { color: var(--text); font-size: 17px; margin-bottom: 14px; }
+    .report-days { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 34px 0 10px; }
+    .report-day { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-left: 3px solid var(--orange); border-radius: 10px; padding: 20px 22px; }
+    .report-day h3 { font-size: 15px; color: var(--white); margin-bottom: 4px; }
+    .report-day .rd-date { font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+    .report-day p { font-size: 14.5px; color: var(--text-muted); }
+    .report-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 34px 0 6px; }
+    .rs { background: rgba(239,101,63,.07); border: 1px solid rgba(239,101,63,.22); border-radius: 10px; padding: 18px 16px; text-align: center; }
+    .rs-num { font-size: 32px; font-weight: 800; color: var(--orange); line-height: 1.1; }
+    .rs-lab { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+    @media (max-width: 860px) { .report-stats { grid-template-columns: repeat(2, 1fr); } }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-top: 34px; }
+    .gallery figure { margin: 0; border-radius: 10px; overflow: hidden; background: var(--mid); aspect-ratio: 3 / 4; }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .gallery figure:hover img { transform: scale(1.04); }
+    .gallery-note { margin-top: 16px; font-size: 13px; color: var(--text-muted); }
+    @media (max-width: 860px) { .report-days { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { .gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; } }
   </style>
 
   <script type="application/ld+json">
@@ -279,13 +301,14 @@
   </a>
 
   <ul class="nav-links" id="nav-links">
+    <li><a href="#kako-je-bilo">Kako je bilo</a></li>
     <li><a href="#o-dogadanju">O događanju</a></li>
     <li><a href="#program">Program</a></li>
     <li><a href="#priprema">Priprema</a></li>
     <li><a href="#odrzivost">Održivost</a></li>
     <li><a href="#organizator">Organizator</a></li>
     <li><a href="https://izleti.adventurespirit.hr" class="nav-back">← Planinarenje</a></li>
-    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeir0osbltPo0dW3QdA0zf7AR0g8JOwdvo-K5JmyvRDb1WKNA/viewform" class="nav-cta" target="_blank" rel="noopener">Prijavi se</a></li>
+    <li><a href="#galerija" class="nav-cta">Fotografije</a></li>
   </ul>
 
   <button class="nav-toggle" onclick="toggleNav()" aria-label="Izbornik">
@@ -300,17 +323,17 @@
   <div class="hero-bg"></div>
   <div class="hero-veil"></div>
   <div class="hero-inner">
-    <div class="hero-date">12. - 14. rujna 2026.</div>
+    <div class="hero-date">Održano 12. - 14. rujna 2026.</div>
     <h1 class="hero-h1">Medvednica Mountain Experience Weekend</h1>
-    <p class="hero-sub">Tri dana planinarenja, vještina i odgovornog boravka u prirodi, u Parku prirode Medvednica.</p>
+    <p class="hero-sub">Tri dana planinarenja, vještina i odgovornog boravka u prirodi, u Parku prirode Medvednica. Događanje je provedeno, hvala svima koji su hodali s nama.</p>
     <div class="hero-pills">
-      <span class="pill">Besplatno, uz prijavu</span>
-      <span class="pill">50 mjesta po danu</span>
+      <span class="pill">Događanje je provedeno</span>
+      <span class="pill">Sudjelovanje je bilo besplatno</span>
       <span class="pill">Licencirani vodiči</span>
       <span class="pill">Program za obitelji</span>
     </div>
     <div class="hero-btns">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeir0osbltPo0dW3QdA0zf7AR0g8JOwdvo-K5JmyvRDb1WKNA/viewform" class="btn-primary" target="_blank" rel="noopener">Prijavi se</a>
+      <a href="#kako-je-bilo" class="btn-primary">Kako je bilo</a>
       <a href="#program" class="btn-ghost">Pogledaj program</a>
     </div>
   </div>
@@ -343,6 +366,82 @@
     </div>
   </div>
 </div>
+
+<!-- ════════════════ KAKO JE BILO ════════════════ -->
+<section id="kako-je-bilo" class="report-section">
+  <div class="container">
+    <div class="report-badge">Događanje je provedeno</div>
+    <div class="section-eyebrow">Izvještaj</div>
+    <h2 class="section-h2">Tri dana Medvednice</h2>
+    <div class="section-lead report-lead">
+      <p>Medvednica Mountain Experience Weekend održan je od 12. do 14. rujna 2026. u Parku prirode Medvednica, u tri zaokružene cjeline, po označenim planinarskim stazama i s licenciranim vodstvom.</p>
+      <p>Svaki sudionik prije polaska upoznat je s rizicima i potpisao obavijest o rizicima, skupine su vodili planinski vodiči s licencama Saveza gorskih vodiča Hrvatske i UIMLA-e, a sudionici su bili osigurani od posljedica nesretnog slučaja. Nije bilo nezgoda ni intervencija.</p>
+    </div>
+
+    <div class="report-days">
+      <article class="report-day">
+        <div class="rd-date">Subota, 12.9.</div>
+        <h3>Discover Medvednica</h3>
+        <p>Leustekovom stazom do doma Ivan Pačkovski na Puntijarki, uz interpretaciju prirodne i planinarske baštine, sustav markacija i čitanje staze, povijest planinarstva na Medvednici i radionicu planiranja ture. Povratak stazama 18 i 19.</p>
+      </article>
+      <article class="report-day">
+        <div class="rd-date">Nedjelja, 13.9.</div>
+        <h3>Mountain Skills &amp; Safety</h3>
+        <p>Sa Šestinskog lagvića do Kraljičinog zdenca i radionice orijentacije: kako okrenuti kartu prema terenu, uzeti azimut i hodati po njemu, te što napraviti kada shvatite da ne znate gdje ste. Zatim Medvedgrad i prva pomoć u planini kod doma Grafičar.</p>
+      </article>
+      <article class="report-day">
+        <div class="rd-date">Ponedjeljak, 14.9.</div>
+        <h3>Green &amp; Responsible Outdoor</h3>
+        <p>Načela Leave No Trace u praksi, odvajanje otpada na terenu i program za obitelji s djecom. Najlakši dan programa, zamišljen tako da se svatko može priključiti.</p>
+      </article>
+    </div>
+
+    <div class="section-lead report-lead" style="margin-top:34px">
+      <p>Zelena komponenta nije bila dodatak nego dio programa. Svaki sudionik dobio je višekratnu čašu za sva tri dana, pa jednokratne ambalaže na događanju nije bilo, na okupljalištima su bili postavljeni spremnici za odvojeno prikupljanje otpada, a sav otpad odnesen je s planine. Materijali za sudionike bili su digitalni, dostupni putem QR koda.</p>
+      <p>Kroz tri dana programa sudjelovalo je 41 sudionik, od toga 8 djece, uz dva licencirana vodiča na terenu. Hvala svima, onima koji su prošli sva tri dana i onima koji su na planinarsku turu došli prvi put.</p>
+    </div>
+
+    <div class="report-stats">
+      <div class="rs"><div class="rs-num">41</div><div class="rs-lab">sudionika kroz tri dana</div></div>
+      <div class="rs"><div class="rs-num">8</div><div class="rs-lab">djece u programu</div></div>
+      <div class="rs"><div class="rs-num">3</div><div class="rs-lab">dana, tri cjeline</div></div>
+      <div class="rs"><div class="rs-num">0</div><div class="rs-lab">nezgoda i intervencija</div></div>
+    </div>
+
+    <h3 id="galerija" class="section-h2" style="font-size:clamp(22px,2.6vw,30px);margin-top:54px">Fotografije s događanja</h3>
+    <div class="gallery">
+        <figure><img src="img/galerija/dan1-1-stand-prijava.jpg" alt="Prijava sudionika na štandu MMEW-a u Gračanskom Dolju, podjela majica, kapa i višekratnih čaša" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan1-2-grupa-na-stazi.jpg" alt="Skupina sudionika prvog dana na Leustekovoj stazi prema Puntijarki" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan1-3-polazak.jpg" alt="Kolona sudionika na polasku iz Gračanskog Dolja" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan1-4-djeca-u-koloni.jpg" alt="Vodičica s djecom u koloni prvog dana programa" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan1-5-tunel-gracansko-dolje.jpg" alt="Vodiči i sudionici u majicama MMEW-a pred tunelom u Gračanskom Dolju" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan1-6-sljeme.jpg" alt="Skupina sudionika prvog dana ispod tornja na Sljemenu" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan2-1-priprema.jpg" alt="Priprema opreme i materijala prije polaska drugog dana" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan2-2-stand.jpg" alt="Štand s materijalima i potpisnim listama na Šestinskom lagviću" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan2-3-radionica.jpg" alt="Radionica orijentacije, rad s kartom i azimutom" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan2-4-most.jpg" alt="Sudionici drugog dana na mostu na putu prema Kraljičinom zdencu" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan2-5-hodanje.jpg" alt="Kolona sudionika na stazi drugog dana" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan2-6-kraljicinzdenac.jpg" alt="Okupljanje skupine na Kraljičinom zdencu" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan2-7-graficar.jpg" alt="Radionica prve pomoći u planini kod planinarskog doma Grafičar" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan2-8-hodanje.jpg" alt="Uspon prema Medvedgradu drugog dana programa" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan2-9-vidikovac.jpg" alt="Pogled na Zagreb s vidikovca na Medvednici" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan2-10-odmor.jpg" alt="Odmor skupine uz višekratno posuđe, bez jednokratne ambalaže" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan2-11-oltar-domovine.jpg" alt="Sudionici kod Oltara domovine na Medvedgradu" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan3-1-leave-no-trace.jpg" alt="Štand s označenim spremnicima za odvojeno prikupljanje otpada, trećeg dana programa" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan3-2-priprema.jpg" alt="Priprema štanda i materijala prije polaska trećeg dana" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan3-3-dolazak.jpg" alt="Tim Adventure Spirita na okupljalištu u Gračanskom Dolju" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan3-4-hodanje.jpg" alt="Sudionici na stazi trećeg dana" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan3-5-puntijarka.jpg" alt="Skupina sudionika kod planinarskog doma" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan3-6-sumrak.jpg" alt="Povratak u sumrak, treći dan programa" loading="lazy" width="1200" height="1600"></figure>
+        <figure><img src="img/galerija/dan3-7-povratak-nocu.jpg" alt="Povratak uz čeone svjetiljke, kraj trećeg dana" loading="lazy" width="1200" height="1600"></figure>
+    </div>
+    <p class="gallery-note">Fotografije: Adventure Spirit. Objavljene su i na Instagramu i Facebooku Adventure Spirita.</p>
+
+    <div class="section-lead report-lead" style="margin-top:34px">
+      <p>Događanje je provedeno uz potporu Grada Zagreba i uz koncesijsko odobrenje Javne ustanove Park prirode Medvednica.</p>
+    </div>
+  </div>
+</section>
 
 <!-- ════════════════ O DOGAĐANJU ════════════════ -->
 <section id="o-dogadanju">
@@ -495,15 +594,15 @@
 <section id="prijave" class="signup-section">
   <div class="container">
     <div class="section-eyebrow">Prijave</div>
-    <h2 class="section-h2">Sudjelovanje je besplatno, prijava je obavezna</h2>
-    <p class="section-lead">Broj mjesta ograničen je na 50 po danu, zbog kvalitete vodstva i sigurnosti na terenu.</p>
+    <h2 class="section-h2">Prijave su zatvorene, događanje je provedeno</h2>
+    <p class="section-lead">Medvednica Mountain Experience Weekend održan je 12. do 14. rujna 2026. Ova stranica ostaje objavljena kao zapis o programu i njegovoj provedbi.</p>
 
     <div class="signup-box">
-      <p>U prijavi navedite za koje se dane prijavljujete, broj osoba, dolazite li s djecom i procjenu vlastitog planinarskog iskustva. Nakon prijave dobivate digitalne upute s detaljnim programom, popisom opreme, točnim mjestom i vremenom okupljanja te kontaktima.</p>
-      <p>Ako se prijavite, a ne možete doći, molimo da nam javite. Mjesto ćemo dati nekome s liste čekanja.</p>
+      <p>Ako želite biti obaviješteni o sljedećem izdanju programa ili o našim vođenim turama, javite nam se e-poštom ili telefonom.</p>
+      <p>Fotografije s događanja možete pogledati u <a href="#galerija" style="color:var(--orange);text-decoration:none;font-weight:600">galeriji</a>, a cijeli program ostaje opisan <a href="#program" style="color:var(--orange);text-decoration:none;font-weight:600">ovdje</a>.</p>
 
       <div class="signup-btns">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeir0osbltPo0dW3QdA0zf7AR0g8JOwdvo-K5JmyvRDb1WKNA/viewform" id="prijava-btn" class="btn-primary" target="_blank" rel="noopener">Prijavi se na obrazac</a>
+        <a href="mailto:info@adventurespirit.hr" class="btn-primary">Javite nam se</a>
         <a href="tel:+385955041496" class="btn-ghost">Nazovi nas</a>
       </div>
 
@@ -517,8 +616,8 @@
           <a href="tel:+385955041496">+385 95 504 1496</a>
         </div>
         <div class="contact-item">
-          <span>Rok za prijavu</span>
-          <a href="#prijave" style="cursor:default">do popunjenja mjesta</a>
+          <span>Status</span>
+          <a href="#kako-je-bilo" style="cursor:default">provedeno 12. - 14.9.2026.</a>
         </div>
       </div>
     </div>
